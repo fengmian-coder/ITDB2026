@@ -2,7 +2,7 @@
 /**
  * WorldCup Journey - 后台精选故事 CRUD 与发布管理
  * 模块：B 赛事与比赛后端；负责人：B
- * 依赖：MatchStory、MatchStorySearch、MatchStoryTag、MatchEvent、D 的管理员授权配置
+ * 依赖：MatchStory、MatchStorySearch、MatchStoryTag、MatchEvent、MatchTag、D 的管理员授权配置
  * 最近修改：2026-11-05
  */
 declare(strict_types=1);
@@ -13,6 +13,7 @@ use app\models\MatchStory;
 use app\models\MatchStorySearch;
 use app\models\MatchStoryTag;
 use app\models\MatchEvent;
+use app\models\MatchTag;
 use yii\data\ActiveDataProvider;
 use Yii;
 use yii\db\Exception as DatabaseException;
@@ -59,6 +60,11 @@ class AdminStoryController extends Controller
                     'event-create' => ['GET', 'HEAD', 'POST'],
                     'event-update' => ['GET', 'HEAD', 'POST'],
                     'event-delete' => ['POST'],
+                    'tags' => ['GET', 'HEAD'],
+                    'tag-create' => ['GET', 'HEAD', 'POST'],
+                    'tag-update' => ['GET', 'HEAD', 'POST'],
+                    'tag-delete' => ['POST'],
+                    'tag-add' => ['POST'], 'tag-remove' => ['POST'],
                 ],
             ],
         ];
@@ -283,6 +289,173 @@ class AdminStoryController extends Controller
     protected function newEvent(): MatchEvent
     {
         return new MatchEvent();
+    }
+
+    /** 统一标签字典与本故事的关联分开维护；不将标签名称复制进关联表。 */
+    public function actionTags(mixed $id): string
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $page = $this->positiveId($this->request->get('page', '1'));
+        if ($page - 1 > intdiv(PHP_INT_MAX, 20)) {
+            throw new BadRequestHttpException('标签分页参数超出范围。');
+        }
+        $dataProvider = new ActiveDataProvider([
+            'query' => MatchTag::find()->orderBy(['code' => SORT_ASC, 'id' => SORT_ASC]),
+            'sort' => false,
+            'pagination' => ['page' => $page - 1, 'pageSize' => 20, 'validatePage' => false,
+                'params' => ['id' => $story->id, 'page' => $page]],
+        ]);
+        try {
+            $pagination = $dataProvider->getPagination();
+            $pagination->totalCount = $dataProvider->getTotalCount();
+            if ($pagination->getPage() >= max(1, $pagination->getPageCount())) {
+                throw new BadRequestHttpException('请求页码超出标签列表范围。');
+            }
+            $selectedIds = $story->getMatchStoryTags()->select('tag_id')->column();
+            return $this->render('tags', compact('story', 'dataProvider', 'selectedIds'));
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+    }
+
+    public function actionTagCreate(mixed $id): string|Response
+    {
+        return $this->editTag($this->findModel($this->positiveId($id)), $this->newTag());
+    }
+
+    public function actionTagUpdate(mixed $id, mixed $tag_id): string|Response
+    {
+        return $this->editTag($this->findModel($this->positiveId($id)), $this->findTag($this->positiveId($tag_id)));
+    }
+
+    public function actionTagDelete(mixed $id, mixed $tag_id): Response
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $tag = $this->findTag($this->positiveId($tag_id));
+        if ($this->request->post('confirm_delete') !== '1' || $this->request->post('confirm_shared') !== '1') {
+            throw new BadRequestHttpException('请确认删除共享标签字典项。');
+        }
+        try {
+            if ($this->tagIsUsed($tag)) {
+                Yii::$app->session->setFlash('warning', '标签仍被故事使用，请先解除关联；不会自动清理其他故事。');
+                return $this->redirect(['tags', 'id' => $story->id]);
+            }
+            $deleted = $tag->delete();
+            if ($deleted === 0) {
+                throw new NotFoundHttpException('标签已不存在。');
+            }
+            Yii::$app->session->setFlash($deleted === false ? 'error' : 'success',
+                $deleted === false ? '标签未删除，请检查后重试。' : '标签已删除。');
+        } catch (IntegrityException $exception) {
+            Yii::warning(['operation' => 'tag-delete', 'exception' => $exception], self::class);
+            Yii::$app->session->setFlash('warning', '标签存在关联，不能删除。');
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+        return $this->redirect(['tags', 'id' => $story->id]);
+    }
+
+    public function actionTagAdd(mixed $id, mixed $tag_id): Response
+    {
+        return $this->changeTag($id, $tag_id, true);
+    }
+
+    public function actionTagRemove(mixed $id, mixed $tag_id): Response
+    {
+        return $this->changeTag($id, $tag_id, false);
+    }
+
+    private function changeTag(mixed $id, mixed $tagId, bool $add): Response
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $tag = $this->findTag($this->positiveId($tagId));
+        if ($story->isPublished() && $this->request->post('confirm_publish') !== '1') {
+            throw new BadRequestHttpException('请确认对已发布故事标签的修改。');
+        }
+        try {
+            // 服务端生成两个外键，不从表单加载 story_id/tag_id 或额外字段。
+            $this->writeTagLink($story, $tag, $add);
+            Yii::$app->session->setFlash('success', $add ? '故事标签已关联。' : '故事标签已解除关联。');
+        } catch (IntegrityException $exception) {
+            Yii::warning(['operation' => 'story-tag', 'exception' => $exception], self::class);
+            Yii::$app->session->setFlash('warning', '关联未保存，请检查标签、故事及并发修改。');
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+        return $this->redirect(['tags', 'id' => $story->id]);
+    }
+
+    protected function writeTagLink(MatchStory $story, MatchTag $tag, bool $add): void
+    {
+        $condition = ['story_id' => $story->id, 'tag_id' => $tag->id];
+        if (!$add) {
+            MatchStoryTag::deleteAll($condition);
+            return;
+        }
+        // 重复添加为幂等操作；正式联合主键仍负责并发唯一性保护。
+        if (!MatchStoryTag::find()->where($condition)->exists()) {
+            $link = new MatchStoryTag();
+            $link->setAttributes($condition);
+            if (!$link->save()) {
+                throw new DatabaseException('故事标签关联验证或保存失败。');
+            }
+        }
+    }
+
+    private function editTag(MatchStory $story, MatchTag $tag): string|Response
+    {
+        if ($this->request->isPost) {
+            $input = $this->request->post($tag->formName());
+            if (!is_array($input)) {
+                throw new BadRequestHttpException('标签表单格式无效。');
+            }
+            $values = array_intersect_key($input, array_flip(['code', 'name']));
+            foreach ($values as $value) {
+                if ($value !== null && !is_string($value)) {
+                    throw new BadRequestHttpException('标签字段必须为字符串。');
+                }
+            }
+            $tag->setAttributes($values);
+            if (!$tag->isNewRecord && $this->request->post('confirm_shared') !== '1') {
+                $tag->addError('name', '标签由所有故事共享，请确认全站展示影响。');
+                return $this->render('tag-form', compact('story', 'tag'));
+            }
+            try {
+                if ($tag->save()) {
+                    Yii::$app->session->setFlash('success', '标签字典已保存；新标签需另行关联到故事。');
+                    return $this->redirect(['tags', 'id' => $story->id]);
+                }
+            } catch (IntegrityException $exception) {
+                Yii::warning(['operation' => 'tag-save', 'exception' => $exception], self::class);
+                $tag->addError('code', '标签代码重复或不满足正式数据库约束。');
+            } catch (DatabaseException $exception) {
+                throw $this->databaseFailure($exception);
+            }
+        }
+        return $this->render('tag-form', compact('story', 'tag'));
+    }
+
+    protected function newTag(): MatchTag
+    {
+        return new MatchTag();
+    }
+
+    protected function findTag(int $tagId): MatchTag
+    {
+        try {
+            $tag = MatchTag::findOne($tagId);
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+        if ($tag === null) {
+            throw new NotFoundHttpException('标签不存在。');
+        }
+        return $tag;
+    }
+
+    protected function tagIsUsed(MatchTag $tag): bool
+    {
+        return $tag->getMatchStoryTags()->exists();
     }
 
     protected function findEvent(MatchStory $story, int $eventId): MatchEvent
