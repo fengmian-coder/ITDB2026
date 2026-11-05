@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="d-flex flex-wrap gap-2">
             <?= Html::a('修改故事', ['/admin-story/update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('管理事件时间轴', ['/admin-story/events', 'id' => $model->id], ['class' => 'btn btn-outline-primary']) ?>
             <?= Html::a('返回列表', ['/admin-story/index'], ['class' => 'btn btn-outline-secondary']) ?>
             <?php if ($model->isPublished()): ?>
                 <?= Html::a('查看前台比赛', ['/wc-match/view', 'id' => $model->match_id], ['class' => 'btn btn-outline-success']) ?>

@@ -2,7 +2,7 @@
 /**
  * WorldCup Journey - 后台精选故事 CRUD 与发布管理
  * 模块：B 赛事与比赛后端；负责人：B
- * 依赖：MatchStory、MatchStorySearch、MatchStoryTag、D 的管理员授权配置
+ * 依赖：MatchStory、MatchStorySearch、MatchStoryTag、MatchEvent、D 的管理员授权配置
  * 最近修改：2026-11-05
  */
 declare(strict_types=1);
@@ -12,6 +12,8 @@ namespace app\controllers;
 use app\models\MatchStory;
 use app\models\MatchStorySearch;
 use app\models\MatchStoryTag;
+use app\models\MatchEvent;
+use yii\data\ActiveDataProvider;
 use Yii;
 use yii\db\Exception as DatabaseException;
 use yii\db\IntegrityException;
@@ -53,6 +55,10 @@ class AdminStoryController extends Controller
                     'index' => ['GET', 'HEAD'], 'view' => ['GET', 'HEAD'],
                     'create' => ['GET', 'HEAD', 'POST'], 'update' => ['GET', 'HEAD', 'POST'],
                     'delete' => ['POST'],
+                    'events' => ['GET', 'HEAD'],
+                    'event-create' => ['GET', 'HEAD', 'POST'],
+                    'event-update' => ['GET', 'HEAD', 'POST'],
+                    'event-delete' => ['POST'],
                 ],
             ],
         ];
@@ -165,6 +171,132 @@ class AdminStoryController extends Controller
         $model = new MatchStory();
         $model->is_published = 0;
         return $model;
+    }
+
+    /** 事件属于比赛，故事仅作为精选内容管理入口；排序与前台 Service 一致。 */
+    public function actionEvents(mixed $id): string
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $page = $this->positiveId($this->request->get('page', '1'));
+        $size = $this->positiveId($this->request->get('per-page', '20'));
+        if ($size > 100 || $page - 1 > intdiv(PHP_INT_MAX, $size)) {
+            throw new BadRequestHttpException('事件分页参数超出范围。');
+        }
+        $dataProvider = new ActiveDataProvider([
+            'query' => MatchEvent::find()->where(['match_id' => $story->match_id])
+                ->orderBy(['sort_order' => SORT_ASC, 'id' => SORT_ASC]),
+            'sort' => false,
+            'pagination' => ['page' => $page - 1, 'pageSize' => $size, 'pageSizeLimit' => [1, 100],
+                'validatePage' => false, 'params' => ['id' => $story->id, 'page' => $page, 'per-page' => $size]],
+        ]);
+        try {
+            $pagination = $dataProvider->getPagination();
+            $pagination->totalCount = $dataProvider->getTotalCount();
+            if ($pagination->getPage() >= max(1, $pagination->getPageCount())) {
+                throw new BadRequestHttpException('请求页码超出事件列表范围。');
+            }
+            return $this->render('events', compact('story', 'dataProvider'));
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+    }
+
+    public function actionEventCreate(mixed $id): string|Response
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $event = $this->newEvent();
+        $event->match_id = $story->match_id;
+        return $this->editEvent($story, $event);
+    }
+
+    public function actionEventUpdate(mixed $id, mixed $event_id): string|Response
+    {
+        $story = $this->findModel($this->positiveId($id));
+        return $this->editEvent($story, $this->findEvent($story, $this->positiveId($event_id)));
+    }
+
+    public function actionEventDelete(mixed $id, mixed $event_id): Response
+    {
+        $story = $this->findModel($this->positiveId($id));
+        $event = $this->findEvent($story, $this->positiveId($event_id));
+        if ($this->request->post('confirm_delete') !== '1'
+            || ($story->isPublished() && $this->request->post('confirm_publish') !== '1')) {
+            throw new BadRequestHttpException('请确认删除；已发布故事还须确认对前台时间轴的影响。');
+        }
+        try {
+            $deleted = $event->delete();
+            if ($deleted === 0) {
+                throw new NotFoundHttpException('比赛事件已不存在。');
+            }
+            Yii::$app->session->setFlash($deleted === false ? 'error' : 'success',
+                $deleted === false ? '事件未删除，请检查后重试。' : '比赛事件已删除。');
+            return $this->redirect(['events', 'id' => $story->id]);
+        } catch (IntegrityException $exception) {
+            Yii::warning(['operation' => 'event-delete', 'exception' => $exception], self::class);
+            Yii::$app->session->setFlash('warning', '事件仍被引用，不能删除。');
+            return $this->redirect(['events', 'id' => $story->id]);
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+    }
+
+    private function editEvent(MatchStory $story, MatchEvent $event): string|Response
+    {
+        if ($this->request->isPost) {
+            $input = $this->request->post($event->formName());
+            if (!is_array($input)) {
+                throw new BadRequestHttpException('事件表单格式无效。');
+            }
+            $values = array_intersect_key($input, array_flip(['team_id', 'player_name', 'minute',
+                'added_minute', 'period_code', 'event_type', 'description', 'sort_order']));
+            foreach ($values as $key => $value) {
+                if ($value !== null && (!is_scalar($value) || is_bool($value))) {
+                    throw new BadRequestHttpException('事件字段格式无效。');
+                }
+                if ($value === '' && in_array($key,
+                    ['team_id', 'player_name', 'minute', 'added_minute', 'description'], true)) {
+                    $values[$key] = null;
+                }
+            }
+            $event->setAttributes($values);
+            // 请求不能篡改事件主键或比赛归属；保持现有 Model 的字段和待确认规则。
+            $event->match_id = $story->match_id;
+            if ($story->isPublished() && $this->request->post('confirm_publish') !== '1') {
+                $event->addError('description', '此故事已发布，请确认事件事实与前台展示影响。');
+                return $this->render('event-form', compact('story', 'event'));
+            }
+            try {
+                if ($event->save()) {
+                    Yii::$app->session->setFlash('success', '比赛事件已保存。');
+                    return $this->redirect(['events', 'id' => $story->id]);
+                }
+            } catch (IntegrityException $exception) {
+                Yii::warning(['operation' => 'event-save', 'exception' => $exception], self::class);
+                $event->addError('team_id', '保存失败，请检查比赛、球队及正式数据库约束。');
+            } catch (DatabaseException $exception) {
+                throw $this->databaseFailure($exception);
+            }
+        }
+        return $this->render('event-form', compact('story', 'event'));
+    }
+
+    protected function newEvent(): MatchEvent
+    {
+        return new MatchEvent();
+    }
+
+    protected function findEvent(MatchStory $story, int $eventId): MatchEvent
+    {
+        try {
+            // 两个条件同时查询，避免通过其他故事入口修改不属于该比赛的事件。
+            $event = MatchEvent::find()->where(['id' => $eventId, 'match_id' => $story->match_id])->one();
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+        if ($event === null) {
+            throw new NotFoundHttpException('该比赛下不存在此事件。');
+        }
+        return $event;
     }
 
     protected function findModel(int $id): MatchStory
