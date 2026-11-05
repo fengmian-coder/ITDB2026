@@ -5,9 +5,9 @@
 | 整理日期 | 2026-11-05 |
 | 提供方 / 接收方 | B（赛事与比赛后端）/ D（管理员登录、后台入口与集成） |
 | 当前分支 | feature/b-match |
-| 已推送代码基线 | 21ce5f8：Journey 服务、Controller 和前台页面 |
-| 本文交付范围 | 后台赛事管理的本地实现说明、授权接入建议、路由与联调清单 |
-| 实际交付状态 | **本文先提交供 D 对齐接口；下述新增后台代码仍在 B 本地，尚未随本文提交或推送** |
+| 已推送代码基线 | 3842640；包含下列四组后台、事件/标签管理及只读 API，分支 feature/b-match |
+| 本文交付范围 | 赛事、场馆、比赛、故事/事件/标签后台，以及公开 API 的授权边界与联调清单 |
+| 实际交付状态 | **本文所列 B 代码均已推送；D 可基于 3842640 接入。正式管理员授权、数据库和浏览器完整流程仍未验收，不应将代码交付等同上线可用** |
 
 依据：V1.1 第 1.2 节、第 5.1 节、第 6 节及安全要求。D 统一管理员身份、登录及后台入口，各业务负责人提供路由清单并维护自己的 Controller。本文不代表 D 已经确认某个授权方法，也不代表数据库或管理员联调已通过。
 
@@ -23,7 +23,7 @@
 
 上述页面允许 GET/HEAD，不应因接入后台授权而整体加上管理员限制。Journey 的真实球队资料、参赛资格与最终成绩仍待 C 对接，不能视为完整数据库联调通过。
 
-### 1.2 B 本地已编写、待单独交付的后台赛事文件
+### 1.2 已推送的后台赛事文件（90e5d75）
 
 | 文件 | 用途 |
 |---|---|
@@ -35,19 +35,46 @@
 | views/admin-tournament/update.php | 修改页 |
 | views/admin-tournament/_form.php | 共享表单 |
 
-**D 仅拉取本文所在提交，还不能运行这些后台路由。** B 完成代码审查并单独提交推送后，会提供后台代码提交号，再进入实际接入。本文先用于明确实现边界，不要求 D 假定文件已存在或在自己的分支补写这些文件。
+### 1.3 已推送的后台场馆文件（ab91be7）
 
-### 1.3 后续后台规划，尚未实现
-
-| 规范中预定的 Controller / 路由 | 状态 |
+| 文件 | 用途 |
 |---|---|
-| AdminStadiumController / admin-stadium/* | 待 B 开发 |
-| AdminMatchController / admin-match/* | 待 B 开发，球队选择及资格依赖 C |
-| AdminStoryController / admin-story/* | 待 B 开发，包含故事、事件及标签管理 |
+| controllers/AdminStadiumController.php | 场馆 CRUD、权限、CSRF 与比赛引用保护 |
+| models/StadiumSearch.php | 名称/城市/国家筛选、排序与分页 |
+| views/admin-stadium/index.php | 列表和搜索 |
+| views/admin-stadium/view.php | 详情和删除确认 |
+| views/admin-stadium/create.php、update.php、_form.php | 新增、修改及共用表单 |
 
-不建立独立 backend 应用或 admin 模块，不修改 A 的公共布局/全局资源。后续路由逐项补充，未实现入口不应当作可用菜单提前发布。
+D 拉取包含上述提交的版本后即可检查两组路由；未配置正式管理员授权回调时返回 403 是预期保护，不是要求删除过滤器。真实 CRUD 仍需要 C 的正式表和 D 的授权接入，不代表推送后即完成联调。
 
-## 2. 后台赛事路由与请求规则
+### 1.4 已推送的故事、事件与标签后台（54bb116、13fe837、5ccaba4）
+
+| 文件 | 用途 |
+|---|---|
+| controllers/AdminStoryController.php | 故事 CRUD、事件/标签管理、发布确认、权限与删除事务 |
+| models/MatchStorySearch.php | 标题、比赛 ID、发布状态筛选及排序分页 |
+| views/admin-story/index.php | 故事列表与搜索，后台可查看草稿 |
+| views/admin-story/view.php | 故事详情及删除确认 |
+| views/admin-story/create.php | 新增页 |
+| views/admin-story/update.php | 修改页 |
+| views/admin-story/_form.php | 共用表单及发布确认 |
+| views/admin-story/events.php、event-form.php | 事件列表、增改删、排序与已发布内容修改确认 |
+| views/admin-story/tags.php、tag-form.php | 共享标签字典、关联/解除、编辑与受保护删除 |
+
+故事主体使用 index/view/create/update/delete，发布或撤回通过 POST create/update 的 MatchStory[is_published] 完成，不新增发布路由。保存为已发布时还要求 confirm_publish=1，确认事实与素材许可已核对；编辑已发布故事后再次保存同样需要确认。该勾选是人工审核确认，不代表系统已自动核实事实或版权。
+
+删除故事在同一事务中清理标签关联及故事，保留比赛、事件与标签字典。新增事件/标签 Action 同样受该 Controller 的 AccessControl、VerbFilter 与 CSRF 保护，不能只保护故事五个基础 Action。
+
+### 1.5 已推送的比赛后台与公开 API
+
+| 提交 | 文件 | 内容 |
+|---|---|---|
+| 91f5350 | controllers/AdminMatchController.php、models/WcMatchSearch.php、views/admin-match/{index,view,create,update,_form}.php | 比赛 CRUD、筛选、比分表单、故事/事件引用保护 |
+| 3842640 | controllers/ApiController.php | 三个 GET 只读 JSON 入口；不属于管理员菜单 |
+
+四组后台代码均已完成本地验证；球队数据与参赛资格、正式数据库约束、审计时间策略、正式登录及授权仍待 C/D 联调。没有独立 backend 应用或 admin 模块，也未修改 A 的公共布局或全局资源。
+
+## 2. 后台路由与请求规则
 
 默认 URL 形式为 index.php?r=admin-tournament/action；链接通过 Yii Html/Url 构建。
 
@@ -65,11 +92,99 @@ id 必须为 PHP 整数范围内的正整数。page 默认 1，per-page 默认 2
 
 表单业务字段仅为 year、name、start_date、end_date、description；不接受修改 id、审计列或其他模块字段。审计字段是否落库、由谁维护按 B/C 另行确认的字典执行。
 
+### 场馆后台（ab91be7）
+
+| 路由 | 允许方法 | 参数 / 数据 |
+|---|---|---|
+| admin-stadium/index | GET / HEAD | StadiumSearch[name]、StadiumSearch[city]、StadiumSearch[country_code]、page、per-page、sort |
+| admin-stadium/view | GET / HEAD | id |
+| admin-stadium/create | GET / HEAD 展示，POST 保存 | Stadium[...]、CSRF token |
+| admin-stadium/update | GET / HEAD 展示，POST 保存 | id、Stadium[...]、CSRF token |
+| admin-stadium/delete | POST | id、confirm_delete=1、CSRF token |
+
+仅允许写 name、city、country_code、timezone_name；国家代码 CA/MX/US，空时区归一为 NULL，不设默认时区或名称唯一约束。sort 白名单为 name/city/country_code/id 及各自的降序形式；分页规则同赛事后台。
+
+场馆删除先检查 wc_match.stadium_id 引用，再由正式 FK 保护并发情况；已有比赛引用时拒绝删除。
+
+### 精选故事主体后台
+
+| 路由 | 允许方法 | 参数 / 数据 |
+|---|---|---|
+| admin-story/index | GET / HEAD | MatchStorySearch[title]、MatchStorySearch[match_id]、MatchStorySearch[is_published]、page、per-page、sort |
+| admin-story/view | GET / HEAD | id（故事 ID） |
+| admin-story/create | GET / HEAD 展示，POST 保存 | MatchStory[...]、confirm_publish、CSRF token |
+| admin-story/update | GET / HEAD 展示，POST 保存 | id、MatchStory[...]、confirm_publish、CSRF token |
+| admin-story/delete | POST | id、confirm_delete=1、CSRF token |
+
+可写字段仅为 match_id、title、summary、body、cover_path、source_url、is_published。match_id 是比赛主键，不是比赛编号；id、created_at、updated_at 不从请求加载。本次未增加时间自动维护机制，审计字段仍按正式字典联调。
+
+is_published 只接受 0/1；新增默认草稿。保存为已发布但未提交 confirm_publish=1 时保留表单并提示错误；撤回为草稿不需要发布确认。空封面路径及来源链接归一为 NULL。列表发布状态筛选空值表示不限，0 表示草稿，1 表示已发布；分页规则同赛事后台，sort 白名单为 id/title/match_id/is_published 及各自的降序形式。
+
+后台允许查看草稿；前台仍由 MatchQueryService 控制，仅返回已发布故事及其关联事件、标签。事件和标签已提供以下入口，不绕过 Service 的发布控制。
+
+### 比赛后台
+
+| 路由 | 允许方法 | 参数 / 数据 |
+|---|---|---|
+| admin-match/index | GET / HEAD | WcMatchSearch[tournament_id]、WcMatchSearch[team_id]、WcMatchSearch[stage_code]、WcMatchSearch[status]、page、per-page、sort |
+| admin-match/view | GET / HEAD | id（比赛主键，不是 match_no） |
+| admin-match/create | GET / HEAD 展示，POST 保存 | WcMatch[...]、CSRF token |
+| admin-match/update | GET / HEAD 展示，POST 保存 | id、WcMatch[...]、CSRF token |
+| admin-match/delete | POST | id、confirm_delete=1、CSRF token |
+
+白名单为 tournament_id、match_no、home_team_id、away_team_id、stadium_id、kickoff_utc、stage_code、group_code、status、home_score_90、away_score_90、home_score_120、away_score_120、home_penalties、away_penalties、winner_team_id、summary；不接收主键或审计字段。球队暂填真实内部 ID，存在性及本届资格待 C。开赛时间使用 UTC 数据库格式，比分复用 WcMatch 规则，不把 90/120 相加或将点球计入场上总进球。
+
+默认按 kickoff_utc、match_no、id 升序；sort 白名单为 id/kickoff_utc/match_no/stage_code/status 及降序形式。分页默认 20、上限 100、超页 400。删除先检查 MatchStory/MatchEvent，存在引用则拒绝；其他引用及并发依赖由正式 FK 保护。
+
+### 事件时间轴（均为 admin-story 子路由）
+
+以下 id 一律为故事 ID；Controller 从故事确定 match_id，不接受表单改变事件比赛归属。
+
+| 路由 | 允许方法 | 参数 / 数据 |
+|---|---|---|
+| admin-story/events | GET / HEAD | id、page、per-page；默认 20，上限 100，超页 400 |
+| admin-story/event-create | GET / HEAD 展示，POST 保存 | id、MatchEvent[...]、CSRF token |
+| admin-story/event-update | GET / HEAD 展示，POST 保存 | id、event_id、MatchEvent[...]、CSRF token |
+| admin-story/event-delete | POST | id、event_id、confirm_delete=1、CSRF token |
+
+事件可写字段仅 team_id、player_name、minute、added_minute、period_code、event_type、description、sort_order。更新/删除按 event_id 和本故事 match_id 同时查找，不属于该比赛返回 404。排序为 sort_order ASC、id ASC，不按分钟重新排序，排序值通过编辑表单修改。
+
+已发布故事的事件保存或删除还必须提交 confirm_publish=1；保存缺确认则保留字段错误，删除缺确认则 400。删除仅删除该事件，不改变比分。事件枚举仍沿用现有 Model 的字符串长度验证，建议代码及非 SHOOTOUT 分钟必填、球队归属等拟议规则不得当作已实施，需 B/C 正式确认后补充。
+
+### 共享标签字典与故事关联
+
+以下 id 仍为故事 ID，tag_id 为标签字典主键。
+
+| 路由 | 允许方法 | 参数 / 数据 |
+|---|---|---|
+| admin-story/tags | GET / HEAD | id、page；固定每页 20，按 code、id 升序，超页 400 |
+| admin-story/tag-create | GET / HEAD 展示，POST 保存 | id、MatchTag[code]、MatchTag[name]、CSRF token |
+| admin-story/tag-update | GET / HEAD 展示，POST 保存 | id、tag_id、MatchTag[code]、MatchTag[name]、confirm_shared=1、CSRF token |
+| admin-story/tag-delete | POST | id、tag_id、confirm_delete=1、confirm_shared=1、CSRF token |
+| admin-story/tag-add | POST | id、tag_id、CSRF token |
+| admin-story/tag-remove | POST | id、tag_id、CSRF token |
+
+标签 code/name 均最多 40 字符，code 唯一；新建字典项不自动关联故事。字典编辑影响所有关联故事，必须人工确认共享影响；删除被任一故事引用的字典项会被拒绝，不自动清理其他故事。
+
+关联写入的 story_id/tag_id 由服务器根据路由生成，不从表单加载；重复添加按幂等处理，正式联合主键仍须验证并发保护。解除只删除当前故事与该标签的关联。已发布故事的关联/解除还必须提交 confirm_publish=1，否则 400。
+
+### 公开统计 API（不加管理员过滤）
+
+| 路由 | 方法 | 行为 |
+|---|---|---|
+| api/insights?chart=stage-goals | 仅 GET | MatchQueryService::getStageSummary() |
+| api/team-stats?id=... | 仅 GET | 调用 C 的 getTeamStats(int $teamId): array |
+| api/team-compare?left_id=...&right_id=... | 仅 GET | 调用 C 的 getCompareStats(int $leftId, int $rightId): array |
+
+成功返回 {success:true,data:业务数组,error:null}；失败保持真实 HTTP 状态并返回 {success:false,data:null,error:{code,message}}。非法参数/同队对比 400，非法图表 400 INVALID_CHART，未知/非参赛球队 404 TEAM_NOT_FOUND，缺 C 依赖或数据库错误为友好 500 SERVER_ERROR，错误方法 405 METHOD_NOT_ALLOWED。HEAD 不放行；写请求可能先被 CSRF 检查以 400 拒绝。响应不暴露 SQL 或内部路径。
+
+当前 C 服务未在 B 工作区交付，两个球队 API 的 500 是依赖缺失提示，不是联调成功；D 不应放行模板账户或生成假统计来消除该错误。
+
 ## 3. 管理员授权接入建议（待 B/D 对齐）
 
-### 3.1 本地 Controller 当前行为
+### 3.1 已实现 Controller 当前行为
 
-AdminTournamentController 使用 Yii AccessControl 和 VerbFilter，CSRF 验证保持开启。
+AdminTournamentController、AdminStadiumController、AdminMatchController 与 AdminStoryController 均使用 Yii AccessControl 和 VerbFilter，CSRF 验证保持开启。
 
 授权需要同时满足：
 
@@ -83,7 +198,7 @@ AdminTournamentController 使用 Yii AccessControl 和 VerbFilter，CSRF 验证�
 
 ### 3.2 回调接口与配置位置
 
-当前本地预留属性：
+四组后台 Controller 均预留属性：
 
 ```php
 public mixed $adminAccessChecker = null;
@@ -93,9 +208,9 @@ public mixed $adminAccessChecker = null;
 
 ```text
 输入：Yii user 组件提供的真实 IdentityInterface 身份对象
-输出：bool；只有有效、启用且有赛事管理权限的管理员返回 true
+输出：bool；只有有效、启用且有对应后台管理权限的管理员返回 true
 未登录：由 AccessControl 先拒绝，不依赖此回调补救
-配置位置：服务器端 Yii controllerMap 中的 admin-tournament Controller 配置
+配置位置：服务器端 Yii controllerMap 中分别配置 admin-tournament、admin-stadium、admin-match、admin-story
 ```
 
 这里没有承诺或调用 D 尚未交付的 AdminIdentity、isAdmin()、某个 RBAC 权限名等类或方法。D 确定自己的实际实现后提供正式接入方式；若采用统一的其他权限方案，由 B 调整自己的业务 Controller，不要求 D 直接修改 B 文件。
@@ -112,21 +227,23 @@ public mixed $adminAccessChecker = null;
 
 ## 4. 状态码、表单与历史保护
 
-| 场景 | 当前本地行为 |
+| 场景 | 后台当前行为 |
 |---|---|
 | 未登录 / 授权失败 / 回调未配置 | 403，优先拒绝，业务查询不执行 |
 | 已授权请求使用错误 HTTP 方法 | 405 |
 | 已授权 POST 缺少或错误 CSRF token | 400，业务写入不执行 |
 | 已授权请求的 id、筛选、分页、表单格式错误 | 400 |
-| 赛事不存在 | 404 |
+| 赛事、场馆、比赛、故事、事件或标签不存在 | 404 |
 | Model 验证不通过 | 保留表单、显示字段错误，不重定向为成功 |
-| 保存成功 | Flash 提示并 302 重定向详情 |
+| 保存成功 | Flash 提示并 302；主体 CRUD 返回详情，事件/标签返回对应管理列表 |
 | 未勾选删除确认 | 400，不删除 |
-| 已有 B 的比赛引用 | 不删除，Flash 提示并重定向详情 |
+| 赛事或场馆已有 B 的比赛引用 | 不删除，Flash 提示并重定向详情 |
 | 数据库 FK 拒绝删除或并发产生依赖 | 不删除，友好提示并重定向详情；原始异常仅进服务端日志 |
 | 其他数据库异常 | 友好 500，并记录服务端日志 |
 
-当前 B 会预查 WcMatch 的赛事引用；C 的参赛关系由正式外键保护，不在 B 中假造 C 的 Model。预检查不能替代真实 FK，也不能阻止并发新增引用，因此删除同时处理 IntegrityException。
+赛事管理预查 WcMatch.tournament_id，场馆管理预查 WcMatch.stadium_id；C 的赛事参赛关系由正式外键保护，不在 B 中假造 C 的 Model。预检查不能替代真实 FK，也不能阻止并发新增引用，因此两组删除操作均处理 IntegrityException。
+
+故事删除不套用上述赛事/场馆引用拒删规则：先删除 MatchStoryTag 中对应关联，再删除 MatchStory，并在同一事务中提交；任一步失败均回滚。不会删除 WcMatch、MatchEvent 或 MatchTag。真实 InnoDB 回滚、外键及并发行为仍须正式数据库验证。
 
 权限/方法/CSRF 检查的顺序影响响应：未授权请求可先得到 403，而非 400/405。此行为不代表参数或写操作已经执行。
 
@@ -135,17 +252,17 @@ public mixed $adminAccessChecker = null;
 | 工作 | 负责人 / 边界 |
 |---|---|
 | 正式管理员身份、登录/退出、后台首页与入口 | D |
-| 赛事 Controller、SearchModel、业务 View 及权限过滤 | B |
+| 赛事/场馆/比赛/故事（含事件/标签）Controller、SearchModel、业务 View 及权限过滤 | B |
 | controllerMap 授权接入与 user 配置 | B/D 对齐并共同审核；本次未修改配置 |
 | 正式 DDL、FK、数据导入 | C，依据已确认设计；不由 D 临时建另一套赛事表 |
 | 公共布局、导航和全局资源 | A 审核；B 不直接修改公共布局 |
-| 赛事管理菜单链接 | D 在后台代码正式交付、授权接入并验收后添加 admin-tournament/index |
+| 管理菜单链接 | D 收到对应代码并完成正式授权接入与验收后，添加 admin-tournament/index、admin-stadium/index、admin-match/index、admin-story/index |
 
-## 6. 联调清单（待正式代码交付后执行）
+## 6. 联调清单（已交付代码，待正式授权和数据库接入后执行）
 
 | 编号 | 用例 | 预期 |
 |---|---|---|
-| D01 | 访客直接访问全部赛事后台 Action | 被拒绝，未读写业务数据 |
+| D01 | 访客直接访问四组后台全部 Action（含事件和标签子路由） | 被拒绝，未读写业务数据 |
 | D02 | 普通身份、模板账号、已停用管理员 | 不获得后台权限，历史与会话策略符合正式约定 |
 | D03 | 管理员已登录但回调未配置/返回非 true | 403，默认拒绝有效 |
 | D04 | 正式有效管理员配置完成 | 可访问允许的管理页，B/D 对齐实际登录和返回地址 |
@@ -158,8 +275,20 @@ public mixed $adminAccessChecker = null;
 | D11 | 有比赛或参赛关系引用、并发新增引用后删除 | 由预查及真实 FK 保护历史，不级联清空 |
 | D12 | 名称/简介中的 HTML、脚本和引号 | 页面正确转义，不执行脚本 |
 | D13 | 桌面和移动端后台菜单、返回及提示 | 链接正确、表单可用、提示清晰 |
+| D14 | 场馆名称/城市/国家筛选、非法国家与空时区 | 筛选和字段规则生效；空时区为 NULL，不默认某一时区 |
+| D15 | 删除已有比赛引用的场馆 | 拒绝删除；并发新增引用时由真实 FK 保护 |
+| D16 | 新建草稿、发布、编辑已发布故事、撤回 | 草稿可在后台查看；每次保存为已发布均需 confirm_publish=1；撤回后前台不返回故事、事件及标签 |
+| D17 | 同一比赛重复建故事、非法比赛 ID、伪造审计字段 | 正式唯一约束及外键生效，失败有提示；额外字段不能赋值 |
+| D18 | 删除有标签关联的故事，并模拟中途失败 | 成功时仅清理故事及关联；失败时事务回滚；比赛、事件及标签字典保留 |
+| D19 | 故事标题/正文中的脚本及危险路径、来源链接 | 文本正确转义；后台详情不将路径或链接直接渲染为可执行内容 |
+| D20 | 跨比赛访问 event_id、编辑排序值、已发布事件修改 | 跨比赛 404；排序与前台一致；发布确认生效，不改比分 |
+| D21 | 共享标签编辑/删除、重复关联、解除关联 | 共享确认、引用拒删与正式联合主键生效；不改其他故事关联 |
+| D22 | 比赛阶段/球队组合筛选、比分成对、赛果及删除引用 | 复用 WcMatch 规则；正式资格、FK/唯一约束验证，失败不伪报成功 |
+| D23 | 三个公开 API 的合法/非法输入、C 缺依赖与数据库故障 | JSON 结构及状态正确；不加管理员门槛，不以假数据掩盖缺依赖 |
 
-已完成的本地隔离测试为 73 个用例、236 条断言，包含实际 Yii AccessControl/VerbFilter/CSRF、搜索 SQL 编译及 View 渲染；写操作使用替代数据对象，未证明真实数据库保存、唯一约束、FK、D 的登录系统或浏览器完整流程已经通过。
+此前赛事后台隔离测试为 73 个用例、236 条断言；场馆后台为 87 个用例、279 条断言。包含实际 Yii AccessControl/VerbFilter/CSRF、查询编译及 View 渲染；未证明真实数据库或 D 登录流程已通过。
+
+最近一轮新增后台/API 的 19 个 PHP 文件语法通过。本地测试：故事/事件/标签 160 用例、462 断言；故事删除事务控制流 6/32；比赛后台 62/161；API 43/167，共 271 用例、822 断言。CRUD、事务、C 服务使用替代对象，未访问真实数据库；不代表 InnoDB 回滚、唯一约束、外键、真实登录或浏览器完整流程已通过。测试数字是阶段运行记录，不承诺仓库包含可独立运行的完整自动化测试套件。
 
 请 D 的联调记录注明日期、代码提交号、数据库版本、测试身份类别、结果和证据位置；不要记录明文密码或会话令牌。
 
@@ -174,7 +303,7 @@ public mixed $adminAccessChecker = null;
 | 接受回调或提出替代接入方案 | 待确认 |
 | 未登录使用 403 或跳转登录的约定 | 待确认 |
 | 共享配置修改负责人及评审方式 | 待确认 |
-| B 后台代码正式交付提交号 | 待 B 单独提交后补充 |
+| B 后台代码交付提交号 | 赛事 90e5d75、场馆 ab91be7、故事 54bb116、事件 13fe837、标签 5ccaba4、比赛 91f5350；API 3842640，均已推送 feature/b-match |
 | 联调日期及遗留事项 | 待填写 |
 
-本次只提交本文，不修改 D 的账号、登录代码或共享配置，不将未提交的后台文件冒充已远端交付，不执行 SQL 或启用默认管理员访问。
+请 D 基于 3842640（或包含它的后续版本）确认授权方案、实际登录路由、菜单接入与联调时间，并返回实现提交号。B 负责按确认结果调整自己的 Controller；C 提供正式数据库和球队依赖。本文不修改 D 的账号/登录代码或共享配置，不执行 SQL，也不启用默认管理员访问。正式授权、数据库、浏览器及部署验收仍待执行。

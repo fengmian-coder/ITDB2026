@@ -2,10 +2,10 @@
 
 | 项目 | 内容 |
 |---|---|
-| 整理日期 | 2026-11-03 |
+| 整理日期 | 2026-11-05 |
 | 提供方 / 核对方 | B（赛事与比赛后端）/ C（球队、统计及正式数据库） |
-| 当前分支 / 核对代码版本 | `feature/b-match` / `93c60e8`（本次整理前的 HEAD） |
-| 文档状态 | 正式交接用核对稿；待 B/C 确认，不表示数据库或未开发接口已经冻结、实现、联调通过 |
+| 当前分支 / 核对代码版本 | `feature/b-match` / `3842640`（已推送的代码基线） |
+| 文档状态 | B 阶段代码交付与 C 联调清单；代码已推送不等于正式数据库、跨模块接口已验收 |
 | 本次范围 | 记录现状、明确依赖及联调验收；不新增业务代码、DDL 或数据 |
 
 ## 1. 依据与状态标记
@@ -25,7 +25,9 @@
 | **待确认建议** | 为联调提出的签名、类型或行为；未经 B/C 确认不能当作现有接口 |
 | **待数据库验证** | 需要 C 的正式字典、DDL、数据及可用数据库才能验收 |
 
-当前未发现 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php`、`services/JourneyService.php`、`controllers/JourneyController.php`、`controllers/ApiController.php`。这仅说明当前工作区未交付，不代表 C 的个人分支没有相关开发。`data/install.sql` 目前只有占位注释，不能还原数据库。
+当前工作区仍未包含 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php` 和正式数据库字典；`data/install.sql` 仍只有占位注释。JourneyService、JourneyController、ApiController 及 B 四组后台已经实现并推送，具体见第 2、6、7 节。此处仅描述 B 当前工作区，不推断 C 其他分支是否已完成开发。
+
+已阅读 C 分支 `c112acf` 的 `docs/c-reply-to-b.md`；B 的回复为 [b-confirmation-to-c.md](b-confirmation-to-c.md)，已在 `e0d9e21` 推送。该回复中的“未开发/未提交”等文字是当时状态，当前代码交付以本文为准；其中拟议的事件枚举、分页上限、审计和 FK 方案仍须对齐正式字典及实施版本，不能因推送文档就视为已经落库或实现。
 
 本文不替代 V1.1 或 C 的正式数据字典；若代码行为与双方拟定接口不同，应记录差异并走变更流程，不由任一方私自改名、补列或改变统计口径。
 
@@ -50,9 +52,28 @@
 
 已有本地规则、结构、Controller 隔离测试及 View 渲染验证不替代正式数据库联调。本次只做文档核对，不重新执行 SQL、业务测试或宣称端到端验收通过。
 
-### 2.2 尚不在已完成范围
+### 2.2 新增的已推送交付
 
-JourneyService / JourneyController、赛事/场馆/比赛/故事后台 CRUD、ApiController、C 的球队统计服务、真实赛事数据导入和最终部署验收均不在本次“已完成”清单内。Controller 注释中的“View 待实现”属于先前阶段描述；当前两个 View 实际已经存在，本次不修改该注释。
+| 提交号 | 文件范围 | 已实现及待联调边界 |
+|---|---|---|
+| 21ce5f8 | services/JourneyService.php、controllers/JourneyController.php、views/journey/view.php | B 侧比赛历程；球队名称、参赛资格和最终成绩待 C |
+| 90e5d75 | controllers/AdminTournamentController.php、models/TournamentSearch.php、views/admin-tournament/{index,view,create,update,_form}.php | 赛事 CRUD；数据库及 D 授权待联调 |
+| ab91be7 | controllers/AdminStadiumController.php、models/StadiumSearch.php、views/admin-stadium/{index,view,create,update,_form}.php | 场馆 CRUD 与比赛引用保护 |
+| 54bb116 | controllers/AdminStoryController.php、models/MatchStorySearch.php、views/admin-story/{index,view,create,update,_form}.php | 故事 CRUD、人工发布确认、删除事务 |
+| 13fe837 | controllers/AdminStoryController.php、views/admin-story/{events,event-form,view}.php | 事件增改删、排序及比赛归属隔离 |
+| 5ccaba4 | controllers/AdminStoryController.php、views/admin-story/{tags,tag-form,view}.php | 共享标签字典、故事标签关联、被引用标签拒删 |
+| 91f5350 | controllers/AdminMatchController.php、models/WcMatchSearch.php、views/admin-match/{index,view,create,update,_form}.php | 比赛 CRUD、阶段/状态/球队/赛事筛选、复用 WcMatch 比分验证 |
+| 3842640 | controllers/ApiController.php | 三个只读 JSON 路由；阶段统计调用 B，球队统计调用 C 的约定服务 |
+
+表中花括号表示分别存在的 PHP 文件。后台 ID 当前直接录入，不编造球队名称；写入列为已明确的业务字段，不从表单加载主键和审计时间。四组后台均默认拒绝访问，须 D 接入真实管理员授权；路由及权限细节见 [给 D 的交接文档](b-d-admin-handoff.md)。
+
+### 2.3 源数据交付与未完成范围
+
+源 CSV 已在 `c440dda` 推送，位置为 `data/import/`，解析规则及来源说明见 [CSV README](../data/import/README.md)。记录数为 tournament 1、teams 48、stadiums 16、matches 104、stories 8、events 104、tags 16、story_tags 27、sources 57。故事全部保留未发布；这些是文件记录数，不代表已导入数据库或完成独立外部复核。C 统一解析 fifa_code、场馆名和本届 match_no 为内部 ID；空值不得补成比分 0，120 分钟比分不得与 90 分钟相加。具体导入和复核问题由 C/B/D 在测试记录中反馈，本文不重新认定源资料的真实性。
+
+尚未完成：C 的正式 DDL/Model/统计服务接入、真实数据导入与 ID 映射、球队参赛资格及名称展示、事件正式枚举/分钟规则、公开比赛查询 page_size 上限、审计时间维护策略、D 的正式授权，以及真实数据库/浏览器/部署验收。Controller 中早期阶段注释不代表当前文件缺失；本次只更新文档，不修改业务代码。
+
+最近一轮本地检查：19 个 PHP 文件语法通过；故事/事件/标签 160 用例 462 断言，故事删除事务控制流 6/32，比赛后台 62/161，API 43/167，合计 271 用例、822 断言。CRUD、事务和服务依赖使用替代对象，未访问真实数据库；这些数字不代表唯一约束、外键、InnoDB 回滚、C 服务或 D 登录已通过。
 
 ## 3. B 七张表的字段与键
 
@@ -259,7 +280,7 @@ public function getStageSummary(): array
 
 filters 固定含 stage、team_id、page、page_size；stage/team_id 保留有效原始输入，page/page_size 使用 Service 返回值。列表筛选以 GET 提交并重置 page=1，分页保留 stage/team_id/page_size。
 
-Controller 采用构造器注入 MatchQueryService；写方法被 VerbFilter 拒绝为 405。两个入口返回 HTML，不是 JSON API。当前尚无 `api/insights` 等 API 路由实现。
+Controller 采用构造器注入 MatchQueryService；写方法被 VerbFilter 拒绝为 405。两个入口返回 HTML，不是 JSON API。只读 JSON API 已在 `3842640` 实现，见第 7.3 节；不改变这两个 HTML 入口。
 
 ## 5. C 需要提供的球队 Model 与 B 的依赖
 
@@ -307,60 +328,51 @@ V1.1 没有独立的 `short_name`、`abbreviation`、`logo_url` 字段。本轮�
 
 ActiveQuery 类型指 `yii\db\ActiveQuery`。关系定义不等于参赛资格验证；B 后续还需补 C 表存在性及 tournament_team 检查。C 应提供类命名空间、字段属性、联合主键声明和实际关系方法名；若已有不同命名，先反馈再集成，不要求 C 擅自覆盖已有实现。
 
-## 6. JourneyService 后续接口需求（尚未实现）
+## 6. JourneyService 已实现接口及 C 接入需求
 
-### 6.1 既定公开签名与职责
+### 6.1 当前代码与签名
 
-V1.1 已约定 B 后续提供 `services/JourneyService.php`，类 `app\services\JourneyService`：
+文件：`services/JourneyService.php`，类 `app\services\JourneyService`；公开方法：
 
 ```php
 public function getTeamJourney(int $teamId): array
 ```
 
-这是未来接口，不可在当前版本直接调用；不再使用旧名 getJourney()。B 负责比赛历程查询与组织，C 负责球队、参赛关系及最终成绩，不要求 C 再提供一套比赛查询或晋级计算服务。
+入口：GET/HEAD `index.php?r=journey/view&team_id=...`。服务查询 2026 届全部匹配比赛，不分页；按 kickoff_utc、match_no、id 升序。非法 ID 返回 400；当前尚不验证球队是否存在或参赛，空数组只表示无匹配比赛，不能据此断定球队不存在。
 
-| 所需能力 | 后续数据入口建议 | 输出 / 确认边界 |
-|---|---|---|
-| 根据 team_id 查基本信息 | C 的 NationalTeam 标准 AR 查询 | 读取 id、fifa_code、name_zh、name_en、flag_path；是否输出完整队伍资料到旅程页面单独确认 |
-| 确认参加 2026 | B 的 Tournament(year=2026) + C 的 TournamentTeam 组合条件查询 | 没有参赛记录不能当成本届球队；建议不存在球队或非本届球队为 404，非法参数为 400，待 C 统一异常策略 |
-| 查询全部比赛 | B 的 WcMatch，赛事 ID AND（home_team_id=team_id OR away_team_id=team_id） | 不能只取 getMatchList() 默认第一页；未开始比赛仍属于历程，不因没有比分而丢失 |
-| 按阶段、时间组织历程 | kickoff_utc ASC、match_no ASC；同值建议 id ASC 稳定补序 | 既定顶层结果为时间序数组；stage_code 用于展示分组，不私自改为阶段键对象或重排事件 |
-| 获取单场晋级结果 | B 的 FINISHED、阶段、winner_team_id 及比分规则 | 不用 W/D/L 代替晋级结果；季军赛/决赛“获胜”不一定是“晋级”，语义见 BC07 |
-| 获取最终成绩 | C 的 TournamentTeam.final_result_code | 最终成绩不等于最大 stage_code，也不是官方逐名次排名；null 不补造结论 |
-
-以上 AR 查询方案为建议，不是 C 已实现了新的 getTeamInfo()/isParticipant()/getTeamMatches() 等自定义方法。
-
-### 6.2 返回结构边界
-
-下面沿用 V1.1 的旅程单项结构，类型和未完赛边界尚需 B/C 签字确认；本文件不新增数据库列：
+### 6.2 实际返回结构
 
 ```text
 JourneyItem = {
-  match_id: Id,
-  match_no: int,
-  kickoff_utc: string,
-  stage_code: string,
-  opponent: {team_id: Id, name_zh: string},
+  match_id: int|string, match_no: int,
+  kickoff_utc: string, stage_code: string, status: string,
+  opponent: {team_id: int|string, name_zh: null},
   is_home: bool,
-  goals_for: int或null,
-  goals_against: int或null,
-  penalties_for: int或null,
-  penalties_against: int或null,
-  advancement_result: ADVANCED或ELIMINATED或null,
+  goals_for: int|null, goals_against: int|null,
+  penalties_for: int|null, penalties_against: int|null,
+  advancement_result: "ADVANCED"|"ELIMINATED"|null,
   is_featured: bool
 }
 返回：JourneyItem[]
 ```
 
-已明确：比分以查询球队视角转换主/客位置；最终场上比分优先 120，否则 90；未完赛 goals_for/goals_against 为 null；点球独立；小组赛 advancement_result=null。球队中文名来自 C，不能用占位球队冒充真实数据。
+- kickoff_utc 为 UTC ISO 8601；MatchQueryService 仍保留数据库 UTC 格式，两者没有互相改写。
+- 已完赛比分按本球队视角转换，优先 120 分钟累计比分，否则 90 分钟；未完赛为 null，点球独立。
+- 保留 CANCELLED、POSTPONED 等赛程并提供 status；只有 FINISHED 的 R32/R16/QF/SF 提供晋级/淘汰结果。
+- GROUP、未完赛、FINAL 和 THIRD 的 advancement_result 为 null；不能将决赛或季军赛胜利表达为进入下一轮。
+- is_featured 仅依据已发布故事；草稿不会产生精选入口。
+- opponent.name_zh 当前为 null，不伪造队名；不输出或推算 final_result_code，也不增加顶层球队/排名包装。
 
-仍需确认：
+### 6.3 请 C 提供后由 B 接入
 
-- V1.1 旅程样例采用 UTC ISO 8601（如 `YYYY-MM-DDTHH:mm:ssZ`），当前 MatchQueryService 使用数据库格式 `Y-m-d H:i:s`。建议未来 JourneyService 按 V1.1 样例序列化，但在实现前确认；不能默默更改现有列表/详情格式。
-- CANCELLED 是否仍作为历史赛程显示；POSTPONED、IN_PROGRESS 的点球和晋级字段如何缺省；有效球队但尚无赛程建议返回 `[]`。这些是待确认建议。
-- is_featured 建议仅对应“已有已发布故事”，避免引导到草稿内容；不能只判断故事存在。该语义待确认。
-- 季军赛/决赛的 advancement_result、最终成绩与晋级轮次的展示应分别确认；不增加未约定的 `rank`、`round_reached` 数据库列。
-- 当前签名返回比赛数组，没有球队简介、参赛记录或 final_result_code 的顶层包装。后续页面如需这些资料，可读取 C 的既有数据或协商新的返回包装；不能未经协商改变 JourneyItem[]。
+| 所需能力 | C 交付内容 | B 接入位置 |
+|---|---|---|
+| 球队基本信息 | NationalTeam 的 id、name_zh、name_en、fifa_code、flag_path；实际命名空间和查询行为 | Journey 与比赛列表/详情读取真实名称及素材 |
+| 本届参赛资格 | TournamentTeam 联合 PK、getTeam()/getTournament() 等实际关系；以 tournament.year=2026 定位赛事 | B 增加球队存在性、参赛资格及事件球队验证 |
+| 最终成绩 | tournament_team.final_result_code 的可靠值或 null | Journey 成绩展示；不从最大阶段猜测名次 |
+| 异常语义 | C 已回复建议未知/非参赛球队 404；正式实现及停用历史策略仍需交付 | 当前 Journey 的空数组行为须由 B 在正式接入时调整并测试 |
+
+以上是当前 B 侧阶段实现及待接入任务，不意味着 C 已提供自定义 getTeamInfo()/isParticipant() 等方法。
 
 ## 7. TeamStatsService 接口需求（C 负责，尚未在当前仓库交付）
 
@@ -376,9 +388,9 @@ public function getScoringRanking(): array
 
 | 方法 | 所需返回 | B 的用途 |
 |---|---|---|
-| getTeamStats | 下节单队统一统计数组 | 后续 ApiController::actionTeamStats() 调用；B 不重写球队聚合 SQL |
-| getCompareStats | `{left: TeamStats, right: TeamStats}`，对应输入顺序 | 后续 ApiController::actionTeamCompare() 调用；两边复用相同统计规则 |
-| getScoringRanking | 2026 届 48 队总进球降序统计简表 | V1.1 主要供 A/C 排名图表；B 不擅自新增 API 路由 |
+| getTeamStats | 下节单队统一统计数组 | 已有 ApiController::actionTeamStats() 调用入口；B 不重写球队聚合 SQL |
+| getCompareStats | `{left: TeamStats, right: TeamStats}`，对应输入顺序 | 已有 ApiController::actionTeamCompare() 调用入口；两边复用相同统计规则 |
+| getScoringRanking | 2026 届 48 队完整统计数组；C 已回复排序建议，实施待交付 | V1.1 主要供 A/C 排名图表；B 不擅自新增 API 路由 |
 
 ### 7.2 getTeamStats 返回字段
 
@@ -389,11 +401,11 @@ public function getScoringRanking(): array
 | team_id | national_team.id | Id；与 int 入参及前端精度边界统一 |
 | team_name | 球队展示名 | string；建议对应 name_zh，回退策略待确认 |
 | fifa_code | 已核验三字母球队码 | string |
-| matches_played | 2026 FINISHED 场数 | 已核实计数为 int；缺失资料的 null 策略待确认 |
+| matches_played | 2026 FINISHED 场数 | C 回复为 int；无完赛为 0，数据库/关键资料错误应报错 |
 | wins | 最终场上比分领先场数 | 同上；不能按 winner_team_id 直接计数 |
 | draws | 最终场上比分相等场数，含点球决胜前的场上平局 | 同上 |
 | losses | 最终场上比分落后场数 | 同上；W+D+L=matches_played |
-| goals_for | 本队最终场上进球合计 | int 或数据缺失时 null；绝不含点球大战 |
+| goals_for | 本队最终场上进球合计 | C 回复为 int；无完赛为 0，缺正式比分报错；绝不含点球大战 |
 | goals_against | 对手最终场上进球合计 | 同上 |
 | goals_per_match | goals_for / matches_played | 数值或 null；分母为 0 时 null |
 | goals_against_per_match | goals_against / matches_played | 数值或 null；展示层保留两位小数 |
@@ -401,32 +413,36 @@ public function getScoringRanking(): array
 | penalty_wins | 点球大战获胜场数 | 已核实计数为 int；独立于 wins |
 | final_result_code | 本届 tournament_team 的最终成绩 | string 或 null；不能编造排名 |
 
-“确认没有完赛记录”和“数据库失败/资料缺失”必须区分。建议前者的已核实场次数为 0、比率为 null；进失球合计的空集语义需 C 明确，不能在 B 调用端擅自补 0。数据库失败应报错，不能返回一组全 0 的成功统计。
+“确认没有完赛记录”和“数据库失败/资料缺失”必须区分。C 已回复前者场次、进失球为 0，比率为 null；FINISHED 缺 90 分钟比分或数据库失败应记录日志并报 500，不能返回全 0 的成功统计。请 C 用实际代码和数据库测试证明该语义；B 调用端不替其补算或补零。
 
-getScoringRanking 的简表完整键、并列排序及缺失值位置未冻结。建议每项至少复用 `team_id、team_name、fifa_code、goals_for`，不新增数据库字段；同进球时建议 fifa_code 升序，仅作为待确认的稳定排序方案。是否返回全部 TeamStats 由 C 反馈。
+C 在 `c112acf` 回复建议 getScoringRanking 每项返回完整 TeamStats，按 goals_for DESC、fifa_code ASC、team_id ASC 排序，含无完赛球队；B 回复拟接受。请 C 交付实际实现与字段类型，排名不新增 B 的 API 路由。
 
-同队比较是否允许、球队存在但非本届参赛如何处理、未知球队采用 404 还是明确空结果，需 C 给出统一行为。V1.1 允许查无时抛 NotFoundHttpException 或返回明确查无结果；建议统一异常方式供 B 的 HTTP 层转换，不能各方法暗自使用不同包装。
+C 已回复未知球队及未参加 2026 返回 404，同队比较返回 400；无完赛时场次/进失球为 0、比率为 null；赛事未初始化或数据库失败返回 500。B API 已拒绝同队比较并映射 HTTP 异常；请 C 交付实现及真实测试证据，不能各方法暗自使用不同包装。
 
-### 7.3 B 的后续调用方式与边界
+### 7.3 已实现的 API 调用与响应
 
-以下仅为未来调用示意，当前不创建或调用尚不存在的类：
+文件：`controllers/ApiController.php`，命名空间 `app\controllers`，提交 `3842640`。
 
-```php
-// 先由 C 交付类和构造依赖，再由 B 按现有 Controller 风格注入服务实例。
-$data = $teamStatsService->getTeamStats($teamId);
-$data = $teamStatsService->getCompareStats($leftId, $rightId);
-// 排名主要由 A/C 按需调用同一实例方法。
-$ranking = $teamStatsService->getScoringRanking();
-```
+| 路由（均仅 GET） | Action 签名 | 调用 |
+|---|---|---|
+| api/team-stats?id=... | actionTeamStats(mixed $id = null): array | C：getTeamStats(int $teamId): array |
+| api/team-compare?left_id=...&right_id=... | actionTeamCompare(mixed $left_id = null, mixed $right_id = null): array | C：getCompareStats(int $leftId, int $rightId): array |
+| api/insights?chart=stage-goals | actionInsights(mixed $chart = null): array | B：getStageSummary(): array |
 
-后续 B 维护的 ApiController 负责参数白名单、HTTP 状态和 JSON 包装；C 的 Service 返回业务数组，不再包一层 success/data/error：
+默认地址示例：`index.php?r=api/insights&chart=stage-goals`。MatchQueryService 使用构造器注入；C 服务由服务器端配置 `ApiController::$teamStatsService` 实例，或在首次球队请求时按 `app\services\TeamStatsService` 经 Yii::createObject 创建。构造依赖如有特殊要求请 C 明确，不将依赖从请求参数加载。
+
+C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_ERROR），不会伪造统计；阶段接口仍调用真实 B 服务，其数据库未就绪时同样不能验收为成功。
 
 ```text
-成功：{success: true, data: 业务数组, error: null}
+成功（200）：{success: true, data: 服务业务数组, error: null}
 失败：{success: false, data: null, error: {code: string, message: string}}
 ```
 
-V1.1 预定 GET `api/team-stats?id=...`、`api/team-compare?left_id=...&right_id=...`、`api/insights?chart=stage-goals`；第三个调用 B 的 getStageSummary()。这些 API 尚未实现，不能作为现有 URL 验收。JSON 错误码的具体枚举、异常映射和字段类型仍需确认；不把所有异常转成 200，不向客户端输出 SQL、密码或服务器路径。
+- ID 严格为 PHP 整数范围内正整数；同队对比为 400 INVALID_PARAMETER。
+- 非法 chart 为 400 INVALID_CHART；C 抛出的未知/非参赛球队 404 映射 TEAM_NOT_FOUND。
+- 仅允许 GET，HEAD 也不放行；错误方法被 VerbFilter 拒绝为 405 METHOD_NOT_ALLOWED。写请求还受现有 CSRF 检查保护，无有效 token 时可能先返回 400，不执行服务。
+- 未交付依赖、数据库错误、未预期异常及无效返回结构均为友好 500；不将异常包装为成功 200，不泄露 SQL、路径或敏感配置。
+- C 返回空数组时按查无处理；比较结果必须包含非空的 left/right 数组。正式服务应按约定抛 404，并保证完整 TeamStats 字段；C 不再包 success/data/error。
 
 ## 8. 正式数据库与业务规则确认清单
 
@@ -503,14 +519,14 @@ V1.1 预定 GET `api/team-stats?id=...`、`api/team-compare?left_id=...&right_id
 | T17 | 阶段无完赛、无有效赛程、只有取消 | 有效赛程无完赛 total_goals=null；无有效记录返回 []，图表不报错 | B+C |
 | T18 | 未发布故事、无故事、有故事无事件 | 草稿正文/标题/标签/事件不泄漏；普通详情及空状态正常 | B |
 | T19 | 事件同 sort_order、补时、点球分钟为空 | 按当前 sort_order/id 或后续确认契约排序；View 忠实显示，不计事件条数作比分 | B+C |
-| T20 | Journey 全量与主客互换 | 不丢分页后的比赛；按时间、编号排序，对手和进失球视角正确 | B+C，Journey 实现后 |
-| T21 | 晋级、决赛/季军赛、最终成绩未知 | 按 BC07 决议展示；不把最大阶段或未知成绩冒充官方排名 | B+C，Journey 实现后 |
+| T20 | Journey 全量与主客互换 | 不丢分页后的比赛；按时间、编号排序，对手和进失球视角正确 | B+C，代码已实现、待真实联调 |
+| T21 | 晋级、决赛/季军赛、最终成绩未知 | 按 BC07 决议展示；不把最大阶段或未知成绩冒充官方排名 | B+C，代码已实现、待真实联调 |
 | T22 | 统计无完赛、同队 PK、排名并列 | 比率不除零、统一空集语义和并列顺序，left/right 保持输入顺序 | C+B |
 | T23 | UTC 跨日和大 ID | 北京时间跨日正确；ID 不截断、不经 JavaScript 浮点误改；ISO/数据库格式按接口区别处理 | B+C |
 | T24 | 名称/故事/标签 XSS、素材路径 | 文本编码、危险 URL 拒绝；桌面和移动端真实浏览器检查 | B，A 协助 |
-| T25 | 数据库失败与 API 封装 | 服务端日志有记录，用户信息友好；API HTTP 状态及统一包装正确，不暴露敏感信息 | B+C，API 实现后 |
+| T25 | 数据库失败与 API 封装 | 服务端日志有记录，用户信息友好；API HTTP 状态及统一包装正确，不暴露敏感信息 | B+C，代码已实现、待真实联调 |
 
-每项建议留存：测试日期、操作者、提交号、数据库版本、输入/预期/实际、结果和截图或日志位置。未实现的 Journey/API 用例保留待执行，不阻止已完成比赛查询接口先联调。
+每项建议留存：测试日期、操作者、提交号、数据库版本、输入/预期/实际、结果和截图或日志位置。Journey/API 已有代码，其真实数据用例仍待执行；本地隔离测试不能替代这些验收项。
 
 ## 10. 请 C 反馈的确认事项
 
@@ -530,11 +546,11 @@ C 可直接填写下表回复；“一致”应附代码或 DDL 依据，不表�
 | 确认项 | C 的反馈 |
 |---|---|
 | 核对人 / 日期 | 待填写 |
-| C 开发分支 / 交付提交号 | 待填写 |
+| C 开发分支 / 交付提交号 | 已收到 C 分支 c112acf 的确认回复；Model/Service/DDL 实现提交号仍请 C 提供 |
 | 正式数据字典、DDL、install.sql 路径与版本 | 待填写 |
 | NationalTeam / TournamentTeam / TeamStatsService 文件、命名空间及可用版本 | 待填写 |
 | BC01—BC08 逐项结论与差异 | 待填写 |
 | 可联调的测试库及非敏感配置约定 | 待填写；不填写账号密码 |
 | 联调日期、测试记录位置、遗留问题负责人 | 待填写 |
 
-确认后的实施顺序建议：C 交付正式字典/DDL/球队 Model → 双方核对 ID 和参赛关系 → 比赛查询真实数据库联调 → B 按确认结果补球队关联与展示 → C 统计服务联调 → B 开发 Journey/API 并执行对应验收。所有代码与数据库变更仍按项目协作流程单独评审，本文不授权自动提交、推送或修改其他成员文件。
+下一步顺序：C 返回正式字典/DDL及可用 Model/Service 提交号 → 双方对齐未决规则与 ID 映射 → C 准备独立测试库并导入已交付 CSV → B 补球队关联、资格与展示、事件规则等确认项 → B/C 验证比赛查询、Journey、后台及 API → D 接入授权并参与空库恢复与完整流程验收。接口变更先核对契约，各自维护本模块；本次只更新交接文档，不修改业务代码、SQL 或其他成员文件。
