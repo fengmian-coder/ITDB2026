@@ -1,0 +1,105 @@
+match_no,team_fifa_code,player_name,minute,added_minute,period_code,event_type,description,sort_order
+56,GER,Leroy Sané,2,,H1,GOAL,德国通过界外球组织进攻，Leroy Sané完成射门，德国以1:0领先。,1
+56,ECU,Nilson Angulo,9,,H1,GOAL,Nilson Angulo在禁区外远射破门，厄瓜多尔将比分扳为1:1。,2
+56,ECU,Piero Hincapié,43,,H1,YELLOW,Piero Hincapié被裁判出示黄牌。,3
+56,GER,Aleksandar Pavlović,44,,H1,YELLOW,Aleksandar Pavlović被裁判出示黄牌。,4
+56,GER,Angelo Stiller,45,,H1,OTHER,换人：Angelo Stiller替换Aleksandar Pavlović。,5
+56,GER,Leroy Sané,47,,H2,OTHER,VAR改判：裁判最初判给德国点球；复核后认定进攻组织阶段Leroy Sané犯规，点球判罚被撤销。,6
+56,ECU,Alan Franco,50,,H2,YELLOW,Alan Franco因阻止德国快速发出界外球被出示黄牌。,7
+56,GER,Deniz Undav,60,,H2,OTHER,换人：Deniz Undav替换Kai Havertz。,8
+56,GER,Malick Thiaw,60,,H2,OTHER,换人：Malick Thiaw替换Joshua Kimmich。,9
+56,ECU,Kevin Rodríguez,64,,H2,OTHER,换人：Kevin Rodríguez替换Enner Valencia。,10
+56,ECU,Angelo Preciado,64,,H2,OTHER,换人：Angelo Preciado替换Alan Franco。,11
+56,GER,Maximilian Beier,64,,H2,OTHER,换人：Maximilian Beier替换Felix Nmecha。,12
+56,ECU,Pervis Estupiñán,71,,H2,OTHER,换人：Pervis Estupiñán替换Piero Hincapié。,13
+56,GER,Pascal Groß,73,,H2,OTHER,换人：Pascal Groß替换Florian Wirtz。,14
+56,ECU,Gonzalo Plata,77,,H2,GOAL,厄瓜多尔利用角球机会制造门前攻势，Gonzalo Plata完成射门，球队以2:1反超。,15
+56,ECU,Jordy Caicedo,85,,H2,OTHER,换人：Jordy Caicedo替换Nilson Angulo。,16
+56,ECU,Félix Torres,85,,H2,OTHER,换人：Félix Torres替换John Yeboah。,17
+56,ECU,Gonzalo Plata,89,,H2,YELLOW,Gonzalo Plata被裁判出示黄牌。,18
+69,AUT,Marko Arnautović,11,,H1,YELLOW,Marko Arnautović被出示黄牌。,1
+69,AUT,Marko Arnautović,28,,H1,GOAL,Marko Arnautović破门，奥地利1:0领先。,2
+69,ALG,Rafik Belghali,45,,H1,GOAL,Rafik Belghali扳平比分，阿尔及利亚1:1奥地利。,3
+69,AUT,Florian Grillitsch,46,,H2,OTHER,换人：Florian Grillitsch替换Xaver Schlager。,4
+69,AUT,Michael Gregoritsch,46,,H2,OTHER,换人：Michael Gregoritsch替换Marko Arnautović。,5
+69,AUT,Paul Wanner,46,,H2,OTHER,换人：Paul Wanner替换Romano Schmid。,6
+69,AUT,Marcel Sabitzer,55,,H2,GOAL,Marcel Sabitzer破门，奥地利再次领先，比分1:2。,7
+69,ALG,Riyad Mahrez,60,,H2,GOAL,Riyad Mahrez破门，阿尔及利亚将比分追成2:2。,8
+69,AUT,Kevin Danso,62,,H2,OTHER,换人：Kevin Danso替换David Alaba。,9
+69,ALG,Rayan Aït-Nouri,62,,H2,OTHER,换人：Rayan Aït-Nouri替换Jaouen Hadjam。,10
+69,ALG,Samir Chergui,62,,H2,OTHER,换人：Samir Chergui替换Rafik Belghali。,11
+69,ALG,Zineddine Belaïd,62,,H2,OTHER,换人：Zineddine Belaïd替换Amine Gouiri。,12
+69,ALG,Riyad Mahrez,90,3,H2,GOAL,Riyad Mahrez在补时阶段再次破门，阿尔及利亚3:2反超。,13
+69,ALG,Fares Ghedjemis,90,4,H2,OTHER,换人：Fares Ghedjemis替换Houssem Aouar。,14
+69,AUT,Sasa Kalajdžić,90,5,H2,OTHER,换人：Sasa Kalajdžić替换Phillipp Mwene。,15
+69,AUT,Sasa Kalajdžić,90,6,H2,GOAL,Sasa Kalajdžić头球扳平，最终比分3:3。,16
+75,MAR,Issa Diop,47,,H2,YELLOW,Issa Diop被出示黄牌。,1
+75,NED,Wout Weghorst,71,,H2,OTHER,换人：Wout Weghorst替换Brian Brobbey。,2
+75,NED,Teun Koopmeiners,71,,H2,OTHER,换人：Teun Koopmeiners替换Nathan Aké。,3
+75,NED,Cody Gakpo,72,,H2,GOAL,Cody Gakpo破门，荷兰1:0领先。,4
+75,MAR,Anass Salah-Eddine,75,,H2,OTHER,换人：Anass Salah-Eddine替换Chadi Riad。,5
+75,MAR,Gessime Yassine,79,,H2,OTHER,换人：Gessime Yassine替换Brahim Díaz。,6
+75,MAR,Samir El Mourabet,79,,H2,OTHER,换人：Samir El Mourabet替换Ayyoub Bouaddi。,7
+75,MAR,Soufiane Rahimi,86,,H2,OTHER,换人：Soufiane Rahimi替换Azzedine Ounahi。,8
+75,NED,Jorrel Hato,86,,H2,OTHER,换人：Jorrel Hato替换Micky van de Ven。,9
+75,NED,Quinten Timber,86,,H2,OTHER,换人：Quinten Timber替换Ryan Gravenberch。,10
+75,MAR,Chemsdine Talbi,87,,H2,OTHER,换人：Chemsdine Talbi替换Bilal El Khannouss。,11
+75,MAR,Issa Diop,90,1,H2,GOAL,Issa Diop在补时第1分钟头球扳平，比分1:1。,12
+75,NED,Marten de Roon,110,,ET2,OTHER,加时赛换人：Marten de Roon替换Frenkie de Jong。,13
+75,NED,Justin Kluivert,113,,ET2,OTHER,加时赛换人：Justin Kluivert替换Cody Gakpo。,14
+82,SEN,Habib Diarra,25,,H1,GOAL,Habib Diarra补射破门，塞内加尔1:0领先。,1
+82,BEL,Romelu Lukaku,46,,H2,OTHER,换人：Romelu Lukaku替换Charles De Ketelaere。,2
+82,SEN,Ismaila Sarr,51,,H2,GOAL,Ismaila Sarr接Moussa Niakhaté传球破门，塞内加尔2:0领先。,3
+82,BEL,Dodi Lukébakio,56,,H2,OTHER,换人：Dodi Lukébakio替换Jérémy Doku。,4
+82,BEL,Nicolas Raskin,56,,H2,OTHER,换人：Nicolas Raskin替换Kevin De Bruyne。,5
+82,BEL,Diego Moreira,63,,H2,OTHER,换人：Diego Moreira替换Hans Vanaken。,6
+82,BEL,Brandon Mechele,64,,H2,YELLOW,Brandon Mechele被出示黄牌。,7
+82,SEN,Lamine Camara,66,,H2,OTHER,换人：Lamine Camara替换Pape Gueye。,8
+82,SEN,Lamine Camara,67,,H2,YELLOW,Lamine Camara被出示黄牌。,9
+82,SEN,Pape Matar Sarr,73,,H2,OTHER,换人：Pape Matar Sarr替换Habib Diarra。,10
+82,SEN,Ibrahim Mbaye,73,,H2,OTHER,换人：Ibrahim Mbaye替换Iliman Ndiaye。,11
+82,BEL,Thomas Meunier,78,,H2,OTHER,换人：Thomas Meunier替换Maxim De Cuyper。,12
+82,BEL,Romelu Lukaku,86,,H2,GOAL,Romelu Lukaku接Thomas Meunier传中破门，比利时追回一球。,13
+82,BEL,Youri Tielemans,89,,H2,GOAL,Youri Tielemans破门，比利时将90分钟比分追成2:2。,14
+82,SEN,El Hadji Malick Diouf,93,,ET1,OTHER,加时赛换人：El Hadji Malick Diouf替换Ismail Jakobs。,15
+82,SEN,Nicolas Jackson,94,,ET1,OTHER,加时赛换人：Nicolas Jackson替换Sadio Mané。,16
+82,SEN,Bara Sapoko Ndiaye,96,,ET1,OTHER,加时赛换人：Bara Sapoko Ndiaye替换Idrissa Gueye。,17
+82,BEL,Amadou Onana,109,,ET2,OTHER,加时赛换人：Amadou Onana替换Leandro Trossard。,18
+82,BEL,Youri Tielemans,120,5,ET2,PENALTY_GOAL,Youri Tielemans在120+5分钟罚入加时赛点球，比利时3:2获胜。,19
+91,NOR,,2,,H1,OTHER,挪威开场曾取得进球，但因越位被判无效，不计入比分。,1
+91,BRA,Bruno Guimarães,14,,H1,PENALTY_MISS,Bruno Guimarães主罚点球，被挪威门将Ørjan Nyland扑出。,2
+91,NOR,Oscar Bobb,46,,H2,OTHER,换人：Oscar Bobb替换Alexander Sørloth。,3
+91,NOR,Andreas Schjelderup,46,,H2,OTHER,换人：Andreas Schjelderup替换Antonio Nusa。,4
+91,BRA,Endrick,58,,H2,OTHER,换人：Endrick替换Matheus Cunha。,5
+91,NOR,Fredrik Aursnes,63,,H2,OTHER,换人：Fredrik Aursnes替换Julian Ryerson。,6
+91,BRA,Danilo Santos,67,,H2,OTHER,换人：Danilo Santos替换Rayan。,7
+91,BRA,Neymar,67,,H2,OTHER,换人：Neymar替换Gabriel Martinelli。,8
+91,NOR,Erling Haaland,79,,H2,GOAL,Erling Haaland头球破门，挪威1:0领先。,9
+91,BRA,Éderson Silva,79,,H2,OTHER,换人：Éderson Silva替换Bruno Guimarães。,10
+91,NOR,Erling Haaland,89,,H2,GOAL,Erling Haaland再次破门，挪威将比分扩大为2:0。,11
+91,NOR,Leo Østigård,90,5,H2,OTHER,换人：Leo Østigård替换David Møller Wolfe。,12
+91,BRA,Neymar,90,6,H2,YELLOW,Neymar被出示黄牌。,13
+91,BRA,Neymar,90,10,H2,PENALTY_GOAL,Neymar在补时阶段罚入点球，巴西将比分追为1:2。,14
+92,ENG,Jude Bellingham,36,,H1,GOAL,Jude Bellingham头球破门，英格兰1:0领先。,1
+92,ENG,Jude Bellingham,38,,H1,GOAL,Jude Bellingham再入一球，英格兰将比分扩大为2:0。,2
+92,MEX,Julián Quiñones,42,,H1,GOAL,Julián Quiñones为墨西哥追回一球，比分变为1:2。,3
+92,ENG,Jarell Quansah,54,,H2,RED,Jarell Quansah被红牌罚下，英格兰随后以少一人应战。,4
+92,ENG,Harry Kane,60,,H2,PENALTY_GOAL,Harry Kane罚入点球，英格兰将比分扩大为3:1。,5
+92,MEX,Raúl Jiménez,69,,H2,PENALTY_GOAL,Raúl Jiménez罚入点球，墨西哥追至2:3。,6
+103,ENG,Declan Rice,3,,H1,GOAL,Declan Rice破门，英格兰1:0领先。,1
+103,ENG,Ezri Konsa,18,,H1,GOAL,Ezri Konsa扩大比分，英格兰2:0领先。,2
+103,ENG,Bukayo Saka,37,,H1,GOAL,Bukayo Saka打入英格兰第三球。,3
+103,ENG,Bukayo Saka,45,1,H1,GOAL,Bukayo Saka在上半场补时阶段再度破门，英格兰半场4:0领先。,4
+103,FRA,Kylian Mbappé,48,,H2,GOAL,Kylian Mbappé为法国追回一球。,5
+103,FRA,Bradley Barcola,54,,H2,GOAL,Bradley Barcola再入一球，法国继续追分。,6
+103,FRA,Kylian Mbappé,66,,H2,GOAL,Kylian Mbappé梅开二度，法国将比分追近。,7
+103,ENG,Bukayo Saka,87,,H2,PENALTY_GOAL,Bukayo Saka罚入点球，完成帽子戏法，英格兰5:3领先。,8
+103,FRA,Ousmane Dembélé,90,6,H2,GOAL,Ousmane Dembélé在补时阶段破门，法国追至4:5。,9
+103,ENG,Jude Bellingham,90,8,H2,GOAL,Jude Bellingham在补时阶段再入一球，英格兰6:4锁定胜局。,10
+104,ARG,Lisandro Martínez,41,,H1,YELLOW,Lisandro Martínez被出示黄牌。,1
+104,ARG,Leandro Paredes,52,,H2,YELLOW,Leandro Paredes被出示黄牌。,2
+104,ARG,Enzo Fernández,82,,H2,YELLOW,Enzo Fernández第一次被出示黄牌。,3
+104,ARG,Cristian Romero,90,2,H2,YELLOW,Cristian Romero被出示黄牌。,4
+104,ARG,Enzo Fernández,90,3,H2,RED,Enzo Fernández累计两张黄牌，被红牌罚下。,5
+104,ESP,Ferran Torres,106,,ET2,GOAL,Ferran Torres在加时赛第106分钟打入全场唯一进球，西班牙1:0领先。,6
+104,ARG,Alexis Mac Allister,111,,ET2,YELLOW,Alexis Mac Allister在加时赛被出示黄牌。,7

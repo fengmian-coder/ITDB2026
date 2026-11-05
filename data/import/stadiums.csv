@@ -1,0 +1,17 @@
+name,city,country_code,timezone_name
+Toronto Stadium,Toronto,CA,America/Toronto
+BC Place Vancouver,Vancouver,CA,America/Vancouver
+Mexico City Stadium,Mexico City,MX,America/Mexico_City
+Guadalajara Stadium,Zapopan,MX,America/Mexico_City
+Monterrey Stadium,Guadalupe,MX,America/Monterrey
+Atlanta Stadium,Atlanta,US,America/New_York
+Boston Stadium,Foxborough,US,America/New_York
+Dallas Stadium,Arlington,US,America/Chicago
+Houston Stadium,Houston,US,America/Chicago
+Kansas City Stadium,Kansas City,US,America/Chicago
+Los Angeles Stadium,Inglewood,US,America/Los_Angeles
+Miami Stadium,Miami Gardens,US,America/New_York
+New York New Jersey Stadium,East Rutherford,US,America/New_York
+Philadelphia Stadium,Philadelphia,US,America/New_York
+San Francisco Bay Area Stadium,Santa Clara,US,America/Los_Angeles
+Seattle Stadium,Seattle,US,America/Los_Angeles
