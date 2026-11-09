@@ -28,6 +28,24 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'controllerMap' => [
+        'admin-tournament' => [
+            'class' => \app\controllers\AdminTournamentController::class,
+            'adminAccessChecker' => [\app\models\AdminUser::class, 'canManage'],
+        ],
+        'admin-match' => [
+            'class' => \app\controllers\AdminMatchController::class,
+            'adminAccessChecker' => [\app\models\AdminUser::class, 'canManage'],
+        ],
+        'admin-stadium' => [
+            'class' => \app\controllers\AdminStadiumController::class,
+            'adminAccessChecker' => [\app\models\AdminUser::class, 'canManage'],
+        ],
+        'admin-story' => [
+            'class' => \app\controllers\AdminStoryController::class,
+            'adminAccessChecker' => [\app\models\AdminUser::class, 'canManage'],
+        ],
+    ],
     'components' => [
         'request' => [
             'cookieValidationKey' => $params['cookieValidationKey'] ?? '',
@@ -37,8 +55,10 @@ $config = [
             'class' => \yii\caching\FileCache::class,
         ],
         'user' => [
-            'identityClass' => \app\models\User::class,
-            'enableAutoLogin' => true,
+            'identityClass' => \app\models\AdminUser::class,
+            'enableAutoLogin' => false,
+            'idParam' => '__worldcup_admin_id',
+            'loginUrl' => ['/auth/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -50,6 +70,7 @@ $config = [
                 [
                     'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
+                    'logVars' => ['_GET'],
                 ],
             ],
         ],

@@ -232,4 +232,7 @@ CSS, [], 'wc-match-view');
             </div>
         </div>
     <?php endif ?>
+    <p class="mt-3">
+        <?= Html::a('为这场比赛留言', ['/guestbook/index', 'match_id' => $match['id']], ['class' => 'btn btn-outline-primary']) ?>
+    </p>
 </div>

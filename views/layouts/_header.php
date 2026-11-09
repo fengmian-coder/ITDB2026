@@ -22,13 +22,22 @@ $items = [
         'url' => ['/site/contact'],
     ],
     [
-        'label' => 'Login',
-        'url' => ['/site/login'],
+        'label' => '球迷留言',
+        'url' => ['/guestbook/index'],
+    ],
+    [
+        'label' => '后台管理',
+        'url' => ['/admin-dashboard/index'],
+        'visible' => !Yii::$app->user->isGuest,
+    ],
+    [
+        'label' => '管理员登录',
+        'url' => ['/auth/login'],
         'visible' => Yii::$app->user->isGuest,
     ],
     [
         'label' => 'Logout (' . Html::encode(Yii::$app->user->identity?->username ?? '') . ')',
-        'url' => ['/site/logout'],
+        'url' => ['/auth/logout'],
         'linkOptions' => [
             'data-method' => 'post',
             'class' => 'nav-link logout',
