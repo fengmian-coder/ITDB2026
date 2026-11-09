@@ -32,7 +32,8 @@ return [
             'showScriptName' => true,
         ],
         'user' => [
-            'identityClass' => \app\models\User::class,
+            'identityClass' => \app\models\AdminUser::class,
+            'loginUrl' => ['/auth/login'],
         ],
         'request' => [
             'cookieValidationKey' => 'test',

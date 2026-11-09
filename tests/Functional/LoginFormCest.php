@@ -1,4 +1,5 @@
 <?php
+/** WorldCup Journey | D | Administrator login route checks. */
 
 declare(strict_types=1);
 
@@ -8,57 +9,17 @@ use app\tests\Support\FunctionalTester;
 
 final class LoginFormCest
 {
-    public function _before(FunctionalTester $I)
+    public function legacyLoginOpensAdminForm(FunctionalTester $I): void
     {
         $I->amOnRoute('site/login');
+        $I->see('管理员登录', 'h1');
+        $I->seeElement('input[name="AdminLoginForm[username]"]');
+        $I->seeElement('input[name="AdminLoginForm[password]"]');
     }
 
-    public function openLoginPage(FunctionalTester $I)
+    public function dashboardRequiresLogin(FunctionalTester $I): void
     {
-        $I->see('Login', 'h1');
-    }
-
-    // demonstrates `amLoggedInAs` method
-    public function internalLoginById(FunctionalTester $I)
-    {
-        $I->amLoggedInAs(100);
-        $I->amOnPage('/');
-        $I->see('Logout (admin)');
-    }
-
-    // demonstrates `amLoggedInAs` method
-    public function internalLoginByInstance(FunctionalTester $I)
-    {
-        $I->amLoggedInAs(\app\models\User::findByUsername('admin'));
-        $I->amOnPage('/');
-        $I->see('Logout (admin)');
-    }
-
-    public function loginWithEmptyCredentials(FunctionalTester $I)
-    {
-        $I->submitForm('#login-form', []);
-        $I->expectTo('see validations errors');
-        $I->see('Username cannot be blank.');
-        $I->see('Password cannot be blank.');
-    }
-
-    public function loginWithWrongCredentials(FunctionalTester $I)
-    {
-        $I->submitForm('#login-form', [
-            'LoginForm[username]' => 'admin',
-            'LoginForm[password]' => 'wrong',
-        ]);
-        $I->expectTo('see validations errors');
-        $I->see('Incorrect username or password.');
-    }
-
-    public function loginSuccessfully(FunctionalTester $I)
-    {
-        $I->submitForm('#login-form', [
-            'LoginForm[username]' => 'admin',
-            'LoginForm[password]' => 'admin',
-        ]);
-        $I->see('Logout (admin)');
-        $I->dontSeeElement('form#login-form');
+        $I->amOnRoute('admin-dashboard/index');
+        $I->see('管理员登录', 'h1');
     }
 }

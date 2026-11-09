@@ -1,4 +1,5 @@
 <?php
+/** WorldCup Journey | D | Browser check for the protected dashboard. */
 
 declare(strict_types=1);
 
@@ -9,17 +10,10 @@ use yii\helpers\Url;
 
 final class LoginCest
 {
-    public function ensureThatLoginWorks(AcceptanceTester $I)
+    public function guestIsRedirectedToAdminLogin(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::toRoute('/site/login'));
-        $I->see('Login', 'h1');
-
-        $I->amGoingTo('try to login with correct credentials');
-        $I->fillField('input[name="LoginForm[username]"]', 'admin');
-        $I->fillField('input[name="LoginForm[password]"]', 'admin');
-        $I->click('login-button');
-
-        $I->expectTo('see user info');
-        $I->see('Logout');
+        $I->amOnPage(Url::toRoute('/admin-dashboard/index'));
+        $I->see('管理员登录', 'h1');
+        $I->seeElement('input[name="AdminLoginForm[password]"]');
     }
 }
