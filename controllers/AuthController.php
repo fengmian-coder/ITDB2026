@@ -1,5 +1,9 @@
 <?php
-/** WorldCup Journey | D | Administrator session routes. */
+/**
+ * WorldCup Journey - 管理员会话路由，接入 A 的独立登录布局。
+ * 模块：D 认证 / A 视觉接入；负责人：D、A。
+ * 依赖：AdminLoginForm、D 的会话逻辑；最近修改：2026-11-10。
+ */
 
 namespace app\controllers;
 
@@ -11,6 +15,8 @@ use yii\web\Response;
 
 class AuthController extends Controller
 {
+    public $layout = 'auth';
+
     public function behaviors(): array
     {
         return [

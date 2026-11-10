@@ -39,17 +39,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <p class="text-body-secondary text-break" style="white-space: pre-wrap"><?= Html::encode($model->summary) ?></p>
             <h2 class="h6 fw-bold mt-4">正文</h2>
             <div class="text-break" style="white-space: pre-wrap; line-height: 1.9"><?= Html::encode($model->body) ?></div>
-            <p class="small text-body-secondary border-top pt-3 mt-4 mb-0">创建与更新时间按 UTC 存储；无时间记录时显示“—”。</p>
+            <p class="small text-body-secondary border-top pt-3 mt-4 mb-0">创建与更新时间按 UTC 存储；无时间记录时显示“—”</p>
         </div>
     </article>
     <section class="card border-danger-subtle rounded-4" aria-labelledby="delete-story-title">
         <div class="card-body p-4">
             <h2 id="delete-story-title" class="h5">删除故事</h2>
-            <p class="small text-body-secondary">删除将清理本故事与标签的关联，保留比赛、事件和标签字典；故事删除后前台不再展示该场精选内容。</p>
+            <p class="small text-body-secondary">删除将清理本故事与标签的关联，保留比赛、事件和标签字典；故事删除后前台不再展示该场精选内容</p>
             <?= Html::beginForm(['/admin-story/delete', 'id' => $model->id], 'post') ?>
                 <div class="form-check mb-3">
                     <?= Html::checkbox('confirm_delete', false, ['id' => 'confirm-delete-story', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-                    <?= Html::label('确认删除该故事，此操作不可撤销。', 'confirm-delete-story', ['class' => 'form-check-label']) ?>
+                    <?= Html::label('确认删除该故事，此操作不可撤销', 'confirm-delete-story', ['class' => 'form-check-label']) ?>
                 </div>
                 <?= Html::submitButton('删除故事', ['class' => 'btn btn-outline-danger']) ?>
             <?= Html::endForm() ?>

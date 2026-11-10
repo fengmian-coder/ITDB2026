@@ -38,27 +38,27 @@ class StadiumSearch extends Model
     {
         $input = $params[$this->formName()] ?? [];
         if (!is_array($input)) {
-            throw new BadRequestHttpException('场馆筛选格式无效。');
+            throw new BadRequestHttpException('场馆筛选格式无效');
         }
         foreach (['name', 'city', 'country_code'] as $key) {
             $value = $input[$key] ?? null;
             if ($value !== null && !is_string($value)) {
-                throw new BadRequestHttpException('场馆筛选字段必须为字符串。');
+                throw new BadRequestHttpException('场馆筛选字段必须为字符串');
             }
             $this->$key = $value;
         }
         if (!$this->validate()) {
-            throw new BadRequestHttpException('场馆筛选参数无效，请检查字段长度及国家代码。');
+            throw new BadRequestHttpException('场馆筛选参数无效，请检查字段长度及国家代码');
         }
         $page = $this->positivePage($params, 'page', 1, PHP_INT_MAX);
         $size = $this->positivePage($params, 'per-page', 20, 100);
         if ($page - 1 > intdiv(PHP_INT_MAX, $size)) {
-            throw new BadRequestHttpException('分页偏移超出有效范围。');
+            throw new BadRequestHttpException('分页偏移超出有效范围');
         }
         $sort = $params['sort'] ?? null;
         if ($sort !== null && (!is_string($sort) || !in_array($sort,
             ['name', '-name', 'city', '-city', 'country_code', '-country_code', 'id', '-id'], true))) {
-            throw new BadRequestHttpException('场馆排序参数无效。');
+            throw new BadRequestHttpException('场馆排序参数无效');
         }
         $order = $sort === null ? ['name' => SORT_ASC, 'id' => SORT_ASC]
             : [ltrim($sort, '-') => str_starts_with($sort, '-') ? SORT_DESC : SORT_ASC];
@@ -84,13 +84,13 @@ class StadiumSearch extends Model
         }
         $value = $params[$key];
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException('分页参数必须为正整数。');
+            throw new BadRequestHttpException('分页参数必须为正整数');
         }
         $digits = ltrim((string) $value, '0');
         $max = (string) $maximum;
         if ($digits === '' || strlen($digits) > strlen($max)
             || (strlen($digits) === strlen($max) && strcmp($digits, $max) > 0)) {
-            throw new BadRequestHttpException('分页参数超出有效范围。');
+            throw new BadRequestHttpException('分页参数超出有效范围');
         }
         return (int) $digits;
     }

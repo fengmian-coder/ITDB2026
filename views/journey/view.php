@@ -20,7 +20,7 @@ use yii\helpers\Url;
 $this->title = '球队 ID ' . $teamId . ' 的世界杯之旅 | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
 $this->params['breadcrumbs'][] = '球队比赛历程';
-$this->params['meta_description'] = '按时间浏览球队的 2026 世界杯赛程、比分、晋级结果和精选比赛故事。';
+$this->params['meta_description'] = '按时间浏览球队的 2026 世界杯赛程、比分、晋级结果和精选比赛故事';
 
 $stageLabels = [
     'GROUP' => '小组赛', 'R32' => '32 强赛', 'R16' => '16 强赛',
@@ -70,7 +70,7 @@ CSS, [], 'journey-view');
     <header class="journey-hero rounded-4 p-4 p-md-5 mb-4">
         <p class="journey-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / 2026</p>
         <h1 class="display-6 fw-bold mb-3">球队 ID <?= Html::encode((string) $teamId) ?> 的世界杯之旅</h1>
-        <p class="mb-0 opacity-75">从开场到终场，沿着时间回看每一场比赛。所有时间均为北京时间。</p>
+        <p class="mb-0 opacity-75">从开场到终场，沿着时间回看每一场比赛。所有时间均为北京时间</p>
     </header>
 
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="journey-search-title">
@@ -89,7 +89,7 @@ CSS, [], 'journey-view');
                     <?= Html::a('全部比赛', ['/wc-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
             <?= Html::endForm() ?>
-            <p id="journey-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识。下方比分统一按本队 : 对手排列，点球大战单独展示。</p>
+            <p id="journey-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识。下方比分统一按本队 : 对手排列，点球大战单独展示</p>
         </div>
     </section>
 
@@ -101,7 +101,7 @@ CSS, [], 'journey-view');
         <?php if ($journey === []): ?>
             <div class="journey-empty rounded-4 text-center py-5 px-3">
                 <h3 class="h5 mb-2">暂无匹配的比赛记录</h3>
-                <p class="text-body-secondary mb-3">可以核对球队 ID，或稍后再来查看赛程。</p>
+                <p class="text-body-secondary mb-3">可以核对球队 ID，或稍后再来查看赛程</p>
                 <?= Html::a('浏览全部比赛', ['/wc-match/index'], ['class' => 'btn btn-outline-primary']) ?>
             </div>
         <?php else: ?>

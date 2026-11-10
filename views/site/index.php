@@ -1,207 +1,75 @@
 <?php
-
-/** @var yii\web\View $this */
-
+/**
+ * WorldCup Journey - 基于个人作业 2 原型的数据库驱动首页。
+ * 模块：A 首页；负责人：A。
+ * 依赖：SiteController、B 的比赛服务、C 的参赛目录、journey.css。
+ * 最近修改：2026-11-10。
+ */
+declare(strict_types=1);
 use yii\helpers\Html;
-
-$this->title = 'My Yii Application';
-$this->params['meta_description'] = 'A high-performance PHP framework best for developing web applications. Fast, secure, and professional.';
-$this->params['meta_keywords'] = 'yii, yii2, php, framework, web application, high-performance';
+$this->title = 'WorldCup Journey · 每支球队，都有自己的世界杯旅程';
+$this->params['wideLayout'] = true;
+$this->params['meta_description'] = '探索 2026 世界杯球队与比赛，记录属于你的世界杯记忆';
+$this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::class]]);
 ?>
-<div class="site-index">
-
-    <!-- Hero banner with Yii gradient -->
-    <div class="hero-banner text-white rounded-4 p-5 mb-4 position-relative overflow-hidden">
-        <?= Html::img(Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'), [
-            'alt' => '',
-            'class' => 'd-none d-lg-block position-absolute hero-logo',
-        ]) ?>
-        <div class="position-relative">
-            <h1 class="display-5 fw-bold mb-3">Build with Yii Framework</h1>
-            <p class="lead opacity-75 mb-4 hero-lead">
-                A high-performance PHP framework best for developing web applications.
-                Fast, secure, and professional.
-            </p>
-            <div class="d-flex gap-2 flex-wrap">
-                <?= Html::a(
-                    'Get Started',
-                    'https://www.yiiframework.com/doc/guide/2.0/en/start-installation',
-                    [
-                        'class' => 'btn btn-light btn-lg fw-semibold px-4',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ],
-                ) ?>
-                <?= Html::a(
-                    'API Reference',
-                    'https://www.yiiframework.com/doc/api/2.0',
-                    [
-                        'class' => 'btn btn-outline-light btn-lg px-4',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ],
-                ) ?>
+<div class="wc-home">
+    <section class="wc-hero">
+        <div class="wc-home-inner">
+            <p class="wc-kicker">FIFA WORLD CUP 2026</p>
+            <h1>每支球队，都有自己的世界杯旅程</h1>
+            <p class="wc-hero-description">查看球队与比赛信息，制作自己的世界杯纪念卡</p>
+            <div class="wc-hero-actions">
+                <?= Html::a('探索球队 →', ['/site/explore'], ['class' => 'btn wc-hero-button']) ?>
+                <?= Html::a('探索比赛 →', ['/wc-match/index'], ['class' => 'btn wc-hero-secondary']) ?>
             </div>
         </div>
-    </div>
-
-    <!-- Extensions grid -->
-    <div class="row g-3">
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#128270;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-debug</h3>
+    </section>
+    <section class="wc-explore" aria-labelledby="explore-heading">
+        <div class="wc-home-inner wc-explore-layout">
+            <div class="wc-explore-copy">
+                <h2 id="explore-heading">探索参赛球队</h2>
+                <p class="wc-explore-description">选择你关注的球队，探索它的 2026 世界杯故事</p>
+                <p class="wc-data-summary">当前收录 <?= (int) $teamCount ?> 支球队 · <?= (int) $matchCount ?> 场比赛</p>
+            </div>
+            <div class="wc-explore-tools">
+                <label class="wc-search-label" for="home-team-search">搜索球队</label>
+                <?= Html::beginForm(['/site/explore'], 'get', ['class' => 'wc-search']) ?>
+                <?= Html::textInput('q', '', ['id' => 'home-team-search', 'placeholder' => '输入球队名称或 FIFA 代码', 'maxlength' => 100]) ?>
+                <?= Html::submitButton('搜索 →', ['aria-label' => '搜索球队']) ?>
+                <?= Html::endForm() ?>
+                <div class="wc-explore-support">
+                    <p class="wc-feature-line">球队 DNA <span>·</span> 晋级之路 <span>·</span> 球队 PK</p>
+                    <?= Html::a('浏览全部球队', ['/site/explore']) ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wc-memory-section">
+        <div class="wc-home-inner wc-memory-layout">
+            <div class="wc-memory-copy">
+                <h2>留下你的世界杯记忆</h2>
+                <p>选择一场比赛，写下感想，也可以添加照片</p>
+                <?= Html::a('制作纪念卡', ['/memory/card'], ['class' => 'btn btn-success']) ?>
+                <p class="wc-memory-note">无需注册，支持 PNG 下载</p>
+            </div>
+            <div class="wc-sample-card">
+                <header class="wc-sample-header"><h3>我的世界杯记忆</h3><span class="wc-sample-label">卡片示例</span></header>
+                <div class="wc-card-body wc-card-example">
+                    <div class="wc-card-example-copy">
+                        <p>我的主队：西班牙</p>
+                        <p class="wc-card-match-date">2026.07.19 · 决赛（当地日期）</p>
+                        <p><strong class="wc-card-score">阿根廷 0 : 1 西班牙（加时）</strong></p>
+                        <p>经典时刻：费兰·托雷斯 106 分钟破门</p>
+                        <p>感想示例：拼到最后，也值得铭记</p>
                     </div>
-                    <p class="text-body-secondary small mb-0">
-                        Debug toolbar and debugger for Yii2. Inspect logs, database queries,
-                        request data, and application performance in real time.
-                    </p>
+                    <?= Html::img('@web/images/memory-example-ferran.png', ['class' => 'wc-card-example-photo', 'alt' => '费兰·托雷斯庆祝进球', 'width' => 720, 'height' => 537, 'loading' => 'lazy']) ?>
                 </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-debug',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
+                <div class="wc-card-example-footer"><p class="wc-card-signature">WorldCup Journey · 2026</p><?= Html::a('比赛与图片来源：FIFA', 'https://inside.fifa.com/organisation/news/spain-crowned-world-cup-2026-champions-new-york-new-jersey', ['class' => 'wc-example-source', 'target' => '_blank', 'rel' => 'noopener noreferrer']) ?></div>
             </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#9881;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-gii</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Automatic code generator for models, controllers, CRUD, forms, and modules.
-                        Boost your productivity with scaffolding.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-gii',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#128203;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-queue</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Asynchronous job queue with support for DB, Redis, AMQP, Beanstalk,
-                        and SQS drivers. Run background tasks with ease.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-queue',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#9889;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-redis</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Redis integration providing cache, session, and ActiveRecord support.
-                        Leverage in-memory storage for blazing-fast data access.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-redis',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#128269;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-elasticsearch</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Elasticsearch integration with ActiveRecord and query builder.
-                        Add powerful full-text search capabilities to your application.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-elasticsearch',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon" aria-hidden="true">&#9993;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-symfonymailer</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Email sending integration powered by Symfony Mailer.
-                        Compose and deliver rich HTML emails with attachments and templates.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://github.com/yiisoft/yii2-symfonymailer',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </section>
+    <section class="wc-home-links wc-home-inner" aria-label="更多入口">
+        <div><p>认识网站背后的伙伴，或留下你的观赛感想</p></div>
+        <div class="d-flex gap-3 flex-wrap"><?= Html::a('关于我们', ['/project-team/index']) ?><?= Html::a('球迷留言', ['/guestbook/index']) ?><?= Html::a('课程作业下载', ['/document/index']) ?></div>
+    </section>
 </div>

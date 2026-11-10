@@ -110,7 +110,7 @@ class MatchStory extends ActiveRecord
     {
         $value = ltrim(ltrim(trim((string) $this->$attribute), '+'), '0');
         if (strlen($value) > 20 || (strlen($value) === 20 && strcmp($value, '18446744073709551615') > 0)) {
-            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围。');
+            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围');
         }
     }
 
@@ -122,7 +122,7 @@ class MatchStory extends ActiveRecord
         if (str_contains($rawPath, "\0") || $path === '' || str_starts_with($path, '/')
             || preg_match('/^[a-z][a-z0-9+.-]*:/i', $path)
             || in_array('..', explode('/', $path), true)) {
-            $this->addError($attribute, '封面须使用相对路径，不能包含协议、绝对路径或上级目录跳转。');
+            $this->addError($attribute, '封面须使用相对路径，不能包含协议、绝对路径或上级目录跳转');
         }
     }
 

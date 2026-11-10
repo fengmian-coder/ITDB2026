@@ -41,7 +41,7 @@ $models = $dataProvider->getModels();
                 <td><?= Html::encode($model->home_score_90 === null || $model->away_score_90 === null ? '—' : $model->home_score_90 . ' : ' . $model->away_score_90) ?></td>
                 <td><?= Html::a('详情 / 编辑', ['/admin-match/view', 'id' => $model->id], ['class' => 'btn btn-sm btn-outline-primary text-nowrap']) ?></td></tr>
         <?php endforeach ?>
-        <?php if (!$models): ?><tr><td colspan="6" class="text-center text-body-secondary py-5">暂无符合条件的比赛。</td></tr><?php endif ?>
+        <?php if (!$models): ?><tr><td colspan="6" class="text-center text-body-secondary py-5">暂无符合条件的比赛</td></tr><?php endif ?>
         </tbody></table></div>
     <div class="mt-4"><?= LinkPager::widget(['pagination' => $dataProvider->getPagination()]) ?></div>
 </div>

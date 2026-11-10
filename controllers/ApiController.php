@@ -53,12 +53,12 @@ class ApiController extends Controller
         try {
             return parent::runAction($id, $params);
         } catch (InvalidRouteException $exception) {
-            return $this->failure(404, 'NOT_FOUND', '未找到该接口。');
+            return $this->failure(404, 'NOT_FOUND', '未找到该接口');
         } catch (HttpException $exception) {
             $status = $exception->statusCode;
             if ($status >= 500) {
                 Yii::error(['operation' => $id, 'exception' => $exception], self::class);
-                return $this->failure($status, 'SERVER_ERROR', '统计服务暂时不可用，请稍后重试。');
+                return $this->failure($status, 'SERVER_ERROR', '统计服务暂时不可用，请稍后重试');
             }
             $code = match ($status) {
                 400 => 'INVALID_PARAMETER', 403 => 'FORBIDDEN',
@@ -66,21 +66,21 @@ class ApiController extends Controller
                 405 => 'METHOD_NOT_ALLOWED', default => 'REQUEST_FAILED',
             };
             $message = match ($status) {
-                400 => '请求参数格式无效。', 403 => '无权访问该接口。',
-                404 => $code === 'TEAM_NOT_FOUND' ? '未找到该球队或其 2026 世界杯参赛记录。' : '未找到请求的数据。',
-                405 => '接口仅允许 GET 请求。', default => '请求未能完成。',
+                400 => '请求参数格式无效', 403 => '无权访问该接口',
+                404 => $code === 'TEAM_NOT_FOUND' ? '未找到该球队或其 2026 世界杯参赛记录' : '未找到请求的数据',
+                405 => '接口仅允许 GET 请求', default => '请求未能完成',
             };
             return $this->failure($status, $code, $message);
         } catch (\Throwable $exception) {
             Yii::error(['operation' => $id, 'exception' => $exception], self::class);
-            return $this->failure(500, 'SERVER_ERROR', '统计服务暂时不可用，请稍后重试。');
+            return $this->failure(500, 'SERVER_ERROR', '统计服务暂时不可用，请稍后重试');
         }
     }
 
     public function actionInsights(mixed $chart = null): array
     {
         if ($chart !== 'stage-goals') {
-            return $this->failure(400, 'INVALID_CHART', '仅支持 chart=stage-goals。');
+            return $this->failure(400, 'INVALID_CHART', '仅支持 chart=stage-goals');
         }
         return $this->success($this->matchQueryService->getStageSummary());
     }
@@ -90,10 +90,10 @@ class ApiController extends Controller
         $teamId = $this->positiveId($id);
         $data = $this->getTeamStatsService()->getTeamStats($teamId);
         if ($data === []) {
-            throw new NotFoundHttpException('未找到球队或参赛记录。');
+            throw new NotFoundHttpException('未找到球队或参赛记录');
         }
         if (!is_array($data)) {
-            throw new ServerErrorHttpException('球队统计返回结构无效。');
+            throw new ServerErrorHttpException('球队统计返回结构无效');
         }
         return $this->success($data);
     }
@@ -103,16 +103,16 @@ class ApiController extends Controller
         $leftId = $this->positiveId($left_id);
         $rightId = $this->positiveId($right_id);
         if ($leftId === $rightId) {
-            throw new BadRequestHttpException('请选择两支不同的球队。');
+            throw new BadRequestHttpException('请选择两支不同的球队');
         }
         $data = $this->getTeamStatsService()->getCompareStats($leftId, $rightId);
         if ($data === []) {
-            throw new NotFoundHttpException('未找到球队或参赛记录。');
+            throw new NotFoundHttpException('未找到球队或参赛记录');
         }
         if (!is_array($data) || !isset($data['left'], $data['right'])
             || !is_array($data['left']) || !is_array($data['right'])
             || $data['left'] === [] || $data['right'] === []) {
-            throw new ServerErrorHttpException('球队对比返回结构无效。');
+            throw new ServerErrorHttpException('球队对比返回结构无效');
         }
         return $this->success($data);
     }
@@ -124,7 +124,7 @@ class ApiController extends Controller
         }
         $class = 'app\\services\\TeamStatsService';
         if (!class_exists($class)) {
-            throw new ServerErrorHttpException('球队统计依赖尚未交付。');
+            throw new ServerErrorHttpException('球队统计依赖尚未交付');
         }
         return $this->teamStatsService = Yii::createObject($class);
     }
@@ -132,13 +132,13 @@ class ApiController extends Controller
     private function positiveId(mixed $value): int
     {
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException('球队 ID 必须为正整数。');
+            throw new BadRequestHttpException('球队 ID 必须为正整数');
         }
         $digits = ltrim((string) $value, '0');
         $max = (string) PHP_INT_MAX;
         if ($digits === '' || strlen($digits) > strlen($max)
             || (strlen($digits) === strlen($max) && strcmp($digits, $max) > 0)) {
-            throw new BadRequestHttpException('球队 ID 超出有效范围。');
+            throw new BadRequestHttpException('球队 ID 超出有效范围');
         }
         return (int) $digits;
     }

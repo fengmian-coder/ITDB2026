@@ -1,0 +1,66 @@
+/* WorldCup Journey | A | Team pages and administration layout | 2026-11-10 */
+.project-page, .project-admin, .project-admin-layout {
+    --project-green: #175b46;
+    --project-ink: #173c32;
+    --project-muted: #5b6d65;
+    --project-line: #dce7df;
+    font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+}
+.project-intro { padding: 48px 0 40px; border-bottom: 1px solid var(--project-line); }
+.project-eyebrow { color: var(--project-muted); font-size: .75rem; font-weight: 600; letter-spacing: .12em; margin-bottom: 14px; }
+.project-intro h1 { color: var(--project-ink); font-size: clamp(2rem, 4.8vw, 3.8rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.3; }
+.project-lead { color: var(--project-muted); font-size: 1.1rem; margin: 20px 0 0; }
+.project-team-section { padding: 42px 0; }
+.project-team-heading { display: flex; gap: 22px; align-items: center; }
+.project-team-heading h2 { color: var(--project-ink); font-size: 1.65rem; font-weight: 700; }
+.project-team-heading .project-eyebrow { margin-bottom: 8px; }
+.project-team-logo { width: 76px; height: 76px; object-fit: contain; }
+.project-description { max-width: 850px; color: var(--project-muted); line-height: 1.95; margin: 24px 0 36px; overflow-wrap: anywhere; }
+.project-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.project-section-heading h3 { color: var(--project-ink); font-size: 1.05rem; font-weight: 700; margin: 0; }
+.project-section-heading > span { color: var(--project-muted); font-size: .85rem; }
+.project-members { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 20px; }
+.project-member { border-top: 3px solid var(--project-green); padding: 24px 0 12px; overflow-wrap: anywhere; }
+.project-member-number { display: block; color: #a3b8ab; font-size: 2rem; font-weight: 300; margin-bottom: 22px; }
+.project-member h4 { color: var(--project-ink); font-size: 1.25rem; font-weight: 700; }
+.project-member-role { color: var(--project-green); font-size: .9rem; margin: 12px 0; }
+.project-member-bio { color: var(--project-muted); font-size: .9rem; line-height: 1.9; }
+.project-outro { border-top: 1px solid var(--project-line); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 36px 0 48px; }
+.project-outro h2 { font-size: 1.25rem; font-weight: 700; color: var(--project-ink); }
+.project-outro p { color: var(--project-muted); margin: 10px 0 0; }
+.project-page .btn-success, .project-admin .btn-success { --bs-btn-bg: #175b46; --bs-btn-border-color: #175b46; --bs-btn-hover-bg: #114633; --bs-btn-hover-border-color: #114633; }
+.project-empty { padding: 50px 24px; background: #f4f7f2; border: 1px solid var(--project-line); border-radius: 12px; margin: 28px 0; }
+.project-empty h2 { font-size: 1.4rem; color: var(--project-ink); }
+.project-empty p { color: var(--project-muted); }
+.project-admin-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 36px; padding: 24px 0 40px; }
+.project-admin-sidebar { padding-right: 20px; border-right: 1px solid var(--project-line); }
+.project-admin-sidebar nav { display: flex; flex-direction: column; gap: 5px; }
+.project-admin-link { display: block; text-decoration: none; color: var(--project-muted); padding: 10px 12px; border-radius: 7px; }
+.project-admin-link:hover, .project-admin-link.active { color: var(--project-green); background: #eaf1e9; }
+.project-admin-link.active { font-weight: 700; }
+.project-admin-preview { display: block; margin: 28px 12px; font-size: .85rem; color: var(--project-green); }
+.project-admin-content { min-width: 0; }
+.project-admin h1 { font-size: 1.8rem; font-weight: 700; color: var(--project-ink); overflow-wrap: anywhere; }
+.project-admin h2 { font-size: 1.1rem; font-weight: 700; }
+.project-admin-panel { border: 1px solid var(--project-line); border-radius: 10px; padding: 26px; }
+.project-admin-panel p { overflow-wrap: anywhere; }
+.project-admin .form-group { margin-bottom: 20px; }
+.project-admin .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+.project-admin .help-block { margin-top: 5px; color: var(--project-muted); font-size: .85rem; }
+.project-admin .has-error .help-block { color: #b02a37; }
+.project-admin .has-error .form-control { border-color: #b02a37; }
+.project-table-wrap { border: 1px solid var(--project-line); border-radius: 10px; }
+.project-table-wrap th { background: #f4f7f2; font-weight: 600; }
+.project-table-wrap th, .project-table-wrap td { padding: 16px; }
+.project-danger-zone { border-top: 1px solid var(--project-line); padding-top: 20px; color: #6e3934; }
+.project-documents { margin: 20px 0 40px; }
+.project-document { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-bottom: 1px solid var(--project-line); padding: 28px 0; }
+.project-document > div { min-width: 0; overflow-wrap: anywhere; }
+.project-document h2 { font-size: 1.25rem; font-weight: 700; color: var(--project-ink); }
+.project-document .project-eyebrow { margin-bottom: 10px; }
+.project-document > .btn { flex-shrink: 0; }
+@media (max-width: 575px) { .project-document { align-items: flex-start; flex-direction: column; } }
+[data-bs-theme="dark"] .project-page, [data-bs-theme="dark"] .project-admin, [data-bs-theme="dark"] .project-admin-layout { --project-ink: #e1efe6; --project-muted: #b7c8be; --project-green: #88cfad; --project-line: #354a3e; }
+[data-bs-theme="dark"] .project-empty, [data-bs-theme="dark"] .project-table-wrap th, [data-bs-theme="dark"] .project-admin-link.active, [data-bs-theme="dark"] .project-admin-link:hover { background: #253b2f; }
+@media (max-width: 991px) { .project-members { grid-template-columns: repeat(2, minmax(0, 1fr)); } .project-admin-layout { grid-template-columns: 155px minmax(0, 1fr); gap: 20px; } }
+@media (max-width: 575px) { .project-intro { padding-top: 24px; } .project-members { grid-template-columns: 1fr; gap: 12px; } .project-member { padding-top: 16px; } .project-member-number { margin-bottom: 10px; } .project-outro { align-items: flex-start; flex-direction: column; } .project-admin-layout { display: block; padding-top: 12px; } .project-admin-sidebar { border-right: 0; border-bottom: 1px solid var(--project-line); padding: 0 0 12px; margin-bottom: 24px; } .project-admin-sidebar nav { flex-direction: row; overflow-x: auto; } .project-admin-link { white-space: nowrap; } .project-admin-preview { margin: 12px; } .project-admin-panel { padding: 18px; } }

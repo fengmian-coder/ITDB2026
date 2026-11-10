@@ -134,21 +134,21 @@ class WcMatch extends ActiveRecord
     {
         $value = $this->identifier($attribute);
         if (strlen($value) > 20 || (strlen($value) === 20 && strcmp($value, '18446744073709551615') > 0)) {
-            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围。');
+            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围');
         }
     }
 
     public function validateOpponents(string $attribute): void
     {
         if (!$this->hasErrors('home_team_id') && $this->identifier('home_team_id') === $this->identifier($attribute)) {
-            $this->addError($attribute, '比赛双方不能是同一支球队。');
+            $this->addError($attribute, '比赛双方不能是同一支球队');
         }
     }
 
     public function validateGroup(string $attribute): void
     {
         if (!$this->hasErrors('stage_code') && $this->stage_code !== 'GROUP') {
-            $this->addError($attribute, '只有小组赛可以填写小组代码。');
+            $this->addError($attribute, '只有小组赛可以填写小组代码');
         }
     }
 
@@ -156,7 +156,7 @@ class WcMatch extends ActiveRecord
     {
         [$home, $away] = $params['pair'];
         if ($this->hasValue($home) !== $this->hasValue($away)) {
-            $this->addError($attribute, '主客队对应比分必须成对填写或同时留空。');
+            $this->addError($attribute, '主客队对应比分必须成对填写或同时留空');
         }
     }
 
@@ -164,9 +164,9 @@ class WcMatch extends ActiveRecord
     {
         $base = $params['base'];
         if (!$this->hasValue($base)) {
-            $this->addError($attribute, '填写加时累计比分前必须填写 90 分钟比分。');
+            $this->addError($attribute, '填写加时累计比分前必须填写 90 分钟比分');
         } elseif (!$this->hasErrors($base) && (int) $this->$attribute < (int) $this->$base) {
-            $this->addError($attribute, '加时累计比分不能小于对应的 90 分钟比分。');
+            $this->addError($attribute, '加时累计比分不能小于对应的 90 分钟比分');
         }
     }
 
@@ -176,13 +176,13 @@ class WcMatch extends ActiveRecord
             foreach (['home_score_90', 'away_score_90', 'home_score_120', 'away_score_120',
                 'home_penalties', 'away_penalties', 'winner_team_id'] as $field) {
                 if ($this->hasValue($field) && !$this->hasErrors($field)) {
-                    $this->addError($field, '未开始、延期或取消的比赛不能填写赛果。');
+                    $this->addError($field, '未开始、延期或取消的比赛不能填写赛果');
                 }
             }
         } elseif ($this->$attribute === 'FINISHED') {
             foreach (['home_score_90', 'away_score_90'] as $field) {
                 if (!$this->hasValue($field) && !$this->hasErrors($field)) {
-                    $this->addError($field, '已结束比赛必须填写 90 分钟比分。');
+                    $this->addError($field, '已结束比赛必须填写 90 分钟比分');
                 }
             }
         }
@@ -197,17 +197,17 @@ class WcMatch extends ActiveRecord
         $hasWinner = $this->hasValue($attribute);
         if ($this->stage_code === 'GROUP') {
             if ($hasWinner) {
-                $this->addError($attribute, '小组赛不填写最终获胜球队。');
+                $this->addError($attribute, '小组赛不填写最终获胜球队');
             }
             if ($this->hasValue('home_penalties') || $this->hasValue('away_penalties')) {
-                $this->addError('home_penalties', '小组赛不使用点球决胜比分。');
+                $this->addError('home_penalties', '小组赛不使用点球决胜比分');
             }
             return;
         }
         if ($hasWinner && !$this->hasErrors('home_team_id') && !$this->hasErrors('away_team_id')) {
             $participants = [$this->identifier('home_team_id'), $this->identifier('away_team_id')];
             if (!in_array($this->identifier($attribute), $participants, true)) {
-                $this->addError($attribute, '最终获胜球队必须是本场比赛双方之一。');
+                $this->addError($attribute, '最终获胜球队必须是本场比赛双方之一');
                 return;
             }
         }
@@ -218,19 +218,19 @@ class WcMatch extends ActiveRecord
             ?? $this->scorePair('home_score_90', 'away_score_90');
         if ($penalties !== null) {
             if ($penalties[0] === $penalties[1]) {
-                $this->addError('home_penalties', '点球决胜比分必须能确定获胜一方。');
+                $this->addError('home_penalties', '点球决胜比分必须能确定获胜一方');
                 return;
             }
             if ($fieldScore !== null && $fieldScore[0] !== $fieldScore[1]) {
-                $this->addError('home_penalties', '场上比分未打平时不能使用点球决胜比分。');
+                $this->addError('home_penalties', '场上比分未打平时不能使用点球决胜比分');
             }
             $this->validateWinningSide($attribute, $penalties);
         } elseif ($this->status === 'FINISHED') {
             if (!$hasWinner) {
-                $this->addError($attribute, '已结束的淘汰赛、季军赛或决赛必须填写最终获胜球队。');
+                $this->addError($attribute, '已结束的淘汰赛、季军赛或决赛必须填写最终获胜球队');
             } elseif ($fieldScore !== null) {
                 if ($fieldScore[0] === $fieldScore[1]) {
-                    $this->addError($attribute, '场上比分打平时需填写点球决胜结果，不能直接指定获胜方。');
+                    $this->addError($attribute, '场上比分打平时需填写点球决胜结果，不能直接指定获胜方');
                 } else {
                     $this->validateWinningSide($attribute, $fieldScore);
                 }
@@ -241,11 +241,11 @@ class WcMatch extends ActiveRecord
     private function validateWinningSide(string $attribute, array $scores): void
     {
         if (!$this->hasValue($attribute)) {
-            $this->addError($attribute, '必须填写与决胜比分一致的最终获胜球队。');
+            $this->addError($attribute, '必须填写与决胜比分一致的最终获胜球队');
         } elseif (!$this->hasErrors('home_team_id') && !$this->hasErrors('away_team_id')) {
             $side = $scores[0] > $scores[1] ? 'home_team_id' : 'away_team_id';
             if ($this->identifier($attribute) !== $this->identifier($side)) {
-                $this->addError($attribute, '最终获胜球队与比赛决胜比分不一致。');
+                $this->addError($attribute, '最终获胜球队与比赛决胜比分不一致');
             }
         }
     }

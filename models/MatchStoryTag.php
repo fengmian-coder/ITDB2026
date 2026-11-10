@@ -70,7 +70,7 @@ class MatchStoryTag extends ActiveRecord
     {
         $value = ltrim(ltrim(trim((string) $this->$attribute), '+'), '0');
         if (strlen($value) > 20 || (strlen($value) === 20 && strcmp($value, '18446744073709551615') > 0)) {
-            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围。');
+            $this->addError($attribute, 'ID 超出 BIGINT UNSIGNED 范围');
         }
     }
 }

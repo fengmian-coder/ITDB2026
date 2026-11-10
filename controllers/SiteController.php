@@ -1,5 +1,10 @@
 <?php
-/** WorldCup Journey | D | Site routes and legacy login redirect. */
+/**
+ * WorldCup Journey - 首页、球队探索入口及保留的模板路由。
+ * 模块：A 首页 / D 登录兼容；负责人：A、D。
+ * 依赖：TeamDirectoryService、B 的 MatchQueryService。
+ * 最近修改：2026-11-10。
+ */
 
 declare(strict_types=1);
 
@@ -7,6 +12,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\ContactForm;
+use app\services\TeamDirectoryService;
+use app\services\MatchQueryService;
+use yii\web\BadRequestHttpException;
 use yii\captcha\CaptchaAction;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -47,6 +55,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
+                    'index' => ['GET', 'HEAD'], 'explore' => ['GET', 'HEAD'],
                 ],
             ],
         ];
@@ -76,7 +85,25 @@ class SiteController extends Controller
      */
     public function actionIndex(): string
     {
-        return $this->render('index');
+        $teams = (new TeamDirectoryService())->getTeams();
+        $matches = (new MatchQueryService())->getMatchList(['page_size' => 1]);
+        return $this->render('index', ['teamCount' => count($teams),
+            'matchCount' => $matches['pagination']['total_count']]);
+    }
+
+    /** C 的球队页未交付前提供只读入口；不实现 DNA、PK 或重复统计。 */
+    public function actionExplore(mixed $q = ''): string|Response
+    {
+        if (!is_string($q) || mb_strlen($q) > 100) {
+            throw new BadRequestHttpException('搜索词格式无效，请输入不超过 100 字的名称');
+        }
+        if (class_exists(__NAMESPACE__ . '\\NationalTeamController')) {
+            return $this->redirect(['/national-team/index', 'q' => trim($q)]);
+        }
+        $q = trim($q);
+        $teams = array_values(array_filter((new TeamDirectoryService())->getTeams(),
+            static fn (array $team): bool => $q === '' || mb_stripos(implode(' ', [$team['name_zh'], $team['name_en'], $team['fifa_code']]), $q) !== false));
+        return $this->render('explore', compact('teams', 'q'));
     }
 
     /**

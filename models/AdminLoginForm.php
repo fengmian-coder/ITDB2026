@@ -28,7 +28,7 @@ class AdminLoginForm extends Model
 
         $admin = AdminUser::findOne(['username' => $this->username, 'status' => 1]);
         if (!$admin || !$admin->verifyPassword($this->password) || !Yii::$app->user->login($admin)) {
-            $this->addError('password', '账号或密码不正确。');
+            $this->addError('password', '账号或密码不正确');
             return false;
         }
 
