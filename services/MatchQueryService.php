@@ -5,7 +5,7 @@
  * 负责人：B
  * 依赖：Yii 2.0、B 模块七个 ActiveRecord、C 提供的正式数据库结构
  * 待集成：C 的球队名称、徽标与球队存在性验证；目前只返回球队 ID
- * 最近修改：2026-11-03
+ * 最近修改：2026-11-10
  */
 
 declare(strict_types=1);
@@ -14,7 +14,6 @@ namespace app\services;
 
 use app\models\MatchEvent;
 use app\models\MatchStory;
-use app\models\MatchStoryTag;
 use app\models\MatchTag;
 use app\models\Stadium;
 use app\models\Tournament;
@@ -171,10 +170,9 @@ class MatchQueryService
             ->where(['match_id' => $matchId, 'is_published' => 1])
             ->with(['tags' => function (ActiveQuery $query): void {
                 $query->select($this->columns(MatchTag::tableName(), self::TAG_FIELDS))
-                    ->orderBy([MatchTag::tableName() . '.id' => SORT_ASC])
-                    ->via('matchStoryTags', function (ActiveQuery $junction): void {
-                        $junction->select($this->columns(MatchStoryTag::tableName(), ['story_id', 'tag_id']));
-                    });
+                    ->orderBy([MatchTag::tableName() . '.id' => SORT_ASC]);
+                // 复用 getTags() 的 via 关联。Yii 预加载时 primaryModel 已清空，
+                // 此处再次调用 via() 会触发 getRelation() on null。
             }])->asArray();
     }
 
