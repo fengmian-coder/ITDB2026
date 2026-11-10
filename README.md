@@ -4,7 +4,7 @@
 
 ## 当前范围与协作
 
-本阶段只搭建统一的 Yii 2.0 Basic 骨架，不包含赛事业务、正式数据库结构或正式管理员认证。
+main 已集成 B 的赛事与旅程、C 的 15 表建表草案以及 D 的管理员与留言功能。团队主页、数据导入和球队统计仍待补齐。
 
 按 2026-11-03 项目负责人的最新安排，本次骨架在 `feature/b-match` 开发并提交、推送至同名远程分支，这是对 V1.1 原定 `develop → chore/yii2-bootstrap` 流程的本次分支例外。后续 PR 目标由组长确认，不直接向 main/develop 推送。
 
@@ -14,7 +14,7 @@ B 负责骨架、赛事与旅程、统一 API 入口；C 负责数据字典、SQ
 
 - PHP 8.2.x，当前机器为 8.2.35 x64 NTS。
 - Composer 2，当前机器为 2.11.1。
-- MySQL 8.0.x，当前机器为 8.0.19；本阶段不创建库或表。
+- MySQL 8.0.16 或更新的 8.0 版本，用于执行建表脚本中的 CHECK 约束。
 - 官方 Basic 模板 2.0.55；当前锁定并验证的 Yii 框架为 2.0.55，以 composer.lock 为准。
 - 必须启用 pdo_mysql、mbstring、openssl、intl、curl、zip、gd、fileinfo。
 - composer.json 限定 PHP 8.2.x 和稳定依赖，不使用 `--ignore-platform-reqs`。
@@ -54,9 +54,9 @@ config/db.php 读取无密码的 config/db.example.php，再应用 config/db.loc
 
 只在 config/db.local.php 填写本机账号密码。默认库名为 worldcup_journey，字符集 utf8mb4，连接时区 UTC；最终库和结构以 C 的 SQL 为准，排序规则统一 utf8mb4_0900_ai_ci。本地配置和密钥已排除在 Git 之外。
 
-data/install.sql 当前只含占位说明，不能用于数据库还原。待 C 提交正式结构及演示数据后，每位成员再还原自己的本地库；本阶段不导入占位 SQL，不运行建表迁移。
+先创建空库 worldcup_journey，按 data/install.sql 文件开头的说明执行建表脚本。脚本仅含表结构，赛事 CSV 及字段映射见 data/import/README.md。首次登录前运行 php yii admin/create <username> 生成本地管理员，再访问 index.php?r=auth/login。
 
-配置加载成功与数据库登录成功是两项不同检查。本阶段只验证配置加载和组件创建，不声称已验证数据库账号、SQL 或正式表结构。不要把密码发到聊天或提交仓库。
+数据库配置和管理员创建步骤见 docs/handoffs/d-auth-guestbook.md。不要提交本地密码。
 
 ## 目录约定
 
@@ -69,7 +69,7 @@ config/db.example.php         无密码数据库示例
 config/db.local.php           本机账号，不提交
 config/params-local.php       本机随机密钥，不提交
 config/params-local.example.php 无密钥参数示例
-data/install.sql              C 统一维护，当前占位
+data/install.sql              C 维护的 15 表建表草案
 data/import/                  赛事源数据
 data/team/                    团队作业
 data/personal/                个人作业
@@ -79,7 +79,7 @@ tests/                        保留官方模板测试框架
 
 路由保持 `index.php?r=controller/action`，无需修改 Apache；业务链接使用 Url::to()。CSRF 开启。服务端时间为 UTC，业务页面后续以 Asia/Shanghai 显示并标注北京时间。
 
-官方首页、登录、联系表单、User 模型及测试是模板演示，并非已完成的团队业务或正式管理员功能。模板演示账号不能用于正式认证，D 后续统一实现数据库管理员身份及访问控制。保留官方文件及版权；本组新增和修改的 PHP 配置与命令有负责人注释头。
+首页和联系页仍为模板内容。后台登录使用数据库管理员账号，原 site/login 会转到 auth/login。
 
 本项目验证 Windows 原生 PHP 8.2，不需要 Docker / Vagrant；这些未使用的模板示例仅保留在初始化机器本地，不纳入 Git。
 

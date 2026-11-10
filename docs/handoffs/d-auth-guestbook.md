@@ -1,9 +1,9 @@
 # D 模块联调说明
 
-本分支基于 feature/b-match。共享配置和导航分别请 B、A 复核。
+D 功能分支基于 feature/b-match，已与 C 的建表脚本一起集成到 main。共享配置和导航分别请 B、A 复核。
 
 1. 使用 PHP 8.2、Composer 和 MySQL 8.0，执行 composer install，配置 config/db.local.php。
-2. 与 C 确认并使用 C 分支的 data/install.sql 在空开发库建表。本分支继承的 SQL 是占位文件，最终脚本由 C 合并。关联比赛测试需先导入至少一场比赛。
+2. 在 main 上使用 data/install.sql 在空开发库建表。关联比赛测试需先导入至少一场比赛。
 3. 执行 php yii admin/create <username>。随机密码只在创建时显示，以哈希形式入库。
 4. 执行 php yii serve --port=8080。从导航进入管理员登录或球迷留言。guestbook/index 可带 match_id 预填关联比赛。
 
