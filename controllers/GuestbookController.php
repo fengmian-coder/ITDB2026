@@ -35,12 +35,12 @@ class GuestbookController extends Controller
         $data = array_intersect_key($this->request->post(), array_flip(['nickname', 'content', 'related_match_id']));
         foreach ($data as $value) {
             if (!is_string($value) && $value !== null) {
-                throw new BadRequestHttpException('无效的留言字段。');
+                throw new BadRequestHttpException('无效的留言字段');
             }
         }
 
         if ($model->load($data, '') && $model->save()) {
-            Yii::$app->session->setFlash('success', '留言已提交，审核通过后将公开显示。');
+            Yii::$app->session->setFlash('success', '留言已提交，审核通过后将公开显示');
             return $this->redirect(['index'], 303);
         }
 

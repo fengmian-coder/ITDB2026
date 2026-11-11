@@ -5,7 +5,7 @@
  * 负责人：B
  * 依赖：Yii 2.0、B 模块七个 ActiveRecord、C 提供的正式数据库结构
  * 待集成：C 的球队名称、徽标与球队存在性验证；目前只返回球队 ID
- * 最近修改：2026-11-03
+ * 最近修改：2026-11-10（A 联调修复已发布故事的标签预加载）
  */
 
 declare(strict_types=1);
@@ -96,13 +96,13 @@ class MatchQueryService
     public function getMatchDetail(int $matchId): array
     {
         if ($matchId < 1) {
-            throw new BadRequestHttpException('比赛 ID 必须为正整数。');
+            throw new BadRequestHttpException('比赛 ID 必须为正整数');
         }
 
         try {
             $match = $this->relatedMatchQuery()->andWhere(['m.id' => $matchId])->one();
             if ($match === null) {
-                throw new NotFoundHttpException('未找到该届比赛。');
+                throw new NotFoundHttpException('未找到该届比赛');
             }
 
             $story = $this->publishedStoryQuery($matchId)->one();
@@ -171,10 +171,9 @@ class MatchQueryService
             ->where(['match_id' => $matchId, 'is_published' => 1])
             ->with(['tags' => function (ActiveQuery $query): void {
                 $query->select($this->columns(MatchTag::tableName(), self::TAG_FIELDS))
-                    ->orderBy([MatchTag::tableName() . '.id' => SORT_ASC])
-                    ->via('matchStoryTags', function (ActiveQuery $junction): void {
-                        $junction->select($this->columns(MatchStoryTag::tableName(), ['story_id', 'tag_id']));
-                    });
+                    ->orderBy([MatchTag::tableName() . '.id' => SORT_ASC]);
+                // getTags() 已定义 via('matchStoryTags')。预加载回调执行时 primaryModel
+                // 已清空，重复调用 via() 会触发 getRelation() on null。
             }])->asArray();
     }
 
@@ -211,14 +210,14 @@ class MatchQueryService
     private function normalizeFilters(array $filters): array
     {
         if (array_diff(array_keys($filters), ['stage', 'team_id', 'page', 'page_size']) !== []) {
-            throw new BadRequestHttpException('包含不支持的比赛筛选参数。');
+            throw new BadRequestHttpException('包含不支持的比赛筛选参数');
         }
         $stage = $filters['stage'] ?? null;
         if ($stage === '') {
             $stage = null;
         }
         if ($stage !== null && (!is_string($stage) || !in_array($stage, WcMatch::STAGE_CODES, true))) {
-            throw new BadRequestHttpException('比赛阶段参数无效。');
+            throw new BadRequestHttpException('比赛阶段参数无效');
         }
         $teamId = $filters['team_id'] ?? null;
         if ($teamId === '') {
@@ -239,12 +238,12 @@ class MatchQueryService
     private function positiveDigits(mixed $value, string $name, string $maximum): string
     {
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException($name . ' 必须为正整数。');
+            throw new BadRequestHttpException($name . ' 必须为正整数');
         }
         $digits = ltrim((string) $value, '0');
         if ($digits === '' || strlen($digits) > strlen($maximum)
             || (strlen($digits) === strlen($maximum) && strcmp($digits, $maximum) > 0)) {
-            throw new BadRequestHttpException($name . ' 超出有效范围。');
+            throw new BadRequestHttpException($name . ' 超出有效范围');
         }
         return $digits;
     }
@@ -253,7 +252,7 @@ class MatchQueryService
     {
         $pageCount = intdiv($totalCount, $pageSize) + (int) ($totalCount % $pageSize !== 0);
         if ($page > max(1, $pageCount)) {
-            throw new BadRequestHttpException('请求页码超出查询结果范围。');
+            throw new BadRequestHttpException('请求页码超出查询结果范围');
         }
         return ['page' => $page, 'page_size' => $pageSize, 'total_count' => $totalCount, 'page_count' => $pageCount];
     }
@@ -345,6 +344,6 @@ class MatchQueryService
     private function databaseFailure(DatabaseException $exception, string $operation): ServerErrorHttpException
     {
         Yii::error(['operation' => $operation, 'exception' => $exception], self::class);
-        return new ServerErrorHttpException('比赛数据暂时不可用，请稍后重试。', 0, $exception);
+        return new ServerErrorHttpException('比赛数据暂时不可用，请稍后重试', 0, $exception);
     }
 }

@@ -33,11 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <section class="card border-danger-subtle rounded-4" aria-labelledby="delete-tournament-title">
         <div class="card-body p-4">
             <h2 id="delete-tournament-title" class="h5">删除赛事</h2>
-            <p class="small text-body-secondary">已被比赛或参赛记录引用的赛事不能删除，以保留赛事历史。</p>
+            <p class="small text-body-secondary">已被比赛或参赛记录引用的赛事不能删除，以保留赛事历史</p>
             <?= Html::beginForm(['/admin-tournament/delete', 'id' => $model->id], 'post') ?>
                 <div class="form-check mb-3">
                     <?= Html::checkbox('confirm_delete', false, ['id' => 'confirm-delete-tournament', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-                    <?= Html::label('确认删除该赛事，此操作不可撤销。', 'confirm-delete-tournament', ['class' => 'form-check-label']) ?>
+                    <?= Html::label('确认删除该赛事，此操作不可撤销', 'confirm-delete-tournament', ['class' => 'form-check-label']) ?>
                 </div>
                 <?= Html::submitButton('删除赛事', ['class' => 'btn btn-outline-danger']) ?>
             <?= Html::endForm() ?>

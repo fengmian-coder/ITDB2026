@@ -38,28 +38,28 @@ class MatchStorySearch extends Model
     {
         $input = $params[$this->formName()] ?? [];
         if (!is_array($input)) {
-            throw new BadRequestHttpException('故事筛选格式无效。');
+            throw new BadRequestHttpException('故事筛选格式无效');
         }
         $this->title = $input['title'] ?? null;
         if ($this->title !== null && !is_string($this->title)) {
-            throw new BadRequestHttpException('故事标题筛选必须为字符串。');
+            throw new BadRequestHttpException('故事标题筛选必须为字符串');
         }
         $matchId = $input['match_id'] ?? null;
         $this->match_id = $matchId === null || $matchId === '' ? null
             : $this->positiveDigits($matchId, '18446744073709551615');
         $this->is_published = $input['is_published'] ?? null;
         if (is_bool($this->is_published) || is_array($this->is_published) || !$this->validate()) {
-            throw new BadRequestHttpException('故事筛选参数无效，请检查标题长度和发布状态。');
+            throw new BadRequestHttpException('故事筛选参数无效，请检查标题长度和发布状态');
         }
         $page = array_key_exists('page', $params) ? (int) $this->positiveDigits($params['page'], (string) PHP_INT_MAX) : 1;
         $size = array_key_exists('per-page', $params) ? (int) $this->positiveDigits($params['per-page'], '100') : 20;
         if ($page - 1 > intdiv(PHP_INT_MAX, $size)) {
-            throw new BadRequestHttpException('分页偏移超出有效范围。');
+            throw new BadRequestHttpException('分页偏移超出有效范围');
         }
         $sort = $params['sort'] ?? null;
         if ($sort !== null && (!is_string($sort) || !in_array($sort,
             ['id', '-id', 'title', '-title', 'match_id', '-match_id', 'is_published', '-is_published'], true))) {
-            throw new BadRequestHttpException('故事排序参数无效。');
+            throw new BadRequestHttpException('故事排序参数无效');
         }
         $order = $sort === null ? ['id' => SORT_DESC]
             : [ltrim($sort, '-') => str_starts_with($sort, '-') ? SORT_DESC : SORT_ASC];
@@ -80,12 +80,12 @@ class MatchStorySearch extends Model
     private function positiveDigits(mixed $value, string $maximum): string
     {
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException('比赛 ID 或分页参数必须为正整数。');
+            throw new BadRequestHttpException('比赛 ID 或分页参数必须为正整数');
         }
         $digits = ltrim((string) $value, '0');
         if ($digits === '' || strlen($digits) > strlen($maximum)
             || (strlen($digits) === strlen($maximum) && strcmp($digits, $maximum) > 0)) {
-            throw new BadRequestHttpException('比赛 ID 或分页参数超出有效范围。');
+            throw new BadRequestHttpException('比赛 ID 或分页参数超出有效范围');
         }
         return $digits;
     }

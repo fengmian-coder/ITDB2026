@@ -1,0 +1,3 @@
+# Preserve distributed course documents for SHA-256 verification.
+data/team/** -text
+data/personal/** -text

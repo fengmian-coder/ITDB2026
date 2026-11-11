@@ -54,7 +54,7 @@ class MatchTag extends ActiveRecord
     public function getMatchStoryTags(): ActiveQuery
     {
         if (!class_exists(MatchStoryTag::class)) {
-            throw new InvalidConfigException('MatchStoryTag 尚未实现，故事标签关联需待该 Model 就绪后使用。');
+            throw new InvalidConfigException('MatchStoryTag 尚未实现，故事标签关联需待该 Model 就绪后使用');
         }
 
         return $this->hasMany(MatchStoryTag::class, ['tag_id' => 'id']);

@@ -60,7 +60,7 @@ class JourneyService
     public function getTeamJourney(int $teamId): array
     {
         if ($teamId < 1) {
-            throw new BadRequestHttpException('球队 ID 必须为正整数。');
+            throw new BadRequestHttpException('球队 ID 必须为正整数');
         }
 
         try {
@@ -68,7 +68,7 @@ class JourneyService
             return array_map(fn (array $row): array => $this->journeyItem($row, $teamId), $rows);
         } catch (DatabaseException | UnexpectedValueException $exception) {
             Yii::error(['operation' => __FUNCTION__, 'exception' => $exception], self::class);
-            throw new ServerErrorHttpException('球队比赛历程暂时不可用，请稍后重试。', 0, $exception);
+            throw new ServerErrorHttpException('球队比赛历程暂时不可用，请稍后重试', 0, $exception);
         }
     }
 
@@ -94,11 +94,11 @@ class JourneyService
     {
         $isHome = (string) $row['home_team_id'] === (string) $teamId;
         if (!$isHome && (string) $row['away_team_id'] !== (string) $teamId) {
-            throw new UnexpectedValueException('历程记录不属于所查询球队。');
+            throw new UnexpectedValueException('历程记录不属于所查询球队');
         }
         if (!in_array($row['stage_code'], WcMatch::STAGE_CODES, true)
             || !in_array($row['status'], WcMatch::STATUS_CODES, true)) {
-            throw new UnexpectedValueException('比赛阶段或状态不符合契约。');
+            throw new UnexpectedValueException('比赛阶段或状态不符合契约');
         }
 
         $finished = $row['status'] === 'FINISHED';
@@ -111,11 +111,11 @@ class JourneyService
         $awayPenalties = $this->score($row, 'away_penalties');
         foreach ([[$home90, $away90], [$home120, $away120], [$homePenalties, $awayPenalties]] as [$home, $away]) {
             if (($home === null) !== ($away === null)) {
-                throw new UnexpectedValueException('比赛比分未成对填写。');
+                throw new UnexpectedValueException('比赛比分未成对填写');
             }
         }
         if ($finished && ($home90 === null || $away90 === null)) {
-            throw new UnexpectedValueException('已结束比赛缺少 90 分钟比分。');
+            throw new UnexpectedValueException('已结束比赛缺少 90 分钟比分');
         }
         $homeScore = $finished ? ($home120 ?? $home90) : null;
         $awayScore = $finished ? ($away120 ?? $away90) : null;
@@ -124,7 +124,7 @@ class JourneyService
         if ($finished && in_array($row['stage_code'], self::ADVANCEMENT_STAGES, true)) {
             if ($row['winner_team_id'] === null || !in_array((string) $row['winner_team_id'],
                 [(string) $row['home_team_id'], (string) $row['away_team_id']], true)) {
-                throw new UnexpectedValueException('已结束淘汰赛缺少有效获胜方。');
+                throw new UnexpectedValueException('已结束淘汰赛缺少有效获胜方');
             }
             $advancement = (string) $row['winner_team_id'] === (string) $teamId ? 'ADVANCED' : 'ELIMINATED';
         }
@@ -157,7 +157,7 @@ class JourneyService
         }
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)
             || strlen((string) $value) > 3 || (int) $value > 255) {
-            throw new UnexpectedValueException('比分超出字段允许范围。');
+            throw new UnexpectedValueException('比分超出字段允许范围');
         }
         return (int) $value;
     }
@@ -166,7 +166,7 @@ class JourneyService
     {
         $time = \DateTimeImmutable::createFromFormat('!Y-m-d H:i:s', $value, new \DateTimeZone('UTC'));
         if ($time === false || $time->format('Y-m-d H:i:s') !== $value) {
-            throw new UnexpectedValueException('比赛时间不是有效的 UTC DATETIME。');
+            throw new UnexpectedValueException('比赛时间不是有效的 UTC DATETIME');
         }
         return $time->format('Y-m-d\TH:i:s\Z');
     }

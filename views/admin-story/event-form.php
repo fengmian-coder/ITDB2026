@@ -34,11 +34,11 @@ $action = $event->isNewRecord ? ['/admin-story/event-create', 'id' => $story->id
             <div class="col-12"><?= Html::activeLabel($event, 'description', ['class' => 'form-label']) ?>
                 <?= Html::activeTextarea($event, 'description', ['class' => 'form-control', 'rows' => 4, 'maxlength' => 500]) ?></div>
         </div>
-        <p class="small text-body-secondary mt-3">分钟与补时分开填写，例如 45+2 填为 45 和 2；没有值时留空，不用虚构球员或球队。时段建议 H1/H2/ET1/ET2/SHOOTOUT；类型建议 GOAL/OWN_GOAL/YELLOW/RED/PENALTY_GOAL/PENALTY_MISS/OTHER。建议代码尚不作为冻结枚举，正式规则待 B/C 对齐。</p>
+        <p class="small text-body-secondary mt-3">分钟与补时分开填写，例如 45+2 填为 45 和 2；没有值时留空，不用虚构球员或球队。时段建议 H1/H2/ET1/ET2/SHOOTOUT；类型建议 GOAL/OWN_GOAL/YELLOW/RED/PENALTY_GOAL/PENALTY_MISS/OTHER。建议代码尚不作为冻结枚举，正式规则待 B/C 对齐</p>
         <?php if ($story->isPublished()): ?>
             <div class="form-check mb-3">
                 <?= Html::checkbox('confirm_publish', false, ['id' => 'event-confirm-publish', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-                <?= Html::label('已核对事件事实与素材许可，确认本次修改对已发布时间轴的影响。', 'event-confirm-publish', ['class' => 'form-check-label']) ?>
+                <?= Html::label('已核对事件事实与素材许可，确认本次修改对已发布时间轴的影响', 'event-confirm-publish', ['class' => 'form-check-label']) ?>
             </div>
         <?php endif ?>
         <div class="d-flex gap-2">
@@ -49,16 +49,16 @@ $action = $event->isNewRecord ? ['/admin-story/event-create', 'id' => $story->id
     </div></div>
     <?php if (!$event->isNewRecord): ?>
         <section class="card border-danger-subtle"><div class="card-body p-4">
-            <h2 class="h5">删除此事件</h2><p>只删除本条时间轴事件，不修改比赛比分。</p>
+            <h2 class="h5">删除此事件</h2><p>只删除本条时间轴事件，不修改比赛比分</p>
             <?= Html::beginForm(['/admin-story/event-delete', 'id' => $story->id, 'event_id' => $event->id], 'post') ?>
             <div class="form-check mb-2">
                 <?= Html::checkbox('confirm_delete', false, ['id' => 'event-confirm-delete', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-                <?= Html::label('确认删除该事件，此操作不可撤销。', 'event-confirm-delete', ['class' => 'form-check-label']) ?>
+                <?= Html::label('确认删除该事件，此操作不可撤销', 'event-confirm-delete', ['class' => 'form-check-label']) ?>
             </div>
             <?php if ($story->isPublished()): ?>
                 <div class="form-check mb-3">
                     <?= Html::checkbox('confirm_publish', false, ['id' => 'event-delete-publish', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-                    <?= Html::label('确认删除对已发布故事时间轴的影响。', 'event-delete-publish', ['class' => 'form-check-label']) ?>
+                    <?= Html::label('确认删除对已发布故事时间轴的影响', 'event-delete-publish', ['class' => 'form-check-label']) ?>
                 </div>
             <?php endif ?>
             <?= Html::submitButton('删除事件', ['class' => 'btn btn-outline-danger']) ?>

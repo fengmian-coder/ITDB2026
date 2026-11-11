@@ -18,7 +18,7 @@ $action = $model->isNewRecord ? ['/admin-story/create'] : ['/admin-story/update'
             <div class="col-12 col-md-3">
                 <?= Html::activeLabel($model, 'match_id', ['class' => 'form-label', 'label' => '比赛 ID']) ?>
                 <?= Html::activeTextInput($model, 'match_id', ['class' => 'form-control', 'inputmode' => 'numeric', 'pattern' => '[0-9]+', 'required' => true, 'aria-describedby' => 'story-match-hint']) ?>
-                <p id="story-match-hint" class="small text-body-secondary mt-2 mb-0">填写比赛详情链接中的 ID，与赛事内比赛编号不同；一场比赛最多一篇故事。</p>
+                <p id="story-match-hint" class="small text-body-secondary mt-2 mb-0">填写比赛详情链接中的 ID，与赛事内比赛编号不同；一场比赛最多一篇故事</p>
             </div>
             <div class="col-12 col-md-9">
                 <?= Html::activeLabel($model, 'title', ['class' => 'form-label']) ?>
@@ -31,12 +31,12 @@ $action = $model->isNewRecord ? ['/admin-story/create'] : ['/admin-story/update'
             <div class="col-12">
                 <?= Html::activeLabel($model, 'body', ['class' => 'form-label']) ?>
                 <?= Html::activeTextarea($model, 'body', ['class' => 'form-control', 'rows' => 14, 'required' => true, 'aria-describedby' => 'story-body-hint']) ?>
-                <p id="story-body-hint" class="small text-body-secondary mt-2 mb-0">正文使用纯文本，展示时保留换行；HTML 不作为页面代码执行。</p>
+                <p id="story-body-hint" class="small text-body-secondary mt-2 mb-0">正文使用纯文本，展示时保留换行；HTML 不作为页面代码执行</p>
             </div>
             <div class="col-12 col-md-6">
                 <?= Html::activeLabel($model, 'cover_path', ['class' => 'form-label']) ?>
                 <?= Html::activeTextInput($model, 'cover_path', ['class' => 'form-control', 'maxlength' => 255, 'placeholder' => '例如 images/stories/cover.jpg']) ?>
-                <p class="small text-body-secondary mt-2 mb-0">可留空。使用已核验素材的站内相对路径，不填写外部图片链接。</p>
+                <p class="small text-body-secondary mt-2 mb-0">可留空。使用已核验素材的站内相对路径，不填写外部图片链接</p>
             </div>
             <div class="col-12 col-md-6">
                 <?= Html::activeLabel($model, 'source_url', ['class' => 'form-label']) ?>
@@ -51,9 +51,9 @@ $action = $model->isNewRecord ? ['/admin-story/create'] : ['/admin-story/update'
             </div>
             <div class="form-check mb-2">
                 <?= Html::checkbox('confirm_publish', false, ['id' => 'story-confirm-publish', 'class' => 'form-check-input', 'value' => '1']) ?>
-                <?= Html::label('我已核对故事事实、来源及素材使用许可。', 'story-confirm-publish', ['class' => 'form-check-label']) ?>
+                <?= Html::label('我已核对故事事实、来源及素材使用许可', 'story-confirm-publish', ['class' => 'form-check-label']) ?>
             </div>
-            <p class="small text-body-secondary mb-0">保存为已发布时须完成上述确认，包括修改已发布故事。发布会一并开放该场已整理的事件时间轴和标签；撤回发布后，前台只保留比赛基础信息。</p>
+            <p class="small text-body-secondary mb-0">保存为已发布时须完成上述确认，包括修改已发布故事。发布会一并开放该场已整理的事件时间轴和标签；撤回发布后，前台只保留比赛基础信息</p>
         </section>
         <div class="d-flex flex-wrap gap-2 mt-4">
             <?= Html::submitButton('保存故事', ['class' => 'btn btn-primary']) ?>

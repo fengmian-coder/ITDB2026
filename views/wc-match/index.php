@@ -20,7 +20,7 @@ use yii\helpers\Url;
 
 $this->title = '比赛赛程与赛果 | WorldCup Journey';
 $this->params['breadcrumbs'][] = '比赛赛程';
-$this->params['meta_description'] = '探索 2026 世界杯赛程与赛果，按比赛阶段或球队 ID 筛选比赛。';
+$this->params['meta_description'] = '探索 2026 世界杯赛程与赛果，按比赛阶段或球队 ID 筛选比赛';
 $stageLabels = [
     'GROUP' => '小组赛', 'R32' => '32 强赛', 'R16' => '16 强赛',
     'QF' => '四分之一决赛', 'SF' => '半决赛', 'THIRD' => '季军赛', 'FINAL' => '决赛',
@@ -58,11 +58,11 @@ $pageUrl = static function (int $target) use ($filters, $pagination): string {
     return Url::to($params);
 };
 $this->registerCss(<<<'CSS'
-.wc-match-index { flex: 1; --wc-accent: #ceef77; }
-.wc-match-index .wc-hero { background: linear-gradient(115deg, #102d39, #126a65); color: #fff; }
-.wc-match-index .wc-eyebrow { color: var(--wc-accent); letter-spacing: .16em; font-size: .75rem; }
+.wc-match-index { flex: 1; --wc-accent: #e4d59c; }
+.wc-match-index .wc-hero { background: #174f35; color: #fff; text-align: left; }
+.wc-match-index .wc-hero .wc-eyebrow { color: var(--wc-accent); letter-spacing: .12em; font-size: 14px; line-height: 1.5; max-width: none; margin: 0 0 12px; }
 .wc-match-index .wc-total { color: var(--wc-accent); font-variant-numeric: tabular-nums; }
-.wc-match-index .wc-card { border-top: 3px solid #167d72 !important; }
+.wc-match-index .wc-card { border-top: 3px solid #48785a !important; }
 .wc-match-index .wc-team { min-width: 0; overflow-wrap: anywhere; }
 .wc-match-index .wc-score { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 750; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .wc-match-index .wc-fixture { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .75rem; align-items: center; }
@@ -81,9 +81,9 @@ CSS, [], 'wc-match-index');
 ?>
 <div class="wc-match-index pb-4">
     <header class="wc-hero rounded-4 p-4 p-md-5 mb-4">
-        <p class="wc-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / 2026</p>
         <div class="d-flex flex-wrap align-items-end justify-content-between gap-3">
             <div>
+                <p class="wc-eyebrow fw-semibold">WORLD CUP JOURNEY / 2026</p>
                 <h1 class="display-6 fw-bold mb-2">每一场，都是旅程</h1>
                 <p class="mb-0 opacity-75">2026 世界杯赛程与赛果 · 所有开赛时间均为北京时间</p>
             </div>
@@ -117,7 +117,7 @@ CSS, [], 'wc-match-index');
                     <?= Html::a('重置', ['/wc-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
             <?= Html::endForm() ?>
-            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识；筛选将同时匹配主队和客队。</p>
+            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识；筛选将同时匹配主队和客队</p>
         </div>
     </section>
     <section aria-labelledby="match-list-title">
@@ -128,7 +128,7 @@ CSS, [], 'wc-match-index');
         <?php if ($matches === []): ?>
             <div class="wc-empty rounded-4 text-center py-5 px-3">
                 <h3 class="h5 mb-2">暂无符合条件的比赛</h3>
-                <p class="text-body-secondary mb-3">可以调整筛选条件，或稍后再来查看赛程。</p>
+                <p class="text-body-secondary mb-3">可以调整筛选条件，或稍后再来查看赛程</p>
                 <?= Html::a('查看全部比赛', ['/wc-match/index'], ['class' => 'btn btn-outline-primary']) ?>
             </div>
         <?php else: ?>

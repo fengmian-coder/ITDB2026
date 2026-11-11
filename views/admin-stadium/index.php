@@ -17,7 +17,7 @@ $countryLabels = ['CA' => '加拿大（CA）', 'MX' => '墨西哥（MX）', 'US'
 ?>
 <div class="admin-stadium-index pb-4">
     <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-        <div><h1 class="h3 fw-bold mb-1">场馆管理</h1><p class="text-body-secondary mb-0">维护比赛场馆、城市、国家与时区。</p></div>
+        <div><h1 class="h3 fw-bold mb-1">场馆管理</h1><p class="text-body-secondary mb-0">维护比赛场馆、城市、国家与时区</p></div>
         <?= Html::a('新增场馆', ['/admin-stadium/create'], ['class' => 'btn btn-primary']) ?>
     </header>
     <div class="card border-0 shadow-sm rounded-4 mb-4">
@@ -51,7 +51,7 @@ $countryLabels = ['CA' => '加拿大（CA）', 'MX' => '墨西哥（MX）', 'US'
     </div>
     <p class="small text-body-secondary">共 <?= Html::encode((string) $dataProvider->getTotalCount()) ?> 条场馆记录</p>
     <?php if ($models === []): ?>
-        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的场馆。</div>
+        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的场馆</div>
     <?php else: ?>
         <div class="table-responsive border rounded-4 mb-3">
             <table class="table align-middle mb-0">

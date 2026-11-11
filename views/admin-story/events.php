@@ -25,7 +25,7 @@ $events = $dataProvider->getModels();
             <?= Html::a('返回故事', ['/admin-story/view', 'id' => $story->id], ['class' => 'btn btn-outline-secondary']) ?>
         </div>
     </header>
-    <p class="alert alert-info">按排序值升序、事件 ID 升序展示；排序值可在编辑页修改。事件不参与进球统计。<?= $story->isPublished() ? '此故事已发布，事件修改会影响前台时间轴。' : '此故事尚未发布，前台不展示事件。' ?></p>
+    <p class="alert alert-info">按排序值升序、事件 ID 升序展示；排序值可在编辑页修改。事件不参与进球统计<?= $story->isPublished() ? '此故事已发布，事件修改会影响前台时间轴' : '此故事尚未发布，前台不展示事件' ?></p>
     <div class="card border-0 shadow-sm rounded-4"><div class="table-responsive">
         <table class="table align-middle mb-0">
             <thead><tr><th>排序 / ID</th><th>时段 / 时间</th><th>类型 / 球队</th><th>球员 / 描述</th><th>操作</th></tr></thead>
@@ -39,7 +39,7 @@ $events = $dataProvider->getModels();
                     <td><?= Html::a('编辑 / 删除', ['/admin-story/event-update', 'id' => $story->id, 'event_id' => $event->id], ['class' => 'btn btn-sm btn-outline-primary text-nowrap']) ?></td>
                 </tr>
             <?php endforeach ?>
-            <?php if (!$events): ?><tr><td colspan="5" class="text-center text-body-secondary py-5">尚未录入比赛事件。</td></tr><?php endif ?>
+            <?php if (!$events): ?><tr><td colspan="5" class="text-center text-body-secondary py-5">尚未录入比赛事件</td></tr><?php endif ?>
             </tbody>
         </table>
     </div></div>

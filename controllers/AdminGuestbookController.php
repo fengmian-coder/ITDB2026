@@ -1,5 +1,9 @@
 <?php
-/** WorldCup Journey | D | Authenticated moderation and administrator replies. */
+/**
+ * WorldCup Journey - 留言审核与回复，接入 A 的公共后台布局。
+ * 模块：D 互动 / A 视觉接入；负责人：D、A。
+ * 依赖：D 的管理员会话与留言模型；最近修改：2026-11-10。
+ */
 
 namespace app\controllers;
 
@@ -17,6 +21,8 @@ use yii\web\Response;
 
 class AdminGuestbookController extends Controller
 {
+    public $layout = 'admin';
+
     public function behaviors(): array
     {
         return [
@@ -42,12 +48,12 @@ class AdminGuestbookController extends Controller
     {
         $status = $this->request->post('status');
         if (!in_array($status, [GuestbookMessage::APPROVED, GuestbookMessage::REJECTED], true)) {
-            throw new BadRequestHttpException('无效的审核状态。');
+            throw new BadRequestHttpException('无效的审核状态');
         }
 
         $message = $this->findMessage($id);
         $message->updateAttributes(['status' => $status]);
-        Yii::$app->session->setFlash('success', '审核状态已更新。');
+        Yii::$app->session->setFlash('success', '审核状态已更新');
         return $this->redirect(['index'], 303);
     }
 
@@ -56,7 +62,7 @@ class AdminGuestbookController extends Controller
         $message = $this->findMessage($id);
         $reply = new GuestbookReply(['content' => $this->request->post('content')]);
         if (!$reply->validate()) {
-            throw new BadRequestHttpException('请输入 1 至 2000 字的回复。');
+            throw new BadRequestHttpException('请输入 1 至 2000 字的回复');
         }
 
         Yii::$app->db->transaction(function ($db) use ($message, $reply): void {
@@ -67,10 +73,10 @@ class AdminGuestbookController extends Controller
             )->queryScalar();
 
             if ($status !== GuestbookMessage::APPROVED) {
-                throw new ConflictHttpException('只有已通过审核的留言可以回复。');
+                throw new ConflictHttpException('只有已通过审核的留言可以回复');
             }
             if (GuestbookReply::find()->where(['message_id' => $message->id])->exists()) {
-                throw new ConflictHttpException('这条留言已有回复。');
+                throw new ConflictHttpException('这条留言已有回复');
             }
 
             $reply->message_id = $message->id;
@@ -78,19 +84,19 @@ class AdminGuestbookController extends Controller
             $reply->insert(false);
         });
 
-        Yii::$app->session->setFlash('success', '回复已发布。');
+        Yii::$app->session->setFlash('success', '回复已发布');
         return $this->redirect(['index'], 303);
     }
 
     private function findMessage($id): GuestbookMessage
     {
         if (!is_scalar($id) || !preg_match('/\A[1-9][0-9]{0,19}\z/', (string) $id)) {
-            throw new BadRequestHttpException('无效的留言编号。');
+            throw new BadRequestHttpException('无效的留言编号');
         }
 
         $message = GuestbookMessage::findOne(['id' => $id]);
         if (!$message) {
-            throw new NotFoundHttpException('找不到该留言。');
+            throw new NotFoundHttpException('找不到该留言');
         }
 
         return $message;
