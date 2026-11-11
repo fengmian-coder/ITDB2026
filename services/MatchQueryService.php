@@ -5,7 +5,7 @@
  * 负责人：B
  * 依赖：Yii 2.0、B 模块七个 ActiveRecord、C 提供的正式数据库结构
  * 待集成：C 的球队名称、徽标与球队存在性验证；目前只返回球队 ID
- * 最近修改：2026-11-10（A 联调修复已发布故事的标签预加载）
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -64,7 +64,7 @@ class MatchQueryService
 
     /**
      * stage/team_id 为 null 或空字符串时不筛选；page 默认 1，page_size 可选，默认 20。
-     * 页码和页大小须为 PHP 整数范围内的正整数；超页返回 400，不静默改写页码。
+     * 页码须为 PHP 整数范围内正整数，页大小为 1—100；超页返回 400。
      * 正整数球队 ID 无匹配时返回空列表，球队是否存在待 C 的接口就绪后再验证。
      *
      * @return array{items: array, pagination: array{page: int, page_size: int, total_count: int, page_count: int}}
@@ -230,7 +230,7 @@ class MatchQueryService
             'page' => array_key_exists('page', $filters)
                 ? (int) $this->positiveDigits($filters['page'], 'page', (string) PHP_INT_MAX) : 1,
             'page_size' => array_key_exists('page_size', $filters)
-                ? (int) $this->positiveDigits($filters['page_size'], 'page_size', (string) PHP_INT_MAX)
+                ? (int) $this->positiveDigits($filters['page_size'], 'page_size', '100')
                 : self::DEFAULT_PAGE_SIZE,
         ];
     }

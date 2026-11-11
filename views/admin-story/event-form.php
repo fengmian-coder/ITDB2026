@@ -2,7 +2,7 @@
 /**
  * WorldCup Journey - 精选比赛事件编辑与删除
  * 模块：B；负责人：B；依赖：MatchStory、MatchEvent、Html、现有 Bootstrap
- * 最近修改：2026-11-05
+ * 最近修改：2026-11-11
  */
 declare(strict_types=1);
 use yii\helpers\Html;
@@ -34,7 +34,7 @@ $action = $event->isNewRecord ? ['/admin-story/event-create', 'id' => $story->id
             <div class="col-12"><?= Html::activeLabel($event, 'description', ['class' => 'form-label']) ?>
                 <?= Html::activeTextarea($event, 'description', ['class' => 'form-control', 'rows' => 4, 'maxlength' => 500]) ?></div>
         </div>
-        <p class="small text-body-secondary mt-3">分钟与补时分开填写，例如 45+2 填为 45 和 2；没有值时留空，不用虚构球员或球队。时段建议 H1/H2/ET1/ET2/SHOOTOUT；类型建议 GOAL/OWN_GOAL/YELLOW/RED/PENALTY_GOAL/PENALTY_MISS/OTHER。建议代码尚不作为冻结枚举，正式规则待 B/C 对齐</p>
+        <p class="small text-body-secondary mt-3">分钟与补时分开填写，例如 45+2 填为 45 和 2。非点球大战须填写分钟，填写补时也须填写基础分钟。时段使用 H1/H2/ET1/ET2/SHOOTOUT；类型使用 GOAL/OWN_GOAL/YELLOW/RED/PENALTY_GOAL/PENALTY_MISS/OTHER。关联球队须属于本场双方。</p>
         <?php if ($story->isPublished()): ?>
             <div class="form-check mb-3">
                 <?= Html::checkbox('confirm_publish', false, ['id' => 'event-confirm-publish', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>

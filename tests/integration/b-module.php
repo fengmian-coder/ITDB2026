@@ -253,6 +253,72 @@ try {
 
     $check($request($admin, 'auth/logout', ['_csrf' => $csrf])[0] === 302, 'logout');
     $check($request($admin, 'admin-match/index')[0] === 403, 'logged out denied');
+    // 新验证使用本次独立库，保留实际导入数据及开发库原貌。
+    foreach (['0', '101', '-1', '1.5', '100000000000000000000'] as $size) {
+        $check($request($guest, 'wc-match/index&page_size=' . $size)[0] === 400, 'invalid public page size ' . $size);
+    }
+    $check($request($guest, 'wc-match/index&page_size=100')[0] === 200, 'maximum page size accepted');
+    $outsider = $insert('national_team', ['fifa_code' => 'ZZZ', 'name_zh' => 'TEST ONLY outsider', 'name_en' => 'TEST ONLY outsider']);
+    $emptyTeam = $insert('national_team', ['fifa_code' => 'ZZW', 'name_zh' => 'TEST ONLY no games', 'name_en' => 'TEST ONLY no games']);
+    $db->createCommand()->insert('tournament_team', ['tournament_id' => $tournament, 'team_id' => $emptyTeam, 'group_code' => 'A'])->execute();
+    foreach (['home_team_id', 'away_team_id'] as $attribute) {
+        $match = app\models\WcMatch::findOne($m1);
+        $match->$attribute = $outsider;
+        $check(!$match->validate() && $match->hasErrors($attribute), 'nonparticipant rejected ' . $attribute);
+    }
+    $match = app\models\WcMatch::findOne($m1);
+    $match->home_team_id = 999999;
+    $check(!$match->validate() && $match->hasErrors('home_team_id'), 'missing match team rejected');
+    $match = app\models\WcMatch::findOne($m1);
+    $match->home_team_id = $away;
+    $match->away_team_id = $home;
+    $check($match->validate(), 'valid participants keep existing match behavior');
+    $eventFields = ['match_id' => $m1, 'team_id' => $home, 'period_code' => 'H1', 'event_type' => 'OTHER', 'minute' => 45, 'sort_order' => 0];
+    foreach ([
+        [['period_code' => 'ET'], 'period_code'],
+        [['event_type' => 'UNKNOWN'], 'event_type'],
+        [['minute' => null], 'minute'],
+        [['period_code' => 'SHOOTOUT', 'minute' => null, 'added_minute' => 2], 'minute'],
+        [['team_id' => $outsider], 'team_id'],
+        [['team_id' => 999999], 'team_id'],
+        [['match_id' => 999999], 'match_id'],
+    ] as [$invalid, $attribute]) {
+        $event = new app\models\MatchEvent(array_replace($eventFields, $invalid));
+        $check(!$event->validate() && $event->hasErrors($attribute), 'event rejects invalid ' . $attribute);
+    }
+    foreach ([
+        ['period_code' => 'SHOOTOUT', 'minute' => null],
+        ['team_id' => null], ['team_id' => $away], ['minute' => 45, 'added_minute' => 2],
+        ['period_code' => 'ET1', 'minute' => 105], ['period_code' => 'ET2', 'minute' => 120],
+    ] as $valid) {
+        $event = new app\models\MatchEvent(array_replace($eventFields, $valid));
+        $check($event->validate(), 'valid event retains supported semantics');
+    }
+    $journey = new app\services\JourneyService();
+    $check($journey->getTeamJourney($emptyTeam) === [], 'participant without matches gets empty journey');
+    $check($request($guest, 'journey/view&team_id=' . $emptyTeam)[0] === 200, 'empty journey page');
+    $check($request($guest, 'journey/view&team_id=' . $outsider)[0] === 404, 'nonparticipant journey 404');
+    $check($request($guest, 'journey/view&team_id=999999')[0] === 404, 'missing team journey 404');
+    $db->createCommand()->update('tournament', ['year' => 2030], ['id' => $tournament])->execute();
+    $check($request($guest, 'journey/view&team_id=' . $home)[0] === 500, 'uninitialized 2026 is explicit server failure');
+    $db->createCommand()->update('tournament', ['year' => 2026], ['id' => $tournament])->execute();
+    $check(count($journey->getTeamJourney($home)) === 4, 'valid journey retains all matches');
+    $csrf = $token($request($admin, 'auth/login')[1]);
+    $request($admin, 'auth/login', ['_csrf' => $csrf, 'AdminLoginForm' => ['username' => 'b_test', 'password' => $password]]);
+    $csrf = $token($request($admin, 'admin-story/create')[1]);
+    $invalidMatch = array_replace($base, ['match_no' => 5, 'status' => 'SCHEDULED', 'home_team_id' => $outsider]);
+    $check($request($admin, 'admin-match/create', ['_csrf' => $csrf, 'WcMatch' => $invalidMatch])[0] === 200,
+        'nonparticipant match keeps editable form');
+    $check((int) $scalar('SELECT COUNT(*) FROM wc_match WHERE match_no=5') === 0, 'invalid match is not saved');
+    $validationStory = $insert('match_story', ['match_id' => $m1, 'title' => 'TEST ONLY validation',
+        'summary' => 'TEST ONLY', 'body' => 'TEST ONLY']);
+    $eventsBefore = (int) $scalar('SELECT COUNT(*) FROM match_event');
+    foreach ([['minute' => ''], ['team_id' => $outsider], ['event_type' => 'UNKNOWN']] as $invalid) {
+        $fields = array_replace($eventFields, $invalid);
+        $check($request($admin, 'admin-story/event-create&id=' . $validationStory,
+            ['_csrf' => $csrf, 'MatchEvent' => $fields])[0] === 200, 'invalid event keeps editable form');
+        $check((int) $scalar('SELECT COUNT(*) FROM match_event') === $eventsBefore, 'invalid event is not saved');
+    }
     $directory = new app\services\TeamDirectoryService();
     $memory = new app\services\MemoryCardService();
     $check($request($guest, 'site/index')[0] === 200, 'integrated A homepage');

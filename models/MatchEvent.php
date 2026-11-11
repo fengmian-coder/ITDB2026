@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：Yii 2.0 ActiveRecord、WcMatch、match_event 表
- * 待联调：C 的球队存在性和赛事归属；事件枚举与完整排序约定待确认
- * 最近修改：2026-11-03
+ * 规则依据：当前 C 的 install.sql 事件枚举、分钟约束及本场双方关系
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -17,7 +17,7 @@ use yii\db\ActiveRecord;
 
 /**
  * 事件只用于时间轴展示，不作为球队进球统计来源。
- * 不预设审计字段，不将 V1.1 的建议枚举当作已冻结白名单。
+ * 枚举与分钟约束对齐已交付的数据库结构。
  *
  * @property int|string $id
  * @property int|string $match_id
@@ -32,6 +32,9 @@ use yii\db\ActiveRecord;
  */
 class MatchEvent extends ActiveRecord
 {
+    public const PERIOD_CODES = ['H1', 'H2', 'ET1', 'ET2', 'SHOOTOUT'];
+    public const EVENT_TYPES = ['GOAL', 'OWN_GOAL', 'YELLOW', 'RED', 'PENALTY_GOAL', 'PENALTY_MISS', 'OTHER'];
+
     public static function tableName(): string
     {
         return 'match_event';
@@ -56,15 +59,17 @@ class MatchEvent extends ActiveRecord
             [['match_id', 'team_id'], 'validateIdentifier'],
             [['minute', 'added_minute'], 'integer', 'min' => 0, 'max' => 65535,
                 'skipOnEmpty' => false, 'when' => $hasValue],
+            ['minute', 'required', 'when' => static fn (self $model): bool =>
+                (in_array($model->period_code, self::PERIOD_CODES, true) && $model->period_code !== 'SHOOTOUT')
+                || $model->hasValue('added_minute')],
             ['sort_order', 'integer', 'min' => -2147483648, 'max' => 2147483647],
             ['player_name', 'string', 'max' => 100, 'skipOnEmpty' => false, 'when' => $hasValue],
             ['description', 'string', 'max' => 500, 'skipOnEmpty' => false, 'when' => $hasValue],
-            // Q07 尚未冻结代码集合；目前不加入 in 验证或自定默认代码。
-            ['period_code', 'string', 'max' => 12],
-            ['event_type', 'string', 'max' => 20],
+            ['period_code', 'in', 'range' => self::PERIOD_CODES, 'strict' => true],
+            ['event_type', 'in', 'range' => self::EVENT_TYPES, 'strict' => true],
             ['match_id', 'exist', 'targetClass' => WcMatch::class,
                 'targetAttribute' => ['match_id' => 'id']],
-            // TODO(B/C)：正式交接后补充 team_id 的球队存在性、参赛资格和球队关联。
+            ['team_id', 'validateTeamMembership', 'when' => $hasValue],
         ];
     }
 
@@ -87,6 +92,22 @@ class MatchEvent extends ActiveRecord
     public function getMatch(): ActiveQuery
     {
         return $this->hasOne(WcMatch::class, ['id' => 'match_id']);
+    }
+
+    public function validateTeamMembership(string $attribute): void
+    {
+        if ($this->hasErrors('match_id')) {
+            return;
+        }
+        $match = WcMatch::find()->select(['home_team_id', 'away_team_id'])
+            ->where(['id' => $this->match_id])->asArray()->one();
+        if ($match === null) {
+            return; // match_id 的 exist 规则提供所属比赛错误。
+        }
+        $teamId = ltrim(ltrim(trim((string) $this->$attribute), '+'), '0');
+        if (!in_array($teamId, [(string) $match['home_team_id'], (string) $match['away_team_id']], true)) {
+            $this->addError($attribute, '事件球队必须属于本场比赛双方');
+        }
     }
 
     /** 与现有 WcMatch 一致，避免 BIGINT UNSIGNED 上界的浮点精度损失。 */

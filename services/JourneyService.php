@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：Yii 2.0、WcMatch、Tournament、MatchStory；不依赖尚未交付的 C 类
- * 待联调：球队存在性、本届参赛资格、真实对手名称、最终成绩
- * 最近修改：2026-11-05
+ * 待联调：真实对手名称、最终成绩
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -19,7 +19,9 @@ use Yii;
 use UnexpectedValueException;
 use yii\db\ActiveQuery;
 use yii\db\Exception as DatabaseException;
+use yii\db\Query;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\ServerErrorHttpException;
 
 /**
@@ -27,7 +29,7 @@ use yii\web\ServerErrorHttpException;
  *
  * 当前接入边界（不是已完成 C 联调的正式接口）：
  * - opponent.name_zh 暂为 null，只提供真实 ID，不编造球队名称。
- * - 暂不验证球队存在/参赛资格；[] 仅表示本届无匹配比赛，不可据此断定 404。
+ * - 不存在球队或未参加本届返回 404；已参赛但无比赛时返回 []。
  * - 时间采用 V1.1 旅程样例的 UTC ISO 8601；不改变 MatchQueryService 的时间格式。
  * - 保留取消/延期赛程，并附现有字段 status，避免调用方把无比分误认为未开始。
  * - is_featured 仅依据已发布故事；没有故事或草稿为 false。
@@ -48,7 +50,7 @@ class JourneyService
     ];
 
     /**
-     * 不分页，不遗漏默认第一页以后的比赛；查询只使用 B 负责的表。
+     * 不分页，资格读取 C 已交付的表结构，比赛项结构保持一致。
      *
      * @return array<array{
      *   match_id: int|string, match_no: int, kickoff_utc: string, stage_code: string, status: string,
@@ -64,6 +66,18 @@ class JourneyService
         }
 
         try {
+            if (!(new Query())->from('national_team')->where(['id' => $teamId])->exists()) {
+                throw new NotFoundHttpException('未找到该球队');
+            }
+            $tournamentId = Tournament::find()->select('id')->where(['year' => 2026])->scalar();
+            if ($tournamentId === false) {
+                throw new ServerErrorHttpException('2026 届赛事尚未初始化');
+            }
+            if (!(new Query())->from('tournament_team')->where([
+                'tournament_id' => $tournamentId, 'team_id' => $teamId,
+            ])->exists()) {
+                throw new NotFoundHttpException('该球队未参加 2026 世界杯');
+            }
             $rows = $this->journeyQuery($teamId)->all();
             return array_map(fn (array $row): array => $this->journeyItem($row, $teamId), $rows);
         } catch (DatabaseException | UnexpectedValueException $exception) {
