@@ -99,8 +99,9 @@ stage_code, match_count, finished_match_count, total_goals
 
 ## 后续工作
 
-- C 补齐有可靠来源的 tournament_team.final_result_code，现有空值继续显示“暂无”。
+- 48 队 tournament_team.final_result_code 已按 FIFA 官方赛事总结补齐，来源见 docs/data-sources.md。开发库已导入，球队 DNA、PK 与 Journey 均可读取对应成绩。
 - A 补充合法球队国旗和故事封面素材。
-- D 完成独立数据复核，D/C 完成一键部署和新环境还原验收。
+- Windows 一键初始化及启动已由 B 协助完成，入口为 scripts/start.ps1，还原回归通过 37 项检查，说明见 docs/windows-deployment.md。
+- D 完成独立数据复核及其他演示机器验收。
 
 本次 PK 与图表的可用性依据当前数据库和数据包。真实赛事资料的独立复核继续按团队分工完成。

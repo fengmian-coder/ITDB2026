@@ -187,6 +187,8 @@ C 的 TeamStatsService 已接入，两个球队 API 已通过真实服务、HTTP
 
 B 协助 C 完成公开的 `national-team/compare` 和 `insight/index` 页面，通过现有导航进入。两页开放 GET/HEAD，统计 JSON 继续仅 GET。接口、资源和 193 项回归范围见 [C PK 与图表交接](handoffs/c-team-insights.md)。
 
+Windows 一键初始化及启动入口为 `scripts/start.ps1`，SQL 统一复用 C 的 `data/install.sql`。空管理员表时调用 D 的 admin/create 生成 wcj_admin 及随机密码，已有管理员保持原账号。37 项独立还原检查和操作步骤见 [部署说明](windows-deployment.md)。D 后续负责独立数据复核及其他演示机器验收。
+
 ## 3. 管理员授权接入
 
 ### 3.1 已实现 Controller 当前行为

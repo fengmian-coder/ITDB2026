@@ -23,6 +23,14 @@ B 负责骨架、赛事与旅程、统一 API 入口；C 负责数据字典、SQ
 
 ## Windows / PowerShell 启动
 
+现有 PHP 8.2、Composer 2 和 MySQL 环境下，可在项目根目录运行一键配置、还原和启动。
+
+```powershell
+.\scripts\start.ps1
+```
+
+首次运行输入自己的 MySQL 账号。脚本会安装锁定依赖、创建缺少的项目库、还原 C 的 15 表、导入赛事数据、初始化团队及课程资料，并启动本地网页。空管理员表时生成 wcj_admin 随机密码并在终端显示一次。参数、重复运行和失败恢复见 [Windows 一键部署说明](docs/windows-deployment.md)。
+
 在项目根目录执行：
 
 ```powershell
@@ -81,7 +89,7 @@ tests/                        保留官方模板测试框架
 
 首页由 A 的项目页面提供。球队入口 site/explore 转到 C 的 national-team/index，比赛入口为 wc-match/index，球队历程为 journey/view?team_id=内部球队ID。后台使用 admin_user 中的管理员账号登录，原 site/login 转到 auth/login。
 
-当前已验证 Windows 原生 PHP 8.2 的启动与导入流程。一键部署由 D/C 继续交付，本机保留的 Docker / Vagrant 模板尚未纳入项目部署方案。
+当前已实现并验证 Windows 原生 PHP 8.2 的一键初始化及启动流程。本机保留的 Docker / Vagrant 模板尚未纳入项目部署方案。
 
 ## 部署与敏感文件
 
@@ -128,4 +136,4 @@ php tests/integration/match-data-import.php
 
 球队 PK 和三张动态图表已由 B 协助 C 实现。入口分别为 `index.php?r=national-team/compare` 和 `index.php?r=insight/index`，公共导航和球队 DNA 页已接入。图表使用本地 Apache ECharts 6.1.0，统计复用既有服务，提供完整数据表、球队切换和刷新。扩展后的 B/C 回归通过 193 项真实 HTTP／数据库检查，数据包导入回归通过 84 条断言。详情见 [C 球队 PK 与图表交接](docs/handoffs/c-team-insights.md)。
 
-后续由 C 补充可靠最终成绩数据，A 提供合法国旗和封面，D 完成独立数据复核，D/C 完成一键部署及还原验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。
+48 队最终成绩已按 FIFA 官方赛事总结补齐，来源和类别映射见 [成绩来源记录](docs/data-sources.md)。本轮导入回归通过 92 条断言，Windows 一键还原及重复运行通过 37 项隔离库检查。A 继续提供合法国旗和封面，D 完成独立数据复核及其他演示机器验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。

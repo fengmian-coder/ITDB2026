@@ -28,7 +28,7 @@
 
 当前已接入 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php` 和 C 的球队列表、DNA 详情页。表结构与约束见 `docs/data-dictionary.md`、`docs/er-diagram.md` 和 `data/install.sql`。C 的 15 表结构已在独立 MySQL 测试库还原。
 
-2026-11-11 在 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19 上执行 `php tests/integration/b-module.php`，193 项真实 HTTP／数据库检查通过。`php tests/integration/match-data-import.php` 的 84 条导入断言通过。两项脚本均创建独立临时库并在结束时清理。本轮新增和修改的 PHP 文件均通过语法检查。
+2026-11-11 在 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19 上执行 `php tests/integration/b-module.php`，193 项真实 HTTP／数据库检查通过。`php tests/integration/match-data-import.php` 的 92 条导入断言通过，`php tests/integration/deployment.php` 的 37 项还原检查通过。各脚本均创建独立临时库并在结束时清理。本轮新增和修改的 PHP 文件均通过语法检查。
 
 对开发库只读核对了 104 场比赛详情、48 队统计及 Journey。104 场均为 FINISHED，场上总进球 308，各队进球合计同为 308，各队完赛场次合计 208。九张赛事、球队、精选内容表的记录指纹在核对前后一致。该一致性检查覆盖当前导入数据的查询口径，外部事实复核继续按 V1.1 执行。
 
@@ -74,13 +74,13 @@
 
 ### 2.3 源数据交付与未完成范围
 
-源 CSV 位于 `data/import/`，解析规则及来源说明见 [CSV README](../data/import/README.md)。记录数为 tournament 1、teams 48、stadiums 16、matches 104、stories 8、events 104、tags 16、story_tags 27、sources 57。八篇故事已按 B 负责人指令发布，本轮同步定稿标题、摘要、正文和 is_published=1。D 的独立外部复核待交付。MatchDataImportService 统一解析 fifa_code、场馆名和本届 match_no 为内部 ID，空比分保留 NULL，120 分钟为累计比分。
+源 CSV 位于 `data/import/`，解析规则及来源说明见 [CSV README](../data/import/README.md)。记录数为 tournament 1、teams 48、stadiums 16、matches 104、stories 8、events 104、tags 16、story_tags 27、sources 58。八篇故事已按 B 负责人指令发布，本轮同步定稿标题、摘要、正文和 is_published=1。SRC-058 记录 48 队最终成绩的 FIFA 官方来源。D 的独立外部复核待交付。MatchDataImportService 统一解析 fifa_code、场馆名和本届 match_no 为内部 ID，空比分保留 NULL，120 分钟为累计比分。
 
 已完成 C Model 与统计服务接入、CSV 导入及 ID 映射、球队参赛资格与名称展示、事件枚举／分钟／球队校验、公开分页 1—100 上限及 D 的后台授权接入。浏览器实际操作验证了比赛球队筛选、比赛详情到 Journey 的跳转和球队搜索。
 
-球队 PK 与三张图表已由 B 协助 C 完成，页面和新增排名接口见 [C PK 与图表交接](handoffs/c-team-insights.md)。待交付内容包括 48 队可靠的 final_result_code、A 的国旗与故事封面素材、D 的独立数据复核、D/C 的部署还原。开发库当前 48 个国旗路径、8 个封面路径及 48 个最终成绩均为空，8 篇故事已发布。
+球队 PK 与三张图表已由 B 协助 C 完成，页面和新增排名接口见 [C PK 与图表交接](handoffs/c-team-insights.md)。48 队 final_result_code 已按 FIFA 官方总结补齐到 CSV 及开发库，来源见 data-sources.md。Windows 一键还原和启动见 [部署说明](windows-deployment.md)。待交付内容包括 A 的国旗与故事封面素材、D 的独立数据复核及其他演示机器验收。开发库当前 48 个国旗路径、8 个封面路径为空，8 篇故事已发布。
 
-本轮 `php tests/integration/match-data-import.php` 通过 84 条真实数据库及 HTTP 断言。空库还原后八篇故事正文与数据包一致，前台展示 104 条事件及 27 条标签关联。新增记录读取 CSV 发布状态，重复导入保留后台已有发布／撤回状态和封面。现有正文若与 CSV 冲突，整批业务写入回滚。
+本轮 `php tests/integration/match-data-import.php` 通过 92 条真实数据库及 HTTP 断言。空库还原后八篇故事正文与数据包一致，前台展示 104 条事件及 27 条标签关联。新增记录读取 CSV 发布状态，重复导入保留后台已有发布／撤回状态和封面。最终成绩仅补齐 NULL，已有非空冲突和故事正文冲突均报告并回滚整批业务写入。
 
 最近一轮本地检查：19 个 PHP 文件语法通过；故事/事件/标签 160 用例 462 断言，故事删除事务控制流 6/32，比赛后台 62/161，API 43/167，合计 271 用例、822 断言。CRUD、事务和服务依赖使用替代对象，未访问真实数据库；这些数字不代表唯一约束、外键、InnoDB 回滚、C 服务或 D 登录已通过。
 
@@ -568,7 +568,7 @@ C 可直接填写下表回复；“一致”应附代码或 DDL 依据，不表�
 | 可联调的测试库及非敏感配置约定 | 待填写；不填写账号密码 |
 | 联调日期、测试记录位置、遗留问题负责人 | 待填写 |
 
-球队 PK 与三张 DB 驱动图表页面已由 B 协助完成。C 接下来补充经可靠来源核对的 final_result_code。A 提供合法国旗／封面素材。D 继续独立数据复核，D/C 完成部署还原。B/C 基础集成代码已通过 PR #3 合并到 main，本轮页面更新通过 feature/b-match 的 Pull Request 交付。
+球队 PK、三张 DB 驱动图表、官方最终成绩补齐及 Windows 一键还原已由 B 协助完成。A 提供合法国旗／封面素材。D 继续独立数据复核及其他演示机器验收。B/C 基础集成代码已通过 PR #3 合并到 main，本轮更新通过 feature/b-match 的 Pull Request 交付。
 
 ## 11. 精选故事的来源核对与发布交接
 
