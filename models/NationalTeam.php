@@ -4,7 +4,7 @@
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：Yii 2.0 ActiveRecord、national_team 表、TournamentTeam
- * 最近修改：2026-11-05
+ * 最近修改：2026-11-11，B 协助补充 FIFA 代码格式校验
  */
 
 declare(strict_types=1);
@@ -47,6 +47,7 @@ class NationalTeam extends ActiveRecord
                 'when' => static fn (self $model): bool => !$model->hasValue('is_active')],
             [['fifa_code', 'name_zh', 'name_en'], 'required'],
             ['fifa_code', 'string', 'length' => 3],
+            ['fifa_code', 'match', 'pattern' => '/^[A-Z]{3}$/D', 'message' => 'FIFA 代码须为三个大写英文字母。'],
             ['fifa_code', 'unique'],
             ['name_zh', 'string', 'max' => 80],
             ['name_en', 'string', 'max' => 100],

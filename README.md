@@ -136,4 +136,6 @@ php tests/integration/match-data-import.php
 
 球队 PK 和三张动态图表已由 B 协助 C 实现。入口分别为 `index.php?r=national-team/compare` 和 `index.php?r=insight/index`，公共导航和球队 DNA 页已接入。图表使用本地 Apache ECharts 6.1.0，统计复用既有服务，提供完整数据表、球队切换和刷新。扩展后的 B/C 回归通过 193 项真实 HTTP／数据库检查，数据包导入回归通过 84 条断言。详情见 [C 球队 PK 与图表交接](docs/handoffs/c-team-insights.md)。
 
+球队后台已补齐，管理员登录后从侧栏或工作台进入“球队管理”，路由为 `admin-team/index`。支持球队资料 CRUD、启停用、参赛分组及最终成绩维护，已有引用时阻止删除。最新 B/C 回归通过 220 项真实 HTTP／数据库检查，数据导入回归通过 92 条断言。操作和路由见上述 C 模块交接。
+
 48 队最终成绩已按 FIFA 官方赛事总结补齐，来源和类别映射见 [成绩来源记录](docs/data-sources.md)。本轮导入回归通过 92 条断言，Windows 一键还原及重复运行通过 37 项隔离库检查。A 继续提供合法国旗和封面，D 完成独立数据复核及其他演示机器验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。

@@ -97,9 +97,26 @@ stage_code, match_count, finished_match_count, total_goals
 - 独立临时库中将测试比分从 1 比 0 改为 5 比 0，浏览器刷新后球队累计进球由 3 变为 7，小组赛总进球由 1 变为 5。临时库与预览进程在验证结束后清理。
 - 桌面及 390 像素手机宽度检查，通过深浅色模式检查，浏览器控制台无新增错误。
 
-## 后续工作
+## 球队后台管理
 
-- C 的后台球队管理 `admin-team/*` 尚未实现，需按 V1.1 补齐管理员权限下的球队维护及关联数据保护。
+2026-11-11 已补齐 `controllers/AdminTeamController.php`、`models/NationalTeamSearch.php` 和 `views/admin-team/{index,view,create,update,_form}.php`。现有 AdminNavigation 自动在侧栏和工作台展示球队入口。
+
+| 路由 | 方法 | 功能 |
+| --- | --- | --- |
+| admin-team/index | GET/HEAD | 中英文名称和启用状态筛选，默认每页 20，允许 1—100 |
+| admin-team/view?id=ID | GET/HEAD | 球队资料、各届参赛关系及维护表单 |
+| admin-team/create | GET/HEAD/POST | 新增国家队资料 |
+| admin-team/update?id=ID | GET/HEAD/POST | 修改资料及启停用 |
+| admin-team/delete?id=ID | POST | CSRF 和删除确认，参赛、比赛及事件引用保护 |
+| admin-team/participation?id=ID | POST | 登记或更新指定赛事的小组和最终成绩 |
+
+授权复用 D 的 AdminUser::canManage。球队写入白名单为 fifa_code、name_zh、name_en、flag_path、description、is_active，参赛记录的 team_id 取路由对应球队，审计时间沿用数据库。FIFA 代码按三位大写英文字母及已有唯一规则验证。已有历史引用的球队可停用，前台历史详情继续使用原球队 ID。
+
+参赛表单复用 TournamentTeam 的正式枚举、存在性和唯一性校验。非法表单格式返回 400，不存在的球队返回 404，未登录返回 403，GET 删除返回 405。字段验证失败时保留球队编辑表单，参赛验证失败时在详情显示错误。
+
+独立测试库的 B/C 回归通过 220 项真实 HTTP／数据库检查，本次新增 27 项，覆盖权限、CSRF、CRUD、字段白名单、格式校验、分页、停用筛选、转义、删除确认和参赛登记。既有数据导入回归通过 92 条断言。
+
+## 后续工作
 
 - 48 队 tournament_team.final_result_code 已按 FIFA 官方赛事总结补齐，来源见 docs/data-sources.md。开发库已导入，球队 DNA、PK 与 Journey 均可读取对应成绩。
 - A 补充合法球队国旗和故事封面素材。

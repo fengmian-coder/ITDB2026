@@ -176,6 +176,51 @@ try {
     $check((int) $scalar('SELECT COUNT(*) FROM wc_match WHERE id=' . $crudMatch) === 0, 'unreferenced match delete');
 
     $service = new app\services\MatchQueryService();
+    // C 球队后台通过实际管理员 HTTP 写入，仅操作本次独立测试库。
+    $check($request($guest, 'admin-team/index')[0] === 403, 'guest denied team management');
+    $check($request($admin, 'admin-team/index')[0] === 200, 'team management authorized');
+    $check($request($admin, 'admin-team/delete&id=' . $home)[0] === 405, 'team GET deletion forbidden');
+    $check($request($admin, 'admin-team/create', ['NationalTeam' => []])[0] === 400, 'team CSRF required');
+    $csrf = $token($request($admin, 'admin-team/create')[1]);
+    $teamFields = ['fifa_code' => 'ZZA', 'name_zh' => 'TEST_ONLY_TEAM', 'name_en' => 'TEST_ONLY_TEAM', 'is_active' => '1'];
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 302, 'team HTTP create');
+    $crudTeam = (int) $scalar("SELECT id FROM national_team WHERE fifa_code='ZZA'");
+    $check($crudTeam > 0, 'team persisted');
+    [$status, $html] = $request($admin, 'admin-team/view&id=' . $crudTeam);
+    $check($status === 200 && str_contains($html, '参赛信息') && str_contains($html, 'TournamentTeam[group_code]'), 'team detail and participation form rendered');
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 200, 'duplicate FIFA code rejected');
+    $teamFields['fifa_code'] = 'bad';
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 200, 'invalid FIFA code rejected');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['name_zh' => 'TEST_ONLY_UPDATED', 'id' => $home, 'created_at' => '2000-01-01']])[0] === 302, 'team update whitelist');
+    $check($scalar('SELECT name_zh FROM national_team WHERE id=' . $crudTeam) === 'TEST_ONLY_UPDATED', 'team update saved to original ID');
+    $check(!str_starts_with($scalar('SELECT created_at FROM national_team WHERE id=' . $crudTeam), '2000-01-01'), 'team audit fields excluded');
+    $request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['is_active' => '0', 'name_zh' => '<script>TEAM_ADMIN_XSS</script>']]);
+    [$status, $html] = $request($admin, 'admin-team/index&NationalTeamSearch[is_active]=0');
+    $check($status === 200 && str_contains($html, '&lt;script&gt;TEAM_ADMIN_XSS&lt;/script&gt;')
+        && !str_contains($html, '<script>TEAM_ADMIN_XSS</script>'), 'inactive filter and team output escaping');
+    $check($request($admin, 'admin-team/delete&id=' . $crudTeam, ['_csrf' => $csrf])[0] === 400, 'team deletion acknowledgement required');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['is_active' => '']])[0] === 400, 'blank activation rejected');
+    $check($request($admin, 'admin-team/view&id=0')[0] === 400, 'invalid team admin ID rejected');
+    $check($request($admin, 'admin-team/view&id=999999')[0] === 404, 'absent team admin ID rejected');
+    $check($request($admin, 'admin-team/index&NationalTeamSearch[is_active]=2')[0] === 400, 'invalid active filter rejected');
+    $check($request($admin, 'admin-team/index&page=999')[0] === 400, 'team pagination bounds');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['flag_path' => 'javascript:alert(1)']])[0] === 200, 'unsafe team image rejected');
+    $request($admin, 'admin-team/delete&id=' . $crudTeam, ['_csrf' => $csrf, 'confirm_delete' => '1']);
+    $check((int) $scalar('SELECT COUNT(*) FROM national_team WHERE id=' . $crudTeam) === 0, 'unreferenced team deleted');
+    $request($admin, 'admin-team/delete&id=' . $home, ['_csrf' => $csrf, 'confirm_delete' => '1']);
+    $check((int) $scalar('SELECT COUNT(*) FROM national_team WHERE id=' . $home) === 1, 'referenced team protected');
+    $check($request($admin, 'admin-team/participation&id=' . $home, ['_csrf' => $csrf, 'TournamentTeam' => ['tournament_id' => $tournament, 'group_code' => 'A', 'final_result_code' => 'CHAMPION', 'team_id' => $away]])[0] === 302, 'participation update');
+    $check($scalar('SELECT final_result_code FROM tournament_team WHERE team_id=' . $home) === 'CHAMPION'
+        && $scalar('SELECT final_result_code FROM tournament_team WHERE team_id=' . $away) === null, 'participation IDs controlled by server');
+    $request($admin, 'admin-team/participation&id=' . $home, ['_csrf' => $csrf, 'TournamentTeam' => ['tournament_id' => $tournament, 'group_code' => 'Z', 'final_result_code' => 'UNKNOWN']]);
+    $check($scalar('SELECT group_code FROM tournament_team WHERE team_id=' . $home) === 'A', 'invalid participation not saved');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
+    $registeredTeam = $insert('national_team', ['fifa_code' => 'ZZB', 'name_zh' => 'TEST ONLY registration', 'name_en' => 'TEST ONLY registration']);
+    $check($request($admin, 'admin-team/participation&id=' . $registeredTeam, ['_csrf' => $csrf, 'TournamentTeam' => [
+        'tournament_id' => $tournament, 'group_code' => 'B', 'final_result_code' => '']])[0] === 302, 'new participation registered by HTTP');
+    $check($scalar('SELECT group_code FROM tournament_team WHERE team_id=' . $registeredTeam) === 'B', 'new participation persisted');
+    $db->createCommand()->delete('tournament_team', ['team_id' => $registeredTeam])->execute();
+    $db->createCommand()->delete('national_team', ['id' => $registeredTeam])->execute();
     $list = $service->getMatchList(['team_id' => $home, 'stage' => 'GROUP', 'page_size' => 1]);
     $check($list['pagination']['total_count'] === 3 && count($list['items']) === 1, 'combined filter and count');
     $check($service->getMatchList(['team_id' => $away])['pagination']['total_count'] === 4, 'away team filter');

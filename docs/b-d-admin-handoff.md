@@ -189,6 +189,8 @@ B 协助 C 完成公开的 `national-team/compare` 和 `insight/index` 页面，
 
 Windows 一键初始化及启动入口为 `scripts/start.ps1`，SQL 统一复用 C 的 `data/install.sql`。空管理员表时调用 D 的 admin/create 生成 wcj_admin 及随机密码，已有管理员保持原账号。37 项独立还原检查和操作步骤见 [部署说明](windows-deployment.md)。D 后续负责独立数据复核及其他演示机器验收。
 
+球队后台 `admin-team/*` 已接入 AdminUser::canManage，AdminNavigation 自动提供侧栏及工作台入口。写入启用 CSRF，删除仅 POST，历史引用由预检查及正式外键保护。本轮 B/C 回归通过 220 项检查，新增 27 项球队后台用例，见 [C 模块交接](handoffs/c-team-insights.md)。
+
 ## 3. 管理员授权接入
 
 ### 3.1 已实现 Controller 当前行为
