@@ -34,8 +34,11 @@
         const theme = palette();
         return {
             color: theme.colors, textStyle: {color: theme.text, fontFamily: 'system-ui, sans-serif'},
-            aria: {enabled: true, decal: {show: true}},
-            tooltip: {trigger: 'axis', renderMode: 'richText', confine: true},
+            animationDuration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650,
+            animationDurationUpdate: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 350,
+            animationEasing: 'cubicOut',
+            aria: {enabled: true},
+            tooltip: {trigger: 'axis', renderMode: 'richText', confine: true, axisPointer: {type: 'shadow'}},
             legend: {bottom: 0, textStyle: {color: theme.text}},
             grid: {top: 35, bottom: 55, left: 12, right: 16, containLabel: true},
         };
@@ -44,7 +47,7 @@
         axisLabel: {color: palette().text}, axisLine: {lineStyle: {color: palette().line}}});
     const valueAxis = (name) => ({type: 'value', name, minInterval: 1,
         axisLabel: {color: palette().text}, nameTextStyle: {color: palette().text},
-        splitLine: {lineStyle: {color: palette().line}}});
+        splitLine: {lineStyle: {color: palette().line, type: 'dashed'}}});
     // 表格和提示全部使用 textContent，数据库中的球队名称不会作为 HTML 执行。
     const table = (name, rows, empty, columns) => {
         const body = byId(`${name}-table`);
@@ -71,7 +74,11 @@
         option.yAxis = categoryAxis(rows.map(label));
         option.yAxis.inverse = true;
         Object.assign(option.yAxis.axisLabel, {width: window.innerWidth < 576 ? 100 : 180, overflow: 'truncate'});
-        option.series = [{name: '进球', type: 'bar', data: rows.map((team) => team.goals_for),
+        option.series = [{name: '进球', type: 'bar', data: rows.map((team) => ({
+            value: team.goals_for,
+            itemStyle: {color: hasFinished(rows) && team.goals_for === rows[0].goals_for ? palette().colors[1] : palette().colors[0]},
+        })), itemStyle: {borderRadius: [0, 6, 6, 0]}, showBackground: true,
+            backgroundStyle: {color: palette().line + '55', borderRadius: 6},
             label: {show: true, position: 'right', color: palette().text}, barMaxWidth: 26}];
         if (rows.length > 15) {
             option.dataZoom = [{type: 'slider', yAxisIndex: 0, startValue: 0, endValue: 14,
@@ -86,12 +93,19 @@
     function renderCompare() {
         const pair = state.comparison;
         const rows = pair ? [pair.left, pair.right] : [];
+        ['left', 'right'].forEach((side) => {
+            const team = pair?.[side];
+            byId(`compare-${side}-code`).textContent = team?.fifa_code || '—';
+            byId(`compare-${side}-name`).textContent = team?.team_name || '选择球队';
+            byId(`compare-${side}-rate`).textContent = team?.win_rate == null ? '暂无' : `${(team.win_rate * 100).toFixed(1)}%`;
+        });
         const option = base();
         option.xAxis = categoryAxis(rows.map(label));
         Object.assign(option.xAxis.axisLabel, {width: 140, overflow: 'truncate'});
         option.yAxis = valueAxis('场次');
         option.series = [['wins', '胜'], ['draws', '平'], ['losses', '负']].map(([key, name]) => ({
-            name, type: 'bar', data: rows.map((team) => team[key]), barMaxWidth: 36,
+            name, type: 'bar', data: rows.map((team) => team[key]), barMaxWidth: 30,
+            itemStyle: {borderRadius: [5, 5, 0, 0]},
         }));
         charts.compare.setOption(option, {notMerge: true});
         table('compare', rows.map((team) => [label(team), team.wins, team.draws, team.losses, team.penalty_wins]), '至少需要两支参赛球队。', 5);
@@ -109,13 +123,13 @@
     function renderStages() {
         const option = base();
         option.xAxis = categoryAxis(state.stages.map(stageLabel));
-        option.xAxis.axisLabel.rotate = 30;
+        option.xAxis.axisLabel.rotate = window.innerWidth < 576 ? 30 : 0;
         option.yAxis = [valueAxis('场次'), valueAxis('进球')];
         option.series = [
-            {name: '有效场次', type: 'bar', data: state.stages.map((stage) => stage.match_count), barMaxWidth: 24},
-            {name: '已完赛', type: 'bar', data: state.stages.map((stage) => stage.finished_match_count), barMaxWidth: 24},
+            {name: '有效场次', type: 'bar', data: state.stages.map((stage) => stage.match_count), barMaxWidth: 26, itemStyle: {borderRadius: [4, 4, 0, 0]}},
+            {name: '已完赛', type: 'bar', data: state.stages.map((stage) => stage.finished_match_count), barMaxWidth: 26, itemStyle: {borderRadius: [4, 4, 0, 0]}},
             // null 表示该阶段尚无完赛数据，保留折线缺口，不能转换为 0。
-            {name: '进球', type: 'line', yAxisIndex: 1, connectNulls: false,
+            {name: '进球', type: 'line', yAxisIndex: 1, connectNulls: false, symbolSize: 9, lineStyle: {width: 3},
                 data: state.stages.map((stage) => stage.total_goals)},
         ];
         charts.stages.setOption(option, {notMerge: true});

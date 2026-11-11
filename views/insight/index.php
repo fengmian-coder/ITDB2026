@@ -35,15 +35,24 @@ $seed = [
 ];
 ?>
 <div class="insight-page" id="insight-page">
-    <header class="stats-hero mb-4">
+    <header class="stats-hero insight-hero mb-4">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-            <div><h1>世界杯数据</h1><p class="mb-0">从进球、胜平负和比赛阶段，观察 2026 世界杯。</p></div>
+            <div class="insight-hero-copy">
+                <p class="insight-season">2026 · 加拿大 / 墨西哥 / 美国</p>
+                <h1>世界杯<br>数据看板</h1>
+                <p class="mb-0">探索进球排名，比较球队表现，回看每一轮赛事。</p>
+            </div>
             <button type="button" class="btn btn-light" id="insight-refresh">刷新数据</button>
         </div>
+        <nav class="insight-sections" aria-label="图表导航">
+            <a href="#ranking-title">进球排名 <span aria-hidden="true">↗</span></a>
+            <a href="#compare-title">球队对比 <span aria-hidden="true">↗</span></a>
+            <a href="#stages-title">赛事进程 <span aria-hidden="true">↗</span></a>
+        </nav>
     </header>
-    <p class="small text-body-secondary">数据取自当前数据库中的 2026 届已完赛记录。120 分钟比分为累计值，点球大战不计入进球。阶段场次排除取消比赛，无完赛记录的阶段进球显示“暂无”。</p>
     <noscript><p class="alert alert-info">启用 JavaScript 后可查看和刷新图表。下方数据表可以直接阅读。</p></noscript>
-    <section class="stats-panel mb-4" aria-labelledby="ranking-title">
+    <div class="insight-grid">
+    <section class="stats-panel ranking-panel" aria-labelledby="ranking-title">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
             <h2 class="h4 mb-0" id="ranking-title">球队进球排名</h2>
             <div class="d-flex align-items-center gap-2">
@@ -68,15 +77,23 @@ $seed = [
             </table></div>
         </details>
     </section>
-    <div class="row g-4">
-        <div class="col-12 col-xl-6">
-            <section class="stats-panel h-100" aria-labelledby="compare-title">
+            <section class="stats-panel compare-panel" aria-labelledby="compare-title">
                 <h2 class="h4" id="compare-title">两队胜平负</h2>
                 <div class="row g-2 mt-1">
                     <?php foreach (['left' => '第一支球队', 'right' => '第二支球队'] as $side => $label): ?>
                         <div class="col-sm-6">
                             <?= Html::label($label, 'insight-' . $side, ['class' => 'form-label small']) ?>
                             <?= Html::dropDownList($side . '_id', $initialCompare[$side]['team_id'] ?? null, $teamOptions, ['id' => 'insight-' . $side, 'class' => 'form-select form-select-sm', 'disabled' => count($ranking) < 2]) ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="insight-duel" aria-label="所选球队胜率">
+                    <?php foreach (['left', 'right'] as $side): $selected = $initialCompare[$side] ?? null; ?>
+                        <div class="insight-team insight-team-<?= $side ?>">
+                            <span class="insight-team-code" id="compare-<?= $side ?>-code"><?= Html::encode($selected['fifa_code'] ?? '—') ?></span>
+                            <strong id="compare-<?= $side ?>-name"><?= Html::encode($selected['team_name'] ?? '选择球队') ?></strong>
+                            <span class="insight-team-rate" id="compare-<?= $side ?>-rate"><?= isset($selected['win_rate']) ? Html::encode(number_format((float) $selected['win_rate'] * 100, 1) . '%') : '暂无' ?></span>
+                            <span class="small text-body-secondary">胜率</span>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -96,11 +113,11 @@ $seed = [
                 </details>
                 <?= Html::a('打开完整球队 PK', ['/national-team/compare', 'left_id' => $initialCompare['left']['team_id'] ?? null, 'right_id' => $initialCompare['right']['team_id'] ?? null], ['class' => 'btn btn-sm btn-outline-primary mt-2', 'id' => 'insight-pk-link']) ?>
             </section>
-        </div>
-        <div class="col-12 col-xl-6">
-            <section class="stats-panel h-100" aria-labelledby="stages-title">
-                <h2 class="h4" id="stages-title">阶段场次与进球</h2>
-                <p class="small text-body-secondary">柱状图为场次，折线为进球数。</p>
+            <section class="stats-panel stages-panel" aria-labelledby="stages-title">
+                <div class="d-flex flex-wrap justify-content-between gap-2 align-items-center">
+                    <h2 class="h4 mb-0" id="stages-title">阶段场次与进球</h2>
+                    <p class="small text-body-secondary mb-0">从小组赛到决赛 · 柱状图为场次，折线为进球</p>
+                </div>
                 <p class="chart-status small text-body-secondary mt-2" id="stages-status" role="status" aria-live="polite"></p>
                 <div class="stats-chart" id="stages-chart" aria-label="各比赛阶段有效场次、完赛场次及进球图"></div>
                 <details><summary>查看阶段数据表</summary>
@@ -116,7 +133,9 @@ $seed = [
                     </table></div>
                 </details>
             </section>
-        </div>
     </div>
+    <details class="insight-method mt-4"><summary>统计口径</summary>
+        <p class="small text-body-secondary mt-2">数据取自当前数据库中的 2026 届已完赛记录。120 分钟比分为累计值，点球大战不计入进球。阶段场次排除取消比赛，无完赛记录的阶段进球显示“暂无”。</p>
+    </details>
 </div>
 <script type="application/json" id="insight-data"><?= Json::htmlEncode($seed) ?></script>
