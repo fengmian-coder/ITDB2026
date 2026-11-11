@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\services\MatchQueryService;
+use app\services\JourneyFlowService;
 use app\services\TeamStatsService;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -21,6 +22,7 @@ class InsightController extends Controller
         $module,
         private readonly TeamStatsService $teamStatsService,
         private readonly MatchQueryService $matchQueryService,
+        private readonly JourneyFlowService $journeyFlowService,
         $config = [],
     ) {
         parent::__construct($id, $module, $config);
@@ -39,6 +41,7 @@ class InsightController extends Controller
         return $this->render('index', [
             'ranking' => $this->teamStatsService->getScoringRanking(),
             'stages' => $this->matchQueryService->getStageSummary(),
+            'flow' => $this->journeyFlowService->getFlow(),
         ]);
     }
 }

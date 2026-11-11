@@ -12,15 +12,16 @@
         element.classList.toggle('text-body-secondary', !error);
     };
     if (!window.echarts) {
-        ['ranking', 'compare', 'stages'].forEach((name) => status(name, '图表资源加载失败，请查看下方数据表。', true));
+        ['ranking', 'compare', 'stages', 'flow', 'scatter'].forEach((name) => status(name, '图表资源加载失败，请查看数据表。', true));
         byId('insight-refresh').disabled = true;
         return;
     }
     const charts = {};
-    ['ranking', 'compare', 'stages'].forEach((name) => {
+    ['ranking', 'compare', 'stages', 'flow', 'scatter'].forEach((name) => {
         charts[name] = echarts.init(byId(`${name}-chart`), null, {renderer: 'svg'});
     });
-    const state = {ranking: config.ranking, stages: config.stages, comparison: config.comparison};
+    const state = {ranking: config.ranking, stages: config.stages, comparison: config.comparison,
+        flow: config.flow, selectedTeam: ''};
     const controllers = {};
     const label = (team) => `${team.team_name} · ${team.fifa_code}`;
     const hasFinished = (teams) => teams.some((team) => team.matches_played > 0);
@@ -97,15 +98,23 @@
             const team = pair?.[side];
             byId(`compare-${side}-code`).textContent = team?.fifa_code || '—';
             byId(`compare-${side}-name`).textContent = team?.team_name || '选择球队';
-            byId(`compare-${side}-rate`).textContent = team?.win_rate == null ? '暂无' : `${(team.win_rate * 100).toFixed(1)}%`;
         });
         const option = base();
-        option.xAxis = categoryAxis(rows.map(label));
-        Object.assign(option.xAxis.axisLabel, {width: 140, overflow: 'truncate'});
-        option.yAxis = valueAxis('场次');
-        option.series = [['wins', '胜'], ['draws', '平'], ['losses', '负']].map(([key, name]) => ({
-            name, type: 'bar', data: rows.map((team) => team[key]), barMaxWidth: 30,
-            itemStyle: {borderRadius: [5, 5, 0, 0]},
+        option.tooltip = {trigger: 'item', renderMode: 'richText', confine: true};
+        option.legend.data = ['胜', '平', '负'];
+        const radius = Math.min(90, charts.compare.getWidth() * 0.21);
+        option.series = rows.map((team, index) => ({
+            name: label(team), type: 'pie', radius: [radius * 0.68, radius],
+            center: [index === 0 ? '25%' : '75%', '44%'],
+            label: {show: false}, emphasis: {scaleSize: 4},
+            stillShowZeroSum: false, emptyCircleStyle: {color: palette().line},
+            data: [['wins', '胜'], ['draws', '平'], ['losses', '负']].map(([key, name]) => ({name, value: team[key]})),
+        }));
+        option.title = rows.map((team, index) => ({
+            text: team.win_rate == null ? '暂无' : `${(team.win_rate * 100).toFixed(1)}%`,
+            subtext: '胜率', left: index === 0 ? '25%' : '75%', top: '34%', textAlign: 'center',
+            textStyle: {color: palette().text, fontSize: window.innerWidth < 576 ? 18 : 22},
+            subtextStyle: {color: palette().text, fontSize: 12},
         }));
         charts.compare.setOption(option, {notMerge: true});
         table('compare', rows.map((team) => [label(team), team.wins, team.draws, team.losses, team.penalty_wins]), '至少需要两支参赛球队。', 5);
@@ -137,6 +146,80 @@
         status('stages', !state.stages.length ? '暂无有效赛程数据。'
             : state.stages.every((stage) => stage.total_goals === null) ? '暂无完赛记录，进球数据为“暂无”。' : '取消比赛已排除，进球数不含点球大战。');
     }
+    function renderFlow() {
+        const flow = state.flow;
+        const selected = flow.teams.find((team) => String(team.team_id) === state.selectedTeam);
+        const labels = Object.fromEntries(flow.nodes.map((node) => [node.name, node.label]));
+        const names = new Map(state.ranking.map((team) => [String(team.team_id), label(team)]));
+        const option = base();
+        option.tooltip = {trigger: 'item', renderMode: 'richText', confine: true,
+            formatter: (item) => item.dataType === 'edge'
+                ? `${labels[item.data.source]} → ${labels[item.data.target]}\n${item.data.value} 支球队`
+                : labels[item.name]};
+        option.legend = {show: false};
+        option.aria = {enabled: true, label: {description: `球队晋级流向，共 ${flow.teams.length} 支参赛球队。完整记录见下方数据表。`}};
+        option.series = [{type: 'sankey', left: 12, right: 108, top: 20, bottom: 22,
+            nodeWidth: 12, nodeGap: 18, draggable: false, layoutIterations: 32,
+            label: {color: palette().text, formatter: (item) => labels[item.name], fontSize: 12},
+            data: flow.nodes.map((node) => ({name: node.name, depth: node.depth,
+                value: flow.teams.filter((team) => team.path.includes(node.name)).length,
+                itemStyle: {color: node.name.startsWith('result:') ? palette().colors[1] : palette().colors[0],
+                    opacity: !selected || selected.path.includes(node.name) ? 1 : 0.2}})),
+            links: flow.links.map((link) => ({...link,
+                lineStyle: {color: selected && link.team_ids.some((id) => String(id) === state.selectedTeam)
+                    ? palette().colors[1] : palette().colors[0],
+                opacity: !selected ? 0.25 : link.team_ids.some((id) => String(id) === state.selectedTeam) ? 0.85 : 0.05}})),
+            emphasis: {focus: 'adjacency'}, lineStyle: {curveness: 0.5},
+        }];
+        charts.flow.setOption(option, {notMerge: true});
+        byId('flow-route').textContent = selected
+            ? `${names.get(state.selectedTeam)} · ${selected.path.map((node) => labels[node]).join(' → ')}`
+            : '选择球队查看路线，点击攻防坐标中的球队也可联动追踪。';
+        table('flow', flow.teams.map((team) => [names.get(String(team.team_id)) || team.team_id,
+            team.path.map((node) => labels[node]).join(' → ')]), '暂无参赛球队数据。', 2);
+        status('flow', flow.teams.length ? `${flow.teams.length} 支参赛队 · 阶段只读取已完赛记录，最终成绩读取参赛资料。` : '暂无参赛球队数据。');
+    }
+    function renderScatter() {
+        const teams = state.ranking.filter((team) => team.goals_per_match !== null && team.goals_against_per_match !== null);
+        const selected = state.ranking.find((team) => String(team.team_id) === state.selectedTeam);
+        const option = base();
+        option.legend = {show: false};
+        option.grid = {top: 42, bottom: 45, left: 15, right: 38, containLabel: true};
+        option.xAxis = {...valueAxis('场均进球'), minInterval: 0.5, nameLocation: 'middle', nameGap: 30};
+        option.yAxis = {...valueAxis('场均失球'), minInterval: 0.5};
+        option.tooltip = {trigger: 'item', renderMode: 'richText', confine: true,
+            formatter: (item) => `${item.data.name}\n场均进球 ${item.value[0].toFixed(2)}\n场均失球 ${item.value[1].toFixed(2)}`};
+        option.series = [{type: 'scatter', symbolSize: 16,
+            data: teams.map((team) => ({name: label(team), team_id: String(team.team_id),
+                value: [team.goals_per_match, team.goals_against_per_match],
+                symbolSize: String(team.team_id) === state.selectedTeam ? 24 : 16,
+                label: {show: String(team.team_id) === state.selectedTeam, formatter: team.fifa_code,
+                    position: 'top', color: palette().text},
+                itemStyle: {color: String(team.team_id) === state.selectedTeam ? palette().colors[1] : palette().colors[0],
+                    opacity: !selected || String(team.team_id) === state.selectedTeam ? 0.85 : 0.35,
+                    borderWidth: 2, borderColor: palette().line}}))}];
+        charts.scatter.setOption(option, {notMerge: true});
+        status('scatter', teams.length ? `${teams.length} 支球队有完赛记录 · 每个点代表一支球队，相同数据可能重合。` : '暂无完赛记录，场均数据暂不可用。');
+        byId('scatter-team-name').textContent = selected ? label(selected) : '选择图中的球队';
+        byId('scatter-team-stats').textContent = selected
+            ? `${selected.matches_played} 场完赛 · ${selected.goals_for} 进球 · ${selected.goals_against} 失球 · 场均进球 ${selected.goals_per_match?.toFixed(2) ?? '暂无'} · 场均失球 ${selected.goals_against_per_match?.toFixed(2) ?? '暂无'}`
+            : '也可以使用上方“追踪球队”选择器。';
+        const link = byId('scatter-journey-link');
+        link.hidden = !selected;
+        if (selected) {
+            const url = new URL(config.journeyUrl, location.href);
+            url.searchParams.set('team_id', selected.team_id);
+            link.href = url.href;
+        }
+    }
+    function selectTeam(id) {
+        state.selectedTeam = String(id);
+        byId('flow-team').value = state.selectedTeam;
+        renderFlow();
+        renderScatter();
+    }
+    byId('flow-team').addEventListener('change', (event) => selectTeam(event.target.value));
+    charts.scatter.on('click', (event) => selectTeam(event.data.team_id));
     // 每类请求独立取消，快速切换球队不会让旧响应覆盖新选择。
     async function load(name, url, apply) {
         controllers[name]?.abort();
@@ -180,8 +263,28 @@
     byId('insight-refresh').addEventListener('click', async (event) => {
         const button = event.currentTarget;
         button.disabled = true;
+        await load('ranking', config.rankingUrl, (data) => {
+            state.ranking = data;
+            // 参赛队增删后同步三个选择器，避免继续请求已失去参赛资格的旧 ID。
+            ['flow-team', 'insight-left', 'insight-right'].forEach((id) => {
+                const select = byId(id);
+                const previous = select.value;
+                select.replaceChildren();
+                if (id === 'flow-team') select.add(new Option('全部球队', ''));
+                data.forEach((team) => select.add(new Option(label(team), String(team.team_id))));
+                select.disabled = id !== 'flow-team' && data.length < 2;
+                select.value = previous;
+                if (id !== 'flow-team' && !select.value && data.length) {
+                    select.selectedIndex = id === 'insight-right' && data.length > 1 ? 1 : 0;
+                }
+            });
+            state.selectedTeam = byId('flow-team').value;
+            renderRanking();
+            renderScatter();
+            renderFlow();
+        });
         await Promise.allSettled([
-            load('ranking', config.rankingUrl, (data) => { state.ranking = data; renderRanking(); }),
+            load('flow', config.flowUrl, (data) => { state.flow = data; renderFlow(); }),
             load('stages', config.stagesUrl, (data) => { state.stages = data; renderStages(); }),
             refreshCompare(),
         ]);
@@ -190,12 +293,17 @@
     renderRanking();
     renderCompare();
     renderStages();
-    const resize = () => Object.values(charts).forEach((chart) => chart.resize());
+    renderFlow();
+    renderScatter();
+    const resize = () => {
+        Object.values(charts).forEach((chart) => chart.resize());
+        renderCompare();
+    };
     if (window.ResizeObserver) {
         new ResizeObserver(resize).observe(root);
     } else {
         window.addEventListener('resize', resize);
     }
-    new MutationObserver(() => { renderRanking(); renderCompare(); renderStages(); })
+    new MutationObserver(() => { renderRanking(); renderCompare(); renderStages(); renderFlow(); renderScatter(); })
         .observe(document.documentElement, {attributes: true, attributeFilter: ['data-bs-theme']});
 })();

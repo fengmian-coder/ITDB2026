@@ -1,6 +1,6 @@
 <?php
 /**
- * WorldCup Journey - 三张数据库驱动动态图表
+ * WorldCup Journey - 世界杯旅程与球队表现动态图表
  * 模块：C 球队与统计；负责人：C，B 协助实现
  * 依赖：InsightController、InsightAsset、现有只读统计 API
  * 最近修改：2026-11-11
@@ -15,6 +15,7 @@ use yii\helpers\Url;
 /** @var yii\web\View $this */
 /** @var array $ranking */
 /** @var array $stages */
+/** @var array $flow */
 InsightAsset::register($this);
 $this->title = '世界杯数据 | WorldCup Journey';
 $this->params['breadcrumbs'][] = '数据图表';
@@ -27,11 +28,13 @@ foreach ($ranking as $team) {
 // 默认选进球排名前两支真实参赛球队，完整对比由既有 API 提供。
 $initialCompare = count($ranking) >= 2 ? ['left' => $ranking[0], 'right' => $ranking[1]] : null;
 $seed = [
-    'ranking' => $ranking, 'stages' => $stages, 'comparison' => $initialCompare,
+    'ranking' => $ranking, 'stages' => $stages, 'comparison' => $initialCompare, 'flow' => $flow,
     'stageLabels' => $stageLabels,
     'rankingUrl' => Url::to(['/api/insights', 'chart' => 'scoring-ranking']),
     'stagesUrl' => Url::to(['/api/insights', 'chart' => 'stage-goals']),
     'compareUrl' => Url::to(['/api/team-compare']),
+    'flowUrl' => Url::to(['/api/insights', 'chart' => 'journey-flow']),
+    'journeyUrl' => Url::to(['/journey/view']),
 ];
 ?>
 <div class="insight-page" id="insight-page">
@@ -45,13 +48,43 @@ $seed = [
             <button type="button" class="btn btn-light" id="insight-refresh">刷新数据</button>
         </div>
         <nav class="insight-sections" aria-label="图表导航">
+            <a href="#flow-title">晋级流向 <span aria-hidden="true">↗</span></a>
             <a href="#ranking-title">进球排名 <span aria-hidden="true">↗</span></a>
             <a href="#compare-title">球队对比 <span aria-hidden="true">↗</span></a>
+            <a href="#scatter-title">攻防表现 <span aria-hidden="true">↗</span></a>
             <a href="#stages-title">赛事进程 <span aria-hidden="true">↗</span></a>
         </nav>
     </header>
     <noscript><p class="alert alert-info">启用 JavaScript 后可查看和刷新图表。下方数据表可以直接阅读。</p></noscript>
     <div class="insight-grid">
+    <section class="stats-panel flow-panel" aria-labelledby="flow-title">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div><h2 class="h4 mb-1" id="flow-title">通往冠军的旅程</h2>
+                <p class="small text-body-secondary mb-0">流线宽度代表球队数量，选择球队可追踪已完成的比赛阶段。</p></div>
+            <div class="flow-picker">
+                <?= Html::label('追踪球队', 'flow-team', ['class' => 'form-label small']) ?>
+                <?= Html::dropDownList('flow_team', '', ['' => '全部球队'] + $teamOptions, ['id' => 'flow-team', 'class' => 'form-select form-select-sm']) ?>
+            </div>
+        </div>
+        <p class="chart-status small text-body-secondary mt-2" id="flow-status" role="status" aria-live="polite"></p>
+        <div class="flow-scroll" tabindex="0" role="region" aria-label="晋级流向图，窄屏可横向滚动">
+            <div class="stats-chart" id="flow-chart" aria-label="球队晋级桑基图"></div>
+        </div>
+        <p class="flow-route small mt-2 mb-0" id="flow-route" aria-live="polite">选择球队查看路线。</p>
+        <details><summary>查看球队阶段记录</summary>
+            <div class="stats-table table-responsive"><table class="table table-sm">
+                <thead><tr><th scope="col">球队</th><th scope="col">已完成阶段及成绩</th></tr></thead>
+                <tbody id="flow-table">
+                <?php $nodeLabels = array_column($flow['nodes'], 'label', 'name'); ?>
+                <?php foreach ($flow['teams'] as $row): ?>
+                    <tr><td><?= Html::encode($teamOptions[$row['team_id']] ?? (string) $row['team_id']) ?></td>
+                        <td><?= Html::encode(implode(' → ', array_map(static fn ($node) => $nodeLabels[$node], $row['path']))) ?></td></tr>
+                <?php endforeach; ?>
+                <?php if ($flow['teams'] === []): ?><tr><td colspan="2">暂无参赛球队数据。</td></tr><?php endif; ?>
+                </tbody>
+            </table></div>
+        </details>
+    </section>
     <section class="stats-panel ranking-panel" aria-labelledby="ranking-title">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
             <h2 class="h4 mb-0" id="ranking-title">球队进球排名</h2>
@@ -87,18 +120,16 @@ $seed = [
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="insight-duel" aria-label="所选球队胜率">
+                <div class="insight-duel" aria-label="所选球队">
                     <?php foreach (['left', 'right'] as $side): $selected = $initialCompare[$side] ?? null; ?>
                         <div class="insight-team insight-team-<?= $side ?>">
                             <span class="insight-team-code" id="compare-<?= $side ?>-code"><?= Html::encode($selected['fifa_code'] ?? '—') ?></span>
                             <strong id="compare-<?= $side ?>-name"><?= Html::encode($selected['team_name'] ?? '选择球队') ?></strong>
-                            <span class="insight-team-rate" id="compare-<?= $side ?>-rate"><?= isset($selected['win_rate']) ? Html::encode(number_format((float) $selected['win_rate'] * 100, 1) . '%') : '暂无' ?></span>
-                            <span class="small text-body-secondary">胜率</span>
                         </div>
                     <?php endforeach; ?>
                 </div>
                 <p class="chart-status small text-body-secondary mt-2" id="compare-status" role="status" aria-live="polite"></p>
-                <div class="stats-chart" id="compare-chart" aria-label="两队胜平负分组柱状图"></div>
+                <div class="stats-chart" id="compare-chart" aria-label="两队胜平负双环形图，圆环中心显示胜率"></div>
                 <details><summary>查看对比数据表</summary>
                     <div class="table-responsive"><table class="table table-sm">
                         <caption>场上平局计为平局，点球胜场单列。</caption>
@@ -112,6 +143,18 @@ $seed = [
                     </table></div>
                 </details>
                 <?= Html::a('打开完整球队 PK', ['/national-team/compare', 'left_id' => $initialCompare['left']['team_id'] ?? null, 'right_id' => $initialCompare['right']['team_id'] ?? null], ['class' => 'btn btn-sm btn-outline-primary mt-2', 'id' => 'insight-pk-link']) ?>
+            </section>
+            <section class="stats-panel scatter-panel" aria-labelledby="scatter-title">
+                <h2 class="h4" id="scatter-title">攻防坐标</h2>
+                <p class="small text-body-secondary mb-0">越靠右场均进球越多，越靠下场均失球越少。点击球队查看数据。</p>
+                <p class="chart-status small text-body-secondary mt-2" id="scatter-status" role="status" aria-live="polite"></p>
+                <div class="stats-chart" id="scatter-chart" aria-label="各球队场均进球与场均失球散点图"></div>
+                <div class="scatter-team-card" id="scatter-team-card" aria-live="polite">
+                    <strong id="scatter-team-name">选择图中的球队</strong>
+                    <p class="small mb-2" id="scatter-team-stats">也可以使用上方“追踪球队”选择器。</p>
+                    <?= Html::a('查看球队完整旅程', ['/journey/view'], ['id' => 'scatter-journey-link', 'class' => 'small', 'hidden' => true]) ?>
+                </div>
+                <p class="small text-body-secondary mt-2 mb-0">完整数值可在进球排名数据表中查阅，场均数据仅展示有完赛记录的球队。</p>
             </section>
             <section class="stats-panel stages-panel" aria-labelledby="stages-title">
                 <div class="d-flex flex-wrap justify-content-between gap-2 align-items-center">

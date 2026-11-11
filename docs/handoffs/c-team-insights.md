@@ -5,7 +5,7 @@
 ## 已实现功能
 
 - 两队 PK，展示已完赛场次、胜平负、进失球、场均进失球、胜率、点球胜场和已有最终成绩。
-- 三张动态图表，分别展示球队进球排名、两队胜平负、阶段有效场次／完赛场次／进球数。
+- 五个图表区域，展示晋级桑基图、球队进球排名、两队胜平负双环形图、攻防散点图、阶段有效场次／完赛场次／进球数。
 - 排名前 10 队、前 20 队、全部球队切换，两队选择，刷新接口及错误提示。
 - 数据表供无 JavaScript 环境和辅助阅读使用，支持桌面、手机及深浅色模式。
 - 公共导航增加球队 PK 和数据图表入口，球队 DNA 详情增加预选本队的 PK 链接。
@@ -17,11 +17,12 @@
 | 文件 | 用途 |
 | --- | --- |
 | `controllers/NationalTeamController.php` | 新增 actionCompare，复用球队 ID 和参赛校验 |
-| `controllers/InsightController.php` | 汇集排名和阶段统计，渲染图表页 |
-| `controllers/ApiController.php` | insights 增加 scoring-ranking 选项，保留统一 JSON 和 HTTP 状态 |
+| `controllers/InsightController.php` | 汇集排名、阶段统计和晋级流向，渲染图表页 |
+| `controllers/ApiController.php` | insights 支持 scoring-ranking 和 journey-flow，保留统一 JSON 和 HTTP 状态 |
+| `services/JourneyFlowService.php` | 批量读取参赛关系、已完赛阶段和已有最终成绩，生成晋级流向 |
 | `views/national-team/compare.php` | GET 选择、两队比较及交换 |
 | `views/national-team/view.php` | 增加 PK 入口 |
-| `views/insight/index.php` | 三张图表、服务端数据表及安全 JSON 初值 |
+| `views/insight/index.php` | 五个图表区域、服务端数据表及安全 JSON 初值 |
 | `assets/TeamStatsAsset.php` | 依赖 AppAsset，注册页面样式 |
 | `assets/InsightAsset.php` | 在图表页统一加载本地 ECharts 和脚本 |
 | `web/css/stats.css` | 页面内样式及响应式布局 |
@@ -62,6 +63,7 @@ MatchQueryService::getStageSummary(): array
 | `GET api/team-compare?left_id=ID&right_id=ID` | `{left: TeamStats, right: TeamStats}`，沿用现有接口 |
 | `GET api/insights?chart=stage-goals` | StageSummary 数组，沿用现有接口 |
 | `GET api/insights?chart=scoring-ranking` | 完整 TeamStats 排名数组，本次扩展 |
+| `GET api/insights?chart=journey-flow` | JourneyFlowService 的 nodes、links、teams 数组 |
 
 统一成功响应为 `{success: true, data: ..., error: null}`。失败保留真实 HTTP 状态及既有 `{success: false, data: null, error: {code, message}}` 格式。未知 chart 返回 400。前端刷新失败时保留上次成功图表并显示失败提示。
 
@@ -80,6 +82,24 @@ stage_code, match_count, finished_match_count, total_goals
 ```
 
 仅统计 2026 届 FINISHED 比赛。进球优先采用 120 分钟累计比分，否则采用 90 分钟比分，点球比分单独处理。点球大战前场上战平计为平局，penalty_wins 单列。有效赛程排除 CANCELLED，阶段无完赛记录时 total_goals 为 null，有完赛的真实零进球为 0。缺少最终成绩的球队显示“暂无”。
+
+## 晋级与攻防交互扩展
+
+`JourneyFlowService->getFlow(): array` 返回如下结构，沿用统一 JSON 包装。
+
+```text
+nodes[] = {name: string, label: string, depth: int}
+links[] = {source: string, target: string, value: int, team_ids: array}
+teams[] = {team_id: int|string, path: string[], final_result_code: string|null}
+```
+
+节点包括本届参赛、已完成的比赛阶段、最终成绩或待定状态。每支参赛球队在同一阶段只计一次，流线的 value 为球队数量。仅使用 FINISHED 比赛识别已完成阶段，取消、延期和未开始赛程不会产生晋级记录。缺失的中间阶段不会自动补齐，最终成绩读取 tournament_team.final_result_code。季军赛与决赛分支独立，季军成绩独立于季军赛阶段。尚无比赛的球队进入等待比赛节点，缺少最终成绩时进入成绩待定节点。没有参赛记录时三个数组均为空。
+
+球队选择器与散点点击共用所选球队 ID。选择后高亮包含该球队的聚合流线，并显示该球队的阶段路径与统计卡片。流线宽度始终代表对应球队群体的数量。散点横轴为 goals_per_match、纵轴为 goals_against_per_match，直接读取统一球队统计，仅展示非空场均数据，重合点可以通过选择器分别选中。资料卡提供 journey/view?team_id=ID 链接。
+
+双环形图直接使用 wins/draws/losses，中心展示 win_rate。点球胜场仍在数据表单列。无完赛数据时显示空圆环和暂无胜率。晋级图窄屏在自身区域横向滚动，其余图表纵向排列。
+
+本轮 PHP 与 JavaScript 语法检查通过，隔离临时 MySQL 库及真实 HTTP 回归通过 233 项检查，其中新增 13 项涵盖阶段去重、未来赛程排除、季军路线、待定成绩、无比赛球队与 JSON 接口一致性。
 
 ## 安全和资源
 

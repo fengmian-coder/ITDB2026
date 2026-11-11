@@ -292,6 +292,30 @@ try {
     $check($chartData['ranking'][0]['goals_for'] === 3 && $chartData['ranking'][0]['draws'] === 1
         && $chartData['ranking'][0]['penalty_wins'] === 1, 'chart data separates extra time and penalties');
     $check($chartData['stages'] === $summary, 'chart stages equal B service');
+    $check(str_contains($html, 'id="flow-chart"') && str_contains($html, 'id="scatter-chart"'), 'flow and scatter chart containers');
+    $flowService = new app\services\JourneyFlowService();
+    $flow = $flowService->getFlow();
+    $check($chartData['flow'] === $flow, 'flow SSR uses real service data');
+    $check(count($flow['teams']) === 2 && $flow['links'][0]['value'] === 2, 'flow counts participants once per stage');
+    $check($flow['teams'][0]['path'] === ['entry', 'GROUP', 'FINAL', 'pending:FINAL'], 'flow uses observed stages without inventing missing rounds or winner');
+    $check(!in_array('result:CHAMPION', array_column($flow['nodes'], 'name'), true), 'penalty winner alone does not invent final result');
+    [$flowStatus, $flowJson] = $request($guest, 'api/insights&chart=journey-flow');
+    $check($flowStatus === 200 && json_decode($flowJson, true)['data'] === $flow, 'flow API matches SSR');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => 'CHAMPION'], ['team_id' => $home])->execute();
+    $confirmedFlow = $flowService->getFlow();
+    $check(end($confirmedFlow['teams'][0]['path']) === 'result:CHAMPION', 'flow reads recorded final result');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
+    $repeatGroup = $insert('wc_match', array_replace($base, ['match_no' => 101, 'status' => 'FINISHED', 'home_score_90' => 0, 'away_score_90' => 0]));
+    $check($flowService->getFlow() === $flow, 'repeated group matches do not multiply team flow');
+    $db->createCommand()->delete('wc_match', ['id' => $repeatGroup])->execute();
+    $db->createCommand()->update('wc_match', ['stage_code' => 'THIRD'], ['id' => $m2])->execute();
+    $db->createCommand()->update('tournament_team', ['final_result_code' => 'THIRD'], ['team_id' => $home])->execute();
+    $thirdFlow = $flowService->getFlow();
+    $thirdLabels = array_column($thirdFlow['nodes'], 'label', 'name');
+    $check($thirdLabels['THIRD'] === '季军赛' && $thirdLabels['result:THIRD'] === '季军', 'third place round differs from third place result');
+    $check($thirdFlow['teams'][0]['path'] === ['entry', 'GROUP', 'THIRD', 'result:THIRD'], 'third place path does not pass through final');
+    $db->createCommand()->update('wc_match', ['stage_code' => 'FINAL'], ['id' => $m2])->execute();
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
     [$status, $json] = $request($guest, 'api/insights&chart=scoring-ranking');
     $payload = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
     $check($status === 200 && $payload['data'] === $ranking, 'ranking API preserves C contract');
@@ -304,6 +328,7 @@ try {
     $check($updatedRanking[0]['goals_for'] === 4 && $updatedStages[0]['total_goals'] === 2, 'saved score refresh changes ranking and stage API');
     $db->createCommand()->update('wc_match', ['home_score_90' => 1], ['id' => $m1])->execute();
     $scheduled = $insert('wc_match', array_replace($base, ['match_no' => 100, 'stage_code' => 'SF', 'group_code' => null, 'status' => 'SCHEDULED']));
+    $check($flowService->getFlow() === $flow, 'scheduled round does not imply played advancement');
     $stagesWithNull = json_decode($request($guest, 'api/insights&chart=stage-goals')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
     $sf = array_values(array_filter($stagesWithNull, static fn ($row) => $row['stage_code'] === 'SF'))[0];
     $check($sf['match_count'] === 1 && $sf['finished_match_count'] === 0 && $sf['total_goals'] === null, 'chart stage without finished games keeps null');
@@ -406,6 +431,9 @@ try {
     $check($emptyStats['matches_played'] === 0 && $emptyStats['goals_for'] === 0
         && $emptyStats['goals_per_match'] === null && $emptyStats['win_rate'] === null,
         'C no finished matches retains null averages');
+    $emptyFlow = $flowService->getFlow();
+    $emptyPath = array_values(array_filter($emptyFlow['teams'], static fn ($team) => $team['team_id'] == $emptyTeam))[0];
+    $check($emptyPath['path'] === ['entry', 'pending:entry'], 'participant without games awaits matches');
     foreach (['api/team-stats&id=' . $outsider, 'wc-match/index&team_id=' . $outsider,
         'wc-match/index&team_id=999999'] as $route) {
         $check($request($guest, $route)[0] === 404, 'nonparticipant or absent team rejected ' . $route);
@@ -429,6 +457,7 @@ try {
     $db->createCommand()->update('wc_match', ['status' => 'CANCELLED'], ['match_no' => 4])->execute();
     $emptyCharts = $extractChartData($request($guest, 'insight/index')[1]);
     $check($emptyCharts['stages'] === [], 'cancelled-only schedule produces empty stage data');
+    $check(count($emptyCharts['flow']['links']) === 1 && $emptyCharts['flow']['links'][0]['target'] === 'pending:entry', 'cancelled matches excluded from flow');
     $db->createCommand()->update('wc_match', ['status' => 'SCHEDULED'], ['match_no' => 4])->execute();
     foreach ($savedMatches as $savedMatch) {
         $db->createCommand()->update('wc_match', $savedMatch, ['id' => $savedMatch['id']])->execute();

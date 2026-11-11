@@ -74,7 +74,6 @@
 .insight-team strong { max-width: 100%; overflow-wrap: anywhere; font-size: .9rem; }
 .insight-team-code { font-family: Georgia, serif; font-size: 1.65rem; letter-spacing: .05em; color: var(--insight-green); }
 .insight-team-right .insight-team-code { color: var(--insight-gold); }
-.insight-team-rate { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 [data-bs-theme="dark"] .insight-page { --insight-green: #91d2ad; --insight-gold: #e0bc76; --insight-surface: #26372e; }
 @media (max-width: 991.98px) {
     .insight-grid { grid-template-columns: minmax(0, 1fr); }
@@ -88,4 +87,20 @@
     .stats-comparison td { font-size: 1rem; }
     .insight-page .stats-chart { height: 360px; }
     .insight-page .stats-chart-ranking { height: 420px; }
+}
+.insight-sections { flex-wrap: wrap; }
+.insight-page .flow-panel, .insight-page .scatter-panel { grid-column: 1 / -1; }
+.insight-page .flow-scroll { overflow-x: auto; }
+.insight-page #flow-chart { min-width: 850px; height: 460px; }
+.insight-page .flow-picker { min-width: 180px; }
+.insight-page .flow-route { color: var(--insight-green); line-height: 1.8; }
+.insight-page #scatter-chart { height: 390px; }
+.insight-page .scatter-team-card { padding: 18px 22px; border-radius: 14px; background: var(--insight-surface); border-left: 3px solid var(--insight-green); }
+.insight-page .scatter-team-card p { margin-top: 6px; color: var(--bs-secondary-color); }
+.insight-page .scatter-team-card a { color: var(--insight-green); text-underline-offset: 3px; }
+.insight-page .insight-team { padding: 14px 8px; }
+@media (max-width: 575.98px) {
+    .insight-page #flow-chart { height: 420px; }
+    .insight-page .flow-picker { width: 100%; }
+    .insight-page #scatter-chart { height: 340px; }
 }
