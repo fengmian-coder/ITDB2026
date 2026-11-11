@@ -4,9 +4,9 @@
 |---|---|
 | 整理日期 | 2026-11-11 |
 | 提供方 / 核对方 | B（赛事与比赛后端）/ C（球队、统计及正式数据库） |
-| 当前分支 / 核对代码版本 | `feature/b-match` / `a287e22`，已推送 |
+| 当前分支 / 核对代码版本 | `feature/b-match`，本轮 PK 与图表提交见 Pull Request |
 | C 交付版本 | `C` 分支 `c45f159`，已合入当前 B 分支 |
-| 文档状态 | B/C 代码已通过 PR #3 合并到 main 的 99fe78d，本轮同步已发布故事数据包 |
+| 文档状态 | B/C 基础代码已通过 PR #3 合并到 main 的 99fe78d，本轮增加球队 PK、图表和已发布故事数据包 |
 | 本次范围 | 球队资料、参赛资格、比赛与历程页面、统计 API、后台校验及数据导入回归 |
 
 ## 1. 依据与状态标记
@@ -28,7 +28,7 @@
 
 当前已接入 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php` 和 C 的球队列表、DNA 详情页。表结构与约束见 `docs/data-dictionary.md`、`docs/er-diagram.md` 和 `data/install.sql`。C 的 15 表结构已在独立 MySQL 测试库还原。
 
-2026-11-11 在 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19 上执行 `php tests/integration/b-module.php`，158 项真实 HTTP／数据库检查通过。`php tests/integration/match-data-import.php` 的 41 条导入断言通过。两项脚本均创建独立临时库并在结束时清理。代码和界面变更通过 18 个 PHP 文件语法检查。
+2026-11-11 在 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19 上执行 `php tests/integration/b-module.php`，193 项真实 HTTP／数据库检查通过。`php tests/integration/match-data-import.php` 的 84 条导入断言通过。两项脚本均创建独立临时库并在结束时清理。本轮新增和修改的 PHP 文件均通过语法检查。
 
 对开发库只读核对了 104 场比赛详情、48 队统计及 Journey。104 场均为 FINISHED，场上总进球 308，各队进球合计同为 308，各队完赛场次合计 208。九张赛事、球队、精选内容表的记录指纹在核对前后一致。该一致性检查覆盖当前导入数据的查询口径，外部事实复核继续按 V1.1 执行。
 
@@ -78,7 +78,7 @@
 
 已完成 C Model 与统计服务接入、CSV 导入及 ID 映射、球队参赛资格与名称展示、事件枚举／分钟／球队校验、公开分页 1—100 上限及 D 的后台授权接入。浏览器实际操作验证了比赛球队筛选、比赛详情到 Journey 的跳转和球队搜索。
 
-待交付内容包括 C 的 PK 与图表页面、48 队可靠的 final_result_code、A 的国旗与故事封面素材、D 的独立数据复核、D/C 的部署还原。开发库当前 48 个国旗路径、8 个封面路径及 48 个最终成绩均为空，8 篇故事已发布。
+球队 PK 与三张图表已由 B 协助 C 完成，页面和新增排名接口见 [C PK 与图表交接](handoffs/c-team-insights.md)。待交付内容包括 48 队可靠的 final_result_code、A 的国旗与故事封面素材、D 的独立数据复核、D/C 的部署还原。开发库当前 48 个国旗路径、8 个封面路径及 48 个最终成绩均为空，8 篇故事已发布。
 
 本轮 `php tests/integration/match-data-import.php` 通过 84 条真实数据库及 HTTP 断言。空库还原后八篇故事正文与数据包一致，前台展示 104 条事件及 27 条标签关联。新增记录读取 CSV 发布状态，重复导入保留后台已有发布／撤回状态和封面。现有正文若与 CSV 冲突，整批业务写入回滚。
 
@@ -568,7 +568,7 @@ C 可直接填写下表回复；“一致”应附代码或 DDL 依据，不表�
 | 可联调的测试库及非敏感配置约定 | 待填写；不填写账号密码 |
 | 联调日期、测试记录位置、遗留问题负责人 | 待填写 |
 
-C 接下来交付球队 PK 与三张 DB 驱动图表页面，以及经可靠来源核对的 final_result_code。A 提供合法国旗／封面素材。D 继续独立数据复核，D/C 完成部署还原。B/C 集成代码已通过 PR #3 合并到 main。
+球队 PK 与三张 DB 驱动图表页面已由 B 协助完成。C 接下来补充经可靠来源核对的 final_result_code。A 提供合法国旗／封面素材。D 继续独立数据复核，D/C 完成部署还原。B/C 基础集成代码已通过 PR #3 合并到 main，本轮页面更新通过 feature/b-match 的 Pull Request 交付。
 
 ## 11. 精选故事的来源核对与发布交接
 

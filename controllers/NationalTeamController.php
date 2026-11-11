@@ -1,9 +1,9 @@
 <?php
 /**
- * WorldCup Journey - 国家队列表与 DNA 详情控制器
+ * WorldCup Journey - 国家队列表、DNA 详情与球队 PK 控制器
  * 模块：C 球队与统计
- * 负责人：C
- * 依赖：NationalTeam、Tournament、TournamentTeam、TeamStatsService
+ * 负责人：C，B 协助实现 PK
+ * 依赖：NationalTeam、Tournament、TournamentTeam、TeamStatsService、TeamDirectoryService
  * 最近修改：2026-11-11
  */
 
@@ -14,6 +14,7 @@ namespace app\controllers;
 use app\models\NationalTeam;
 use app\models\Tournament;
 use app\models\TournamentTeam;
+use app\services\TeamDirectoryService;
 use app\services\TeamStatsService;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -34,6 +35,7 @@ class NationalTeamController extends Controller
         $id,
         $module,
         private readonly TeamStatsService $teamStatsService,
+        private readonly TeamDirectoryService $teamDirectoryService,
         $config = [],
     ) {
         parent::__construct($id, $module, $config);
@@ -47,6 +49,7 @@ class NationalTeamController extends Controller
                 'actions' => [
                     'index' => ['GET', 'HEAD'],
                     'view' => ['GET', 'HEAD'],
+                    'compare' => ['GET', 'HEAD'],
                 ],
             ],
         ];
@@ -111,6 +114,27 @@ class NationalTeamController extends Controller
             'team' => $team,
             'stats' => $this->teamStatsService->getTeamStats($teamId),
             'participation' => $this->findParticipation($teamId),
+        ]);
+    }
+
+    /** GET national-team/compare?left_id=&right_id=，允许先选择一支球队。 */
+    public function actionCompare(mixed $left_id = null, mixed $right_id = null): string
+    {
+        $leftId = $left_id === null || $left_id === '' ? null : $this->positiveId($left_id);
+        $rightId = $right_id === null || $right_id === '' ? null : $this->positiveId($right_id);
+        $comparison = null;
+        if ($leftId !== null && $rightId !== null) {
+            $comparison = $this->teamStatsService->getCompareStats($leftId, $rightId);
+        } elseif ($leftId !== null || $rightId !== null) {
+            // 单选深链接同样核对本届参赛资格，保留 Service 的 404 行为。
+            $this->teamStatsService->getTeamStats($leftId ?? $rightId);
+        }
+
+        return $this->render('compare', [
+            'teams' => $this->teamDirectoryService->getTeams(true),
+            'leftId' => $leftId,
+            'rightId' => $rightId,
+            'comparison' => $comparison,
         ]);
     }
 

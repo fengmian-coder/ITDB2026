@@ -1,9 +1,9 @@
 <?php
 
 /**
- * WorldCup Journey - 公共导航，接入团队介绍并保留 D 的登录与留言入口。
+ * WorldCup Journey - 公共导航，接入球队 PK、图表及各成员页面。
  * 模块：A 公共界面；负责人：A；依赖：Bootstrap Nav、D 的管理员会话。
- * 最近修改：2026-11-10。
+ * 最近修改：2026-11-11，B 协助接入 C 的 PK 和图表入口。
  */
 
 declare(strict_types=1);
@@ -22,6 +22,14 @@ $items = [
     [
         'label' => '探索球队',
         'url' => ['/site/explore'],
+    ],
+    [
+        'label' => '球队PK',
+        'url' => ['/national-team/compare'],
+    ],
+    [
+        'label' => '数据图表',
+        'url' => ['/insight/index'],
     ],
     [
         'label' => '探索比赛',
@@ -71,7 +79,7 @@ $items = [
         [
             'brandLabel' => Yii::$app->name,
             'brandUrl' => Yii::$app->homeUrl,
-            'options' => ['class' => 'navbar-expand-xl navbar-dark wc-navbar fixed-top']
+            'options' => ['class' => 'navbar-expand-xxl navbar-dark wc-navbar fixed-top']
         ],
     ) ?>
     <?= Nav::widget(

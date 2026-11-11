@@ -4,6 +4,7 @@
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：NationalTeamController、TeamStatsService 返回数组
+ * 最近修改：2026-11-11，B 协助增加预选本队的 PK 入口
  */
 
 declare(strict_types=1);
@@ -50,6 +51,7 @@ $formatRate = static function ($value): string {
             </div>
         </div>
         <div class="d-flex flex-wrap gap-2">
+            <?= Html::a('球队 PK', ['/national-team/compare', 'left_id' => $team->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('晋级之路', ['/journey/view', 'team_id' => $team->id], ['class' => 'btn btn-outline-primary']) ?>
             <?= Html::a('本届比赛', ['/wc-match/index', 'team_id' => $team->id], ['class' => 'btn btn-outline-secondary']) ?>
         </div>

@@ -177,12 +177,15 @@ is_published 只接受 0/1；新增默认草稿。保存为已发布但未提交
 | 路由 | 方法 | 行为 |
 |---|---|---|
 | api/insights?chart=stage-goals | 仅 GET | MatchQueryService::getStageSummary() |
+| api/insights?chart=scoring-ranking | 仅 GET | TeamStatsService::getScoringRanking()，完整参赛队进球排名 |
 | api/team-stats?id=... | 仅 GET | 调用 C 的 getTeamStats(int $teamId): array |
 | api/team-compare?left_id=...&right_id=... | 仅 GET | 调用 C 的 getCompareStats(int $leftId, int $rightId): array |
 
 成功返回 {success:true,data:业务数组,error:null}；失败保持真实 HTTP 状态并返回 {success:false,data:null,error:{code,message}}。非法参数/同队对比 400，非法图表 400 INVALID_CHART，未知/非参赛球队 404 TEAM_NOT_FOUND，缺 C 依赖或数据库错误为友好 500 SERVER_ERROR，错误方法 405 METHOD_NOT_ALLOWED。HEAD 不放行；写请求可能先被 CSRF 检查以 400 拒绝。响应不暴露 SQL 或内部路径。
 
 C 的 TeamStatsService 已接入，两个球队 API 已通过真实服务、HTTP 状态与返回结构检查。当前默认 DI 可创建该服务。
+
+B 协助 C 完成公开的 `national-team/compare` 和 `insight/index` 页面，通过现有导航进入。两页开放 GET/HEAD，统计 JSON 继续仅 GET。接口、资源和 193 项回归范围见 [C PK 与图表交接](handoffs/c-team-insights.md)。
 
 ## 3. 管理员授权接入
 

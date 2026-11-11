@@ -126,4 +126,6 @@ php tests/integration/match-data-import.php
 
 2026-11-11 的 B/C 联调通过 158 项真实 HTTP／数据库检查，本轮数据包导入回归通过 84 条断言，包含八篇故事还原后的实际 HTTP 展示。比赛列表支持阶段、参赛球队和分页筛选，page_size 为 1—100。球队不存在或未参赛时返回 404。球队名称与 FIFA 代码已接入，flag_path 有合法素材时显示图片。
 
-后续由 C 完成 PK、三张动态图表页面及可靠最终成绩数据，A 提供合法国旗和封面，D 完成独立数据复核，D/C 完成一键部署及还原验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。
+球队 PK 和三张动态图表已由 B 协助 C 实现。入口分别为 `index.php?r=national-team/compare` 和 `index.php?r=insight/index`，公共导航和球队 DNA 页已接入。图表使用本地 Apache ECharts 6.1.0，统计复用既有服务，提供完整数据表、球队切换和刷新。扩展后的 B/C 回归通过 193 项真实 HTTP／数据库检查，数据包导入回归通过 84 条断言。详情见 [C 球队 PK 与图表交接](docs/handoffs/c-team-insights.md)。
+
+后续由 C 补充可靠最终成绩数据，A 提供合法国旗和封面，D 完成独立数据复核，D/C 完成一键部署及还原验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。

@@ -221,6 +221,48 @@ try {
     $check($request($guest, 'national-team/index&page=2')[0] === 400, 'C out-of-range page rejected');
     $check($request($guest, 'national-team/index&q[]=ZZX')[0] === 400, 'C invalid search format rejected');
     $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C national team DNA');
+    [$status, $html] = $request($guest, 'national-team/compare');
+    $check($status === 200 && str_contains($html, '选好球队，开始比较'), 'PK initial empty form');
+    $check(str_contains($html, 'name="r" value="national-team/compare"'), 'PK GET form retains route');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $home);
+    $check($status === 200 && str_contains($html, 'value="' . $home . '" selected'), 'PK DNA deep link preselects participant');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $away);
+    $check($status === 200 && str_contains($html, '50.0%') && str_contains($html, '1.50'), 'PK C rates formatted without new aggregation');
+    $check(str_contains($html, '交换球队') && str_contains($html, 'right_id=' . $home), 'PK swap preserves reverse IDs');
+    foreach (['left_id=0', 'left_id[]=1', 'left_id=-1', 'left_id=1.5', 'left_id=100000000000000000000',
+        'left_id=' . $home . '&right_id=' . $home] as $query) {
+        $check($request($guest, 'national-team/compare&' . $query)[0] === 400, 'PK invalid parameter ' . $query);
+    }
+    $check($request($guest, 'national-team/compare&right_id=999999')[0] === 404, 'PK missing partial participant 404');
+    [$status, $html] = $request($guest, 'insight/index');
+    $check($status === 200 && str_contains($html, 'id="ranking-chart"')
+        && str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="stages-chart"'), 'three chart containers rendered');
+    $check(str_contains($html, 'vendor/echarts/echarts.min.js') && str_contains($html, 'js/insight-charts.js'), 'single local chart library registered');
+    $extractChartData = static function (string $html): array {
+        preg_match('/<script type="application\/json" id="insight-data">(.*?)<\/script>/s', $html, $match);
+        return json_decode($match[1] ?? '', true, 512, JSON_THROW_ON_ERROR);
+    };
+    $chartData = $extractChartData($html);
+    $check(array_column($chartData['ranking'], 'team_id') === [$home, $away], 'chart seed uses complete C ranking');
+    $check($chartData['ranking'][0]['goals_for'] === 3 && $chartData['ranking'][0]['draws'] === 1
+        && $chartData['ranking'][0]['penalty_wins'] === 1, 'chart data separates extra time and penalties');
+    $check($chartData['stages'] === $summary, 'chart stages equal B service');
+    [$status, $json] = $request($guest, 'api/insights&chart=scoring-ranking');
+    $payload = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    $check($status === 200 && $payload['data'] === $ranking, 'ranking API preserves C contract');
+    $check($request($guest, 'api/insights&chart=unknown')[0] === 400, 'unknown chart still rejected');
+    $check($request($guest, 'api/insights&chart[]=scoring-ranking')[0] === 400, 'array chart rejected');
+    // 仅修改独立测试库，验证刷新 API 确实重读已保存的比分。
+    $db->createCommand()->update('wc_match', ['home_score_90' => 2], ['id' => $m1])->execute();
+    $updatedRanking = json_decode($request($guest, 'api/insights&chart=scoring-ranking')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $updatedStages = json_decode($request($guest, 'api/insights&chart=stage-goals')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $check($updatedRanking[0]['goals_for'] === 4 && $updatedStages[0]['total_goals'] === 2, 'saved score refresh changes ranking and stage API');
+    $db->createCommand()->update('wc_match', ['home_score_90' => 1], ['id' => $m1])->execute();
+    $scheduled = $insert('wc_match', array_replace($base, ['match_no' => 100, 'stage_code' => 'SF', 'group_code' => null, 'status' => 'SCHEDULED']));
+    $stagesWithNull = json_decode($request($guest, 'api/insights&chart=stage-goals')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $sf = array_values(array_filter($stagesWithNull, static fn ($row) => $row['stage_code'] === 'SF'))[0];
+    $check($sf['match_count'] === 1 && $sf['finished_match_count'] === 0 && $sf['total_goals'] === null, 'chart stage without finished games keeps null');
+    $db->createCommand()->delete('wc_match', ['id' => $scheduled])->execute();
     $check($request($guest, 'site/explore')[0] === 302, 'A explore delegates to C list');
     $detail = $service->getMatchDetail($m2);
     $check($detail['home_team']['id'] === $home && $detail['away_team']['id'] === $away
@@ -325,6 +367,32 @@ try {
     }
     $check($service->getMatchList(['team_id' => $emptyTeam])['items'] === [], 'participant without matches empty list');
     $check($request($guest, 'national-team/view&id=' . $emptyTeam)[0] === 200, 'C empty DNA page');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $emptyTeam . '&right_id=' . $away);
+    $check($status === 200 && str_contains($html, '暂无'), 'PK no-games participant renders nullable rates');
+    $check($request($guest, 'national-team/compare&left_id=' . $outsider)[0] === 404, 'PK nonparticipant rejected');
+    $check($request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $outsider)[0] === 404, 'PK nonparticipant in pair rejected');
+    // 全部赛程取消时检查页面空状态与 API；测试后立即恢复原状态。
+    $savedMatches = $db->createCommand('SELECT * FROM wc_match WHERE id IN (:first, :second)', [':first' => $m1, ':second' => $m2])->queryAll();
+    $db->createCommand()->update('wc_match', ['status' => 'CANCELLED', 'home_score_90' => null,
+        'away_score_90' => null, 'home_score_120' => null, 'away_score_120' => null,
+        'home_penalties' => null, 'away_penalties' => null, 'winner_team_id' => null], ['id' => [$m1, $m2]])->execute();
+    [$status, $html] = $request($guest, 'insight/index');
+    $emptyCharts = $extractChartData($html);
+    $check($status === 200 && array_sum(array_column($emptyCharts['ranking'], 'matches_played')) === 0,
+        'charts keep real zero counts when no finished matches');
+    $check($emptyCharts['stages'][0]['total_goals'] === null, 'SSR seed keeps no-finished null');
+    $db->createCommand()->update('wc_match', ['status' => 'CANCELLED'], ['match_no' => 4])->execute();
+    $emptyCharts = $extractChartData($request($guest, 'insight/index')[1]);
+    $check($emptyCharts['stages'] === [], 'cancelled-only schedule produces empty stage data');
+    $db->createCommand()->update('wc_match', ['status' => 'SCHEDULED'], ['match_no' => 4])->execute();
+    foreach ($savedMatches as $savedMatch) {
+        $db->createCommand()->update('wc_match', $savedMatch, ['id' => $savedMatch['id']])->execute();
+    }
+    foreach (['national-team/compare', 'insight/index'] as $route) {
+        $check($request($guest, $route, [])[0] === 405, 'public chart POST method rejected ' . $route);
+        $check($request($admin, $route, ['_csrf' => $token($request($admin, 'auth/login')[1])])[0] === 405,
+            'public chart POST with CSRF method rejected ' . $route);
+    }
     foreach (['home_team_id', 'away_team_id'] as $attribute) {
         $match = app\models\WcMatch::findOne($m1);
         $match->$attribute = $outsider;
@@ -411,12 +479,14 @@ try {
     $check($service->getMatchDetail($m2)['home_team']['name_zh'] === 'TEST ONLY home', 'match retains inactive historical team');
     $check($journey->getTeamJourney($away)[0]['opponent']['name_zh'] === 'TEST ONLY home', 'Journey retains inactive opponent');
     $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C inactive historical DNA');
+    $check($request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $away)[0] === 200, 'PK retains inactive historical participant');
     $check($request($guest, 'journey/view&team_id=' . $home)[0] === 200, 'named inactive historical journey');
     $check($memory->getEditor($away, $m2)['card']['stats']['team_id'] === $away, 'A memory receives C statistics');
     // 临时库中检查球队文本与素材路径的输出边界。
     $db->createCommand()->update('national_team', ['name_zh' => '<script>TEAM_XSS</script>',
         'flag_path' => 'javascript:alert(1)'], ['id' => $home])->execute();
-    foreach (['wc-match/index', 'wc-match/view&id=' . $m2, 'journey/view&team_id=' . $away] as $route) {
+    foreach (['wc-match/index', 'wc-match/view&id=' . $m2, 'journey/view&team_id=' . $away,
+        'national-team/compare&left_id=' . $home . '&right_id=' . $away, 'insight/index'] as $route) {
         [$status, $html] = $request($guest, $route);
         $check($status === 200 && str_contains($html, '&lt;script&gt;TEAM_XSS&lt;/script&gt;')
             && !str_contains($html, '<script>TEAM_XSS</script>') && !str_contains($html, 'src="javascript:'),

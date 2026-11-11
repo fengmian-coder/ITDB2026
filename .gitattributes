@@ -4,3 +4,6 @@ data/personal/** -text
 
 # Keep CSV record delimiters and multiline story text identical after checkout.
 data/import/stories.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the pinned upstream chart bundle and its recorded SHA-256.
+web/vendor/echarts/echarts.min.js -text

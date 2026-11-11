@@ -1,0 +1,33 @@
+/* WorldCup Journey · C 球队 PK 与动态图表，由 B 协助实现。 */
+.stats-hero {
+    padding: clamp(1.5rem, 4vw, 2.8rem);
+    border-radius: 1.25rem;
+    background: #224c37;
+    color: #fff;
+}
+.stats-hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+.stats-hero p { color: #e0ebe3; max-width: 56rem; }
+.stats-panel {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 1.75rem);
+}
+.stats-comparison { table-layout: fixed; }
+.stats-comparison th, .stats-comparison td { padding: 1rem .75rem; overflow-wrap: anywhere; }
+.stats-comparison td { text-align: center; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.stats-comparison thead th { text-align: center; }
+.stats-comparison thead th:first-child { text-align: left; width: 30%; }
+.insight-page .stats-chart { width: 100%; min-height: 360px; height: 400px; }
+.insight-page .stats-chart-ranking { height: 440px; }
+.insight-page .chart-status { min-height: 1.5rem; }
+.insight-page .stats-table { max-height: 24rem; overflow: auto; }
+.insight-page summary { cursor: pointer; padding: .75rem 0; font-weight: 600; }
+.insight-page .table { font-variant-numeric: tabular-nums; }
+.insight-page .table td:first-child { overflow-wrap: anywhere; }
+@media (max-width: 575.98px) {
+    .stats-comparison th, .stats-comparison td { padding: .8rem .35rem; }
+    .stats-comparison td { font-size: 1rem; }
+    .insight-page .stats-chart { height: 360px; }
+    .insight-page .stats-chart-ranking { height: 420px; }
+}

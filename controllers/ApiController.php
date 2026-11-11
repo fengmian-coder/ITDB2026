@@ -2,8 +2,8 @@
 /**
  * WorldCup Journey - 只读统计 JSON 统一入口
  * 模块：B 赛事与比赛后端；负责人：B
- * 依赖：MatchQueryService；球队接口待 C 交付 app\services\TeamStatsService
- * 最近修改：2026-11-05
+ * 依赖：MatchQueryService、C 的 TeamStatsService
+ * 最近修改：2026-11-11
  */
 declare(strict_types=1);
 
@@ -20,7 +20,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\web\ServerErrorHttpException;
 
-/** 只包装已有服务结果；不重复球队统计 SQL，不依赖未交付的 C Model。 */
+/** 只包装已有服务结果，不重复球队统计 SQL。 */
 class ApiController extends Controller
 {
     /** 仅供服务器端 DI 配置；不从 GET/POST 加载，不提供替代球队数据。 */
@@ -79,10 +79,11 @@ class ApiController extends Controller
 
     public function actionInsights(mixed $chart = null): array
     {
-        if ($chart !== 'stage-goals') {
-            return $this->failure(400, 'INVALID_CHART', '仅支持 chart=stage-goals');
-        }
-        return $this->success($this->matchQueryService->getStageSummary());
+        return match ($chart) {
+            'stage-goals' => $this->success($this->matchQueryService->getStageSummary()),
+            'scoring-ranking' => $this->success($this->getTeamStatsService()->getScoringRanking()),
+            default => $this->failure(400, 'INVALID_CHART', '支持 chart=stage-goals 或 scoring-ranking'),
+        };
     }
 
     public function actionTeamStats(mixed $id = null): array
