@@ -188,7 +188,60 @@ try {
     $check($request($guest, 'wc-match/view&id=0')[0] === 400, 'invalid match 400');
     $check($request($guest, 'wc-match/view&id=999999')[0] === 404, 'absent match 404');
     $check($request($guest, 'api/insights&chart=stage-goals')[0] === 200, 'stage API real database');
-    $check($request($guest, 'api/team-stats&id=' . $home)[0] === 500, 'missing C statistics explicit failure');
+    $teamStats = new app\services\TeamStatsService();
+    $stats = $teamStats->getTeamStats($home);
+    $check($stats['matches_played'] === 2 && $stats['wins'] === 1 && $stats['draws'] === 1
+        && $stats['losses'] === 0, 'C statistics use finished matches and field results');
+    $check($stats['goals_for'] === 3 && $stats['goals_against'] === 2 && $stats['penalty_wins'] === 1,
+        'C cumulative extra time and penalty wins');
+    $check($stats['goals_per_match'] === 1.5 && $stats['goals_against_per_match'] === 1
+        && $stats['win_rate'] === 0.5, 'C per-match and win rate');
+    $compare = $teamStats->getCompareStats($away, $home);
+    $check($compare['left']['team_id'] === $away && $compare['right'] === $stats, 'C comparison keeps requested order');
+    $ranking = $teamStats->getScoringRanking();
+    $check(array_column($ranking, 'team_id') === [$home, $away], 'C scoring ranking');
+    [$status, $json] = $request($guest, 'api/team-stats&id=' . $home);
+    $payload = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    $check($status === 200 && $payload['success'] && $payload['data']['goals_for'] === 3
+        && $payload['error'] === null, 'team API calls actual C service');
+    [$status, $json] = $request($guest, 'api/team-compare&left_id=' . $away . '&right_id=' . $home);
+    $payload = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    $check($status === 200 && $payload['data']['left']['team_id'] === $away
+        && $payload['data']['right']['team_id'] === $home, 'comparison API real database');
+    foreach (['api/team-stats&id=0', 'api/team-stats&id[]=1',
+        'api/team-compare&left_id=' . $home . '&right_id=' . $home] as $route) {
+        $check($request($guest, $route)[0] === 400, 'invalid statistics request ' . $route);
+    }
+    $check($request($guest, 'api/team-stats&id=999999')[0] === 404, 'absent statistics team 404');
+    $check($request($guest, 'national-team/index')[0] === 200, 'C national team list');
+    [$status, $html] = $request($guest, 'national-team/index&q=ZZX');
+    $check($status === 200 && str_contains($html, 'TEST ONLY home')
+        && !str_contains($html, 'TEST ONLY away'), 'C actual team search');
+    $check(str_contains($html, 'name="r" value="national-team/index"'), 'C GET search retains Yii route');
+    $check($request($guest, 'national-team/index&page=2')[0] === 400, 'C out-of-range page rejected');
+    $check($request($guest, 'national-team/index&q[]=ZZX')[0] === 400, 'C invalid search format rejected');
+    $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C national team DNA');
+    $check($request($guest, 'site/explore')[0] === 302, 'A explore delegates to C list');
+    $detail = $service->getMatchDetail($m2);
+    $check($detail['home_team']['id'] === $home && $detail['away_team']['id'] === $away
+        && $detail['winner_team']['id'] === $home, 'three match team roles eager loaded');
+    $check($list['items'][0]['home_team']['name_zh'] === 'TEST ONLY home'
+        && count($list['teams']) === 2, 'match list exposes real names and participant options');
+    [$status, $html] = $request($guest, 'wc-match/index&stage=GROUP&team_id=' . $home . '&page_size=1');
+    $check($status === 200 && str_contains($html, 'TEST ONLY away')
+        && str_contains($html, 'name="team_id"'), 'named match filter and cards');
+    $check(str_contains($html, 'page=2') && str_contains($html, 'stage=GROUP')
+        && str_contains($html, 'team_id=' . $home) && str_contains($html, 'page_size=1'), 'pagination retains filters');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => 'CHAMPION'],
+        ['tournament_id' => $tournament, 'team_id' => $home])->execute();
+    $profileService = new app\services\JourneyService();
+    $check($profileService->getTeamProfile($home)['final_result_code'] === 'CHAMPION', 'Journey reads C final result');
+    $check($profileService->getTeamJourney($home)[0]['opponent']['name_zh'] === 'TEST ONLY away', 'Journey real opponent name');
+    [$status, $html] = $request($guest, 'journey/view&team_id=' . $home);
+    $check($status === 200 && str_contains($html, 'TEST ONLY home的世界杯之旅')
+        && str_contains($html, '冠军'), 'Journey profile and final result rendered');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null],
+        ['tournament_id' => $tournament, 'team_id' => $home])->execute();
 
     [$status, $html] = $request($admin, 'admin-story/create');
     $csrf = $token($html);
@@ -198,7 +251,7 @@ try {
     $check($scalar('SELECT created_at FROM match_story') !== null, 'database audit defaults');
     $check($service->getMatchDetail($m2)['story'] === null, 'draft hidden');
     $check($request($admin, 'admin-story/create', ['_csrf' => $csrf, 'MatchStory' => $storyData])[0] === 200 && (int) $scalar('SELECT COUNT(*) FROM match_story') === 1, 'unique story per match');
-    $eventData = ['minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
+    $eventData = ['team_id' => $home, 'minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
     $check($request($admin, 'admin-story/event-create&id=' . $story, ['_csrf' => $csrf, 'MatchEvent' => $eventData])[0] === 302, 'event created');
     $eventData['description'] = 'TEST_ONLY_EVENT_FIRST';
     $eventData['sort_order'] = 1;
@@ -215,6 +268,7 @@ try {
     $check($request($admin, 'admin-story/update&id=' . $story, ['_csrf' => $csrf, 'confirm_publish' => '1', 'MatchStory' => ['is_published' => '1']])[0] === 302, 'publication confirmed');
     $detail = $service->getMatchDetail($m2);
     $check(count($detail['tags']) === 1 && count($detail['events']) === 2, 'published relations real eager loading');
+    $check($detail['events'][0]['team']['id'] === $home, 'published event team eager loaded');
     $check($detail['events'][0]['sort_order'] === 1, 'event order');
     [$status, $html] = $request($guest, 'wc-match/view&id=' . $m2);
     $check($status === 200 && str_contains($html, 'TEST_ONLY_PRIVATE_BODY') && !str_contains($html, '<svg onload=alert(1)>'), 'published detail and escaping');
@@ -253,6 +307,82 @@ try {
 
     $check($request($admin, 'auth/logout', ['_csrf' => $csrf])[0] === 302, 'logout');
     $check($request($admin, 'admin-match/index')[0] === 403, 'logged out denied');
+    // 新验证使用本次独立库，保留实际导入数据及开发库原貌。
+    foreach (['0', '101', '-1', '1.5', '100000000000000000000'] as $size) {
+        $check($request($guest, 'wc-match/index&page_size=' . $size)[0] === 400, 'invalid public page size ' . $size);
+    }
+    $check($request($guest, 'wc-match/index&page_size=100')[0] === 200, 'maximum page size accepted');
+    $outsider = $insert('national_team', ['fifa_code' => 'ZZZ', 'name_zh' => 'TEST ONLY outsider', 'name_en' => 'TEST ONLY outsider']);
+    $emptyTeam = $insert('national_team', ['fifa_code' => 'ZZW', 'name_zh' => 'TEST ONLY no games', 'name_en' => 'TEST ONLY no games']);
+    $db->createCommand()->insert('tournament_team', ['tournament_id' => $tournament, 'team_id' => $emptyTeam, 'group_code' => 'A'])->execute();
+    $emptyStats = $teamStats->getTeamStats($emptyTeam);
+    $check($emptyStats['matches_played'] === 0 && $emptyStats['goals_for'] === 0
+        && $emptyStats['goals_per_match'] === null && $emptyStats['win_rate'] === null,
+        'C no finished matches retains null averages');
+    foreach (['api/team-stats&id=' . $outsider, 'wc-match/index&team_id=' . $outsider,
+        'wc-match/index&team_id=999999'] as $route) {
+        $check($request($guest, $route)[0] === 404, 'nonparticipant or absent team rejected ' . $route);
+    }
+    $check($service->getMatchList(['team_id' => $emptyTeam])['items'] === [], 'participant without matches empty list');
+    $check($request($guest, 'national-team/view&id=' . $emptyTeam)[0] === 200, 'C empty DNA page');
+    foreach (['home_team_id', 'away_team_id'] as $attribute) {
+        $match = app\models\WcMatch::findOne($m1);
+        $match->$attribute = $outsider;
+        $check(!$match->validate() && $match->hasErrors($attribute), 'nonparticipant rejected ' . $attribute);
+    }
+    $match = app\models\WcMatch::findOne($m1);
+    $match->home_team_id = 999999;
+    $check(!$match->validate() && $match->hasErrors('home_team_id'), 'missing match team rejected');
+    $match = app\models\WcMatch::findOne($m1);
+    $match->home_team_id = $away;
+    $match->away_team_id = $home;
+    $check($match->validate(), 'valid participants keep existing match behavior');
+    $eventFields = ['match_id' => $m1, 'team_id' => $home, 'period_code' => 'H1', 'event_type' => 'OTHER', 'minute' => 45, 'sort_order' => 0];
+    foreach ([
+        [['period_code' => 'ET'], 'period_code'],
+        [['event_type' => 'UNKNOWN'], 'event_type'],
+        [['minute' => null], 'minute'],
+        [['period_code' => 'SHOOTOUT', 'minute' => null, 'added_minute' => 2], 'minute'],
+        [['team_id' => $outsider], 'team_id'],
+        [['team_id' => 999999], 'team_id'],
+        [['match_id' => 999999], 'match_id'],
+    ] as [$invalid, $attribute]) {
+        $event = new app\models\MatchEvent(array_replace($eventFields, $invalid));
+        $check(!$event->validate() && $event->hasErrors($attribute), 'event rejects invalid ' . $attribute);
+    }
+    foreach ([
+        ['period_code' => 'SHOOTOUT', 'minute' => null],
+        ['team_id' => null], ['team_id' => $away], ['minute' => 45, 'added_minute' => 2],
+        ['period_code' => 'ET1', 'minute' => 105], ['period_code' => 'ET2', 'minute' => 120],
+    ] as $valid) {
+        $event = new app\models\MatchEvent(array_replace($eventFields, $valid));
+        $check($event->validate(), 'valid event retains supported semantics');
+    }
+    $journey = new app\services\JourneyService();
+    $check($journey->getTeamJourney($emptyTeam) === [], 'participant without matches gets empty journey');
+    $check($request($guest, 'journey/view&team_id=' . $emptyTeam)[0] === 200, 'empty journey page');
+    $check($request($guest, 'journey/view&team_id=' . $outsider)[0] === 404, 'nonparticipant journey 404');
+    $check($request($guest, 'journey/view&team_id=999999')[0] === 404, 'missing team journey 404');
+    $db->createCommand()->update('tournament', ['year' => 2030], ['id' => $tournament])->execute();
+    $check($request($guest, 'journey/view&team_id=' . $home)[0] === 500, 'uninitialized 2026 is explicit server failure');
+    $db->createCommand()->update('tournament', ['year' => 2026], ['id' => $tournament])->execute();
+    $check(count($journey->getTeamJourney($home)) === 4, 'valid journey retains all matches');
+    $csrf = $token($request($admin, 'auth/login')[1]);
+    $request($admin, 'auth/login', ['_csrf' => $csrf, 'AdminLoginForm' => ['username' => 'b_test', 'password' => $password]]);
+    $csrf = $token($request($admin, 'admin-story/create')[1]);
+    $invalidMatch = array_replace($base, ['match_no' => 5, 'status' => 'SCHEDULED', 'home_team_id' => $outsider]);
+    $check($request($admin, 'admin-match/create', ['_csrf' => $csrf, 'WcMatch' => $invalidMatch])[0] === 200,
+        'nonparticipant match keeps editable form');
+    $check((int) $scalar('SELECT COUNT(*) FROM wc_match WHERE match_no=5') === 0, 'invalid match is not saved');
+    $validationStory = $insert('match_story', ['match_id' => $m1, 'title' => 'TEST ONLY validation',
+        'summary' => 'TEST ONLY', 'body' => 'TEST ONLY']);
+    $eventsBefore = (int) $scalar('SELECT COUNT(*) FROM match_event');
+    foreach ([['minute' => ''], ['team_id' => $outsider], ['event_type' => 'UNKNOWN']] as $invalid) {
+        $fields = array_replace($eventFields, $invalid);
+        $check($request($admin, 'admin-story/event-create&id=' . $validationStory,
+            ['_csrf' => $csrf, 'MatchEvent' => $fields])[0] === 200, 'invalid event keeps editable form');
+        $check((int) $scalar('SELECT COUNT(*) FROM match_event') === $eventsBefore, 'invalid event is not saved');
+    }
     $directory = new app\services\TeamDirectoryService();
     $memory = new app\services\MemoryCardService();
     $check($request($guest, 'site/index')[0] === 200, 'integrated A homepage');
@@ -267,6 +397,31 @@ try {
     $check(in_array($home, array_map('intval', array_column($history['teams'], 'id')), true), 'historical selection retained');
     $check($memory->getEditor($away, $m2)['card']['home_name'] === 'TEST ONLY home', 'inactive opponent retains real name');
     $check($request($guest, 'memory/card&match_id=' . $m2)[0] === 200, 'historical match URL works for inactive home team');
+    $profileCount = static function (callable $operation) use ($db): int {
+        $db->enableProfiling = true;
+        $logger = Yii::getLogger();
+        $logger->flush();
+        $operation();
+        return count($logger->getProfiling(['yii\\db\\Command::query']));
+    };
+    $smallQueryCount = $profileCount(static fn () => $service->getMatchList(['page_size' => 1]));
+    $largeQueryCount = $profileCount(static fn () => $service->getMatchList(['page_size' => 100]));
+    $check($smallQueryCount <= 8 && $largeQueryCount <= 8, 'match related queries bounded independently of page size');
+    $check($teamStats->getTeamStats($home)['matches_played'] === 2, 'C statistics retains inactive historical team');
+    $check($service->getMatchDetail($m2)['home_team']['name_zh'] === 'TEST ONLY home', 'match retains inactive historical team');
+    $check($journey->getTeamJourney($away)[0]['opponent']['name_zh'] === 'TEST ONLY home', 'Journey retains inactive opponent');
+    $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C inactive historical DNA');
+    $check($request($guest, 'journey/view&team_id=' . $home)[0] === 200, 'named inactive historical journey');
+    $check($memory->getEditor($away, $m2)['card']['stats']['team_id'] === $away, 'A memory receives C statistics');
+    // 临时库中检查球队文本与素材路径的输出边界。
+    $db->createCommand()->update('national_team', ['name_zh' => '<script>TEAM_XSS</script>',
+        'flag_path' => 'javascript:alert(1)'], ['id' => $home])->execute();
+    foreach (['wc-match/index', 'wc-match/view&id=' . $m2, 'journey/view&team_id=' . $away] as $route) {
+        [$status, $html] = $request($guest, $route);
+        $check($status === 200 && str_contains($html, '&lt;script&gt;TEAM_XSS&lt;/script&gt;')
+            && !str_contains($html, '<script>TEAM_XSS</script>') && !str_contains($html, 'src="javascript:'),
+            'team output escaped ' . $route);
+    }
     echo "PASS {$checks} real HTTP/database checks\n";
 } finally {
     foreach ([$admin, $guest] as $client) {

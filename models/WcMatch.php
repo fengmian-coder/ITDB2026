@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：Yii 2.0 ActiveRecord、Tournament、Stadium、wc_match 表
- * 待联调：C 的球队存在性、赛事参赛资格及球队关联；正式 DDL 尚待确认
- * 最近修改：2026-11-03
+ * 参赛验证依赖：C 已交付的 tournament_team 表及外键
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -14,6 +14,7 @@ namespace app\models;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use yii\db\Query;
 
 /**
  * 只使用 V1.1 已明确的列，不增加审计字段或冗余统计列。
@@ -91,7 +92,7 @@ class WcMatch extends ActiveRecord
                 'targetAttribute' => ['stadium_id' => 'id']],
             [['tournament_id', 'match_no'], 'unique',
                 'targetAttribute' => ['tournament_id', 'match_no']],
-            // TODO(B/C)：交接正式球队 Model 后补充存在性、参赛资格及球队关联。
+            [['home_team_id', 'away_team_id', 'winner_team_id'], 'validateParticipation', 'when' => $hasValue],
         ];
     }
 
@@ -127,6 +128,36 @@ class WcMatch extends ActiveRecord
     public function getStadium(): ActiveQuery
     {
         return $this->hasOne(Stadium::class, ['id' => 'stadium_id']);
+    }
+
+    public function getHomeTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'home_team_id']);
+    }
+
+    public function getAwayTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'away_team_id']);
+    }
+
+    public function getWinnerTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'winner_team_id']);
+    }
+
+    public function validateParticipation(string $attribute): void
+    {
+        if ($this->hasErrors('tournament_id')) {
+            return;
+        }
+        // tournament_team 的两个正式外键保证球队和赛事存在。
+        $participates = (new Query())->from('tournament_team')->where([
+            'tournament_id' => $this->tournament_id,
+            'team_id' => $this->$attribute,
+        ])->exists(static::getDb());
+        if (!$participates) {
+            $this->addError($attribute, '球队必须存在且参加该届赛事');
+        }
     }
 
     /** BIGINT UNSIGNED 的上界使用十进制字符串核对，避免强转或浮点比较丢失精度。 */

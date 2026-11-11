@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：Yii 2.0、B 模块七个 ActiveRecord、C 提供的正式数据库结构
- * 待集成：C 的球队名称、徽标与球队存在性验证；目前只返回球队 ID
- * 最近修改：2026-11-10（A 联调修复已发布故事的标签预加载）
+ * 球队资料使用 C 的 NationalTeam / TournamentTeam，历史比赛保留停用球队信息
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -16,8 +16,10 @@ use app\models\MatchEvent;
 use app\models\MatchStory;
 use app\models\MatchStoryTag;
 use app\models\MatchTag;
+use app\models\NationalTeam;
 use app\models\Stadium;
 use app\models\Tournament;
+use app\models\TournamentTeam;
 use app\models\WcMatch;
 use Yii;
 use yii\db\ActiveQuery;
@@ -31,8 +33,9 @@ use yii\web\ServerErrorHttpException;
  * 仅查询 2026 届，不写数据库，也不返回虚构球队资料。
  *
  * 本阶段明确的数组约定（不改写待确认的数据库字段设计）：
- * - 列表：items + pagination(page, page_size, total_count, page_count)。
+ * - 列表：items + pagination(page, page_size, total_count, page_count) + teams 参赛目录。
  * - items 与详情共用比赛列，并附 tournament、stadium、final_score(home, away)。
+ * - home_team、away_team、winner_team 为 C 的真实资料，包含 id/name_zh/name_en/fifa_code/flag_path。
  * - 详情额外包含 story、events、tags；没有已发布故事时为 null、[]、[]。
  * - kickoff_utc 保留数据库 UTC 字符串 Y-m-d H:i:s；展示时再转换时区。
  * - ID 在 PHP 整数范围内返回 int，超出范围保留十进制 string，避免截断。
@@ -61,19 +64,26 @@ class MatchQueryService
         'period_code', 'event_type', 'description', 'sort_order',
     ];
     private const TAG_FIELDS = ['id', 'code', 'name'];
+    private const TEAM_FIELDS = ['id', 'name_zh', 'name_en', 'fifa_code', 'flag_path'];
 
     /**
      * stage/team_id 为 null 或空字符串时不筛选；page 默认 1，page_size 可选，默认 20。
-     * 页码和页大小须为 PHP 整数范围内的正整数；超页返回 400，不静默改写页码。
-     * 正整数球队 ID 无匹配时返回空列表，球队是否存在待 C 的接口就绪后再验证。
+     * 页码须为 PHP 整数范围内正整数，页大小为 1—100；超页返回 400。
+     * 不存在或未参加本届的球队返回 404；参赛但无匹配比赛时返回空列表。
      *
-     * @return array{items: array, pagination: array{page: int, page_size: int, total_count: int, page_count: int}}
+     * @return array{items: array, teams: array,
+     *   pagination: array{page: int, page_size: int, total_count: int, page_count: int}}
      */
     public function getMatchList(array $filters = []): array
     {
         $options = $this->normalizeFilters($filters);
 
         try {
+            $teams = $this->participantTeams();
+            if ($options['team_id'] !== null && !in_array($options['team_id'],
+                array_map('strval', array_column($teams, 'id')), true)) {
+                throw new NotFoundHttpException('未找到该球队或其 2026 世界杯参赛记录');
+            }
             $query = $this->filteredMatchQuery($options);
             // 只连接赛事父表，不连接事件或标签，计数和分页不会被一对多关系放大。
             $totalCount = (int) (clone $query)->count('m.id');
@@ -86,6 +96,7 @@ class MatchQueryService
             return [
                 'items' => array_map(fn (array $row): array => $this->serializeMatch($row), $rows),
                 'pagination' => $pagination,
+                'teams' => $teams,
             ];
         } catch (DatabaseException $exception) {
             throw $this->databaseFailure($exception, __FUNCTION__);
@@ -147,7 +158,28 @@ class MatchQueryService
             'stadium' => function (ActiveQuery $query): void {
                 $query->select($this->columns(Stadium::tableName(), self::STADIUM_FIELDS));
             },
+            'homeTeam' => static function (ActiveQuery $query): void {
+                $query->select(self::TEAM_FIELDS);
+            },
+            'awayTeam' => static function (ActiveQuery $query): void {
+                $query->select(self::TEAM_FIELDS);
+            },
+            'winnerTeam' => static function (ActiveQuery $query): void {
+                $query->select(self::TEAM_FIELDS);
+            },
         ]);
+    }
+
+    /** 批量读取参赛目录供筛选使用，也包含历史关联中的停用球队。 */
+    private function participantTeams(): array
+    {
+        $rows = NationalTeam::find()->alias('n')
+            ->select($this->columns('n', self::TEAM_FIELDS))
+            ->innerJoin(['tt' => TournamentTeam::tableName()], '[[tt.team_id]] = [[n.id]]')
+            ->innerJoin(['t' => Tournament::tableName()], '[[t.id]] = [[tt.tournament_id]]')
+            ->where(['t.year' => self::TOURNAMENT_YEAR])
+            ->orderBy(['n.name_zh' => SORT_ASC, 'n.id' => SORT_ASC])->asArray()->all();
+        return array_map(fn (array $row): array => $this->record($row, self::TEAM_FIELDS, ['id']), $rows);
     }
 
     private function filteredMatchQuery(array $options): ActiveQuery
@@ -182,6 +214,9 @@ class MatchQueryService
         // 本阶段按用户要求采用 sort_order 主排序，id 仅作为同值记录的稳定次级排序。
         return MatchEvent::find()->select($this->columns(MatchEvent::tableName(), self::EVENT_FIELDS))
             ->where(['match_id' => $matchId])
+            ->with(['team' => static function (ActiveQuery $query): void {
+                $query->select(self::TEAM_FIELDS);
+            }])
             ->orderBy(['sort_order' => SORT_ASC, 'id' => SORT_ASC])
             ->asArray();
     }
@@ -230,7 +265,7 @@ class MatchQueryService
             'page' => array_key_exists('page', $filters)
                 ? (int) $this->positiveDigits($filters['page'], 'page', (string) PHP_INT_MAX) : 1,
             'page_size' => array_key_exists('page_size', $filters)
-                ? (int) $this->positiveDigits($filters['page_size'], 'page_size', (string) PHP_INT_MAX)
+                ? (int) $this->positiveDigits($filters['page_size'], 'page_size', '100')
                 : self::DEFAULT_PAGE_SIZE,
         ];
     }
@@ -265,6 +300,9 @@ class MatchQueryService
                 'home_penalties', 'away_penalties']);
         $match['tournament'] = $this->record($row['tournament'] ?? null, self::TOURNAMENT_FIELDS, ['id'], ['year']);
         $match['stadium'] = $this->record($row['stadium'] ?? null, self::STADIUM_FIELDS, ['id']);
+        foreach (['home_team' => 'homeTeam', 'away_team' => 'awayTeam', 'winner_team' => 'winnerTeam'] as $key => $relation) {
+            $match[$key] = $this->record($row[$relation] ?? null, self::TEAM_FIELDS, ['id']);
+        }
         $match['final_score'] = $this->finalScore($match);
         return $match;
     }
@@ -294,8 +332,11 @@ class MatchQueryService
         $publicStory['is_published'] = true;
         return [
             'story' => $publicStory,
-            'events' => array_map(fn (array $event): array => $this->record($event, self::EVENT_FIELDS,
-                ['id', 'match_id', 'team_id'], ['minute', 'added_minute', 'sort_order']), $events),
+            'events' => array_map(fn (array $event): array => array_merge(
+                $this->record($event, self::EVENT_FIELDS,
+                    ['id', 'match_id', 'team_id'], ['minute', 'added_minute', 'sort_order']),
+                ['team' => $this->record($event['team'] ?? null, self::TEAM_FIELDS, ['id'])]
+            ), $events),
             'tags' => array_map(fn (array $tag): array => $this->record($tag, self::TAG_FIELDS, ['id']), $story['tags'] ?? []),
         ];
     }

@@ -4,7 +4,7 @@
 
 ## 当前范围与协作
 
-main 已集成 B 的赛事与旅程、C 的 15 表建表草案以及 D 的管理员与留言功能。团队主页、数据导入和球队统计仍待补齐。
+main 已通过 PR #2 集成 A 前台、B 赛事与数据导入、C 的 15 表结构以及 D 的管理员与留言功能。2026-11-11 的 feature/b-match 在 a287e22 接入 C 的 c45f159 球队 Model、球队列表／DNA 详情及统计服务，当前通过 PR #3 进行集成审查。
 
 按 2026-11-03 项目负责人的最新安排，本次骨架在 `feature/b-match` 开发并提交、推送至同名远程分支，这是对 V1.1 原定 `develop → chore/yii2-bootstrap` 流程的本次分支例外。后续 PR 目标由组长确认，不直接向 main/develop 推送。
 
@@ -35,9 +35,9 @@ composer show yiisoft/yii2
 php yii serve --port=8080
 ```
 
-打开 <http://localhost:8080/>，应显示官方 Basic 默认首页。关闭服务按 Ctrl+C；端口占用时改用 8081 等空闲端口。只公开 web 目录，不把仓库根目录设为网站根目录。
+打开 <http://localhost:8080/> 查看 WorldCup Journey 首页。关闭服务按 Ctrl+C，端口占用时改用 8081 等空闲端口。网站公开根目录为 web。
 
-本机本次验证使用 <http://127.0.0.1:8081/>（8080 已被其他程序占用），命令为 `php yii serve 127.0.0.1 --port=8081`。默认首页标题为 “Build with Yii Framework”。
+本机验证使用 <http://127.0.0.1:8081/>，命令为 `php yii serve 127.0.0.1 --port=8081`。
 
 若 PATH 尚未生效，使用绝对路径：
 
@@ -62,7 +62,7 @@ config/db.php 读取无密码的 config/db.example.php，再应用 config/db.loc
 
 ```text
 assets/ commands/ config/ controllers/ models/ views/ widgets/ mail/
-services/                     后续共享服务
+services/                     比赛、球队统计、历程、文件及纪念卡等业务服务
 web/index.php                 Web 入口；web 为唯一公开根目录
 runtime/ vendor/              本机生成，不提交
 config/db.example.php         无密码数据库示例
@@ -79,9 +79,9 @@ tests/                        保留官方模板测试框架
 
 路由保持 `index.php?r=controller/action`，无需修改 Apache；业务链接使用 Url::to()。CSRF 开启。服务端时间为 UTC，业务页面后续以 Asia/Shanghai 显示并标注北京时间。
 
-首页和联系页仍为模板内容。后台登录使用数据库管理员账号，原 site/login 会转到 auth/login。
+首页由 A 的项目页面提供。球队入口 site/explore 转到 C 的 national-team/index，比赛入口为 wc-match/index，球队历程为 journey/view?team_id=内部球队ID。后台使用 admin_user 中的管理员账号登录，原 site/login 转到 auth/login。
 
-本项目验证 Windows 原生 PHP 8.2，不需要 Docker / Vagrant；这些未使用的模板示例仅保留在初始化机器本地，不纳入 Git。
+当前已验证 Windows 原生 PHP 8.2 的启动与导入流程。一键部署由 D/C 继续交付，本机保留的 Docker / Vagrant 模板尚未纳入项目部署方案。
 
 ## 部署与敏感文件
 
@@ -109,8 +109,21 @@ chore(bootstrap): initialize Yii2 Basic application skeleton
 
 ## A 模块首版（feature/a）
 
-A 已实现数据库驱动首页、公共导航与页脚、团队成员前后台、课程文件上传下载与浏览器纪念卡。初始化、资料包登记、路由、共享文件修复、验收记录和待联调事项见 [A 模块交接](docs/handoffs/a-team-site.md)。本节对应 feature/a 本地改动，不表示已经合入 main。
+A 已实现数据库驱动首页、公共导航与页脚、团队成员前后台、课程文件上传下载与浏览器纪念卡，已通过 PR #2 合入 main。初始化、资料包登记、路由、共享文件修复及验收记录见 [A 模块交接](docs/handoffs/a-team-site.md)。
 
 建表并配置本地数据库后执行 `php yii project/init`。如需登记仓库中的六份课程资料，核对团队及 A 的成员 ID，再执行 `php yii project/register-bundle <团队ID> <成员A的ID>`。创建管理员仍使用 `php yii admin/create <username>`。登录后从后台首页进入“团队与成员”或“作业管理”。
 
-正式赛事数据尚待 B/C 导入；没有数据时首页数量为零、球队入口和纪念卡制作页显示空状态，首页单独展示个人作业 2 的卡片示例。`site/explore` 是临时只读衔接入口，C 的正式球队控制器交付后自动转交；不会在 A 模块重复实现球队统计。
+本机开发库已导入 1 届赛事、48 队／参赛关系、16 场馆、104 场比赛及 8 篇草稿故事。其他机器按 data/import/README.md 执行 `php yii match-data/import`，可先用 `--dry-run=1` 检查。本轮 C 服务接入后，球队 DNA、两个球队统计 API 和纪念卡统计复用 TeamStatsService。
+
+## B/C 联调验证
+
+本轮使用 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19。以下脚本分别创建独立临时测试库并在结束时清理，数据库账号需要创建和删除这些临时库的权限。
+
+```powershell
+php tests/integration/b-module.php
+php tests/integration/match-data-import.php
+```
+
+2026-11-11 分别通过 158 项真实 HTTP／数据库检查和 41 条导入断言。比赛列表支持阶段、参赛球队和分页筛选，page_size 为 1—100。球队不存在或未参赛时返回 404。球队名称与 FIFA 代码已接入，flag_path 有合法素材时显示图片。
+
+后续由 C 完成 PK、三张动态图表页面及可靠最终成绩数据，A 提供合法国旗和封面，B/D 完成故事内容与来源复核后发布，D/C 完成一键部署及还原验收。当前开发库 8 篇故事均为草稿。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。
