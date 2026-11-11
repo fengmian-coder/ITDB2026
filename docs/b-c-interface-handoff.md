@@ -2,11 +2,12 @@
 
 | 项目 | 内容 |
 |---|---|
-| 整理日期 | 2026-11-05 |
+| 整理日期 | 2026-11-11 |
 | 提供方 / 核对方 | B（赛事与比赛后端）/ C（球队、统计及正式数据库） |
-| 当前分支 / 核对代码版本 | `feature/b-match` / `3842640`（已推送的代码基线） |
-| 文档状态 | B 阶段代码交付与 C 联调清单；代码已推送不等于正式数据库、跨模块接口已验收 |
-| 本次范围 | 记录现状、明确依赖及联调验收；不新增业务代码、DDL 或数据 |
+| 当前分支 / 核对代码版本 | `feature/b-match` / `a287e22`，已推送 |
+| C 交付版本 | `C` 分支 `c45f159`，已合入当前 B 分支 |
+| 文档状态 | B/C 代码及本机 MySQL 联调记录，PR #3 待组员审查 |
+| 本次范围 | 球队资料、参赛资格、比赛与历程页面、统计 API、后台校验及数据导入回归 |
 
 ## 1. 依据与状态标记
 
@@ -25,29 +26,33 @@
 | **待确认建议** | 为联调提出的签名、类型或行为；未经 B/C 确认不能当作现有接口 |
 | **待数据库验证** | 需要 C 的正式字典、DDL、数据及可用数据库才能验收 |
 
-当前工作区仍未包含 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php` 和正式数据库字典；`data/install.sql` 仍只有占位注释。JourneyService、JourneyController、ApiController 及 B 四组后台已经实现并推送，具体见第 2、6、7 节。此处仅描述 B 当前工作区，不推断 C 其他分支是否已完成开发。
+当前已接入 `models/NationalTeam.php`、`models/TournamentTeam.php`、`services/TeamStatsService.php` 和 C 的球队列表、DNA 详情页。表结构与约束见 `docs/data-dictionary.md`、`docs/er-diagram.md` 和 `data/install.sql`。C 的 15 表结构已在独立 MySQL 测试库还原。
 
-已阅读 C 分支 `c112acf` 的 `docs/c-reply-to-b.md`；B 的回复为 [b-confirmation-to-c.md](b-confirmation-to-c.md)，已在 `e0d9e21` 推送。该回复中的“未开发/未提交”等文字是当时状态，当前代码交付以本文为准；其中拟议的事件枚举、分页上限、审计和 FK 方案仍须对齐正式字典及实施版本，不能因推送文档就视为已经落库或实现。
+2026-11-11 在 PHP 8.2.35、Yii 2.0.55、MySQL 8.0.19 上执行 `php tests/integration/b-module.php`，158 项真实 HTTP／数据库检查通过。`php tests/integration/match-data-import.php` 的 41 条导入断言通过。两项脚本均创建独立临时库并在结束时清理。代码和界面变更通过 18 个 PHP 文件语法检查。
 
-本文不替代 V1.1 或 C 的正式数据字典；若代码行为与双方拟定接口不同，应记录差异并走变更流程，不由任一方私自改名、补列或改变统计口径。
+对开发库只读核对了 104 场比赛详情、48 队统计及 Journey。104 场均为 FINISHED，场上总进球 308，各队进球合计同为 308，各队完赛场次合计 208。九张赛事、球队、精选内容表的记录指纹在核对前后一致。该一致性检查覆盖当前导入数据的查询口径，外部事实复核继续按 V1.1 执行。
+
+已阅读 C 分支 `c112acf` 的 `docs/c-reply-to-b.md`，B 的回复在 `e0d9e21` 推送。事件枚举、参赛校验和分页上限现已按 C 的表结构实施，字段确认单中的历史讨论可结合当前数据字典与实际代码追溯。
+
+字段设计继续由 V1.1、C 的数据字典和 install.sql 维护。接口变更通过 PR 记录并评审。
 
 ## 2. B 已完成功能与文件
 
 ### 2.1 当前实现清单
 
-| 文件 | 已实现内容 | 仍未完成的联调部分 |
+| 文件 | 已实现内容 | 当前验收或后续事项 |
 |---|---|---|
-| [models/Tournament.php](../models/Tournament.php) | 表映射、字段规则、标签、year 唯一性验证配置 | 正式表及数据库唯一约束验证 |
-| [models/Stadium.php](../models/Stadium.php) | 表映射、字段规则、标签；国家代码 CA/MX/US | 正式场馆表及真实数据 |
-| [models/WcMatch.php](../models/WcMatch.php) | 阶段/状态、双方不同、比分成对、加时累计、获胜方规则；赛事/场馆关联及存在性验证、赛事内编号唯一验证 | C 的球队存在性、参赛资格、球队关联及实际数据库约束 |
-| [models/MatchEvent.php](../models/MatchEvent.php) | 分钟/补时/排序字段验证、比赛关联；find() 默认 sort_order 升序 | C 的事件球队验证；建议枚举及完整排序契约冻结 |
+| [models/Tournament.php](../models/Tournament.php) | 表映射、字段规则、标签、year 唯一性验证配置 | 已按 C 的 15 表结构验证，最终部署仍需还原验收 |
+| [models/Stadium.php](../models/Stadium.php) | 表映射、字段规则、标签；国家代码 CA/MX/US | 开发库 16 场馆已导入 |
+| [models/WcMatch.php](../models/WcMatch.php) | 阶段/状态、双方不同、比分成对、加时累计、获胜方规则；赛事/场馆关联及存在性验证、赛事内编号唯一验证 | 球队关联、参赛资格与主要数据库约束已接入测试 |
+| [models/MatchEvent.php](../models/MatchEvent.php) | 分钟/补时/排序字段验证、比赛关联；find() 默认 sort_order 升序 | 球队归属、正式枚举、分钟规则和排序已接入 |
 | [models/MatchStory.php](../models/MatchStory.php) | 比赛唯一故事、发布标记、内容/路径/URL 规则；比赛、关联表、标签关系 | 审计字段正式策略、素材契约和真实唯一/FK 约束 |
 | [models/MatchTag.php](../models/MatchTag.php) | code/name 规则、code 唯一验证、关联表关系 | 正式字典、唯一约束验证 |
 | [models/MatchStoryTag.php](../models/MatchStoryTag.php) | 联合主键声明、必填 ID、重复组合验证、故事/标签关联 | 正式联合 PK、FK 及删除规则 |
-| [services/MatchQueryService.php](../services/MatchQueryService.php) | 2026 届比赛列表、公开详情、阶段统计；精确过滤/分页、父表预加载、故事发布控制 | 正式数据库查询、执行计划、球队资料集成 |
-| [controllers/WcMatchController.php](../controllers/WcMatchController.php) | 请求白名单、ID 校验、依赖注入、GET/HEAD、HTTP 异常传播、View 数据交接 | 真实 HTTP 与数据库联调 |
-| [views/wc-match/index.php](../views/wc-match/index.php) | 比赛卡片、阶段/球队 ID 筛选、数组分页、空状态、北京时间 | 球队名称/国旗集成、真实数据及浏览器验收 |
-| [views/wc-match/view.php](../views/wc-match/view.php) | 比赛信息、独立比分区域、已发布故事、标签、按原顺序展示事件 | 同上，另需封面素材根目录确认 |
+| [services/MatchQueryService.php](../services/MatchQueryService.php) | 2026 届比赛列表、公开详情、阶段统计；精确过滤/分页、父表预加载、故事发布控制 | 球队资料与真实数据库查询已接入，执行计划专项验收待补 |
+| [controllers/WcMatchController.php](../controllers/WcMatchController.php) | 请求白名单、ID 校验、依赖注入、GET/HEAD、HTTP 异常传播、View 数据交接 | 真实 HTTP 与数据库联调已执行 |
+| [views/wc-match/index.php](../views/wc-match/index.php) | 比赛卡片、阶段/球队 ID 筛选、数组分页、空状态、北京时间 | 名称已接入，国旗路径可展示，A 尚需提供素材 |
+| [views/wc-match/view.php](../views/wc-match/view.php) | 比赛信息、独立比分区域、已发布故事、标签、按原顺序展示事件 | 名称已接入，素材路径按 web/ 根解析，A 尚需提供封面 |
 | [docs/b-field-confirmation.md](b-field-confirmation.md) | 七表逐字段及 Q01—Q11 确认事项 | C 反馈与正式字典版本 |
 
 已有本地规则、结构、Controller 隔离测试及 View 渲染验证不替代正式数据库联调。本次只做文档核对，不重新执行 SQL、业务测试或宣称端到端验收通过。
@@ -65,13 +70,15 @@
 | 91f5350 | controllers/AdminMatchController.php、models/WcMatchSearch.php、views/admin-match/{index,view,create,update,_form}.php | 比赛 CRUD、阶段/状态/球队/赛事筛选、复用 WcMatch 比分验证 |
 | 3842640 | controllers/ApiController.php | 三个只读 JSON 路由；阶段统计调用 B，球队统计调用 C 的约定服务 |
 
-表中花括号表示分别存在的 PHP 文件。后台 ID 当前直接录入，不编造球队名称；写入列为已明确的业务字段，不从表单加载主键和审计时间。四组后台均默认拒绝访问，须 D 接入真实管理员授权；路由及权限细节见 [给 D 的交接文档](b-d-admin-handoff.md)。
+表中花括号表示分别存在的 PHP 文件。后台 ID 当前直接录入，不编造球队名称；写入列为已明确的业务字段，不从表单加载主键和审计时间。四组后台已接入 D 的真实管理员授权，游客返回 403；路由及权限细节见 [给 D 的交接文档](b-d-admin-handoff.md)。
 
 ### 2.3 源数据交付与未完成范围
 
-源 CSV 已在 `c440dda` 推送，位置为 `data/import/`，解析规则及来源说明见 [CSV README](../data/import/README.md)。记录数为 tournament 1、teams 48、stadiums 16、matches 104、stories 8、events 104、tags 16、story_tags 27、sources 57。故事全部保留未发布；这些是文件记录数，不代表已导入数据库或完成独立外部复核。C 统一解析 fifa_code、场馆名和本届 match_no 为内部 ID；空值不得补成比分 0，120 分钟比分不得与 90 分钟相加。具体导入和复核问题由 C/B/D 在测试记录中反馈，本文不重新认定源资料的真实性。
+源 CSV 已在 `c440dda` 推送，位置为 `data/import/`，解析规则及来源说明见 [CSV README](../data/import/README.md)。记录数为 tournament 1、teams 48、stadiums 16、matches 104、stories 8、events 104、tags 16、story_tags 27、sources 57。故事全部保留未发布；这些 CSV 已通过统一命令导入本机开发库，D 的独立外部复核待交付。MatchDataImportService 统一解析 fifa_code、场馆名和本届 match_no 为内部 ID；空值不得补成比分 0，120 分钟比分不得与 90 分钟相加。具体导入和复核问题由 C/B/D 在测试记录中反馈，本文不重新认定源资料的真实性。
 
-尚未完成：C 的正式 DDL/Model/统计服务接入、真实数据导入与 ID 映射、球队参赛资格及名称展示、事件正式枚举/分钟规则、公开比赛查询 page_size 上限、审计时间维护策略、D 的正式授权，以及真实数据库/浏览器/部署验收。Controller 中早期阶段注释不代表当前文件缺失；本次只更新文档，不修改业务代码。
+已完成 C Model 与统计服务接入、CSV 导入及 ID 映射、球队参赛资格与名称展示、事件枚举／分钟／球队校验、公开分页 1—100 上限及 D 的后台授权接入。浏览器实际操作验证了比赛球队筛选、比赛详情到 Journey 的跳转和球队搜索。
+
+待交付内容包括 C 的 PK 与图表页面、48 队可靠的 final_result_code、A 的国旗与故事封面素材、B/D 的内容复核与故事发布、D/C 的部署还原。开发库当前 48 个国旗路径、8 个封面路径及 48 个最终成绩均为空，8 篇故事均为草稿。
 
 最近一轮本地检查：19 个 PHP 文件语法通过；故事/事件/标签 160 用例 462 断言，故事删除事务控制流 6/32，比赛后台 62/161，API 43/167，合计 271 用例、822 断言。CRUD、事务和服务依赖使用替代对象，未访问真实数据库；这些数字不代表唯一约束、外键、InnoDB 回滚、C 服务或 D 登录已通过。
 
@@ -84,7 +91,7 @@
 - `NN` 表示非空，`NULL` 表示允许缺失，`PK/FK/UQ` 分别表示主键、外键、唯一约束。
 - 普通 `id` 按 V1.1 第 3.1 节为 `BIGINT UNSIGNED AUTO_INCREMENT`；关联表使用联合主键，不另加 id。精选表的 BIGINT 简写按此统一解释，C 必须核实真实两端类型一致。
 - B 七表明确的业务默认值仅为 `status='SCHEDULED'`、`sort_order=0`、`is_published=0`。其他默认值未冻结；不能自行改成空串、0、当前时间或 DEFAULT NULL。
-- 当前仅 MatchStory 显式使用 `created_at/updated_at`；其 NULL、默认值、维护机制未冻结。其他六表的审计列是否采用通用建议仍待确认，不在本文件加列。
+- C 当前为 tournament、stadium、wc_match、match_event、match_story 设置 created_at／updated_at，由数据库默认值及 ON UPDATE 维护。标签字典及故事标签关联表无审计列。逐字段定义见数据字典第 2 节。
 - Model 的 unique/exist 规则及 primaryKey() 声明不能替代数据库的 UQ/FK/PK。
 
 ### 3.2 tournament（B）
@@ -137,12 +144,12 @@
 |---|---|---|
 | id | BIGINT UNSIGNED | NN，PK，自增 |
 | match_id | BIGINT UNSIGNED | NN，FK → wc_match.id |
-| team_id | BIGINT UNSIGNED | NULL，FK → national_team.id；具体事件归属校验待 C 联调 |
+| team_id | BIGINT UNSIGNED | NULL，FK → national_team.id，非空由 Model 校验属于本场双方 |
 | player_name | VARCHAR(100) | NULL，球员显示名；不另建球员表 |
 | minute | SMALLINT UNSIGNED | NULL，基础分钟 |
 | added_minute | SMALLINT UNSIGNED | NULL，补时分钟；45+2 分开存储 |
-| period_code | VARCHAR(12) | NN，时段代码；建议值未冻结 |
-| event_type | VARCHAR(20) | NN，事件代码；建议值未冻结 |
+| period_code | VARCHAR(12) | NN，时段代码，按第 8.2 节枚举校验 |
+| event_type | VARCHAR(20) | NN，事件代码，按第 8.2 节枚举校验 |
 | description | VARCHAR(500) | NULL，事件描述 |
 | sort_order | INT | NN，默认 0；当前规则允许有符号整数 |
 
@@ -155,11 +162,11 @@
 | title | VARCHAR(150) | NN，标题 |
 | summary | VARCHAR(500) | NN，故事摘要 |
 | body | TEXT | NN，正文；当前 View 纯文本编码输出 |
-| cover_path | VARCHAR(255) | NULL，本地素材相对路径；根目录待确认 |
+| cover_path | VARCHAR(255) | NULL，相对 web/ 的本地素材路径 |
 | source_url | VARCHAR(600) | NULL，内容来源；当前仅链接有效 HTTP/HTTPS URL |
 | is_published | TINYINT(1) | NN，默认 0；未发布内容不提供给前台 |
-| created_at | DATETIME | UTC；NULL、默认值、维护方待确认 |
-| updated_at | DATETIME | UTC；NULL、默认值、维护方待确认 |
+| created_at | DATETIME | NN，UTC，默认 CURRENT_TIMESTAMP |
+| updated_at | DATETIME | NN，UTC，默认 CURRENT_TIMESTAMP，ON UPDATE CURRENT_TIMESTAMP |
 
 ### 3.7 match_tag（B）
 
@@ -184,9 +191,9 @@
 |---|---|---|
 | tournament 1:N wc_match | B → B | WcMatch::getTournament()，hasOne，`['id' => 'tournament_id']` |
 | stadium 1:N wc_match | B → B | WcMatch::getStadium()，hasOne，`['id' => 'stadium_id']` |
-| national_team 1:N wc_match（三个不同角色） | C → B | home/away/winner 关联尚未实现；不能用同一个属性混合角色 |
-| tournament、national_team 经 tournament_team 建立参赛关系 | B/C → C | C 提供联合 PK/FK；B 当前没有相关 AR 关系 |
-| wc_match 1:N match_event | B → B | MatchEvent::getMatch()；事件球队关联尚未实现 |
+| national_team 1:N wc_match（三个不同角色） | C → B | 三个独立关联已在 WcMatch 实现 |
+| tournament、national_team 经 tournament_team 建立参赛关系 | B/C → C | C 已实现联合 PK/FK 和 TournamentTeam 关联 |
+| wc_match 1:N match_event | B → B | MatchEvent::getMatch()；事件 getTeam() 已实现 |
 | wc_match 1:0..1 match_story | B → B | MatchStory::getMatch()；数据库 match_id UQ 待验证 |
 | match_story 1:N match_story_tag | B → B | MatchStory::getMatchStoryTags()、MatchStoryTag::getStory() |
 | match_tag 1:N match_story_tag | B → B | MatchTag::getMatchStoryTags()、MatchStoryTag::getTag() |
@@ -215,28 +222,30 @@ public function getMatchList(array $filters = []): array
 | stage | 缺省、null、空字符串表示不筛选；否则必须为第 8.2 节的阶段代码，大小写严格匹配 |
 | team_id | 缺省、null、空字符串表示不筛选；否则为正整数或纯数字字符串，上限 BIGINT UNSIGNED；匹配主队或客队 |
 | page | 缺省为 1；显式传入时必须是 PHP_INT_MAX 范围内的正整数或纯数字字符串 |
-| page_size | 缺省为 20；校验同 page；当前没有另设业务上限，是否限流/限页大小待 B/C 确认 |
+| page_size | 缺省为 20，允许 1—100 的正整数或纯数字字符串，越界返回 400 |
 
-stage 与 team_id 可同时筛选。Service 拒绝未知键、负数、0、浮点数、科学计数、数组、布尔值等不合法输入；page/page_size 显式 null 或空串返回 400。球队数字 ID 格式合法但不存在或不参赛时，当前只会查得空列表，不做球队存在性/资格验证；是否补充区分 404，见 BC02。
+stage 与 team_id 可同时筛选。Service 拒绝未知键、负数、0、浮点数、科学计数、数组、布尔值等不合法输入，page/page_size 显式 null 或空串返回 400。球队不存在或未参加 2026 时返回 404，参赛但无匹配赛程时返回空列表。
 
 返回结构（类型说明，不是演示赛果）：
 
 ```text
 {
   items: MatchItem[],
+  teams: TeamInfo[],
   pagination: {page: int, page_size: int, total_count: int, page_count: int}
 }
 ```
 
-`MatchItem` 为第 3.4 节的 18 个比赛列，加以下键；目前没有 `home_team`、`away_team`、球队名称或国旗等嵌套字段：
+`MatchItem` 为第 3.4 节的 18 个比赛列，加以下键。`TeamInfo` 为 `{id, name_zh, name_en, fifa_code, flag_path}`，ID 类型沿用本节 Id 约定。
 
 | 附加键 | 当前结构 |
 |---|---|
 | tournament | `{id, year, name, start_date, end_date, description}` 或 null |
 | stadium | `{id, name, city, country_code, timezone_name}` 或 null |
+| home_team / away_team / winner_team | TeamInfo 或 null，按三个独立的球队外键关联，允许停用球队历史查询 |
 | final_score | `{home: int或null, away: int或null}`；仅 FINISHED 提供最终场上比分，优先 120 分钟，否则 90 分钟，不含点球 |
 
-列表按 `kickoff_utc ASC, match_no ASC, id ASC` 稳定排序，预加载 tournament/stadium；不连接一对多事件/标签来放大比赛记录或总数。当前列表包含取消场次；仅阶段统计排除 CANCELLED。
+列表按 `kickoff_utc ASC, match_no ASC, id ASC` 稳定排序，批量预加载 tournament、stadium 及三个球队关联。teams 是本届全部参赛队的筛选目录，含停用球队。独立测试中每页 1 条和 100 条的比赛列表查询均不超过 8 次。当前列表包含取消场次，仅阶段统计排除 CANCELLED。
 
 空查询在 page=1 返回 `items=[]`、`total_count=0`、`page_count=0`，保留请求页大小。页码超出 `max(1,page_count)` 返回 400，不钳制到最后一页。使用方不能把默认首批 20 条当作球队的全部比赛。
 
@@ -251,7 +260,7 @@ public function getMatchDetail(int $matchId): array
 | 键 | 当前结构与发布边界 |
 |---|---|
 | story | null，或第 3.6 节 10 个故事列；返回时 is_published 为布尔 true |
-| events | 第 3.5 节 10 个事件列组成的数组；按 sort_order ASC、id ASC；不按 minute 重排 |
+| events | 第 3.5 节 10 个事件列加 `team: TeamInfo或null`，按 sort_order ASC、id ASC 排列 |
 | tags | `{id: Id, code: string, name: string}` 数组；当前按 tag.id 升序 |
 
 仅查询 `is_published=1` 的故事。没有已发布故事时，统一返回 `story=null, events=[], tags=[]`，不会读取对应事件；草稿标题、正文、标签、时间轴都不对外提供。故事是可选扩展，所有基础比赛均应有详情入口。
@@ -275,7 +284,7 @@ public function getStageSummary(): array
 
 | 当前入口 | 行为与 View 参数 |
 |---|---|
-| GET/HEAD `index.php?r=wc-match/index` | 仅提取 stage、team_id、page、page_size；忽略路由参数及其他 GET 键；向 index.php 传 `matches=result.items`、`pagination=result.pagination`、`filters` |
+| GET/HEAD `index.php?r=wc-match/index` | 提取 stage、team_id、page、page_size，向 index.php 传 matches、pagination、filters、teams |
 | GET/HEAD `index.php?r=wc-match/view&id=...` | 严格正整数 ID，非法为 400、查无为 404；向 view.php 传 `match=Service完整详情数组` |
 
 filters 固定含 stage、team_id、page、page_size；stage/team_id 保留有效原始输入，page/page_size 使用 Service 返回值。列表筛选以 GET 提交并重置 page=1，分页保留 stage/team_id/page_size。
@@ -284,23 +293,23 @@ Controller 采用构造器注入 MatchQueryService；写方法被 VerbFilter 拒
 
 ## 5. C 需要提供的球队 Model 与 B 的依赖
 
-### 5.1 文件、字段访问及职责（V1.1 基线；实现待 C 交付）
+### 5.1 文件、字段访问及职责
 
 | 交付文件 / 类 | 表与已约定字段 | B 使用方式 |
 |---|---|---|
 | `models/NationalTeam.php` / `app\models\NationalTeam` | national_team：id、fifa_code、name_zh、name_en、flag_path、description、is_active | AR 属性读取球队身份、名称、素材；球队 ID 存在性检查；不由 B 再建球队 Model |
 | `models/TournamentTeam.php` / `app\models\TournamentTeam` | tournament_team：tournament_id、team_id、group_code、final_result_code | 联合 PK；查本届资格、分组、最终成绩，不由 B 维护另一份参赛关系 |
 
-以上为交付目标，不是当前可调用类。B 建议两类继承 Yii2 ActiveRecord，支持框架的 find()/findOne() 等标准查询，不要求 C 为每一种 B 查询新增专用方法。
+以上两个类已在 `c45f159` 交付，继承 Yii2 ActiveRecord，支持 find()/findOne()。NationalTeam::findActive() 用于启用球队目录，按 ID 的普通查询保留停用球队历史资料。
 
 | C 字段 | V1.1 类型 / 约束 | 读取约定与待确认点 |
 |---|---|---|
 | national_team.id | BIGINT UNSIGNED，PK | B 所有球队 FK 的唯一目标；不以名称或 fifa_code 代替内部 ID |
 | fifa_code | CHAR(3)，NN UQ | 源数据映射键、三字母显示标识；不是另一个数字主键 |
-| name_zh / name_en | VARCHAR(80) / VARCHAR(100)，NN | 中文/英文展示名；建议名称缺失的显示回退由展示层处理，具体优先级待确认 |
-| flag_path | VARCHAR(255)，NULL | 本地合法素材相对路径；根目录、文件存在性及缺图回退由 B/C/A 对齐，不伪造队徽 |
+| name_zh / name_en | VARCHAR(80) / VARCHAR(100)，NN | 中文/英文展示名；当前优先使用中文名，缺失时回退英文名或球队 ID |
+| flag_path | VARCHAR(255)，NULL | 相对 web/ 的本地素材路径，缺失时展示球队名称与 FIFA 代码，素材由 A 提供 |
 | description | TEXT，NULL | 球队简介；前台编码输出 |
-| is_active | TINYINT(1)，NN 默认 1 | 停用不能破坏历史关联；需确认 C 的默认查询是否隐藏停用球队 |
+| is_active | TINYINT(1)，NN 默认 1 | findActive() 过滤停用队，按 ID 的普通查询保留历史球队 |
 | tournament_team.tournament_id / team_id | BIGINT UNSIGNED，联合 PK，各自 FK | 分别引用 tournament.id、national_team.id |
 | group_code | CHAR(1)，NN，A—L | 赛事内分组，不从球队基础表猜测 |
 | final_result_code | VARCHAR(20)，NULL | 最终成绩类别；无可靠结论保持 null，见第 8.2 节 |
@@ -313,20 +322,20 @@ V1.1 没有独立的 `short_name`、`abbreviation`、`logo_url` 字段。本轮�
 2. home_team_id、away_team_id、winner_team_id 均引用同一 national_team.id；三列不是 tournament_team 的不同 ID，也不是 fifa_code。
 3. 先通过 tournament.year=2026 取得真实赛事 ID，再用 `(tournament_id, team_id)` 查询 tournament_team。球队存在不等于参加 2026；双方必须各有该赛事参赛记录。
 4. home_team_id 与 away_team_id 不同。winner_team_id 可空；有值只能为本场双方之一，且遵循阶段、状态、场上及点球规则。
-5. match_event.team_id 可空，非空引用同一球队 ID 体系；是否必须属于本场双方、空值的业务含义由 BC03 确认。
+5. match_event.team_id 可空，非空引用同一球队 ID 体系，并由 MatchEvent 校验属于本场双方。
 6. 数据导入顺序沿用 V1.1：赛事 → 球队 → 场馆 → 参赛关系 → 比赛 → 故事/事件/标签/关联。C 维护最终 install.sql 和映射程序，B 提供赛事源数据与来源复核记录。
 
-### 5.3 关系方法建议（全部待确认，当前没有这些新增方法）
+### 5.3 已实现的关系方法
 
 | 拟归属文件 | 建议签名 | 关联映射与用途 |
 |---|---|---|
 | C：NationalTeam.php | `public function getTournamentTeams(): ActiveQuery` | hasMany TournamentTeam，`['team_id' => 'id']`；返回各届参赛记录 |
 | C：TournamentTeam.php | `public function getTeam(): ActiveQuery` | hasOne NationalTeam，`['id' => 'team_id']` |
 | C：TournamentTeam.php | `public function getTournament(): ActiveQuery` | hasOne Tournament，`['id' => 'tournament_id']` |
-| B：WcMatch.php，后续协商后实现 | `getHomeTeam(): ActiveQuery`、`getAwayTeam(): ActiveQuery`、`getWinnerTeam(): ActiveQuery` | 分别 hasOne NationalTeam，目标 id 对应 home_team_id、away_team_id、winner_team_id；可空获胜方返回 null |
-| B：MatchEvent.php，后续协商后实现 | `getTeam(): ActiveQuery` | hasOne NationalTeam，`['id' => 'team_id']`；team_id 为空时无关联 |
+| B：WcMatch.php | `getHomeTeam(): ActiveQuery`、`getAwayTeam(): ActiveQuery`、`getWinnerTeam(): ActiveQuery` | hasOne NationalTeam，分别对应三个球队外键 |
+| B：MatchEvent.php | `getTeam(): ActiveQuery` | hasOne NationalTeam，`['id' => 'team_id']`，team_id 为空时无关联 |
 
-ActiveQuery 类型指 `yii\db\ActiveQuery`。关系定义不等于参赛资格验证；B 后续还需补 C 表存在性及 tournament_team 检查。C 应提供类命名空间、字段属性、联合主键声明和实际关系方法名；若已有不同命名，先反馈再集成，不要求 C 擅自覆盖已有实现。
+ActiveQuery 类型为 `yii\db\ActiveQuery`。WcMatch 通过 tournament_team 校验双方与获胜方参赛资格，MatchEvent 通过比赛双方校验 team_id。C 两个 Model 的类名、联合主键和关联方法均已按表中映射接入。
 
 ## 6. JourneyService 已实现接口及 C 接入需求
 
@@ -338,7 +347,9 @@ ActiveQuery 类型指 `yii\db\ActiveQuery`。关系定义不等于参赛资格�
 public function getTeamJourney(int $teamId): array
 ```
 
-入口：GET/HEAD `index.php?r=journey/view&team_id=...`。服务查询 2026 届全部匹配比赛，不分页；按 kickoff_utc、match_no、id 升序。非法 ID 返回 400；当前尚不验证球队是否存在或参赛，空数组只表示无匹配比赛，不能据此断定球队不存在。
+入口为 GET/HEAD `index.php?r=journey/view&team_id=...`。服务查询本届全部匹配比赛，按 kickoff_utc、match_no、id 升序。非法 ID 返回 400，未知或未参赛球队返回 404，已参赛但无比赛返回 []。
+
+新增 `public function getTeamProfile(int $teamId): array`，返回 `{id, name_zh, name_en, fifa_code, flag_path, group_code, final_result_code}`。资料读取 C 的两个 Model。JourneyController 向 View 传入 teamId、journey、team 和 teams 目录，teams 复用现有 TeamDirectoryService 的含停用球队目录。
 
 ### 6.2 实际返回结构
 
@@ -346,7 +357,7 @@ public function getTeamJourney(int $teamId): array
 JourneyItem = {
   match_id: int|string, match_no: int,
   kickoff_utc: string, stage_code: string, status: string,
-  opponent: {team_id: int|string, name_zh: null},
+  opponent: {team_id: int|string, name_zh: string|null, name_en: string|null, fifa_code: string|null, flag_path: string|null},
   is_home: bool,
   goals_for: int|null, goals_against: int|null,
   penalties_for: int|null, penalties_against: int|null,
@@ -361,24 +372,24 @@ JourneyItem = {
 - 保留 CANCELLED、POSTPONED 等赛程并提供 status；只有 FINISHED 的 R32/R16/QF/SF 提供晋级/淘汰结果。
 - GROUP、未完赛、FINAL 和 THIRD 的 advancement_result 为 null；不能将决赛或季军赛胜利表达为进入下一轮。
 - is_featured 仅依据已发布故事；草稿不会产生精选入口。
-- opponent.name_zh 当前为 null，不伪造队名；不输出或推算 final_result_code，也不增加顶层球队/排名包装。
+- opponent 通过主客队关联批量读取真实资料。最终成绩由 getTeamProfile() 读取 tournament_team，NULL 显示“暂无记录”。
 
-### 6.3 请 C 提供后由 B 接入
+### 6.3 C 依赖的接入情况
 
 | 所需能力 | C 交付内容 | B 接入位置 |
 |---|---|---|
 | 球队基本信息 | NationalTeam 的 id、name_zh、name_en、fifa_code、flag_path；实际命名空间和查询行为 | Journey 与比赛列表/详情读取真实名称及素材 |
 | 本届参赛资格 | TournamentTeam 联合 PK、getTeam()/getTournament() 等实际关系；以 tournament.year=2026 定位赛事 | B 增加球队存在性、参赛资格及事件球队验证 |
 | 最终成绩 | tournament_team.final_result_code 的可靠值或 null | Journey 成绩展示；不从最大阶段猜测名次 |
-| 异常语义 | C 已回复建议未知/非参赛球队 404；正式实现及停用历史策略仍需交付 | 当前 Journey 的空数组行为须由 B 在正式接入时调整并测试 |
+| 异常语义 | 未知／非参赛球队 404，停用球队仍可读历史，已参赛无比赛为 [] | 当前实现与测试已覆盖 |
 
 以上是当前 B 侧阶段实现及待接入任务，不意味着 C 已提供自定义 getTeamInfo()/isParticipant() 等方法。
 
-## 7. TeamStatsService 接口需求（C 负责，尚未在当前仓库交付）
+## 7. TeamStatsService 接口与调用
 
 ### 7.1 V1.1 既定实例方法
 
-目标文件：`services/TeamStatsService.php`，目标类：`app\services\TeamStatsService`；C 确认最终命名空间与构造依赖。
+文件为 `services/TeamStatsService.php`，类为 `app\services\TeamStatsService`，当前通过 Yii::createObject 创建实例。
 
 ```php
 public function getTeamStats(int $teamId): array
@@ -390,11 +401,11 @@ public function getScoringRanking(): array
 |---|---|---|
 | getTeamStats | 下节单队统一统计数组 | 已有 ApiController::actionTeamStats() 调用入口；B 不重写球队聚合 SQL |
 | getCompareStats | `{left: TeamStats, right: TeamStats}`，对应输入顺序 | 已有 ApiController::actionTeamCompare() 调用入口；两边复用相同统计规则 |
-| getScoringRanking | 2026 届 48 队完整统计数组；C 已回复排序建议，实施待交付 | V1.1 主要供 A/C 排名图表；B 不擅自新增 API 路由 |
+| getScoringRanking | 2026 届完整参赛队统计，goals_for DESC、fifa_code ASC、team_id ASC，含无完赛球队 | A/C 排名图表复用 |
 
 ### 7.2 getTeamStats 返回字段
 
-字段名称与业务含义来自 V1.1；下列 PHP 类型是联调核对建议，不代表 C 已实现的具体类型。
+字段名称与业务含义来自 V1.1，C 的实现已按下表接入并执行真实数据库检查。
 
 | 返回字段 | 含义与必须遵守的规则 | 待确认类型 / 边界 |
 |---|---|---|
@@ -415,9 +426,9 @@ public function getScoringRanking(): array
 
 “确认没有完赛记录”和“数据库失败/资料缺失”必须区分。C 已回复前者场次、进失球为 0，比率为 null；FINISHED 缺 90 分钟比分或数据库失败应记录日志并报 500，不能返回全 0 的成功统计。请 C 用实际代码和数据库测试证明该语义；B 调用端不替其补算或补零。
 
-C 在 `c112acf` 回复建议 getScoringRanking 每项返回完整 TeamStats，按 goals_for DESC、fifa_code ASC、team_id ASC 排序，含无完赛球队；B 回复拟接受。请 C 交付实际实现与字段类型，排名不新增 B 的 API 路由。
+C 已交付 getScoringRanking 的完整 TeamStats 数组和上述排序，B 已对本机 48 队逐个核对排名项与单队查询，结果一致。
 
-C 已回复未知球队及未参加 2026 返回 404，同队比较返回 400；无完赛时场次/进失球为 0、比率为 null；赛事未初始化或数据库失败返回 500。B API 已拒绝同队比较并映射 HTTP 异常；请 C 交付实现及真实测试证据，不能各方法暗自使用不同包装。
+C 的实现对未知球队及未参加 2026 返回 404，同队比较返回 400，无完赛时场次／进失球为 0、比率为 null。B 的 API 统一封装这些服务结果。赛事初始化失败和数据库异常按 500 处理。
 
 ### 7.3 已实现的 API 调用与响应
 
@@ -431,7 +442,7 @@ C 已回复未知球队及未参加 2026 返回 404，同队比较返回 400；�
 
 默认地址示例：`index.php?r=api/insights&chart=stage-goals`。MatchQueryService 使用构造器注入；C 服务由服务器端配置 `ApiController::$teamStatsService` 实例，或在首次球队请求时按 `app\services\TeamStatsService` 经 Yii::createObject 创建。构造依赖如有特殊要求请 C 明确，不将依赖从请求参数加载。
 
-C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_ERROR），不会伪造统计；阶段接口仍调用真实 B 服务，其数据库未就绪时同样不能验收为成功。
+C 的服务已在当前分支交付，两个球队 API 已在真实 HTTP／临时数据库上验证成功。未参赛／未知球队 404、非法 ID／同队比较 400、无完赛时平均值为 null 的行为均已覆盖。
 
 ```text
 成功（200）：{success: true, data: 服务业务数组, error: null}
@@ -461,7 +472,7 @@ C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_E
 | 标签关联清理 | match_story_tag 允许必要的 CASCADE | story_id、tag_id 是否分别采用 CASCADE；允许不等于已确定 |
 | 参赛历史与停用 | national_team.is_active 停用不破坏历史 | tournament_team 两个 FK、停用查询策略；不自行新增软删除列 |
 
-全部 FK 的目标类型须一致，尤其七表精选部分不能因 BIGINT 简写而错误使用有符号列。所有 ON UPDATE 子句、外键名及未逐项冻结的删除策略均待 C 明确。禁止 B 另写一套“最终 SQL”。
+当前 FK、索引与删除规则见 `docs/data-dictionary.md` 第 5 节和 `data/install.sql`。本轮已用 C 的 15 表结构执行唯一约束与引用保护测试，后续 DDL 变更由 C 统一维护。
 
 ### 8.2 枚举及比分口径
 
@@ -470,15 +481,15 @@ C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_E
 | stage_code | GROUP / R32 / R16 / QF / SF / THIRD / FINAL；WcMatch::STAGE_CODES | V1.1 已明确；DB 采用 VARCHAR，CHECK 实施由 C 确认，不改造为未协商 ENUM |
 | status | SCHEDULED / IN_PROGRESS / FINISHED / POSTPONED / CANCELLED；默认 SCHEDULED | V1.1 已明确；IN_PROGRESS 是人工状态，不承诺实时比分 |
 | group_code | A—L；wc_match 仅 GROUP 填写；tournament_team 为参赛分组 | 当前 WcMatch 允许 GROUP 的 group_code 为空；是否需更严格必填不得未经协商增加 |
-| period_code | 建议 H1 / H2 / ET1 / ET2 / SHOOTOUT | 尚未冻结，当前 MatchEvent 只校验字符串长度，不固定白名单 |
-| event_type | 建议 GOAL / OWN_GOAL / YELLOW / RED / PENALTY_GOAL / PENALTY_MISS / OTHER | 同上；点球事件是否大战由 period_code 区分 |
+| period_code | H1 / H2 / ET1 / ET2 / SHOOTOUT | 与 C 的 CHECK 对齐，Model 严格验证，非 SHOOTOUT 必填 minute，有 added_minute 时须有 minute |
+| event_type | GOAL / OWN_GOAL / YELLOW / RED / PENALTY_GOAL / PENALTY_MISS / OTHER | 与 C 的 CHECK 对齐，点球是否属于大战由 period_code 区分 |
 | final_result_code | 建议 GROUP / R32 / R16 / QF / FOURTH / THIRD / RUNNER_UP / CHAMPION | C 确认集合与含义；这是最终成绩类别，不是 stage_code 或 1—48 的官方排名 |
 | 标签代码 | 仅有示例 | 不把示例当成固定数据库枚举或默认值 |
 | 事件排序 | 当前 Service 为 sort_order ASC、id ASC，View 不重排 | 完整跨时段口径待确认；不能仅按 minute+added_minute 推断时间线 |
 
 业务核对必须同时覆盖：
 
-1. 双方不同、均属于该赛事；winner 非空只能为双方之一，事件球队范围待确认。
+1. 双方不同、均属于该赛事，winner 非空只能为双方之一，事件球队非空时也须为双方之一。
 2. FINISHED 必填 90 分钟成对比分；120 分钟可空但成对，有值表示累计值且不小于对应 90 分钟值。
 3. 点球成对、单列展示，不计场上进球；点球胜方与 winner_team_id 一致。
 4. 已结束的淘汰赛、季军赛和决赛必须有 winner_team_id；小组赛不填。场上平局经点球获胜仍计 draws，penalty_wins 独立增加。
@@ -490,11 +501,13 @@ C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_E
 
 - `config/db.php` 加载 db.example.php 并叠加被 Git 忽略的 db.local.php；C 提供正式库名、端口等非敏感约定，账号密码仅存各自本地，不写进交接文档。
 - 示例连接使用 utf8mb4、MySQL 原生预处理、连接时区 +00:00；实际服务器版本与正式环境由联调记录确认，不以配置文件存在代替连接成功。
-- V1.1 目标：2026 赛事 1 条、48 球队/48 条本届参赛记录、16 场馆、104 比赛（72 小组赛+32 淘汰赛）、5—8 场精选故事。数量是验收目标，不是当前已导入事实。
+- V1.1 目标：2026 赛事 1 条、48 球队/48 条本届参赛记录、16 场馆、104 比赛（72 小组赛+32 淘汰赛）、5—8 场精选故事。本机开发库已达到上述记录数量，8 篇故事均为草稿。
 - B 提供真实赛程、场馆、精选内容及来源；C 合并导入程序、内部 ID 映射和最终 install.sql；A 协调合法国旗/图片素材，D 独立复核。
-- 当前详情封面暂按 web/ 下相对路径解析，拒绝外链和路径穿越；球队国旗路径根目录尚无接入实现。故事正文当前为纯文本编码并保留换行，富文本格式如需采用须另行确认净化规则。
+- 详情封面和球队国旗均按 web/ 下相对路径解析，拒绝协议、路径跳转及危险字符。故事正文当前为纯文本编码并保留换行，富文本格式如需采用须另行确认净化规则。
 
-## 9. 双方联调测试清单（全部待执行，不能按勾选示例视为已通过）
+## 9. 双方联调测试清单
+
+本轮执行记录见本文开头，覆盖数据库恢复、核心 CRUD、权限／CSRF、比赛及统计接口、球队展示、历史停用、发布控制和导入。下表中的并发竞争、完整故障注入、全部大 ID 边界及素材验收仍需对应专项证据。
 
 在独立测试库或可恢复备份中执行；隔离测试数据必须显式标识，不混入最终真实赛事库。本次整理不执行以下 SQL/数据库测试。
 
@@ -519,16 +532,16 @@ C 服务尚未在 B 工作区交付时，球队接口返回友好 500（SERVER_E
 | T17 | 阶段无完赛、无有效赛程、只有取消 | 有效赛程无完赛 total_goals=null；无有效记录返回 []，图表不报错 | B+C |
 | T18 | 未发布故事、无故事、有故事无事件 | 草稿正文/标题/标签/事件不泄漏；普通详情及空状态正常 | B |
 | T19 | 事件同 sort_order、补时、点球分钟为空 | 按当前 sort_order/id 或后续确认契约排序；View 忠实显示，不计事件条数作比分 | B+C |
-| T20 | Journey 全量与主客互换 | 不丢分页后的比赛；按时间、编号排序，对手和进失球视角正确 | B+C，代码已实现、待真实联调 |
-| T21 | 晋级、决赛/季军赛、最终成绩未知 | 按 BC07 决议展示；不把最大阶段或未知成绩冒充官方排名 | B+C，代码已实现、待真实联调 |
+| T20 | Journey 全量与主客互换 | 不丢分页后的比赛；按时间、编号排序，对手和进失球视角正确 | B+C，已在本轮真实 HTTP／数据库检查中覆盖核心流程 |
+| T21 | 晋级、决赛/季军赛、最终成绩未知 | 按 BC07 决议展示；不把最大阶段或未知成绩冒充官方排名 | B+C，已在本轮真实 HTTP／数据库检查中覆盖核心流程 |
 | T22 | 统计无完赛、同队 PK、排名并列 | 比率不除零、统一空集语义和并列顺序，left/right 保持输入顺序 | C+B |
 | T23 | UTC 跨日和大 ID | 北京时间跨日正确；ID 不截断、不经 JavaScript 浮点误改；ISO/数据库格式按接口区别处理 | B+C |
 | T24 | 名称/故事/标签 XSS、素材路径 | 文本编码、危险 URL 拒绝；桌面和移动端真实浏览器检查 | B，A 协助 |
-| T25 | 数据库失败与 API 封装 | 服务端日志有记录，用户信息友好；API HTTP 状态及统一包装正确，不暴露敏感信息 | B+C，代码已实现、待真实联调 |
+| T25 | 数据库失败与 API 封装 | 服务端日志有记录，用户信息友好；API HTTP 状态及统一包装正确，不暴露敏感信息 | B+C，已在本轮真实 HTTP／数据库检查中覆盖核心流程 |
 
-每项建议留存：测试日期、操作者、提交号、数据库版本、输入/预期/实际、结果和截图或日志位置。Journey/API 已有代码，其真实数据用例仍待执行；本地隔离测试不能替代这些验收项。
+本轮自动化证据为 `tests/integration/b-module.php`、`tests/integration/match-data-import.php`，结果与环境见本文开头。浏览器实际验证球队名称筛选、决赛详情与 Journey 跳转、球队搜索保留路由。完整素材和部署验收随对应交付继续执行。
 
-## 10. 请 C 反馈的确认事项
+## 10. C 后续交付与反馈
 
 | 编号 | 待确认事项 | 对应字段确认单 | 需反馈的具体内容 |
 |---|---|---|---|
@@ -546,11 +559,32 @@ C 可直接填写下表回复；“一致”应附代码或 DDL 依据，不表�
 | 确认项 | C 的反馈 |
 |---|---|
 | 核对人 / 日期 | 待填写 |
-| C 开发分支 / 交付提交号 | 已收到 C 分支 c112acf 的确认回复；Model/Service/DDL 实现提交号仍请 C 提供 |
-| 正式数据字典、DDL、install.sql 路径与版本 | 待填写 |
-| NationalTeam / TournamentTeam / TeamStatsService 文件、命名空间及可用版本 | 待填写 |
+| C 开发分支 / 交付提交号 | 已收到 c112acf 回复及 c45f159 Model／Service 交付，a287e22 完成接入 |
+| 数据字典、DDL 路径与版本 | docs/data-dictionary.md、docs/er-diagram.md、data/install.sql，已在当前分支还原 |
+| NationalTeam / TournamentTeam / TeamStatsService 文件、命名空间及可用版本 | app\\models\\NationalTeam、app\\models\\TournamentTeam、app\\services\\TeamStatsService，c45f159 |
 | BC01—BC08 逐项结论与差异 | 待填写 |
 | 可联调的测试库及非敏感配置约定 | 待填写；不填写账号密码 |
 | 联调日期、测试记录位置、遗留问题负责人 | 待填写 |
 
-下一步顺序：C 返回正式字典/DDL及可用 Model/Service 提交号 → 双方对齐未决规则与 ID 映射 → C 准备独立测试库并导入已交付 CSV → B 补球队关联、资格与展示、事件规则等确认项 → B/C 验证比赛查询、Journey、后台及 API → D 接入授权并参与空库恢复与完整流程验收。接口变更先核对契约，各自维护本模块；本次只更新交接文档，不修改业务代码、SQL 或其他成员文件。
+C 接下来交付球队 PK 与三张 DB 驱动图表页面，以及经可靠来源核对的 final_result_code。A 提供合法国旗／封面素材。B/D 继续内容复核，D/C 完成部署还原。当前代码通过 PR #3 进入小组审查。
+
+## 11. 精选故事的来源核对与发布交接
+
+2026-11-11 重新打开下列来源，核对八场的赛果及表中关键节点。`data/import/sources.csv` 已记录选源说明，复核时须同时核对行级事件与对应来源。当前八篇 is_published 均为 0。
+
+| 比赛编号 | 本轮核对的内容 | 可访问的核对来源 |
+|---|---|---|
+| 56 | 厄瓜多尔 2:1 德国，落后后逆转，德国下半场点球判罚经 VAR 撤销 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M56-ECU-V-GER.pdf)、[DFB 报道](https://www.dfb.de/news/germany-beaten-2-1-by-ecuador-in-final-world-cup-group-game) |
+| 69 | 阿尔及利亚与奥地利 3:3，双方补时阶段相继进球 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M69-ALG-V-AUT.pdf)、[AFC 报道](https://www.the-afc.com/en/national/fifa_world_cup.html/news/group-j-algeria-3-3-austria) |
+| 75 | 场上 1:1，摩洛哥点球 3:2 晋级，Gakpo 72 分钟和 Diop 90+1 分钟进球 | [J.LEAGUE 比赛记录](https://www.jleague.jp/en/match/japan/2026/062902/)、[CAF 报道](https://www.cafonline.com/fifa-world-cup/news/morocco-stun-netherlands-on-penalties-to-reach-world-cup-last-16/) |
+| 82 | 90 分钟 2:2，加时累计 3:2，120+5 的进球为比赛内点球 | [Bundesliga 逐分钟记录](https://www.bundesliga.com/en/world-cup/matchday/2026-2027/round-of-32/belgium-vs-senegal/liveticker) |
+| 91 | 巴西 1:2 挪威，Haaland 两球，Neymar 补时点球 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M91-BRA-V-NOR.pdf) |
+| 92 | 墨西哥 2:3 英格兰，Bellingham 第 36、38 分钟进球 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M92-MEX-V-ENG.pdf) |
+| 103 | 法国 4:6 英格兰，Saka 三球、Bellingham 补时进球 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M103-FRA-V-ENG.pdf) |
+| 104 | 西班牙加时 1:0 阿根廷，Torres 106 分钟进球 | [FIFA 赛后报告](https://www.fifatrainingcentre.com/media/native/tournaments/fifa-world-cup/2026/PMSR-M104-ESP-V-ARG.pdf)、[RFEF 报道](https://rfef.es/es/noticias/espana-vuelve-a-dominar-el-mundo) |
+
+M56 的 FIFA 球员摘要显示 Plata 78 分钟，射门记录页显示 77 分钟，SRC-032 已说明这类呈现差异。M69、M91、M92、M104 的来源表也记录了选源依据，D 复核时需保留这类备注。两篇 FIFA 网页版回顾在本次读取中没有返回可读正文，M103、M104 可使用表中可读的官方 PDF。
+
+V1.1 第 3.5 节要求“D执行一次独立复核”，同节要求赛事时间、比分、点球结果经过第二人抽样核验。当前仓库尚无 D 对本批数据的完成记录。D 交付抽样结论后，由 B 按后台流程核对并发布。
+
+八篇故事已整理为 [B 精选故事发布文案](b-story-publication-draft.md)，清理了字段、数据库录入及网站展示策划说明。D 复核后，B 可用该文案保存后台故事并发布。A 提供图片时须同时提供可用路径及使用依据，现有封面可空。

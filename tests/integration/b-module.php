@@ -251,7 +251,7 @@ try {
     $check($scalar('SELECT created_at FROM match_story') !== null, 'database audit defaults');
     $check($service->getMatchDetail($m2)['story'] === null, 'draft hidden');
     $check($request($admin, 'admin-story/create', ['_csrf' => $csrf, 'MatchStory' => $storyData])[0] === 200 && (int) $scalar('SELECT COUNT(*) FROM match_story') === 1, 'unique story per match');
-    $eventData = ['minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
+    $eventData = ['team_id' => $home, 'minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
     $check($request($admin, 'admin-story/event-create&id=' . $story, ['_csrf' => $csrf, 'MatchEvent' => $eventData])[0] === 302, 'event created');
     $eventData['description'] = 'TEST_ONLY_EVENT_FIRST';
     $eventData['sort_order'] = 1;
@@ -268,6 +268,7 @@ try {
     $check($request($admin, 'admin-story/update&id=' . $story, ['_csrf' => $csrf, 'confirm_publish' => '1', 'MatchStory' => ['is_published' => '1']])[0] === 302, 'publication confirmed');
     $detail = $service->getMatchDetail($m2);
     $check(count($detail['tags']) === 1 && count($detail['events']) === 2, 'published relations real eager loading');
+    $check($detail['events'][0]['team']['id'] === $home, 'published event team eager loaded');
     $check($detail['events'][0]['sort_order'] === 1, 'event order');
     [$status, $html] = $request($guest, 'wc-match/view&id=' . $m2);
     $check($status === 200 && str_contains($html, 'TEST_ONLY_PRIVATE_BODY') && !str_contains($html, '<svg onload=alert(1)>'), 'published detail and escaping');
