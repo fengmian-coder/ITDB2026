@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use app\assets\TeamStatsAsset;
+use app\models\TournamentTeam;
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
@@ -34,6 +35,7 @@ $format = static function (string $key, mixed $value): string {
         return '暂无';
     }
     return match ($key) {
+        'final_result_code' => TournamentTeam::FINAL_RESULT_LABELS[$value] ?? (string) $value,
         'win_rate' => number_format((float) $value * 100, 1) . '%',
         'goals_per_match', 'goals_against_per_match' => number_format((float) $value, 2),
         default => (string) $value,

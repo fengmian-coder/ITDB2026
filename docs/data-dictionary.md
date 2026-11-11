@@ -126,7 +126,7 @@ updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTA
 
 **索引/约束：** PK(`tournament_id`,`team_id`)、INDEX(`team_id`,`tournament_id`)；两个 FK 均 `ON DELETE RESTRICT ON UPDATE RESTRICT`；`CHECK (group_code BETWEEN 'A' AND 'L')`；`CHECK (final_result_code IS NULL OR final_result_code IN ('GROUP','R32','R16','QF','FOURTH','THIRD','RUNNER_UP','CHAMPION'))`。
 
-**`final_result_code` 语义：** 最终成绩类别，不是 FIFA 官方逐名次排名；B 的 `teams.csv` 全部留空，C 核对后填写或保持 `NULL`，不从分组位置/比分推断。
+**`final_result_code` 语义：** 采用既有八种最终成绩类别。2026-11-11 已按 FIFA 官方赛事总结补齐 `teams.csv` 的 48 队值，来源及类别映射见 `docs/data-sources.md`。该列允许 NULL，导入时源空值保留已有成绩。
 
 ---
 
@@ -477,7 +477,7 @@ wc_match 1 ── 0..N guestbook_message（关联可选）
 | O01 | B 对 10 项拟回复的最终审核 | 字典标注“B 拟同意/待审核” | B 负责人 |
 | O02 | A 三张表的审计字段、`created_at`、`file_size` 是否可空 | 按 V1.1 起草，标注待 A 确认 | A |
 | O03 | D 三张表的字段/默认值 | 按 V1.1 起草，标注待 D 确认 | D |
-| O04 | `final_result_code` 的可靠值 | B 的 `teams.csv` 全部留空；C 核对后填或保持 NULL | B/C |
+| O04 | `final_result_code` 的可靠值 | 已按 FIFA 官方总结补齐 48 队类别，来源见 docs/data-sources.md | B 协助 C |
 | O05 | 8 篇故事全部 `is_published=0` | C 导入保留 0，不擅自发布 | B/D |
 | O06 | `flag_path`/`cover_path` 为空 | C 存 NULL，页面占位；A 提供素材 | A |
 | O07 | `sources.csv` 31 条复核人为空 | 保留为空，不冒填 | B/D |

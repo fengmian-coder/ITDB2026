@@ -95,6 +95,14 @@ try {
     $check($failed, 'late invalid team has record context');
     $check($snapshot() === $empty, 'late failure rolls back all business tables');
     copy($root . '/data/import/events.csv', $directory . '/events.csv');
+    $editCsvCell('teams.csv', 4, 'UNKNOWN_RESULT');
+    $failed = false;
+    try { $service->import($directory); } catch (RuntimeException $exception) {
+        $failed = str_contains($exception->getMessage(), 'teams.csv');
+    }
+    $check($failed, 'unknown final result code rejected');
+    $check($snapshot() === $empty, 'unknown final result rolls back business rows');
+    copy($root . '/data/import/teams.csv', $directory . '/teams.csv');
     $trial = $service->import($directory, true);
     $check($trial['dry_run'] === true, 'dry run result');
     $check($snapshot() === $empty, 'dry run rolls back writes');
@@ -193,10 +201,33 @@ try {
     $check($snapshot() === $first, 'repeat preserves every value and timestamp');
     $pdo->exec('UPDATE match_story SET is_published=0 ORDER BY id LIMIT 1');
     $pdo->exec("UPDATE match_story SET cover_path='images/stories/test-only-cover.jpg' ORDER BY id LIMIT 1");
-    $pdo->exec("UPDATE tournament_team SET final_result_code='GROUP' ORDER BY team_id LIMIT 1");
     $edited = $snapshot();
     $service->import($directory);
     $check($snapshot() === $edited, 'repeat preserves withdrawal, cover and reliable final result');
+    $pdo->exec('UPDATE tournament_team SET final_result_code=NULL');
+    $beforeFill = $snapshot();
+    $service->import($directory, true);
+    $check($snapshot() === $beforeFill, 'dry run final result fill rolls back');
+    $filled = $service->import($directory);
+    $check(($filled['tables']['tournament_team']['updated'] ?? 0) === 48, 'fills 48 previously null final results');
+    $check((int) $pdo->query('SELECT COUNT(*) FROM tournament_team WHERE final_result_code IS NULL')->fetchColumn() === 0,
+        'all sourced final results persisted');
+    $check($pdo->query("SELECT tt.final_result_code FROM tournament_team tt JOIN national_team n ON n.id=tt.team_id WHERE n.fifa_code='ESP'")->fetchColumn() === 'CHAMPION', 'official champion mapping');
+    $completed = $snapshot();
+    $editCsvCell('teams.csv', 4, '');
+    $service->import($directory);
+    $check($snapshot() === $completed, 'blank source preserves existing verified final result');
+    copy($root . '/data/import/teams.csv', $directory . '/teams.csv');
+    $pdo->exec("UPDATE tournament_team tt JOIN national_team n ON n.id=tt.team_id SET tt.final_result_code='CHAMPION' WHERE n.fifa_code='MEX'");
+    $conflicting = $snapshot();
+    $failed = false;
+    try {
+        $service->import($directory);
+    } catch (RuntimeException $exception) {
+        $failed = str_contains($exception->getMessage(), 'final_result_code');
+    }
+    $check($failed && $snapshot() === $conflicting, 'conflicting existing final result rejected without overwrite');
+    $pdo->exec("UPDATE tournament_team tt JOIN national_team n ON n.id=tt.team_id SET tt.final_result_code='R16' WHERE n.fifa_code='MEX'");
     $withdrawnMatch = (int) $pdo->query('SELECT match_id FROM match_story WHERE is_published=0')->fetchColumn();
     $withdrawn = $queryService->getMatchDetail($withdrawnMatch);
     $check($withdrawn['story'] === null && $withdrawn['events'] === [] && $withdrawn['tags'] === [],

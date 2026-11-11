@@ -4,7 +4,7 @@
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：Yii 2.0 ActiveRecord、tournament_team 表、Tournament、NationalTeam
- * 最近修改：2026-11-05
+ * 最近修改：2026-11-11，B 协助补充成绩类别展示标签
  */
 
 declare(strict_types=1);
@@ -29,6 +29,11 @@ class TournamentTeam extends ActiveRecord
 {
     public const FINAL_RESULT_CODES = [
         'GROUP', 'R32', 'R16', 'QF', 'FOURTH', 'THIRD', 'RUNNER_UP', 'CHAMPION',
+    ];
+
+    public const FINAL_RESULT_LABELS = [
+        'GROUP' => '小组赛', 'R32' => '32 强', 'R16' => '16 强', 'QF' => '八强',
+        'FOURTH' => '第四名', 'THIRD' => '季军', 'RUNNER_UP' => '亚军', 'CHAMPION' => '冠军',
     ];
 
     public static function tableName(): string

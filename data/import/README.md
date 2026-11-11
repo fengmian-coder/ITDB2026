@@ -1,6 +1,6 @@
 # B 模块规范化 CSV 交付说明
 
-初次整理日期为 2026-11-05，故事定稿与发布状态同步于 2026-11-11，开发分支为 feature/b-match。
+初次整理日期为 2026-11-05，故事发布状态及官方最终成绩同步于 2026-11-11，开发分支为 feature/b-match。
 
 ## 本地导入命令（2026-11-11）
 
@@ -41,7 +41,7 @@ php yii import/world-cup
 | [events.csv](events.csv) | 104 | 字段顺序遵循 origin/C c112acf 的 docs/c-reply-to-b.md §5.5 |
 | [tags.csv](tags.csv) | 16 | 字段顺序遵循 origin/C c112acf 的 docs/c-reply-to-b.md §5.5 |
 | [story_tags.csv](story_tags.csv) | 27 | 字段顺序遵循 origin/C c112acf 的 docs/c-reply-to-b.md §5.5 |
-| [sources.csv](sources.csv) | 57 | 来源审计资料，不是业务表导入文件 |
+| [sources.csv](sources.csv) | 58 | 来源审计资料，SRC-058 为最终成绩依据 |
 
 ## 格式、空值与映射
 
@@ -51,7 +51,8 @@ php yii import/world-cup
 - 没有数据库内部 id/tournament_id/team_id/stadium_id/match_id/story_id/tag_id。match_no 是同届业务编号，不是 wc_match.id；collection_no 未作主键或比赛编号。
 - team_code→fifa_code；球队中文/英文名→name_zh/name_en；home/away/winner_team_code→home/away/winner_fifa_code；events.team_code→team_fifa_code。
 - stadium_key 经源表的 16 座场馆映射为唯一官方 stadium_name，不将 STAD-* 当内部 ID。
-- teams.csv 合并球队基础信息和参赛分组；final_result_code 源表未提供，全部留空交 C 确认。不得从 group_position 或比分自行推断最终成绩；导入时空值不得覆盖已有可靠成绩。
+- teams.csv 合并球队基础信息和参赛分组。2026-11-11 按 FIFA 官方赛事总结第 7 页补齐 48 队 final_result_code，类别映射及来源见 docs/data-sources.md。group_position 继续仅表示源名单顺序。
+- 最终成绩仅补齐数据库 NULL，已有相同值跳过，已有不同非空值会报告冲突并回滚整批业务导入。源空值保留已有成绩。更新数在导入报告的 tournament_team.updated 中显示。
 - group_position 只是分组名单顺序；洲际足联、东道主、容量、地址等采集辅助字段不新增为数据库列。
 - 31 场阶段映射：ROUND_OF_32→R32（16）、ROUND_OF_16→R16（8）、QUARTER_FINAL→QF（4）、SEMI_FINAL→SF（2）、THIRD_PLACE→THIRD（1）；GROUP/FINAL 保持不变。
 - 主客位置、比分、winner、正文、事件分钟/补时、sort_order 和源记录顺序保留。120 分钟比分为累计值，不与 90 分钟相加；点球大战不计场上比分。
@@ -102,4 +103,4 @@ php yii import/world-cup
 - 主客不同，球队/场馆/故事/标签引用可解析；比分成对、累计比分、点球与 winner 内部规则通过核对。
 - 阶段/状态/事件代码、字段长度和数值范围检查。104 场 UTC、ET、当地时间一致性已在前次只读核验中检查。
 - 文件写入后以 UTF-8 和 csv.DictReader 回读所有字段，核对表头/记录数/正文换行/逗号引号/重音字符/0 与空值。
-- 2026-11-11 在 MySQL 8.0.19 的独立库执行导入回归，84 条断言通过，覆盖 15 表恢复、非法发布状态、试导及失败回滚、八篇定稿还原、真实 HTTP 正文／时间轴／标签展示、重复导入、后台撤回及手工编辑保护。临时库和测试服务均在结束后清理。
+- 2026-11-11 在 MySQL 8.0.19 的独立库执行导入回归，92 条断言通过，覆盖 15 表恢复、非法发布状态与成绩枚举、试导及失败回滚、八篇定稿还原、真实 HTTP 正文／时间轴／标签展示、最终成绩空值补齐和冲突保护、重复导入、后台撤回及手工编辑保护。临时库和测试服务均在结束后清理。
