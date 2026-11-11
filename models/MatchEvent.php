@@ -94,6 +94,11 @@ class MatchEvent extends ActiveRecord
         return $this->hasOne(WcMatch::class, ['id' => 'match_id']);
     }
 
+    public function getTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'team_id']);
+    }
+
     public function validateTeamMembership(string $attribute): void
     {
         if ($this->hasErrors('match_id')) {

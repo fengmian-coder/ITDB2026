@@ -4,7 +4,7 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：WcMatchController、MatchQueryService 公开详情数组、AppAsset / Bootstrap 5
- * 最近修改：2026-11-03
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -101,12 +101,16 @@ CSS, [], 'wc-match-view');
             <span class="badge bg-white text-dark rounded-pill px-3 py-2"><?= Html::encode($statusLabels[$match['status']] ?? $match['status']) ?></span>
         </div>
         <div class="wc-fixture text-center">
-            <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">主队</div>球队 ID <?= Html::encode((string) $match['home_team_id']) ?></div>
+            <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">主队</div>
+                <?= $this->render('_team', ['team' => $match['home_team'], 'teamId' => $match['home_team_id']]) ?>
+            </div>
             <div>
                 <div class="wc-final"><?= $hasFinalScore ? Html::encode($finalScore['home'] . ' : ' . $finalScore['away']) : 'VS' ?></div>
                 <div class="small opacity-75"><?= $hasFinalScore ? '最终场上比分' : '暂无最终比分' ?></div>
             </div>
-            <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">客队</div>球队 ID <?= Html::encode((string) $match['away_team_id']) ?></div>
+            <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">客队</div>
+                <?= $this->render('_team', ['team' => $match['away_team'], 'teamId' => $match['away_team_id']]) ?>
+            </div>
         </div>
         <div class="text-center small mt-4 opacity-75">
             <?php if ($kickoff !== null): ?>
@@ -116,6 +120,15 @@ CSS, [], 'wc-match-view');
             <?php endif ?>
         </div>
     </header>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <?= Html::a('主队晋级之路', ['/journey/view', 'team_id' => $match['home_team_id']], ['class' => 'btn btn-outline-primary']) ?>
+        <?= Html::a('客队晋级之路', ['/journey/view', 'team_id' => $match['away_team_id']], ['class' => 'btn btn-outline-primary']) ?>
+        <?php if ($match['winner_team'] !== null): ?>
+            <span class="align-self-center small text-body-secondary">最终获胜球队
+                <?= Html::encode($match['winner_team']['name_zh']) ?>
+            </span>
+        <?php endif ?>
+    </div>
 
     <section class="mb-4" aria-labelledby="match-scores-title">
         <h2 id="match-scores-title" class="h5 fw-bold mb-3">比分记录</h2>
@@ -218,7 +231,7 @@ CSS, [], 'wc-match-view');
                                             <div class="text-break small mb-1"><?= Html::encode($event['player_name']) ?></div>
                                         <?php endif ?>
                                         <?php if ($event['team_id'] !== null): ?>
-                                            <div class="small text-body-secondary mb-1">球队 ID <?= Html::encode((string) $event['team_id']) ?></div>
+                                            <div class="small text-body-secondary mb-1"><?= Html::encode($event['team']['name_zh'] ?? ('球队 ID ' . $event['team_id'])) ?></div>
                                         <?php endif ?>
                                         <?php if ($event['description'] !== null && $event['description'] !== ''): ?>
                                             <p class="wc-copy small text-body-secondary mb-0"><?= Html::encode($event['description']) ?></p>

@@ -3,8 +3,8 @@
  * WorldCup Journey - 比赛列表与公开详情控制器
  * 模块：B 赛事与比赛后端
  * 负责人：B
- * 依赖：MatchQueryService、Yii 2.0 Controller；比赛 View 待下一阶段实现
- * 最近修改：2026-11-03
+ * 依赖：MatchQueryService、Yii 2.0 Controller、比赛列表及详情 View
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -47,8 +47,8 @@ class WcMatchController extends Controller
     }
 
     /**
-     * wc-match/index → views/wc-match/index.php（本阶段不创建该文件）。
-     * View 参数：matches 为 Service 的 items，pagination 原样传递。
+     * wc-match/index → views/wc-match/index.php。
+     * View 参数：matches 为 Service 的 items，pagination、teams 原样传递。
      * filters 含四个白名单键；阶段/球队保留有效输入，页码/页大小使用 Service 返回值。
      */
     public function actionIndex(): string
@@ -60,6 +60,7 @@ class WcMatchController extends Controller
         return $this->render('index', [
             'matches' => $result['items'],
             'pagination' => $result['pagination'],
+            'teams' => $result['teams'],
             'filters' => [
                 'stage' => $filters['stage'] ?? null,
                 'team_id' => $filters['team_id'] ?? null,
@@ -70,7 +71,7 @@ class WcMatchController extends Controller
     }
 
     /**
-     * wc-match/view?id=... → views/wc-match/view.php（本阶段不创建该文件）。
+     * wc-match/view?id=... → views/wc-match/view.php。
      * View 参数 match 为 Service 的完整详情数组，不在此重新处理故事、事件或标签。
      * mixed 用于接收原始路由参数，防止隐式类型转换绕过 ID 校验。
      */

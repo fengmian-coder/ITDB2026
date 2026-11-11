@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：JourneyController、JourneyService 数组接口、AppAsset / Bootstrap 5
- * 待联调：C 的真实球队资料、参赛资格和最终成绩
- * 最近修改：2026-11-05
+ * 球队资料与最终成绩读取 Service 提供的 C 模块字段
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -16,8 +16,15 @@ use yii\helpers\Url;
 /** @var yii\web\View $this */
 /** @var int $teamId Controller 校验后的球队 ID */
 /** @var array $journey Service 已排序的完整历程；View 不查询、不重排、不重算赛果 */
+/** @var array $team 本队资料与赛事参赛信息 */
+/** @var array $teams 本届球队目录，含历史关联中的停用球队 */
 
-$this->title = '球队 ID ' . $teamId . ' 的世界杯之旅 | WorldCup Journey';
+$teamOptions = [];
+foreach ($teams as $option) {
+    $teamOptions[$option['id']] = $option['name_zh'] . ' · ' . $option['fifa_code'];
+}
+
+$this->title = $team['name_zh'] . '的世界杯之旅 | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
 $this->params['breadcrumbs'][] = '球队比赛历程';
 $this->params['meta_description'] = '按时间浏览球队的 2026 世界杯赛程、比分、晋级结果和精选比赛故事';
@@ -35,6 +42,10 @@ $statusClasses = [
     'POSTPONED' => 'text-bg-warning', 'CANCELLED' => 'text-bg-secondary',
 ];
 $advancementLabels = ['ADVANCED' => '晋级下一轮', 'ELIMINATED' => '本轮出局'];
+$finalResultLabels = [
+    'GROUP' => '小组赛', 'R32' => '32 强', 'R16' => '16 强', 'QF' => '八强',
+    'FOURTH' => '第四名', 'THIRD' => '季军', 'RUNNER_UP' => '亚军', 'CHAMPION' => '冠军',
+];
 
 // JourneyService 使用 UTC ISO 8601；只转换展示时区，不推算时间或改写 Service。
 $beijingTime = static function (?string $value): ?DateTimeImmutable {
@@ -69,7 +80,9 @@ CSS, [], 'journey-view');
 <div class="journey-view pb-4">
     <header class="journey-hero rounded-4 p-4 p-md-5 mb-4">
         <p class="journey-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / 2026</p>
-        <h1 class="display-6 fw-bold mb-3">球队 ID <?= Html::encode((string) $teamId) ?> 的世界杯之旅</h1>
+        <h1 class="display-6 fw-bold mb-3"><?= Html::encode($team['name_zh']) ?>的世界杯之旅</h1>
+        <p class="mb-3"><?= Html::encode($team['fifa_code'] . ' · ' . $team['group_code'] . ' 组') ?>
+            · 最终成绩 <?= Html::encode($finalResultLabels[$team['final_result_code']] ?? '暂无记录') ?></p>
         <p class="mb-0 opacity-75">从开场到终场，沿着时间回看每一场比赛。所有时间均为北京时间</p>
     </header>
 
@@ -78,10 +91,10 @@ CSS, [], 'journey-view');
             <h2 id="journey-search-title" class="h6 fw-bold mb-3">查看球队历程</h2>
             <?= Html::beginForm(Url::to(['/journey/view']), 'get', ['class' => 'row g-3 align-items-end']) ?>
                 <div class="col-12 col-md-8">
-                    <?= Html::label('球队 ID', 'journey-team-id', ['class' => 'form-label small']) ?>
-                    <?= Html::textInput('team_id', (string) $teamId, [
-                        'id' => 'journey-team-id', 'class' => 'form-control', 'inputmode' => 'numeric',
-                        'pattern' => '[0-9]+', 'required' => true, 'aria-describedby' => 'journey-team-hint',
+                    <?= Html::label('球队', 'journey-team-id', ['class' => 'form-label small']) ?>
+                    <?= Html::dropDownList('team_id', $teamId, $teamOptions, [
+                        'id' => 'journey-team-id', 'class' => 'form-select',
+                        'required' => true, 'aria-describedby' => 'journey-team-hint',
                     ]) ?>
                 </div>
                 <div class="col-12 col-md-4 d-flex flex-wrap gap-2">
@@ -89,7 +102,8 @@ CSS, [], 'journey-view');
                     <?= Html::a('全部比赛', ['/wc-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
             <?= Html::endForm() ?>
-            <p id="journey-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识。下方比分统一按本队 : 对手排列，点球大战单独展示</p>
+            <p id="journey-team-hint" class="small text-body-secondary mt-3 mb-0">下方比分按本队 : 对手排列，点球大战单独展示</p>
+            <?= Html::a('选择其他球队', ['/national-team/index'], ['class' => 'small d-inline-block mt-2']) ?>
         </div>
     </section>
 
@@ -101,7 +115,7 @@ CSS, [], 'journey-view');
         <?php if ($journey === []): ?>
             <div class="journey-empty rounded-4 text-center py-5 px-3">
                 <h3 class="h5 mb-2">暂无匹配的比赛记录</h3>
-                <p class="text-body-secondary mb-3">可以核对球队 ID，或稍后再来查看赛程</p>
+                <p class="text-body-secondary mb-3">该参赛球队暂无赛程，稍后再来查看</p>
                 <?= Html::a('浏览全部比赛', ['/wc-match/index'], ['class' => 'btn btn-outline-primary']) ?>
             </div>
         <?php else: ?>
@@ -110,7 +124,6 @@ CSS, [], 'journey-view');
                     <?php
                     $kickoff = $beijingTime($item['kickoff_utc']);
                     $opponent = $item['opponent'];
-                    $opponentName = $opponent['name_zh'];
                     $hasScore = $item['goals_for'] !== null && $item['goals_against'] !== null;
                     $detailUrl = Url::to(['/wc-match/view', 'id' => $item['match_id']]);
                     ?>
@@ -139,7 +152,7 @@ CSS, [], 'journey-view');
                                         <div class="journey-fixture text-center mb-3">
                                             <div class="journey-team">
                                                 <div class="small text-body-secondary mb-1">本队 · <?= $item['is_home'] ? '主队位' : '客队位' ?></div>
-                                                <div class="fw-bold">球队 ID <?= Html::encode((string) $teamId) ?></div>
+                                                <?= $this->render('/wc-match/_team', ['team' => $team, 'teamId' => $teamId]) ?>
                                             </div>
                                             <div>
                                                 <div class="journey-score"><?= $hasScore
@@ -148,8 +161,7 @@ CSS, [], 'journey-view');
                                             </div>
                                             <div class="journey-team">
                                                 <div class="small text-body-secondary mb-1">对手</div>
-                                                <div class="fw-bold"><?= Html::encode($opponentName !== null && $opponentName !== ''
-                                                    ? $opponentName : '球队 ID ' . $opponent['team_id']) ?></div>
+                                                <?= $this->render('/wc-match/_team', ['team' => $opponent, 'teamId' => $opponent['team_id']]) ?>
                                             </div>
                                         </div>
                                         <?php if ($item['penalties_for'] !== null && $item['penalties_against'] !== null): ?>

@@ -4,6 +4,7 @@
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：NationalTeamController、ActiveDataProvider
+ * 最近修改：2026-11-11，B/C 联调修复 GET 搜索路由参数
  */
 
 declare(strict_types=1);
@@ -28,7 +29,7 @@ $pagination = $dataProvider->pagination;
             <h1 class="h2 mb-1">2026 参赛球队</h1>
             <p class="text-body-secondary mb-0">共 <?= (int) $pagination->totalCount ?> 支球队，点击查看球队 DNA。</p>
         </div>
-        <form method="get" action="<?= Url::to(['/national-team/index']) ?>" class="d-flex gap-2" role="search">
+        <?= Html::beginForm(['/national-team/index'], 'get', ['class' => 'd-flex gap-2', 'role' => 'search']) ?>
             <label for="team-q" class="visually-hidden">搜索球队</label>
             <input id="team-q" type="search" name="q" value="<?= Html::encode($q) ?>"
                    class="form-control" placeholder="中文名 / 英文名 / FIFA 代码" maxlength="80">
@@ -36,7 +37,7 @@ $pagination = $dataProvider->pagination;
             <?php if ($q !== ''): ?>
                 <a class="btn btn-outline-secondary" href="<?= Url::to(['/national-team/index']) ?>">清除</a>
             <?php endif; ?>
-        </form>
+        <?= Html::endForm() ?>
     </div>
 
     <?php if ($teams === []): ?>

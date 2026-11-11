@@ -130,6 +130,21 @@ class WcMatch extends ActiveRecord
         return $this->hasOne(Stadium::class, ['id' => 'stadium_id']);
     }
 
+    public function getHomeTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'home_team_id']);
+    }
+
+    public function getAwayTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'away_team_id']);
+    }
+
+    public function getWinnerTeam(): ActiveQuery
+    {
+        return $this->hasOne(NationalTeam::class, ['id' => 'winner_team_id']);
+    }
+
     public function validateParticipation(string $attribute): void
     {
         if ($this->hasErrors('tournament_id')) {

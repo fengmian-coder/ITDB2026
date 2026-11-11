@@ -4,8 +4,8 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：JourneyService、views/journey/view.php、Yii 2.0 Controller
- * 待联调：C 的球队存在性与参赛资格验证
- * 最近修改：2026-11-05
+ * 球队资料及参赛资格通过 JourneyService 读取 C 的 Model
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\services\JourneyService;
+use app\services\TeamDirectoryService;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -20,7 +21,7 @@ use yii\web\Controller;
 /**
  * 处理请求和渲染，不重复查询球队、计算比分或推断最终成绩。
  * 当前 Service 的 [] 仅代表未查到比赛，不能据此抛球队不存在的 404。
- * 后续 C 接入产生的 404、Service 的 400/500 及其他异常均交 Yii 统一处理。
+ * Service 的 400/404/500 及其他异常均交 Yii 统一处理。
  */
 class JourneyController extends Controller
 {
@@ -28,6 +29,7 @@ class JourneyController extends Controller
         $id,
         $module,
         private readonly JourneyService $journeyService,
+        private readonly TeamDirectoryService $teamDirectoryService,
         $config = [],
     ) {
         parent::__construct($id, $module, $config);
@@ -56,10 +58,13 @@ class JourneyController extends Controller
     {
         $teamId = $this->positiveTeamId($team_id);
         $journey = $this->journeyService->getTeamJourney($teamId);
+        $team = $this->journeyService->getTeamProfile($teamId);
 
         return $this->render('view', [
             'teamId' => $teamId,
             'journey' => $journey,
+            'team' => $team,
+            'teams' => $this->teamDirectoryService->getTeams(true),
         ]);
     }
 

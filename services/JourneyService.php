@@ -1,10 +1,10 @@
 <?php
 /**
- * WorldCup Journey - 球队比赛历程查询（B 侧阶段实现）
+ * WorldCup Journey - 球队比赛历程与参赛资料查询
  * 模块：B 赛事与比赛后端
  * 负责人：B
- * 依赖：Yii 2.0、WcMatch、Tournament、MatchStory；不依赖尚未交付的 C 类
- * 待联调：真实对手名称、最终成绩
+ * 依赖：Yii 2.0、WcMatch、Tournament、MatchStory、NationalTeam、TournamentTeam
+ * 球队资料与最终成绩读取 C 的 NationalTeam / TournamentTeam
  * 最近修改：2026-11-11
  */
 
@@ -13,13 +13,14 @@ declare(strict_types=1);
 namespace app\services;
 
 use app\models\MatchStory;
+use app\models\NationalTeam;
 use app\models\Tournament;
+use app\models\TournamentTeam;
 use app\models\WcMatch;
 use Yii;
 use UnexpectedValueException;
 use yii\db\ActiveQuery;
 use yii\db\Exception as DatabaseException;
-use yii\db\Query;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\ServerErrorHttpException;
@@ -27,18 +28,14 @@ use yii\web\ServerErrorHttpException;
 /**
  * 保持 V1.1 的 getTeamJourney() 签名和按时间排列的比赛项数组。
  *
- * 当前接入边界（不是已完成 C 联调的正式接口）：
- * - opponent.name_zh 暂为 null，只提供真实 ID，不编造球队名称。
+ * 球队资料批量预加载，停用球队仍可通过历史链接读取。
  * - 不存在球队或未参加本届返回 404；已参赛但无比赛时返回 []。
  * - 时间采用 V1.1 旅程样例的 UTC ISO 8601；不改变 MatchQueryService 的时间格式。
  * - 保留取消/延期赛程，并附现有字段 status，避免调用方把无比分误认为未开始。
  * - is_featured 仅依据已发布故事；没有故事或草稿为 false。
  * - 仅已结束的 R32/R16/QF/SF 表达 ADVANCED/ELIMINATED；小组赛、未完赛、
- *   决赛和季军赛返回 null，后两者的成绩展示需另行确认，不能称作下一轮晋级。
- * - 不返回或推算 final_result_code；该结论归 C 的 TournamentTeam 维护。
- *
- * 当前 Controller/View 仅接入本阶段结构；正式跨模块联调前须与 C 对齐，
- * 后续由 B 补资格验证和名称读取。
+ *   决赛和季军赛返回 null，赛事最终成绩由 TournamentTeam 提供。
+ * - getTeamProfile() 读取 C 的最终成绩，NULL 按暂无成绩展示。
  */
 class JourneyService
 {
@@ -54,7 +51,8 @@ class JourneyService
      *
      * @return array<array{
      *   match_id: int|string, match_no: int, kickoff_utc: string, stage_code: string, status: string,
-     *   opponent: array{team_id: int|string, name_zh: null}, is_home: bool,
+     *   opponent: array{team_id: int|string, name_zh: string|null, name_en: string|null,
+     *     fifa_code: string|null, flag_path: string|null}, is_home: bool,
      *   goals_for: int|null, goals_against: int|null, penalties_for: int|null,
      *   penalties_against: int|null, advancement_result: string|null, is_featured: bool
      * }>
@@ -66,23 +64,47 @@ class JourneyService
         }
 
         try {
-            if (!(new Query())->from('national_team')->where(['id' => $teamId])->exists()) {
-                throw new NotFoundHttpException('未找到该球队');
-            }
-            $tournamentId = Tournament::find()->select('id')->where(['year' => 2026])->scalar();
-            if ($tournamentId === false) {
-                throw new ServerErrorHttpException('2026 届赛事尚未初始化');
-            }
-            if (!(new Query())->from('tournament_team')->where([
-                'tournament_id' => $tournamentId, 'team_id' => $teamId,
-            ])->exists()) {
-                throw new NotFoundHttpException('该球队未参加 2026 世界杯');
-            }
+            $this->getTeamProfile($teamId);
             $rows = $this->journeyQuery($teamId)->all();
             return array_map(fn (array $row): array => $this->journeyItem($row, $teamId), $rows);
         } catch (DatabaseException | UnexpectedValueException $exception) {
             Yii::error(['operation' => __FUNCTION__, 'exception' => $exception], self::class);
             throw new ServerErrorHttpException('球队比赛历程暂时不可用，请稍后重试', 0, $exception);
+        }
+    }
+
+    /**
+     * 供历程页面读取本队资料，参赛资格按 C 的关联表判断。
+     *
+     * @return array{id: int|string, name_zh: string, name_en: string, fifa_code: string,
+     *   flag_path: string|null, group_code: string, final_result_code: string|null}
+     */
+    public function getTeamProfile(int $teamId): array
+    {
+        if ($teamId < 1) {
+            throw new BadRequestHttpException('球队 ID 必须为正整数');
+        }
+        try {
+            $team = TournamentTeam::find()->alias('tt')
+                ->innerJoin(['t' => Tournament::tableName()], '[[t.id]] = [[tt.tournament_id]]')
+                ->innerJoin(['n' => NationalTeam::tableName()], '[[n.id]] = [[tt.team_id]]')
+                ->select(['n.id', 'n.name_zh', 'n.name_en', 'n.fifa_code', 'n.flag_path',
+                    'tt.group_code', 'tt.final_result_code'])
+                ->where(['tt.team_id' => $teamId, 't.year' => 2026])->asArray()->one();
+            if ($team !== null) {
+                $team['id'] = $this->identifier($team['id']);
+                return $team;
+            }
+            if (!NationalTeam::find()->where(['id' => $teamId])->exists()) {
+                throw new NotFoundHttpException('未找到该球队');
+            }
+            if (!Tournament::find()->where(['year' => 2026])->exists()) {
+                throw new ServerErrorHttpException('2026 届赛事尚未初始化');
+            }
+            throw new NotFoundHttpException('该球队未参加 2026 世界杯');
+        } catch (DatabaseException $exception) {
+            Yii::error(['operation' => __FUNCTION__, 'exception' => $exception], self::class);
+            throw new ServerErrorHttpException('球队资料暂时不可用，请稍后重试', 0, $exception);
         }
     }
 
@@ -94,6 +116,14 @@ class JourneyService
         // match_story.match_id 按契约唯一；发布条件必须在 LEFT JOIN 的 ON 中，
         // 否则没有故事的普通比赛会被过滤。仅读 ID，不读取草稿正文或时间轴。
         return WcMatch::find()->alias('m')->select($columns)
+            ->with([
+                'homeTeam' => static function (ActiveQuery $query): void {
+                    $query->select(['id', 'name_zh', 'name_en', 'fifa_code', 'flag_path']);
+                },
+                'awayTeam' => static function (ActiveQuery $query): void {
+                    $query->select(['id', 'name_zh', 'name_en', 'fifa_code', 'flag_path']);
+                },
+            ])
             ->innerJoin(['t' => Tournament::tableName()], '[[t.id]] = [[m.tournament_id]]')
             ->leftJoin(['s' => MatchStory::tableName()],
                 '[[s.match_id]] = [[m.id]] AND [[s.is_published]] = :journey_published',
@@ -107,6 +137,7 @@ class JourneyService
     private function journeyItem(array $row, int $teamId): array
     {
         $isHome = (string) $row['home_team_id'] === (string) $teamId;
+        $opponent = $row[$isHome ? 'awayTeam' : 'homeTeam'] ?? null;
         if (!$isHome && (string) $row['away_team_id'] !== (string) $teamId) {
             throw new UnexpectedValueException('历程记录不属于所查询球队');
         }
@@ -151,7 +182,10 @@ class JourneyService
             'status' => $row['status'],
             'opponent' => [
                 'team_id' => $this->identifier($row[$isHome ? 'away_team_id' : 'home_team_id']),
-                'name_zh' => null, // TODO(B/C)：接入真实球队 Model 后读取，不编造显示名。
+                'name_zh' => $opponent['name_zh'] ?? null,
+                'name_en' => $opponent['name_en'] ?? null,
+                'fifa_code' => $opponent['fifa_code'] ?? null,
+                'flag_path' => $opponent['flag_path'] ?? null,
             ],
             'is_home' => $isHome,
             'goals_for' => $isHome ? $homeScore : $awayScore,

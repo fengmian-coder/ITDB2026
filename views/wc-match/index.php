@@ -4,7 +4,7 @@
  * 模块：B 赛事与比赛后端
  * 负责人：B
  * 依赖：WcMatchController、MatchQueryService 数组接口、AppAsset / Bootstrap 5
- * 最近修改：2026-11-03
+ * 最近修改：2026-11-11
  */
 
 declare(strict_types=1);
@@ -15,12 +15,17 @@ use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var array $matches Service 的 items；不在页面查询或补造数据 */
+/** @var array $teams 本届全部参赛球队目录 */
 /** @var array{page: int, page_size: int, total_count: int, page_count: int} $pagination */
 /** @var array{stage: ?string, team_id: int|string|null, page: int, page_size: int} $filters */
 
 $this->title = '比赛赛程与赛果 | WorldCup Journey';
 $this->params['breadcrumbs'][] = '比赛赛程';
-$this->params['meta_description'] = '探索 2026 世界杯赛程与赛果，按比赛阶段或球队 ID 筛选比赛';
+$this->params['meta_description'] = '探索 2026 世界杯赛程与赛果，按比赛阶段或球队筛选比赛';
+$teamOptions = [];
+foreach ($teams as $team) {
+    $teamOptions[$team['id']] = $team['name_zh'] . ' · ' . $team['fifa_code'];
+}
 $stageLabels = [
     'GROUP' => '小组赛', 'R32' => '32 强赛', 'R16' => '16 强赛',
     'QF' => '四分之一决赛', 'SF' => '半决赛', 'THIRD' => '季军赛', 'FINAL' => '决赛',
@@ -106,10 +111,10 @@ CSS, [], 'wc-match-index');
                     ]) ?>
                 </div>
                 <div class="col-12 col-md-4">
-                    <?= Html::label('球队 ID', 'match-team-id', ['class' => 'form-label small']) ?>
-                    <?= Html::textInput('team_id', $filters['team_id'] ?? '', [
-                        'id' => 'match-team-id', 'class' => 'form-control', 'inputmode' => 'numeric',
-                        'pattern' => '[0-9]+', 'placeholder' => '输入球队 ID', 'aria-describedby' => 'match-team-hint',
+                    <?= Html::label('球队', 'match-team-id', ['class' => 'form-label small']) ?>
+                    <?= Html::dropDownList('team_id', $filters['team_id'] ?? '', $teamOptions, [
+                        'id' => 'match-team-id', 'class' => 'form-select', 'prompt' => '全部球队',
+                        'aria-describedby' => 'match-team-hint',
                     ]) ?>
                 </div>
                 <div class="col-12 col-md-3 d-flex gap-2">
@@ -117,7 +122,7 @@ CSS, [], 'wc-match-index');
                     <?= Html::a('重置', ['/wc-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
             <?= Html::endForm() ?>
-            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">球队暂以 ID 标识；筛选将同时匹配主队和客队</p>
+            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">筛选同时匹配主队和客队</p>
         </div>
     </section>
     <section aria-labelledby="match-list-title">
@@ -157,7 +162,7 @@ CSS, [], 'wc-match-index');
                                 <div class="wc-fixture text-center mb-3">
                                     <div class="wc-team">
                                         <div class="small text-body-secondary mb-1">主队</div>
-                                        <div class="fw-bold">球队 ID <?= Html::encode((string) $item['home_team_id']) ?></div>
+                                        <?= $this->render('_team', ['team' => $item['home_team'], 'teamId' => $item['home_team_id']]) ?>
                                     </div>
                                     <div>
                                         <div class="wc-score"><?= $hasFinalScore ? Html::encode($finalScore['home'] . ' : ' . $finalScore['away']) : 'VS' ?></div>
@@ -165,7 +170,7 @@ CSS, [], 'wc-match-index');
                                     </div>
                                     <div class="wc-team">
                                         <div class="small text-body-secondary mb-1">客队</div>
-                                        <div class="fw-bold">球队 ID <?= Html::encode((string) $item['away_team_id']) ?></div>
+                                        <?= $this->render('_team', ['team' => $item['away_team'], 'teamId' => $item['away_team_id']]) ?>
                                     </div>
                                 </div>
                                 <div class="small text-body-secondary d-flex flex-wrap justify-content-center gap-2 mb-3">
