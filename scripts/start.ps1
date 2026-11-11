@@ -31,8 +31,27 @@ try {
         throw 'Composer 2.x is required.'
     }
     if (-not $PrepareOnly) {
-        $listener = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $Port)
-        try { $listener.Start() } finally { $listener.Stop() }
+        $requestedPort = $Port
+        $lastPort = $Port
+        if (-not $PSBoundParameters.ContainsKey('Port')) { $lastPort = [Math]::Min(65535, $Port + 20) }
+        $availablePort = $null
+        foreach ($candidatePort in $requestedPort..$lastPort) {
+            $listener = [Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback, $candidatePort)
+            try {
+                $listener.Start()
+                $availablePort = $candidatePort
+                break
+            } catch {
+                $socketError = $_.Exception.GetBaseException()
+                if ($socketError -isnot [Net.Sockets.SocketException] -or $socketError.NativeErrorCode -notin @(10013,10048)) { throw }
+                Write-Host "Port $candidatePort is unavailable ($($socketError.SocketErrorCode))."
+            } finally { $listener.Stop() }
+        }
+        if ($null -eq $availablePort) {
+            throw "No available port in $requestedPort-$lastPort. Run again with -Port followed by an available port number."
+        }
+        $Port = $availablePort
+        if ($Port -ne $requestedPort) { Write-Host "Using available port $Port." }
     }
     & $phpCommand scripts/configure-local.php --check
     if ($LASTEXITCODE -eq 2) {

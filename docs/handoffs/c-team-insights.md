@@ -99,6 +99,8 @@ stage_code, match_count, finished_match_count, total_goals
 
 ## 后续工作
 
+- C 的后台球队管理 `admin-team/*` 尚未实现，需按 V1.1 补齐管理员权限下的球队维护及关联数据保护。
+
 - 48 队 tournament_team.final_result_code 已按 FIFA 官方赛事总结补齐，来源见 docs/data-sources.md。开发库已导入，球队 DNA、PK 与 Journey 均可读取对应成绩。
 - A 补充合法球队国旗和故事封面素材。
 - Windows 一键初始化及启动已由 B 协助完成，入口为 scripts/start.ps1，还原回归通过 37 项检查，说明见 docs/windows-deployment.md。
