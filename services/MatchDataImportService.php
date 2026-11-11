@@ -42,7 +42,7 @@ class MatchDataImportService
         'added_minute' => [0, 65535], 'sort_order' => [-2147483648, 2147483647],
         'home_score_90' => [0, 255], 'away_score_90' => [0, 255],
         'home_score_120' => [0, 255], 'away_score_120' => [0, 255],
-        'home_penalties' => [0, 255], 'away_penalties' => [0, 255], 'is_published' => [0, 0],
+        'home_penalties' => [0, 255], 'away_penalties' => [0, 255], 'is_published' => [0, 1],
     ];
     private array $counts = [];
     private string $context = '';
@@ -128,6 +128,7 @@ class MatchDataImportService
                 $this->uniqueKey($stories, $number);
                 $attributes = array_diff_key($row, ['match_no' => true]);
                 $attributes['match_id'] = $this->resolve($matches, $number, '故事所属比赛')['id'];
+                // 新库按数据包还原发布状态，已有故事保留后台发布／撤回和封面编辑。
                 $stories[$number] = $this->store('match_story', $attributes,
                     ['match_id' => $attributes['match_id']], MatchStory::class, ['is_published', 'cover_path']);
             }

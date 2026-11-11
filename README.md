@@ -4,7 +4,7 @@
 
 ## 当前范围与协作
 
-main 已通过 PR #2 集成 A 前台、B 赛事与数据导入、C 的 15 表结构以及 D 的管理员与留言功能。2026-11-11 的 feature/b-match 在 a287e22 接入 C 的 c45f159 球队 Model、球队列表／DNA 详情及统计服务，当前通过 PR #3 进行集成审查。
+main 已通过 PR #2 集成 A 前台、B 赛事与数据导入、C 的 15 表结构以及 D 的管理员与留言功能。PR #3 已在 99fe78d 合并 C 的 c45f159 球队 Model、球队列表／DNA 详情及统计服务，以及 B/C 联调代码。
 
 按 2026-11-03 项目负责人的最新安排，本次骨架在 `feature/b-match` 开发并提交、推送至同名远程分支，这是对 V1.1 原定 `develop → chore/yii2-bootstrap` 流程的本次分支例外。后续 PR 目标由组长确认，不直接向 main/develop 推送。
 
@@ -113,7 +113,7 @@ A 已实现数据库驱动首页、公共导航与页脚、团队成员前后台
 
 建表并配置本地数据库后执行 `php yii project/init`。如需登记仓库中的六份课程资料，核对团队及 A 的成员 ID，再执行 `php yii project/register-bundle <团队ID> <成员A的ID>`。创建管理员仍使用 `php yii admin/create <username>`。登录后从后台首页进入“团队与成员”或“作业管理”。
 
-本机开发库已导入 1 届赛事、48 队／参赛关系、16 场馆、104 场比赛及 8 篇草稿故事。其他机器按 data/import/README.md 执行 `php yii match-data/import`，可先用 `--dry-run=1` 检查。本轮 C 服务接入后，球队 DNA、两个球队统计 API 和纪念卡统计复用 TeamStatsService。
+本机开发库已导入 1 届赛事、48 队／参赛关系、16 场馆、104 场比赛及 8 篇已发布故事。其他机器按 data/import/README.md 执行 `php yii import/world-cup --dryRun=1` 试导，再执行 `php yii import/world-cup` 正式导入。新库按数据包还原故事发布状态，已有故事保留后台发布或撤回状态。球队 DNA、两个球队统计 API 和纪念卡统计复用 TeamStatsService。
 
 ## B/C 联调验证
 
@@ -124,6 +124,6 @@ php tests/integration/b-module.php
 php tests/integration/match-data-import.php
 ```
 
-2026-11-11 分别通过 158 项真实 HTTP／数据库检查和 41 条导入断言。比赛列表支持阶段、参赛球队和分页筛选，page_size 为 1—100。球队不存在或未参赛时返回 404。球队名称与 FIFA 代码已接入，flag_path 有合法素材时显示图片。
+2026-11-11 的 B/C 联调通过 158 项真实 HTTP／数据库检查，本轮数据包导入回归通过 84 条断言，包含八篇故事还原后的实际 HTTP 展示。比赛列表支持阶段、参赛球队和分页筛选，page_size 为 1—100。球队不存在或未参赛时返回 404。球队名称与 FIFA 代码已接入，flag_path 有合法素材时显示图片。
 
-后续由 C 完成 PK、三张动态图表页面及可靠最终成绩数据，A 提供合法国旗和封面，B/D 完成故事内容与来源复核后发布，D/C 完成一键部署及还原验收。当前开发库 8 篇故事均为草稿。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。
+后续由 C 完成 PK、三张动态图表页面及可靠最终成绩数据，A 提供合法国旗和封面，D 完成独立数据复核，D/C 完成一键部署及还原验收。八篇故事已按 B 负责人指令发布并同步到数据包。接口和测试范围见 docs/b-c-interface-handoff.md 与 docs/b-d-admin-handoff.md。
