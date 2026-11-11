@@ -37,30 +37,30 @@ class TournamentSearch extends Model
     {
         $input = $params[$this->formName()] ?? [];
         if (!is_array($input)) {
-            throw new BadRequestHttpException('赛事筛选格式无效。');
+            throw new BadRequestHttpException('赛事筛选格式无效');
         }
         $this->year = $input['year'] ?? null;
         $this->name = $input['name'] ?? null;
         if ($this->name !== null && !is_string($this->name)) {
-            throw new BadRequestHttpException('赛事名称筛选必须为字符串。');
+            throw new BadRequestHttpException('赛事名称筛选必须为字符串');
         }
         if ($this->year !== null && $this->year !== ''
             && ((!is_int($this->year) && !is_string($this->year))
                 || !preg_match('/^[0-9]+$/D', (string) $this->year))) {
-            throw new BadRequestHttpException('赛事年份必须为非负整数。');
+            throw new BadRequestHttpException('赛事年份必须为非负整数');
         }
         if (!$this->validate()) {
-            throw new BadRequestHttpException('赛事筛选参数无效，请检查年份及名称长度。');
+            throw new BadRequestHttpException('赛事筛选参数无效，请检查年份及名称长度');
         }
         $page = $this->positivePage($params, 'page', 1, PHP_INT_MAX);
         $pageSize = $this->positivePage($params, 'per-page', 20, 100);
         if ($page - 1 > intdiv(PHP_INT_MAX, $pageSize)) {
-            throw new BadRequestHttpException('分页偏移超出有效范围。');
+            throw new BadRequestHttpException('分页偏移超出有效范围');
         }
         $sort = $params['sort'] ?? null;
         if ($sort !== null && (!is_string($sort) || !in_array($sort,
             ['year', '-year', 'name', '-name', 'id', '-id'], true))) {
-            throw new BadRequestHttpException('赛事排序参数无效。');
+            throw new BadRequestHttpException('赛事排序参数无效');
         }
 
         $query = Tournament::find()->andFilterWhere(['year' => $this->year])
@@ -89,13 +89,13 @@ class TournamentSearch extends Model
         }
         $value = $params[$key];
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException('分页参数必须为正整数。');
+            throw new BadRequestHttpException('分页参数必须为正整数');
         }
         $digits = ltrim((string) $value, '0');
         $max = (string) $maximum;
         if ($digits === '' || strlen($digits) > strlen($max)
             || (strlen($digits) === strlen($max) && strcmp($digits, $max) > 0)) {
-            throw new BadRequestHttpException('分页参数超出有效范围。');
+            throw new BadRequestHttpException('分页参数超出有效范围');
         }
         return (int) $digits;
     }

@@ -1,0 +1,53 @@
+/* WorldCup Journey | A | Desktop typography and spacing refinement | 2026-11-10 */
+body:not(.admin-body):not(.auth-body) { font-size: 18px; line-height: 1.75; }
+body:not(.admin-body):not(.auth-body) .btn { font-size: 17px; font-weight: 600; line-height: 1.45; padding: 11px 21px; border-radius: 7px; }
+body:not(.admin-body):not(.auth-body) .btn-sm { font-size: 16px; padding: 8px 15px; }
+body:not(.admin-body):not(.auth-body) .form-control, body:not(.admin-body):not(.auth-body) .form-select { font-size: 17px; line-height: 1.6; padding: 10px 13px; }
+body:not(.admin-body):not(.auth-body) .breadcrumb { font-size: 16px; margin-bottom: 12px; }
+body:not(.admin-body):not(.auth-body) main > .container { padding-top: 104px; }
+.wc-homepage main > .container.wc-home-container,
+.wc-homepage .wc-footer > .container { width: calc(100% - 64px); max-width: none; padding-left: 0; padding-right: 0; }
+.wc-navbar { padding: 13px 0; }
+.wc-navbar > .container { max-width: 1520px; width: calc(100% - 64px); }
+.wc-navbar .navbar-brand { font-size: 24px; margin-right: 22px; }
+.wc-navbar .navbar-nav .nav-link { font-size: 18px; line-height: 1.5; padding: 9px 10px; }
+.wc-navbar .navbar-nav .nav-link:hover { color: #fff; }.wc-navbar .nav-link.active { font-weight: 650; }
+.wc-navbar .wc-theme-toggle { color: #e7efe5; font-size: 15px; font-weight: 500; white-space: nowrap; border: 1px solid #789a80; padding: 7px 12px; margin-left: 12px; }
+.wc-navbar .wc-theme-toggle:hover, .wc-navbar .wc-theme-toggle:focus-visible { background: #ffffff14; color: #fff; border-color: #d2e0cc; }
+.project-intro { padding: 26px 0 28px; }
+.project-intro h1 { font-size: clamp(32px, 2.6vw, 40px); line-height: 1.4; letter-spacing: -.025em; }
+.project-eyebrow { font-size: 14px; letter-spacing: .08em; margin-bottom: 12px; }
+.project-lead { font-size: 18px; line-height: 1.85; margin-top: 12px; }
+.project-team-section { padding: 28px 0; }
+.project-team-heading h2 { font-size: 27px; line-height: 1.5; }
+.project-description { max-width: 1040px; font-size: 18px; line-height: 1.85; margin: 18px 0 26px; }
+.project-section-heading h3 { font-size: 21px; }.project-section-heading > span { font-size: 16px; }
+.project-members { gap: 22px; margin-top: 18px; }
+.project-member { display: grid; grid-template-columns: 42px minmax(0,1fr); column-gap: 18px; padding: 24px; background: #f6f8f3; border: 1px solid #dce7df; border-top: 3px solid #48785a; border-radius: 7px; align-content: start; }
+.project-member-number { grid-column: 1; grid-row: 1 / span 3; font-size: 29px; line-height: 1.4; font-weight: 500; color: #8ba18a; margin: 0; }
+.project-member h4 { grid-column: 2; font-size: 23px; line-height: 1.5; margin-bottom: 4px; }
+.project-member-role { grid-column: 2; font-size: 18px; line-height: 1.7; margin: 0 0 12px; }
+.project-member-bio { grid-column: 2; font-size: 18px; line-height: 1.85; margin-bottom: 0; }
+.project-outro { padding: 26px 0 32px; }.project-outro h2 { font-size: 23px; line-height: 1.5; }.project-outro p { font-size: 18px; margin-top: 8px; }
+.project-document { padding: 24px 0; }.project-document h2 { font-size: 23px; line-height: 1.5; }.project-document .text-body-secondary { font-size: 17px; }
+.wc-kicker { font-size: 14px; letter-spacing: .1em; }
+.wc-hero { padding: 40px 24px 44px; }.wc-hero .wc-kicker { margin-bottom: 18px; }
+.wc-hero h1 { font-size: clamp(32px, 3.2vw, 44px); line-height: 1.35; }
+.wc-hero > p:not(.wc-kicker) { font-size: 18px; line-height: 1.8; max-width: 850px; margin: 16px auto 24px; }
+body:not(.admin-body):not(.auth-body) .wc-hero-button { font-size: 18px; padding: 13px 28px; }
+.wc-explore { padding: 32px 24px 28px; }.wc-explore .wc-kicker { margin-bottom: 10px; }
+.wc-home h2 { font-size: clamp(26px,2.1vw,31px); line-height: 1.5; }
+.wc-explore > p:not(.wc-kicker) { font-size: 18px; }
+.wc-search { max-width: 880px; margin-top: 20px; margin-bottom: 16px; }.wc-search input { font: inherit; font-size: 18px; padding: 15px 19px; }.wc-search button { font: inherit; font-size: 20px; min-width: 76px; }
+.wc-team-explore .wc-search { width: 100%; max-width: none; margin-left: 0; margin-right: 0; }
+.wc-feature-line { margin-top: 16px; }.wc-explore .wc-data-summary { font-size: 16px; margin-top: 8px; }
+.wc-memory-section { padding: 34px 36px; gap: 36px; }.wc-memory-copy > p:not(.wc-kicker) { font-size: 18px; line-height: 1.85; margin: 16px 0 22px; }
+.wc-sample-card { padding: 26px 28px; }.wc-sample-card h3 { font-size: 23px; margin-bottom: 16px; }.wc-sample-card p { font-size: 17px; line-height: 1.8; }.wc-sample-card strong { font-size: 20px; }.wc-sample-card a { font-size: 17px; }.wc-sample-card .wc-card-signature { margin-top: 20px; font-size: 16px; }
+.wc-home-links { padding-top: 28px; padding-bottom: 12px; }.wc-home-links h2 { font-size: 23px; }.wc-home-links p { font-size: 18px; }.wc-home-links a { font-size: 17px; }
+.wc-footer { padding-top: 30px; }.wc-footer strong { font-size: 24px; }.wc-footer p { font-size: 16px; }.wc-footer a { font-size: 17px; }.wc-footer .wc-footer-note { font-size: 14px; padding-top: 16px; }
+.wc-team-directory h2 { font-size: 24px; }.wc-team-directory p:not(.project-eyebrow), .wc-team-directory a { font-size: 17px; }
+.memory-workspace { margin-top: 28px; gap: 32px; }.memory-controls h2 { font-size: 20px; }.memory-controls label { font-size: 17px; }.memory-hint { font-size: 15px; }.memory-placeholder h2 { font-size: 29px; }.memory-placeholder p:last-child { font-size: 18px; }
+[data-bs-theme="dark"] .project-member { background: #25382d; border-color: #46634e; }[data-bs-theme="dark"] .project-member-number { color: #9bb49e; }
+@media (min-width: 992px) { .project-members { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 767px) { .wc-navbar > .container { width: calc(100% - 24px); }.wc-homepage main > .container.wc-home-container, .wc-homepage .wc-footer > .container { width: calc(100% - 24px); }.wc-navbar .navbar-brand { font-size: 21px; }.project-member { padding: 20px; column-gap: 12px; }.wc-memory-section { padding: 28px 22px; }.wc-feature-line span { margin: 0 8px; } }
+@media (prefers-reduced-motion: reduce) { .admin-nav-item, .admin-metric { transition: none; } }

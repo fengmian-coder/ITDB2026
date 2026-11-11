@@ -28,11 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach ?>
     </dl></div></div>
     <section class="card border-danger-subtle"><div class="card-body p-4"><h2 class="h5">删除比赛</h2>
-        <p>已有故事、事件或其他正式外键引用时不能直接删除，不会级联清空历史数据。取消比赛可通过编辑状态处理。</p>
+        <p>已有故事、事件或其他正式外键引用时不能直接删除，不会级联清空历史数据。取消比赛可通过编辑状态处理</p>
         <?= Html::beginForm(['/admin-match/delete', 'id' => $model->id], 'post') ?>
         <div class="form-check mb-3">
             <?= Html::checkbox('confirm_delete', false, ['id' => 'match-confirm-delete', 'value' => '1', 'required' => true, 'class' => 'form-check-input']) ?>
-            <?= Html::label('确认删除该比赛，此操作不可撤销。', 'match-confirm-delete', ['class' => 'form-check-label']) ?></div>
+            <?= Html::label('确认删除该比赛，此操作不可撤销', 'match-confirm-delete', ['class' => 'form-check-label']) ?></div>
         <?= Html::submitButton('删除比赛', ['class' => 'btn btn-outline-danger']) ?>
         <?= Html::endForm() ?>
     </div></section>

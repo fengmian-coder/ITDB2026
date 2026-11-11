@@ -18,7 +18,7 @@ use yii\helpers\Url;
 $this->title = '比赛 #' . $match['match_no'] . ' | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
 $this->params['breadcrumbs'][] = '比赛 #' . $match['match_no'];
-$this->params['meta_description'] = '查看比赛基本信息、各时段比分以及已发布的精选故事与事件时间轴。';
+$this->params['meta_description'] = '查看比赛基本信息、各时段比分以及已发布的精选故事与事件时间轴';
 $stageLabels = [
     'GROUP' => '小组赛', 'R32' => '32 强赛', 'R16' => '16 强赛',
     'QF' => '四分之一决赛', 'SF' => '半决赛', 'THIRD' => '季军赛', 'FINAL' => '决赛',
@@ -140,7 +140,7 @@ CSS, [], 'wc-match-view');
                 </div>
             <?php endforeach ?>
         </div>
-        <p class="small text-body-secondary mt-3 mb-0">比分均按主队 : 客队排列。120 分钟为累计比分，点球大战单独记录，不计入场上进球。</p>
+        <p class="small text-body-secondary mt-3 mb-0">比分均按主队 : 客队排列。120 分钟为累计比分，点球大战单独记录，不计入场上进球</p>
     </section>
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="match-info-title">
         <div class="card-body p-4">
@@ -164,7 +164,7 @@ CSS, [], 'wc-match-view');
     <?php if ($story === null): ?>
         <section class="rounded-4 bg-body-tertiary p-4 text-center" aria-labelledby="match-story-empty-title">
             <h2 id="match-story-empty-title" class="h5 mb-2">精选内容尚未发布</h2>
-            <p class="text-body-secondary mb-0">当前展示比赛基本信息。精选故事与事件时间轴将在发布后呈现。</p>
+            <p class="text-body-secondary mb-0">当前展示比赛基本信息。精选故事与事件时间轴将在发布后呈现</p>
         </section>
     <?php else: ?>
         <div class="row g-4 align-items-start">
@@ -187,7 +187,7 @@ CSS, [], 'wc-match-view');
                         <!-- 正文按纯文本编码并保留换行；未确认富文本契约前不直接输出 HTML。 -->
                         <div class="wc-story-body"><?= Html::encode($story['body']) ?></div>
                         <?php if ($sourceUrl !== null): ?>
-                            <div class="border-top mt-4 pt-3 small"><?= Html::a('查看内容来源 ↗', $sourceUrl, ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?></div>
+                            <div class="border-top mt-4 pt-3 small"><?= Html::a('查看内容来源', $sourceUrl, ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?></div>
                         <?php endif ?>
                     </div>
                 </article>
@@ -197,7 +197,7 @@ CSS, [], 'wc-match-view');
                     <div class="card-body p-4">
                         <h2 id="match-events-title" class="h5 fw-bold mb-4">比赛时间轴</h2>
                         <?php if ($events === []): ?>
-                            <p class="text-body-secondary mb-0">暂无已整理的比赛事件。</p>
+                            <p class="text-body-secondary mb-0">暂无已整理的比赛事件</p>
                         <?php else: ?>
                             <ol class="wc-timeline mb-0">
                                 <?php foreach ($events as $event): ?>

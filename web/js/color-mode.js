@@ -21,11 +21,10 @@
     const updateToggle = theme => {
         const toggle = document.getElementById('theme-toggle')
         if (!toggle) return
-        toggle.textContent = theme === 'dark' ? '\u2600' : '\uD83C\uDF19'
-        toggle.setAttribute(
-            'aria-label',
-            theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-        )
+        const label = theme === 'dark' ? '日间模式' : '夜间模式'
+        toggle.textContent = label
+        toggle.setAttribute('aria-label', `切换到${label}`)
+        toggle.setAttribute('title', `切换到${label}`)
     }
 
     setTheme(getPreferredTheme())

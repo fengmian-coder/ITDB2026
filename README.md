@@ -106,3 +106,11 @@ chore(bootstrap): initialize Yii2 Basic application skeleton
 ```
 
 原项目规范与两份课程 PDF 保持原名原位置。官方模板版权见 LICENSE.md；参考 [Yii 2.0 官方安装文档](https://www.yiiframework.com/doc/guide/2.0/en/start-installation)。
+
+## A 模块首版（feature/a）
+
+A 已实现数据库驱动首页、公共导航与页脚、团队成员前后台、课程文件上传下载与浏览器纪念卡。初始化、资料包登记、路由、共享文件修复、验收记录和待联调事项见 [A 模块交接](docs/handoffs/a-team-site.md)。本节对应 feature/a 本地改动，不表示已经合入 main。
+
+建表并配置本地数据库后执行 `php yii project/init`。如需登记仓库中的六份课程资料，核对团队及 A 的成员 ID，再执行 `php yii project/register-bundle <团队ID> <成员A的ID>`。创建管理员仍使用 `php yii admin/create <username>`。登录后从后台首页进入“团队与成员”或“作业管理”。
+
+正式赛事数据尚待 B/C 导入；没有数据时首页数量为零、球队入口和纪念卡制作页显示空状态，首页单独展示个人作业 2 的卡片示例。`site/explore` 是临时只读衔接入口，C 的正式球队控制器交付后自动转交；不会在 A 模块重复实现球队统计。

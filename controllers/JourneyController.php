@@ -66,14 +66,14 @@ class JourneyController extends Controller
     private function positiveTeamId(mixed $value): int
     {
         if ((!is_int($value) && !is_string($value)) || !preg_match('/^[0-9]+$/D', (string) $value)) {
-            throw new BadRequestHttpException('球队 ID 必须为正整数。');
+            throw new BadRequestHttpException('球队 ID 必须为正整数');
         }
 
         $digits = ltrim((string) $value, '0');
         $maximum = (string) PHP_INT_MAX;
         if ($digits === '' || strlen($digits) > strlen($maximum)
             || (strlen($digits) === strlen($maximum) && strcmp($digits, $maximum) > 0)) {
-            throw new BadRequestHttpException('球队 ID 超出有效范围。');
+            throw new BadRequestHttpException('球队 ID 超出有效范围');
         }
 
         return (int) $digits;

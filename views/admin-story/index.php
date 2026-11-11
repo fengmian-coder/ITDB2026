@@ -16,7 +16,7 @@ $models = $dataProvider->getModels();
 ?>
 <div class="admin-story-index pb-4">
     <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-        <div><h1 class="h3 fw-bold mb-1">精选故事管理</h1><p class="text-body-secondary mb-0">整理故事内容，审核后发布到比赛详情。</p></div>
+        <div><h1 class="h3 fw-bold mb-1">精选故事管理</h1><p class="text-body-secondary mb-0">整理故事内容，审核后发布到比赛详情</p></div>
         <?= Html::a('新增故事', ['/admin-story/create'], ['class' => 'btn btn-primary']) ?>
     </header>
     <div class="card border-0 shadow-sm rounded-4 mb-4"><div class="card-body p-4">
@@ -48,7 +48,7 @@ $models = $dataProvider->getModels();
     </div></div>
     <p class="small text-body-secondary">共 <?= Html::encode((string) $dataProvider->getTotalCount()) ?> 篇故事</p>
     <?php if ($models === []): ?>
-        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的故事。</div>
+        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的故事</div>
     <?php else: ?>
         <div class="table-responsive border rounded-4 mb-3"><table class="table align-middle mb-0">
             <caption class="visually-hidden">精选故事管理列表</caption>

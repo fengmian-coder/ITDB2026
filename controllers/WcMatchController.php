@@ -86,14 +86,14 @@ class WcMatchController extends Controller
     private function positiveMatchId(mixed $id): int
     {
         if ((!is_int($id) && !is_string($id)) || !preg_match('/^[0-9]+$/D', (string) $id)) {
-            throw new BadRequestHttpException('比赛 ID 必须为正整数。');
+            throw new BadRequestHttpException('比赛 ID 必须为正整数');
         }
 
         $digits = ltrim((string) $id, '0');
         $maximum = (string) PHP_INT_MAX;
         if ($digits === '' || strlen($digits) > strlen($maximum)
             || (strlen($digits) === strlen($maximum) && strcmp($digits, $maximum) > 0)) {
-            throw new BadRequestHttpException('比赛 ID 超出有效范围。');
+            throw new BadRequestHttpException('比赛 ID 超出有效范围');
         }
 
         return (int) $digits;

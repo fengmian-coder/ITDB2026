@@ -1,0 +1,54 @@
+{
+    "format_version": 1,
+    "personal_owner": "A",
+    "documents": [
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业1：Web 前端初探实验报告",
+            "relative_path": "personal/4bfe4b3421fb7074a5bf0e9dcea4a6cc.pdf",
+            "original_name": "互联网数据库开发_个人作业1_2413275卢苑.pdf",
+            "file_size": 8622175,
+            "sha256": "9ec26bcc3f67b9a6e64e1b60a73c10d3272a9e9c74f500ce91284f68773a7a16"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业1：浏览器插件源码包",
+            "relative_path": "personal/a56b067cfbe90a2f9d21235021c2bad1.zip",
+            "original_name": "互联网数据库开发作业1_新模板.zip",
+            "file_size": 15973398,
+            "sha256": "842c944799729d0f5856b6ccb2bb1450b1ab4f7aa7c26521f4d0372e3037b0ae"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业2：前端设计实验报告",
+            "relative_path": "personal/9f4b4be26668b08af87630b13448ec21.pdf",
+            "original_name": "互联网数据库个人作业2.pdf",
+            "file_size": 4300528,
+            "sha256": "04f6cd0950b04cf0c1df12e56e9df74283f56188ca015eb34299801a8225cc12"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业2：Axure 首页原型",
+            "relative_path": "personal/a7396e0b98833f8766907fd8da9aaf6a.rp",
+            "original_name": "WorldCup_Journey_首页.rp",
+            "file_size": 1005995,
+            "sha256": "e611c40592617f5388610e9ef625bfa88e772cd8876406447adad135bec3321c"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业3：WordPress 建站实验报告",
+            "relative_path": "personal/c1e3b7f60bcb2ecde77f2a1a69ef2e1a.pdf",
+            "original_name": "互联网数据库Lab3-2413275-卢苑.pdf",
+            "file_size": 1513395,
+            "sha256": "5bd189ff1d4295043ca29f2b464bb7faef32fc87e1791564e111d368230899d0"
+        },
+        {
+            "document_type": "TEAM",
+            "title": "团队项目协作规范与接口约定 V1.1",
+            "relative_path": "team/8f7742026d68e199e42ead10ff749a79.md",
+            "original_name": "WorldCup_Journey_项目开发协作规范与接口约定_V1.1.md",
+            "file_size": 83073,
+            "sha256": "ad322f4cde3204281c2b4b3ea74d3816aa1432e90c5395866f2686131c1a1ffc"
+        }
+    ]
+}

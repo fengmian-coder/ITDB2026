@@ -253,6 +253,20 @@ try {
 
     $check($request($admin, 'auth/logout', ['_csrf' => $csrf])[0] === 302, 'logout');
     $check($request($admin, 'admin-match/index')[0] === 403, 'logged out denied');
+    $directory = new app\services\TeamDirectoryService();
+    $memory = new app\services\MemoryCardService();
+    $check($request($guest, 'site/index')[0] === 200, 'integrated A homepage');
+    $check($request($guest, 'memory/card')[0] === 200, 'memory selection entry');
+    $card = $memory->getEditor($home, $m2)['card'];
+    $check($card['score'] === '2 : 2' && $card['penalties'] === '点球 4 : 3', 'memory score and penalties separated');
+    $db->createCommand()->update('national_team', ['is_active' => 0], ['id' => $home])->execute();
+    $activeIds = array_map('intval', array_column($directory->getTeams(), 'id'));
+    $check(!in_array($home, $activeIds, true), 'public directory excludes inactive team');
+    $history = $memory->getEditor($home, $m2);
+    $check($history['card']['team_name'] === 'TEST ONLY home', 'inactive historical team remains readable');
+    $check(in_array($home, array_map('intval', array_column($history['teams'], 'id')), true), 'historical selection retained');
+    $check($memory->getEditor($away, $m2)['card']['home_name'] === 'TEST ONLY home', 'inactive opponent retains real name');
+    $check($request($guest, 'memory/card&match_id=' . $m2)[0] === 200, 'historical match URL works for inactive home team');
     echo "PASS {$checks} real HTTP/database checks\n";
 } finally {
     foreach ([$admin, $guest] as $client) {

@@ -16,7 +16,7 @@ $models = $dataProvider->getModels();
 ?>
 <div class="admin-tournament-index pb-4">
     <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-        <div><h1 class="h3 fw-bold mb-1">赛事管理</h1><p class="text-body-secondary mb-0">维护赛事届次、名称、日期与简介。</p></div>
+        <div><h1 class="h3 fw-bold mb-1">赛事管理</h1><p class="text-body-secondary mb-0">维护赛事届次、名称、日期与简介</p></div>
         <?= Html::a('新增赛事', ['/admin-tournament/create'], ['class' => 'btn btn-primary']) ?>
     </header>
     <div class="card border-0 shadow-sm rounded-4 mb-4">
@@ -46,7 +46,7 @@ $models = $dataProvider->getModels();
     </div>
     <p class="small text-body-secondary">共 <?= Html::encode((string) $dataProvider->getTotalCount()) ?> 条赛事记录</p>
     <?php if ($models === []): ?>
-        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的赛事。</div>
+        <div class="rounded-4 border p-5 text-center text-body-secondary">暂无符合条件的赛事</div>
     <?php else: ?>
         <div class="table-responsive border rounded-4 mb-3">
             <table class="table align-middle mb-0">

@@ -33,7 +33,7 @@ $action = $model->isNewRecord ? ['/admin-stadium/create'] : ['/admin-stadium/upd
                 <?= Html::activeLabel($model, 'timezone_name', ['class' => 'form-label']) ?>
                 <?= Html::activeTextInput($model, 'timezone_name', ['class' => 'form-control', 'maxlength' => 64,
                     'placeholder' => '例如 America/Toronto', 'aria-describedby' => 'stadium-timezone-hint']) ?>
-                <p id="stadium-timezone-hint" class="small text-body-secondary mt-2 mb-0">可留空；填写场馆对应的时区名称，示例不是默认值。</p>
+                <p id="stadium-timezone-hint" class="small text-body-secondary mt-2 mb-0">可留空；填写场馆对应的时区名称，示例不是默认值</p>
             </div>
         </div>
         <div class="d-flex flex-wrap gap-2 mt-4">
