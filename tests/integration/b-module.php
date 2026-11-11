@@ -176,6 +176,51 @@ try {
     $check((int) $scalar('SELECT COUNT(*) FROM wc_match WHERE id=' . $crudMatch) === 0, 'unreferenced match delete');
 
     $service = new app\services\MatchQueryService();
+    // C 球队后台通过实际管理员 HTTP 写入，仅操作本次独立测试库。
+    $check($request($guest, 'admin-team/index')[0] === 403, 'guest denied team management');
+    $check($request($admin, 'admin-team/index')[0] === 200, 'team management authorized');
+    $check($request($admin, 'admin-team/delete&id=' . $home)[0] === 405, 'team GET deletion forbidden');
+    $check($request($admin, 'admin-team/create', ['NationalTeam' => []])[0] === 400, 'team CSRF required');
+    $csrf = $token($request($admin, 'admin-team/create')[1]);
+    $teamFields = ['fifa_code' => 'ZZA', 'name_zh' => 'TEST_ONLY_TEAM', 'name_en' => 'TEST_ONLY_TEAM', 'is_active' => '1'];
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 302, 'team HTTP create');
+    $crudTeam = (int) $scalar("SELECT id FROM national_team WHERE fifa_code='ZZA'");
+    $check($crudTeam > 0, 'team persisted');
+    [$status, $html] = $request($admin, 'admin-team/view&id=' . $crudTeam);
+    $check($status === 200 && str_contains($html, '参赛信息') && str_contains($html, 'TournamentTeam[group_code]'), 'team detail and participation form rendered');
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 200, 'duplicate FIFA code rejected');
+    $teamFields['fifa_code'] = 'bad';
+    $check($request($admin, 'admin-team/create', ['_csrf' => $csrf, 'NationalTeam' => $teamFields])[0] === 200, 'invalid FIFA code rejected');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['name_zh' => 'TEST_ONLY_UPDATED', 'id' => $home, 'created_at' => '2000-01-01']])[0] === 302, 'team update whitelist');
+    $check($scalar('SELECT name_zh FROM national_team WHERE id=' . $crudTeam) === 'TEST_ONLY_UPDATED', 'team update saved to original ID');
+    $check(!str_starts_with($scalar('SELECT created_at FROM national_team WHERE id=' . $crudTeam), '2000-01-01'), 'team audit fields excluded');
+    $request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['is_active' => '0', 'name_zh' => '<script>TEAM_ADMIN_XSS</script>']]);
+    [$status, $html] = $request($admin, 'admin-team/index&NationalTeamSearch[is_active]=0');
+    $check($status === 200 && str_contains($html, '&lt;script&gt;TEAM_ADMIN_XSS&lt;/script&gt;')
+        && !str_contains($html, '<script>TEAM_ADMIN_XSS</script>'), 'inactive filter and team output escaping');
+    $check($request($admin, 'admin-team/delete&id=' . $crudTeam, ['_csrf' => $csrf])[0] === 400, 'team deletion acknowledgement required');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['is_active' => '']])[0] === 400, 'blank activation rejected');
+    $check($request($admin, 'admin-team/view&id=0')[0] === 400, 'invalid team admin ID rejected');
+    $check($request($admin, 'admin-team/view&id=999999')[0] === 404, 'absent team admin ID rejected');
+    $check($request($admin, 'admin-team/index&NationalTeamSearch[is_active]=2')[0] === 400, 'invalid active filter rejected');
+    $check($request($admin, 'admin-team/index&page=999')[0] === 400, 'team pagination bounds');
+    $check($request($admin, 'admin-team/update&id=' . $crudTeam, ['_csrf' => $csrf, 'NationalTeam' => ['flag_path' => 'javascript:alert(1)']])[0] === 200, 'unsafe team image rejected');
+    $request($admin, 'admin-team/delete&id=' . $crudTeam, ['_csrf' => $csrf, 'confirm_delete' => '1']);
+    $check((int) $scalar('SELECT COUNT(*) FROM national_team WHERE id=' . $crudTeam) === 0, 'unreferenced team deleted');
+    $request($admin, 'admin-team/delete&id=' . $home, ['_csrf' => $csrf, 'confirm_delete' => '1']);
+    $check((int) $scalar('SELECT COUNT(*) FROM national_team WHERE id=' . $home) === 1, 'referenced team protected');
+    $check($request($admin, 'admin-team/participation&id=' . $home, ['_csrf' => $csrf, 'TournamentTeam' => ['tournament_id' => $tournament, 'group_code' => 'A', 'final_result_code' => 'CHAMPION', 'team_id' => $away]])[0] === 302, 'participation update');
+    $check($scalar('SELECT final_result_code FROM tournament_team WHERE team_id=' . $home) === 'CHAMPION'
+        && $scalar('SELECT final_result_code FROM tournament_team WHERE team_id=' . $away) === null, 'participation IDs controlled by server');
+    $request($admin, 'admin-team/participation&id=' . $home, ['_csrf' => $csrf, 'TournamentTeam' => ['tournament_id' => $tournament, 'group_code' => 'Z', 'final_result_code' => 'UNKNOWN']]);
+    $check($scalar('SELECT group_code FROM tournament_team WHERE team_id=' . $home) === 'A', 'invalid participation not saved');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
+    $registeredTeam = $insert('national_team', ['fifa_code' => 'ZZB', 'name_zh' => 'TEST ONLY registration', 'name_en' => 'TEST ONLY registration']);
+    $check($request($admin, 'admin-team/participation&id=' . $registeredTeam, ['_csrf' => $csrf, 'TournamentTeam' => [
+        'tournament_id' => $tournament, 'group_code' => 'B', 'final_result_code' => '']])[0] === 302, 'new participation registered by HTTP');
+    $check($scalar('SELECT group_code FROM tournament_team WHERE team_id=' . $registeredTeam) === 'B', 'new participation persisted');
+    $db->createCommand()->delete('tournament_team', ['team_id' => $registeredTeam])->execute();
+    $db->createCommand()->delete('national_team', ['id' => $registeredTeam])->execute();
     $list = $service->getMatchList(['team_id' => $home, 'stage' => 'GROUP', 'page_size' => 1]);
     $check($list['pagination']['total_count'] === 3 && count($list['items']) === 1, 'combined filter and count');
     $check($service->getMatchList(['team_id' => $away])['pagination']['total_count'] === 4, 'away team filter');
@@ -221,6 +266,73 @@ try {
     $check($request($guest, 'national-team/index&page=2')[0] === 400, 'C out-of-range page rejected');
     $check($request($guest, 'national-team/index&q[]=ZZX')[0] === 400, 'C invalid search format rejected');
     $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C national team DNA');
+    [$status, $html] = $request($guest, 'national-team/compare');
+    $check($status === 200 && str_contains($html, '选好球队，开始比较'), 'PK initial empty form');
+    $check(str_contains($html, 'name="r" value="national-team/compare"'), 'PK GET form retains route');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $home);
+    $check($status === 200 && str_contains($html, 'value="' . $home . '" selected'), 'PK DNA deep link preselects participant');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $away);
+    $check($status === 200 && str_contains($html, '50.0%') && str_contains($html, '1.50'), 'PK C rates formatted without new aggregation');
+    $check(str_contains($html, '交换球队') && str_contains($html, 'right_id=' . $home), 'PK swap preserves reverse IDs');
+    foreach (['left_id=0', 'left_id[]=1', 'left_id=-1', 'left_id=1.5', 'left_id=100000000000000000000',
+        'left_id=' . $home . '&right_id=' . $home] as $query) {
+        $check($request($guest, 'national-team/compare&' . $query)[0] === 400, 'PK invalid parameter ' . $query);
+    }
+    $check($request($guest, 'national-team/compare&right_id=999999')[0] === 404, 'PK missing partial participant 404');
+    [$status, $html] = $request($guest, 'insight/index');
+    $check($status === 200 && str_contains($html, 'id="ranking-chart"')
+        && str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="stages-chart"'), 'three chart containers rendered');
+    $check(str_contains($html, 'vendor/echarts/echarts.min.js') && str_contains($html, 'js/insight-charts.js'), 'single local chart library registered');
+    $extractChartData = static function (string $html): array {
+        preg_match('/<script type="application\/json" id="insight-data">(.*?)<\/script>/s', $html, $match);
+        return json_decode($match[1] ?? '', true, 512, JSON_THROW_ON_ERROR);
+    };
+    $chartData = $extractChartData($html);
+    $check(array_column($chartData['ranking'], 'team_id') === [$home, $away], 'chart seed uses complete C ranking');
+    $check($chartData['ranking'][0]['goals_for'] === 3 && $chartData['ranking'][0]['draws'] === 1
+        && $chartData['ranking'][0]['penalty_wins'] === 1, 'chart data separates extra time and penalties');
+    $check($chartData['stages'] === $summary, 'chart stages equal B service');
+    $check(str_contains($html, 'id="flow-chart"') && str_contains($html, 'id="scatter-chart"'), 'flow and scatter chart containers');
+    $flowService = new app\services\JourneyFlowService();
+    $flow = $flowService->getFlow();
+    $check($chartData['flow'] === $flow, 'flow SSR uses real service data');
+    $check(count($flow['teams']) === 2 && $flow['links'][0]['value'] === 2, 'flow counts participants once per stage');
+    $check($flow['teams'][0]['path'] === ['entry', 'GROUP', 'FINAL', 'pending:FINAL'], 'flow uses observed stages without inventing missing rounds or winner');
+    $check(!in_array('result:CHAMPION', array_column($flow['nodes'], 'name'), true), 'penalty winner alone does not invent final result');
+    [$flowStatus, $flowJson] = $request($guest, 'api/insights&chart=journey-flow');
+    $check($flowStatus === 200 && json_decode($flowJson, true)['data'] === $flow, 'flow API matches SSR');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => 'CHAMPION'], ['team_id' => $home])->execute();
+    $confirmedFlow = $flowService->getFlow();
+    $check(end($confirmedFlow['teams'][0]['path']) === 'result:CHAMPION', 'flow reads recorded final result');
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
+    $repeatGroup = $insert('wc_match', array_replace($base, ['match_no' => 101, 'status' => 'FINISHED', 'home_score_90' => 0, 'away_score_90' => 0]));
+    $check($flowService->getFlow() === $flow, 'repeated group matches do not multiply team flow');
+    $db->createCommand()->delete('wc_match', ['id' => $repeatGroup])->execute();
+    $db->createCommand()->update('wc_match', ['stage_code' => 'THIRD'], ['id' => $m2])->execute();
+    $db->createCommand()->update('tournament_team', ['final_result_code' => 'THIRD'], ['team_id' => $home])->execute();
+    $thirdFlow = $flowService->getFlow();
+    $thirdLabels = array_column($thirdFlow['nodes'], 'label', 'name');
+    $check($thirdLabels['THIRD'] === '季军赛' && $thirdLabels['result:THIRD'] === '季军', 'third place round differs from third place result');
+    $check($thirdFlow['teams'][0]['path'] === ['entry', 'GROUP', 'THIRD', 'result:THIRD'], 'third place path does not pass through final');
+    $db->createCommand()->update('wc_match', ['stage_code' => 'FINAL'], ['id' => $m2])->execute();
+    $db->createCommand()->update('tournament_team', ['final_result_code' => null], ['team_id' => $home])->execute();
+    [$status, $json] = $request($guest, 'api/insights&chart=scoring-ranking');
+    $payload = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    $check($status === 200 && $payload['data'] === $ranking, 'ranking API preserves C contract');
+    $check($request($guest, 'api/insights&chart=unknown')[0] === 400, 'unknown chart still rejected');
+    $check($request($guest, 'api/insights&chart[]=scoring-ranking')[0] === 400, 'array chart rejected');
+    // 仅修改独立测试库，验证刷新 API 确实重读已保存的比分。
+    $db->createCommand()->update('wc_match', ['home_score_90' => 2], ['id' => $m1])->execute();
+    $updatedRanking = json_decode($request($guest, 'api/insights&chart=scoring-ranking')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $updatedStages = json_decode($request($guest, 'api/insights&chart=stage-goals')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $check($updatedRanking[0]['goals_for'] === 4 && $updatedStages[0]['total_goals'] === 2, 'saved score refresh changes ranking and stage API');
+    $db->createCommand()->update('wc_match', ['home_score_90' => 1], ['id' => $m1])->execute();
+    $scheduled = $insert('wc_match', array_replace($base, ['match_no' => 100, 'stage_code' => 'SF', 'group_code' => null, 'status' => 'SCHEDULED']));
+    $check($flowService->getFlow() === $flow, 'scheduled round does not imply played advancement');
+    $stagesWithNull = json_decode($request($guest, 'api/insights&chart=stage-goals')[1], true, 512, JSON_THROW_ON_ERROR)['data'];
+    $sf = array_values(array_filter($stagesWithNull, static fn ($row) => $row['stage_code'] === 'SF'))[0];
+    $check($sf['match_count'] === 1 && $sf['finished_match_count'] === 0 && $sf['total_goals'] === null, 'chart stage without finished games keeps null');
+    $db->createCommand()->delete('wc_match', ['id' => $scheduled])->execute();
     $check($request($guest, 'site/explore')[0] === 302, 'A explore delegates to C list');
     $detail = $service->getMatchDetail($m2);
     $check($detail['home_team']['id'] === $home && $detail['away_team']['id'] === $away
@@ -319,12 +431,42 @@ try {
     $check($emptyStats['matches_played'] === 0 && $emptyStats['goals_for'] === 0
         && $emptyStats['goals_per_match'] === null && $emptyStats['win_rate'] === null,
         'C no finished matches retains null averages');
+    $emptyFlow = $flowService->getFlow();
+    $emptyPath = array_values(array_filter($emptyFlow['teams'], static fn ($team) => $team['team_id'] == $emptyTeam))[0];
+    $check($emptyPath['path'] === ['entry', 'pending:entry'], 'participant without games awaits matches');
     foreach (['api/team-stats&id=' . $outsider, 'wc-match/index&team_id=' . $outsider,
         'wc-match/index&team_id=999999'] as $route) {
         $check($request($guest, $route)[0] === 404, 'nonparticipant or absent team rejected ' . $route);
     }
     $check($service->getMatchList(['team_id' => $emptyTeam])['items'] === [], 'participant without matches empty list');
     $check($request($guest, 'national-team/view&id=' . $emptyTeam)[0] === 200, 'C empty DNA page');
+    [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $emptyTeam . '&right_id=' . $away);
+    $check($status === 200 && str_contains($html, '暂无'), 'PK no-games participant renders nullable rates');
+    $check($request($guest, 'national-team/compare&left_id=' . $outsider)[0] === 404, 'PK nonparticipant rejected');
+    $check($request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $outsider)[0] === 404, 'PK nonparticipant in pair rejected');
+    // 全部赛程取消时检查页面空状态与 API；测试后立即恢复原状态。
+    $savedMatches = $db->createCommand('SELECT * FROM wc_match WHERE id IN (:first, :second)', [':first' => $m1, ':second' => $m2])->queryAll();
+    $db->createCommand()->update('wc_match', ['status' => 'CANCELLED', 'home_score_90' => null,
+        'away_score_90' => null, 'home_score_120' => null, 'away_score_120' => null,
+        'home_penalties' => null, 'away_penalties' => null, 'winner_team_id' => null], ['id' => [$m1, $m2]])->execute();
+    [$status, $html] = $request($guest, 'insight/index');
+    $emptyCharts = $extractChartData($html);
+    $check($status === 200 && array_sum(array_column($emptyCharts['ranking'], 'matches_played')) === 0,
+        'charts keep real zero counts when no finished matches');
+    $check($emptyCharts['stages'][0]['total_goals'] === null, 'SSR seed keeps no-finished null');
+    $db->createCommand()->update('wc_match', ['status' => 'CANCELLED'], ['match_no' => 4])->execute();
+    $emptyCharts = $extractChartData($request($guest, 'insight/index')[1]);
+    $check($emptyCharts['stages'] === [], 'cancelled-only schedule produces empty stage data');
+    $check(count($emptyCharts['flow']['links']) === 1 && $emptyCharts['flow']['links'][0]['target'] === 'pending:entry', 'cancelled matches excluded from flow');
+    $db->createCommand()->update('wc_match', ['status' => 'SCHEDULED'], ['match_no' => 4])->execute();
+    foreach ($savedMatches as $savedMatch) {
+        $db->createCommand()->update('wc_match', $savedMatch, ['id' => $savedMatch['id']])->execute();
+    }
+    foreach (['national-team/compare', 'insight/index'] as $route) {
+        $check($request($guest, $route, [])[0] === 405, 'public chart POST method rejected ' . $route);
+        $check($request($admin, $route, ['_csrf' => $token($request($admin, 'auth/login')[1])])[0] === 405,
+            'public chart POST with CSRF method rejected ' . $route);
+    }
     foreach (['home_team_id', 'away_team_id'] as $attribute) {
         $match = app\models\WcMatch::findOne($m1);
         $match->$attribute = $outsider;
@@ -411,12 +553,14 @@ try {
     $check($service->getMatchDetail($m2)['home_team']['name_zh'] === 'TEST ONLY home', 'match retains inactive historical team');
     $check($journey->getTeamJourney($away)[0]['opponent']['name_zh'] === 'TEST ONLY home', 'Journey retains inactive opponent');
     $check($request($guest, 'national-team/view&id=' . $home)[0] === 200, 'C inactive historical DNA');
+    $check($request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $away)[0] === 200, 'PK retains inactive historical participant');
     $check($request($guest, 'journey/view&team_id=' . $home)[0] === 200, 'named inactive historical journey');
     $check($memory->getEditor($away, $m2)['card']['stats']['team_id'] === $away, 'A memory receives C statistics');
     // 临时库中检查球队文本与素材路径的输出边界。
     $db->createCommand()->update('national_team', ['name_zh' => '<script>TEAM_XSS</script>',
         'flag_path' => 'javascript:alert(1)'], ['id' => $home])->execute();
-    foreach (['wc-match/index', 'wc-match/view&id=' . $m2, 'journey/view&team_id=' . $away] as $route) {
+    foreach (['wc-match/index', 'wc-match/view&id=' . $m2, 'journey/view&team_id=' . $away,
+        'national-team/compare&left_id=' . $home . '&right_id=' . $away, 'insight/index'] as $route) {
         [$status, $html] = $request($guest, $route);
         $check($status === 200 && str_contains($html, '&lt;script&gt;TEAM_XSS&lt;/script&gt;')
             && !str_contains($html, '<script>TEAM_XSS</script>') && !str_contains($html, 'src="javascript:'),

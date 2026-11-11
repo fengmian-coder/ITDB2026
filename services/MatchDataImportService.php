@@ -14,6 +14,7 @@ use app\models\MatchStoryTag;
 use app\models\MatchTag;
 use app\models\Stadium;
 use app\models\Tournament;
+use app\models\TournamentTeam;
 use app\models\WcMatch;
 use DateTimeImmutable;
 use DateTimeZone;
@@ -42,7 +43,7 @@ class MatchDataImportService
         'added_minute' => [0, 65535], 'sort_order' => [-2147483648, 2147483647],
         'home_score_90' => [0, 255], 'away_score_90' => [0, 255],
         'home_score_120' => [0, 255], 'away_score_120' => [0, 255],
-        'home_penalties' => [0, 255], 'away_penalties' => [0, 255], 'is_published' => [0, 0],
+        'home_penalties' => [0, 255], 'away_penalties' => [0, 255], 'is_published' => [0, 1],
     ];
     private array $counts = [];
     private string $context = '';
@@ -86,6 +87,9 @@ class MatchDataImportService
                 $groups[$group] = ($groups[$group] ?? 0) + 1;
                 $participation = ['tournament_id' => $tournament['id'], 'team_id' => $team['id'], 'group_code' => $group];
                 if ($row['final_result_code'] !== null) {
+                    if (!in_array($row['final_result_code'], TournamentTeam::FINAL_RESULT_CODES, true)) {
+                        throw new RuntimeException('最终成绩类别不符合正式枚举');
+                    }
                     $participation['final_result_code'] = $row['final_result_code'];
                 }
                 $this->store('tournament_team', $participation, array_intersect_key($participation,
@@ -128,6 +132,7 @@ class MatchDataImportService
                 $this->uniqueKey($stories, $number);
                 $attributes = array_diff_key($row, ['match_no' => true]);
                 $attributes['match_id'] = $this->resolve($matches, $number, '故事所属比赛')['id'];
+                // 新库按数据包还原发布状态，已有故事保留后台发布／撤回和封面编辑。
                 $stories[$number] = $this->store('match_story', $attributes,
                     ['match_id' => $attributes['match_id']], MatchStory::class, ['is_published', 'cover_path']);
             }
@@ -211,8 +216,10 @@ class MatchDataImportService
         }
         if ($rows !== []) {
             $existing = $rows[0];
+            $fillFinalResult = $table === 'tournament_team'
+                && isset($attributes['final_result_code']) && $existing['final_result_code'] === null;
             foreach ($attributes as $column => $value) {
-                if (in_array($column, $preserve, true)) {
+                if (in_array($column, $preserve, true) || ($fillFinalResult && $column === 'final_result_code')) {
                     continue;
                 }
                 if (($value === null) !== ($existing[$column] === null)
@@ -220,7 +227,18 @@ class MatchDataImportService
                     throw new RuntimeException($table . '.' . $column . ' 已存在且与 CSV 不同');
                 }
             }
-            $this->count($table, 'skipped');
+            if ($fillFinalResult) {
+                $value = $attributes['final_result_code'];
+                $affected = Yii::$app->db->createCommand()->update($table, ['final_result_code' => $value],
+                    $key + ['final_result_code' => null])->execute();
+                if ($affected !== 1) {
+                    throw new RuntimeException('最终成绩已被其他操作修改，请重新导入');
+                }
+                $existing['final_result_code'] = $value;
+                $this->count($table, 'updated');
+            } else {
+                $this->count($table, 'skipped');
+            }
             return $existing;
         }
         if ($modelClass !== null) {
@@ -298,7 +316,7 @@ class MatchDataImportService
     private function count(string $table, string $operation): void
     {
         $this->counts[$table] ??= ['inserted' => 0, 'skipped' => 0];
-        ++$this->counts[$table][$operation];
+        $this->counts[$table][$operation] = ($this->counts[$table][$operation] ?? 0) + 1;
     }
 
     private function eventSet(array $rows): array

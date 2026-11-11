@@ -4,12 +4,14 @@
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：NationalTeamController、TeamStatsService 返回数组
+ * 最近修改：2026-11-11，B 协助增加预选本队的 PK 入口
  */
 
 declare(strict_types=1);
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\models\TournamentTeam;
 
 /** @var yii\web\View $this */
 /** @var app\models\NationalTeam $team */
@@ -21,6 +23,7 @@ $this->params['breadcrumbs'][] = ['label' => '球队列表', 'url' => ['/nationa
 $this->params['breadcrumbs'][] = $team->name_zh;
 
 $finalResult = $participation['final_result_code'] ?? $stats['final_result_code'] ?? null;
+$finalResultLabel = TournamentTeam::FINAL_RESULT_LABELS[$finalResult] ?? $finalResult;
 $groupCode = $participation['group_code'] ?? null;
 $hasMatches = (int) $stats['matches_played'] > 0;
 $formatDecimal = static function ($value): string {
@@ -42,7 +45,7 @@ $formatRate = static function ($value): string {
                     <span class="badge text-bg-secondary"><?= Html::encode($groupCode) ?> 组</span>
                 <?php endif; ?>
                 <?php if ($finalResult !== null): ?>
-                    <span class="badge text-bg-success"><?= Html::encode($finalResult) ?></span>
+                    <span class="badge text-bg-success"><?= Html::encode($finalResultLabel) ?></span>
                 <?php endif; ?>
                 <?php if (!(int) $team->is_active): ?>
                     <span class="badge text-bg-warning">已停用</span>
@@ -50,6 +53,7 @@ $formatRate = static function ($value): string {
             </div>
         </div>
         <div class="d-flex flex-wrap gap-2">
+            <?= Html::a('球队 PK', ['/national-team/compare', 'left_id' => $team->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('晋级之路', ['/journey/view', 'team_id' => $team->id], ['class' => 'btn btn-outline-primary']) ?>
             <?= Html::a('本届比赛', ['/wc-match/index', 'team_id' => $team->id], ['class' => 'btn btn-outline-secondary']) ?>
         </div>
@@ -130,7 +134,7 @@ $formatRate = static function ($value): string {
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
                     <div class="text-body-secondary small">最终成绩</div>
-                    <div class="fs-4 fw-bold"><?= Html::encode($finalResult ?? '暂无') ?></div>
+                    <div class="fs-4 fw-bold"><?= Html::encode($finalResultLabel ?? '暂无') ?></div>
                 </div>
             </div>
         </div>

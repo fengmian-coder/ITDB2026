@@ -7,7 +7,7 @@
 | 当前分支 | feature/b-match |
 | 已推送代码基线 | a287e22，包含 C 的 c45f159、B 的校验补齐和球队联调，分支 feature/b-match |
 | 本文交付范围 | 赛事、场馆、比赛、故事/事件/标签后台，以及公开 API 的授权边界与联调清单 |
-| 实际交付状态 | 后台已接 D 的 AdminUser::canManage，158 项真实 HTTP／数据库检查通过，PR #3 待组员审查 |
+| 实际交付状态 | 后台已接 D 的 AdminUser::canManage，158 项真实 HTTP／数据库检查通过，PR #3 已合并到 main |
 
 依据为 V1.1 第 1.2 节、第 5.1 节、第 6 节及安全要求。D 统一管理员身份、登录及后台入口，各业务负责人维护本模块 Controller。
 
@@ -177,12 +177,19 @@ is_published 只接受 0/1；新增默认草稿。保存为已发布但未提交
 | 路由 | 方法 | 行为 |
 |---|---|---|
 | api/insights?chart=stage-goals | 仅 GET | MatchQueryService::getStageSummary() |
+| api/insights?chart=scoring-ranking | 仅 GET | TeamStatsService::getScoringRanking()，完整参赛队进球排名 |
 | api/team-stats?id=... | 仅 GET | 调用 C 的 getTeamStats(int $teamId): array |
 | api/team-compare?left_id=...&right_id=... | 仅 GET | 调用 C 的 getCompareStats(int $leftId, int $rightId): array |
 
 成功返回 {success:true,data:业务数组,error:null}；失败保持真实 HTTP 状态并返回 {success:false,data:null,error:{code,message}}。非法参数/同队对比 400，非法图表 400 INVALID_CHART，未知/非参赛球队 404 TEAM_NOT_FOUND，缺 C 依赖或数据库错误为友好 500 SERVER_ERROR，错误方法 405 METHOD_NOT_ALLOWED。HEAD 不放行；写请求可能先被 CSRF 检查以 400 拒绝。响应不暴露 SQL 或内部路径。
 
 C 的 TeamStatsService 已接入，两个球队 API 已通过真实服务、HTTP 状态与返回结构检查。当前默认 DI 可创建该服务。
+
+B 协助 C 完成公开的 `national-team/compare` 和 `insight/index` 页面，通过现有导航进入。两页开放 GET/HEAD，统计 JSON 继续仅 GET。接口、资源和 193 项回归范围见 [C PK 与图表交接](handoffs/c-team-insights.md)。
+
+Windows 一键初始化及启动入口为 `scripts/start.ps1`，SQL 统一复用 C 的 `data/install.sql`。空管理员表时调用 D 的 admin/create 生成 wcj_admin 及随机密码，已有管理员保持原账号。37 项独立还原检查和操作步骤见 [部署说明](windows-deployment.md)。D 后续负责独立数据复核及其他演示机器验收。
+
+球队后台 `admin-team/*` 已接入 AdminUser::canManage，AdminNavigation 自动提供侧栏及工作台入口。写入启用 CSRF，删除仅 POST，历史引用由预检查及正式外键保护。本轮 B/C 回归通过 220 项检查，新增 27 项球队后台用例，见 [C 模块交接](handoffs/c-team-insights.md)。
 
 ## 3. 管理员授权接入
 
@@ -317,7 +324,7 @@ public mixed $adminAccessChecker = null;
 ## 8. 当前需要 D 继续处理的工作
 
 - 独立抽样核对赛事时间、比分和点球结果，记录复核人及结论。V1.1 第 3.5 节要求“D执行一次独立复核”。
-- 配合 B 审核 [八篇精选故事发布文案](b-story-publication-draft.md)、104 条事件及素材使用许可，完成后通过后台发布。开发库当前 8 篇均为草稿，发布控制已有真实 HTTP 测试。
+- 完成 [八篇精选故事文案](b-story-publication-draft.md)、104 条事件及素材使用许可的独立数据复核。八篇故事已按 B 负责人要求发布，数据包已同步正文及发布状态，后续由 B 根据复核反馈维护内容。
 - 与 C 完成一键部署、空库还原及最终演示环境验证。安装、数据导入和管理员创建命令以当前 README 为准。
 - 继续验证停用账号、会话失效、登录限流及部署环境设置，保留对应运行证据。
 

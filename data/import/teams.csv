@@ -1,49 +1,49 @@
 fifa_code,name_zh,name_en,group_code,final_result_code
-MEX,墨西哥,Mexico,A,
-RSA,南非,South Africa,A,
-KOR,韩国,Korea Republic,A,
-CZE,捷克,Czechia,A,
-CAN,加拿大,Canada,B,
-BIH,波斯尼亚和黑塞哥维那,Bosnia and Herzegovina,B,
-QAT,卡塔尔,Qatar,B,
-SUI,瑞士,Switzerland,B,
-BRA,巴西,Brazil,C,
-MAR,摩洛哥,Morocco,C,
-HAI,海地,Haiti,C,
-SCO,苏格兰,Scotland,C,
-USA,美国,United States,D,
-PAR,巴拉圭,Paraguay,D,
-AUS,澳大利亚,Australia,D,
-TUR,土耳其,Türkiye,D,
-GER,德国,Germany,E,
-CUW,库拉索,Curaçao,E,
-CIV,科特迪瓦,Côte d'Ivoire,E,
-ECU,厄瓜多尔,Ecuador,E,
-NED,荷兰,Netherlands,F,
-JPN,日本,Japan,F,
-SWE,瑞典,Sweden,F,
-TUN,突尼斯,Tunisia,F,
-BEL,比利时,Belgium,G,
-EGY,埃及,Egypt,G,
-IRN,伊朗,IR Iran,G,
-NZL,新西兰,New Zealand,G,
-ESP,西班牙,Spain,H,
-CPV,佛得角,Cabo Verde,H,
-KSA,沙特阿拉伯,Saudi Arabia,H,
-URU,乌拉圭,Uruguay,H,
-FRA,法国,France,I,
-SEN,塞内加尔,Senegal,I,
-IRQ,伊拉克,Iraq,I,
-NOR,挪威,Norway,I,
-ARG,阿根廷,Argentina,J,
-ALG,阿尔及利亚,Algeria,J,
-AUT,奥地利,Austria,J,
-JOR,约旦,Jordan,J,
-POR,葡萄牙,Portugal,K,
-COD,刚果民主共和国,Congo DR,K,
-UZB,乌兹别克斯坦,Uzbekistan,K,
-COL,哥伦比亚,Colombia,K,
-ENG,英格兰,England,L,
-CRO,克罗地亚,Croatia,L,
-GHA,加纳,Ghana,L,
-PAN,巴拿马,Panama,L,
+MEX,墨西哥,Mexico,A,R16
+RSA,南非,South Africa,A,R32
+KOR,韩国,Korea Republic,A,GROUP
+CZE,捷克,Czechia,A,GROUP
+CAN,加拿大,Canada,B,R16
+BIH,波斯尼亚和黑塞哥维那,Bosnia and Herzegovina,B,R32
+QAT,卡塔尔,Qatar,B,GROUP
+SUI,瑞士,Switzerland,B,QF
+BRA,巴西,Brazil,C,R16
+MAR,摩洛哥,Morocco,C,QF
+HAI,海地,Haiti,C,GROUP
+SCO,苏格兰,Scotland,C,GROUP
+USA,美国,United States,D,R16
+PAR,巴拉圭,Paraguay,D,R16
+AUS,澳大利亚,Australia,D,R32
+TUR,土耳其,Türkiye,D,GROUP
+GER,德国,Germany,E,R32
+CUW,库拉索,Curaçao,E,GROUP
+CIV,科特迪瓦,Côte d'Ivoire,E,R32
+ECU,厄瓜多尔,Ecuador,E,R32
+NED,荷兰,Netherlands,F,R32
+JPN,日本,Japan,F,R32
+SWE,瑞典,Sweden,F,R32
+TUN,突尼斯,Tunisia,F,GROUP
+BEL,比利时,Belgium,G,QF
+EGY,埃及,Egypt,G,R16
+IRN,伊朗,IR Iran,G,GROUP
+NZL,新西兰,New Zealand,G,GROUP
+ESP,西班牙,Spain,H,CHAMPION
+CPV,佛得角,Cabo Verde,H,R32
+KSA,沙特阿拉伯,Saudi Arabia,H,GROUP
+URU,乌拉圭,Uruguay,H,GROUP
+FRA,法国,France,I,FOURTH
+SEN,塞内加尔,Senegal,I,R32
+IRQ,伊拉克,Iraq,I,GROUP
+NOR,挪威,Norway,I,QF
+ARG,阿根廷,Argentina,J,RUNNER_UP
+ALG,阿尔及利亚,Algeria,J,R32
+AUT,奥地利,Austria,J,R32
+JOR,约旦,Jordan,J,GROUP
+POR,葡萄牙,Portugal,K,R16
+COD,刚果民主共和国,Congo DR,K,R32
+UZB,乌兹别克斯坦,Uzbekistan,K,GROUP
+COL,哥伦比亚,Colombia,K,R16
+ENG,英格兰,England,L,THIRD
+CRO,克罗地亚,Croatia,L,R32
+GHA,加纳,Ghana,L,R32
+PAN,巴拿马,Panama,L,GROUP

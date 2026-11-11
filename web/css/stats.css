@@ -1,0 +1,106 @@
+/* WorldCup Journey · C 球队 PK 与动态图表，由 B 协助实现。 */
+.stats-hero {
+    padding: clamp(1.5rem, 4vw, 2.8rem);
+    border-radius: 1.25rem;
+    background: #224c37;
+    color: #fff;
+}
+.stats-hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+.stats-hero p { color: #e0ebe3; max-width: 56rem; }
+.stats-panel {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 1.75rem);
+}
+.stats-comparison { table-layout: fixed; }
+.stats-comparison th, .stats-comparison td { padding: 1rem .75rem; overflow-wrap: anywhere; }
+.stats-comparison td { text-align: center; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.stats-comparison thead th { text-align: center; }
+.stats-comparison thead th:first-child { text-align: left; width: 30%; }
+.insight-page .stats-chart { width: 100%; min-height: 360px; height: 400px; }
+.insight-page .stats-chart-ranking { height: 440px; }
+.insight-page .chart-status { min-height: 1.5rem; }
+.insight-page .stats-table { max-height: 24rem; overflow: auto; }
+.insight-page summary { cursor: pointer; padding: .75rem 0; font-weight: 600; }
+.insight-page .table { font-variant-numeric: tabular-nums; }
+.insight-page .table td:first-child { overflow-wrap: anywhere; }
+.insight-page {
+    --insight-green: #176246;
+    --insight-gold: #aa7927;
+    --insight-surface: #f4f7f2;
+}
+.insight-page .insight-hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 95% 0%, #48744a 0%, transparent 57%), #143f30;
+    border-radius: 24px;
+    padding: clamp(24px, 3vw, 36px);
+}
+.insight-hero::after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 1px solid #cde7d225;
+    border-radius: 50%;
+    right: -75px;
+    top: -160px;
+    box-shadow: 0 0 0 58px #cde7d20a, 0 0 0 118px #cde7d20a;
+    pointer-events: none;
+}
+.insight-hero-copy, .insight-hero #insight-refresh, .insight-sections { position: relative; z-index: 1; }
+.insight-hero .insight-season { color: #d7dfac; font-size: .82rem; letter-spacing: .13em; margin-bottom: 12px; }
+.insight-hero h1 { font-weight: 600; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.25; letter-spacing: -.04em; margin-bottom: 14px; }
+.insight-hero h1 br { display: none; }
+.insight-hero #insight-refresh { border-radius: 50px; padding: 12px 24px; font-weight: 600; }
+.insight-sections { display: flex; gap: clamp(12px, 3vw, 32px); margin-top: 24px; border-top: 1px solid #e7efde35; padding-top: 16px; }
+.insight-sections a { color: #edf3e7; text-decoration: none; font-size: .88rem; display: flex; gap: 12px; }
+.insight-sections a:hover { color: #e5d39c; }
+.insight-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.insight-page .stats-panel { border-radius: 20px; padding: 28px; box-shadow: 0 8px 30px #1c352b05; min-width: 0; }
+.insight-page h2 { font-weight: 700; font-size: 1.18rem; letter-spacing: -.02em; scroll-margin-top: 110px; }
+.insight-page .form-select { border-radius: 10px; background-color: var(--insight-surface); border-color: var(--bs-border-color); padding-top: 9px; padding-bottom: 9px; }
+.insight-page #ranking-limit { width: auto; }
+.insight-page .ranking-panel .stats-chart { height: 526px; }
+.insight-page .compare-panel .stats-chart { height: 300px; min-height: 300px; }
+.insight-page .stages-panel { grid-column: 1 / -1; }
+.insight-page .stages-panel .stats-chart { height: 360px; }
+.insight-page .chart-status { font-size: .76rem; line-height: 1.65; margin-bottom: 4px; }
+.insight-page details { border-top: 1px solid var(--bs-border-color); }
+.insight-page summary { font-size: .82rem; color: var(--bs-secondary-color); font-weight: 500; }
+.insight-duel { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 24px; background: var(--bs-border-color); border: 1px solid var(--bs-border-color); border-radius: 14px; overflow: hidden; }
+.insight-team { display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; background: var(--insight-surface); padding: 20px 8px; min-width: 0; }
+.insight-team strong { max-width: 100%; overflow-wrap: anywhere; font-size: .9rem; }
+.insight-team-code { font-family: Georgia, serif; font-size: 1.65rem; letter-spacing: .05em; color: var(--insight-green); }
+.insight-team-right .insight-team-code { color: var(--insight-gold); }
+[data-bs-theme="dark"] .insight-page { --insight-green: #91d2ad; --insight-gold: #e0bc76; --insight-surface: #26372e; }
+@media (max-width: 991.98px) {
+    .insight-grid { grid-template-columns: minmax(0, 1fr); }
+    .insight-page .stats-panel { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .insight-page * { scroll-behavior: auto !important; }
+}
+@media (max-width: 575.98px) {
+    .stats-comparison th, .stats-comparison td { padding: .8rem .35rem; }
+    .stats-comparison td { font-size: 1rem; }
+    .insight-page .stats-chart { height: 360px; }
+    .insight-page .stats-chart-ranking { height: 420px; }
+}
+.insight-sections { flex-wrap: wrap; }
+.insight-page .flow-panel, .insight-page .scatter-panel { grid-column: 1 / -1; }
+.insight-page .flow-scroll { overflow-x: auto; }
+.insight-page #flow-chart { min-width: 850px; height: 460px; }
+.insight-page .flow-picker { min-width: 180px; }
+.insight-page .flow-route { color: var(--insight-green); line-height: 1.8; }
+.insight-page #scatter-chart { height: 390px; }
+.insight-page .scatter-team-card { padding: 18px 22px; border-radius: 14px; background: var(--insight-surface); border-left: 3px solid var(--insight-green); }
+.insight-page .scatter-team-card p { margin-top: 6px; color: var(--bs-secondary-color); }
+.insight-page .scatter-team-card a { color: var(--insight-green); text-underline-offset: 3px; }
+.insight-page .insight-team { padding: 14px 8px; }
+@media (max-width: 575.98px) {
+    .insight-page #flow-chart { height: 420px; }
+    .insight-page .flow-picker { width: 100%; }
+    .insight-page #scatter-chart { height: 340px; }
+}
