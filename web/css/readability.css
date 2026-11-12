@@ -13,13 +13,32 @@
 .wc-team-card:focus-visible { outline: 3px solid #b08b36; outline-offset: 3px; }
 [data-bs-theme="dark"] .wc-team-card h2 { color: #a5d6b7; }
 [data-bs-theme="dark"] .wc-team-card:hover { background: #253b2e; border-color: #7ba78b; }
-[data-bs-theme="dark"] .national-team-index .btn-outline-primary { --bs-btn-color: #b7dbc3; --bs-btn-border-color: #71967c; --bs-btn-hover-bg: #375a43; --bs-btn-hover-border-color: #9fc5a9; }
+[data-bs-theme="dark"] .national-team-index .btn-outline-primary, [data-bs-theme="dark"] .national-team-view .btn-outline-primary { --bs-btn-color: #b7dbc3; --bs-btn-border-color: #71967c; --bs-btn-hover-bg: #375a43; --bs-btn-hover-border-color: #9fc5a9; }
 [data-bs-theme="dark"] body:not(.admin-body):not(.auth-body) .breadcrumb a { color: #b7dbc3; }
 body:not(.admin-body):not(.auth-body) .pagination { --bs-pagination-color: #175b46; --bs-pagination-bg: var(--bs-body-bg); --bs-pagination-border-color: var(--bs-border-color); --bs-pagination-hover-color: #175b46; --bs-pagination-hover-bg: #edf4ed; --bs-pagination-hover-border-color: #91af98; --bs-pagination-focus-color: #175b46; --bs-pagination-focus-bg: #edf4ed; --bs-pagination-focus-box-shadow: 0 0 0 3px #78a48640; --bs-pagination-active-bg: #175b46; --bs-pagination-active-border-color: #175b46; --bs-pagination-active-color: #fff; --bs-pagination-disabled-color: var(--bs-secondary-color); --bs-pagination-disabled-bg: var(--bs-tertiary-bg); gap: 8px; flex-wrap: wrap; }
 body:not(.admin-body):not(.auth-body) .pagination .page-link { border-radius: 7px; min-width: 44px; padding: 8px 14px; text-align: center; font-size: 16px; margin: 0; }
 [data-bs-theme="dark"] body:not(.admin-body):not(.auth-body) .pagination { --bs-pagination-color: #b7dbc3; --bs-pagination-hover-color: #d4e7d9; --bs-pagination-hover-bg: #2a4233; --bs-pagination-focus-color: #d4e7d9; --bs-pagination-focus-bg: #2a4233; }
 .wc-team-pagination .pagination { justify-content: center; }
 .wc-team-compare-chart { width: 100%; height: 300px; }
+.team-profile-intro { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 24px; }
+.team-profile-about, .team-profile-coach, .team-profile-player { border: 1px solid var(--bs-border-color); border-radius: 12px; padding: 26px; min-width: 0; }
+.team-profile-about h2 { font-size: 26px; margin-bottom: 16px; }
+.team-profile-about > p:last-child { line-height: 1.9; font-size: 17px; }
+.team-profile-coach { background: #f1f6ef; border-top: 3px solid #48785a; }
+.team-profile-coach h3 { font-size: 25px; line-height: 1.5; margin-bottom: 16px; overflow-wrap: anywhere; }
+.team-profile-coach > p:last-child { font-size: 16px; color: var(--bs-secondary-color); line-height: 1.8; }
+.team-profile-players { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.team-profile-player h3 { font-size: 21px; line-height: 1.5; margin: 0 0 12px; overflow-wrap: anywhere; }
+.team-profile-player p { font-size: 16px; line-height: 1.85; color: var(--bs-secondary-color); overflow-wrap: anywhere; }
+.team-player-number { font-size: 27px; font-weight: 600; color: #99722c; line-height: 1.3; }
+.team-player-position { padding: 3px 10px; border-radius: 5px; color: #326444; background: #edf4e9; font-size: 14px; }
+.team-profile-source summary { cursor: pointer; color: var(--bs-secondary-color); font-size: 15px; }
+[data-bs-theme="dark"] .team-profile-coach { background: #293b2e; }
+[data-bs-theme="dark"] .team-player-number { color: #e3c27e; }
+[data-bs-theme="dark"] .team-player-position { color: #bfdfc4; background: #314e39; }
+[data-bs-theme="dark"] .team-profile-source a { color: #b7dbc3; }
+@media (max-width: 991px) { .team-profile-intro { grid-template-columns: 1fr; } }
+@media (max-width: 767px) { .team-profile-players { grid-template-columns: 1fr; }.team-profile-about, .team-profile-coach, .team-profile-player { padding: 22px; } }
 body:not(.admin-body):not(.auth-body) { font-size: 18px; line-height: 1.75; }
 body:not(.admin-body):not(.auth-body) .btn { font-size: 17px; font-weight: 600; line-height: 1.45; padding: 11px 21px; border-radius: 7px; }
 body:not(.admin-body):not(.auth-body) .btn-sm { font-size: 16px; padding: 8px 15px; }

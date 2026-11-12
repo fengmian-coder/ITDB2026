@@ -541,6 +541,36 @@ try {
     $csrf = $token($request($admin, 'auth/login')[1]);
     $request($admin, 'auth/login', ['_csrf' => $csrf, 'AdminLoginForm' => ['username' => 'b_test', 'password' => $password]]);
     $csrf = $token($request($admin, 'admin-story/create')[1]);
+    // 新增档案在本次隔离库保存；验证授权、CSRF、输入边界、前台转义和持久化。
+    $profileService = new app\services\TeamProfileService();
+    $profileBundle = json_decode(file_get_contents($root . '/data/team-profiles-2026.json'), true);
+    $profileInput = $profileBundle['teams']['ESP'];
+    $profileInput['summary'] = 'TEST ONLY profile <script>PROFILE_XSS</script>';
+    $check($request($guest, 'admin-team/profile&id=' . $home)[0] === 403, 'guest profile access refused');
+    $check($request($admin, 'admin-team/profile&id=' . $home)[0] === 200, 'profile editor available');
+    $check($request($admin, 'admin-team/profile&id=' . $outsider)[0] === 404, 'nonparticipant cannot edit snapshot');
+    $check($request($admin, 'admin-team/profile&id=' . $home, ['TeamProfileForm' => $profileInput])[0] === 400, 'profile write requires CSRF');
+    $check($request($admin, 'admin-team/profile&id=' . $home, ['_csrf' => $csrf, 'TeamProfileForm' => $profileInput])[0] === 302, 'profile HTTP save');
+    $savedProfile = $profileService->get(app\models\NationalTeam::findOne($home));
+    $check($savedProfile['coach_name'] === $profileInput['coach_name'] && count($savedProfile['players']) === 3, 'profile database readback');
+    [$profileStatus, $profileHtml] = $request($guest, 'national-team/view&id=' . $home);
+    $check($profileStatus === 200 && str_contains($profileHtml, '&lt;script&gt;PROFILE_XSS&lt;/script&gt;')
+        && !str_contains($profileHtml, '<script>PROFILE_XSS</script>'), 'profile output encoded');
+    foreach (['invalid-position', 'duplicate-player', 'unsafe-source', 'wrong-shape'] as $case) {
+        $invalidProfile = $profileInput;
+        if ($case === 'invalid-position') $invalidProfile['players'][0]['position'] = 'XX';
+        if ($case === 'duplicate-player') $invalidProfile['players'][1]['name'] = $invalidProfile['players'][0]['name'];
+        if ($case === 'unsafe-source') $invalidProfile['source_url'] = 'javascript:alert(1)';
+        if ($case === 'wrong-shape') $invalidProfile['players'] = 'not-an-array';
+        $check($request($admin, 'admin-team/profile&id=' . $home, ['_csrf' => $csrf, 'TeamProfileForm' => $invalidProfile])[0] === 200,
+            'invalid profile retains editor ' . $case);
+        $check($profileService->get(app\models\NationalTeam::findOne($home)) === $savedProfile, 'invalid profile preserves stored data ' . $case);
+    }
+    $db->createCommand()->update('national_team', ['fifa_code' => 'ESP'], ['id' => $home])->execute();
+    $profileService->importDefaults();
+    $check($profileService->get(app\models\NationalTeam::findOne($home)) === $savedProfile, 'default import retains administrator profile edits');
+    $db->createCommand()->update('national_team', ['fifa_code' => 'ZZX'], ['id' => $home])->execute();
+    $db->createCommand()->update('tournament_team', ['profile_json' => null], ['tournament_id' => $tournament, 'team_id' => $home])->execute();
     $invalidMatch = array_replace($base, ['match_no' => 5, 'status' => 'SCHEDULED', 'home_team_id' => $outsider]);
     $check($request($admin, 'admin-match/create', ['_csrf' => $csrf, 'WcMatch' => $invalidMatch])[0] === 200,
         'nonparticipant match keeps editable form');

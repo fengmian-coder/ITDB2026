@@ -116,6 +116,7 @@ class NationalTeamController extends Controller
 
         return $this->render('view', [
             'team' => $team,
+            'profile' => (new \app\services\TeamProfileService())->get($team),
             'stats' => $this->teamStatsService->getTeamStats($teamId),
             'participation' => $this->findParticipation($teamId),
         ]);

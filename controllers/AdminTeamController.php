@@ -58,6 +58,7 @@ class AdminTeamController extends Controller
                     'index' => ['GET', 'HEAD'], 'view' => ['GET', 'HEAD'],
                     'create' => ['GET', 'HEAD', 'POST'], 'update' => ['GET', 'HEAD', 'POST'],
                     'delete' => ['POST'], 'participation' => ['POST'],
+                    'profile' => ['GET', 'HEAD', 'POST'],
                 ],
             ],
         ];
@@ -121,6 +122,31 @@ class AdminTeamController extends Controller
     public function actionUpdate(mixed $id): string|Response
     {
         return $this->edit($this->findModel($this->positiveId($id)), 'update');
+    }
+
+    /** 本届介绍与人物资料独立维护，沿用管理员授权、POST 及 CSRF。 */
+    public function actionProfile(mixed $id): string|Response
+    {
+        $team = $this->findModel($this->positiveId($id));
+        $participates = TournamentTeam::find()->alias('tt')->innerJoin(['t' => 'tournament'], '[[t.id]] = [[tt.tournament_id]]')
+            ->where(['tt.team_id' => $team->id, 't.year' => 2026])->exists();
+        if (!$participates) throw new NotFoundHttpException('请先登记该球队的 2026 届参赛信息');
+        $service = new \app\services\TeamProfileService();
+        $form = new \app\models\TeamProfileForm();
+        $profile = $service->get($team);
+        if ($profile !== null) $form->setAttributes($profile);
+        if ($this->request->isPost) {
+            if (!is_array($this->request->post($form->formName()))) throw new BadRequestHttpException('球队档案表单格式无效');
+            $form->load($this->request->post());
+            if ($form->validate()) {
+                try {
+                    $service->save((int) $team->id, $form);
+                    Yii::$app->session->setFlash('success', '2026 球队档案已保存');
+                    return $this->redirect(['view', 'id' => $team->id]);
+                } catch (\RuntimeException $error) { $form->addError('summary', $error->getMessage()); }
+            }
+        }
+        return $this->render('profile', ['team' => $team, 'form' => $form, 'schemaReady' => $service->hasColumn()]);
     }
 
     public function actionDelete(mixed $id): Response

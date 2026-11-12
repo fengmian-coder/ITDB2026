@@ -1,6 +1,6 @@
 <?php
 /**
- * WorldCup Journey - 球队 DNA 详情
+ * WorldCup Journey - 球队档案与本届赛事表现
  * 模块：C 球队与统计
  * 负责人：C
  * 依赖：NationalTeamController、TeamStatsService 返回数组
@@ -59,7 +59,9 @@ $formatRate = static function ($value): string {
         </div>
     </div>
 
-    <?php if ($team->description): ?>
+    <?php if ($profile !== null): ?>
+        <?= $this->render('_profile', ['team' => $team, 'profile' => $profile]) ?>
+    <?php elseif ($team->description): ?>
         <p class="text-body-secondary"><?= nl2br(Html::encode($team->description)) ?></p>
     <?php endif; ?>
 
@@ -67,7 +69,7 @@ $formatRate = static function ($value): string {
         <div class="alert alert-info">该球队暂无完赛记录，统计显示为“暂无”</div>
     <?php endif; ?>
 
-    <h2 class="h4 mb-3">球队 DNA</h2>
+    <h2 class="h4 mb-3">本届赛事表现</h2>
     <div class="row g-3">
         <div class="col-6 col-md-3">
             <div class="card h-100 border-0 shadow-sm">

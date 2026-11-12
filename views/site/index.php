@@ -38,7 +38,7 @@ $this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::
                 <?= Html::submitButton('搜索 →', ['aria-label' => '搜索球队']) ?>
                 <?= Html::endForm() ?>
                 <div class="wc-explore-support">
-                    <p class="wc-feature-line">球队 DNA <span>·</span> 晋级之路 <span>·</span> 球队 PK</p>
+                    <p class="wc-feature-line">本届赛事表现 <span>·</span> 晋级之路 <span>·</span> 球队对比</p>
                     <?= Html::a('浏览全部球队', ['/site/explore']) ?>
                 </div>
             </div>

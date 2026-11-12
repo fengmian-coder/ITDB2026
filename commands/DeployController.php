@@ -29,6 +29,9 @@ class DeployController extends Controller
             $this->stdout(json_encode($schema, JSON_UNESCAPED_UNICODE) . PHP_EOL);
             $result = (new MatchDataImportService())->import(Yii::getAlias('@app/data/import'));
             $this->stdout(json_encode($result, JSON_UNESCAPED_UNICODE) . PHP_EOL);
+            $profiles = new \app\services\TeamProfileService();
+            $profiles->prepareSchema();
+            $this->stdout(json_encode($profiles->importDefaults(), JSON_UNESCAPED_UNICODE) . PHP_EOL);
             if (Yii::$app->runAction('project/init') !== ExitCode::OK) {
                 return ExitCode::DATAERR;
             }
