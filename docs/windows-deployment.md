@@ -31,6 +31,7 @@
 3. 运行现有 bootstrap，生成缺少的本机 Cookie 密钥。
 4. 运行 `php yii deploy/prepare --interactive=0`，创建缺少的项目数据库并按 C 的 `data/install.sql` 建立 15 表。
 5. 复用 MatchDataImportService 导入赛事、48 队及参赛关系、16 场馆、104 场比赛、8 篇已发布故事及事件标签。
+   2026-11-12 起，随后增量检查参赛表的 profile_json 字段，并登记 48 队的本届简介、教练和三位代表球员。已有非空档案保留，字段及资料说明见 docs/team-profiles-2026.md；现有库也可单独运行 `php yii team-profile/prepare`，无需重建表。
 6. 复用 A 的 project/init 建立团队与成员。按清单中的 A 成员身份匹配并登记六份课程资料。
 7. 空管理员表时通过 D 的 admin/create 创建 `wcj_admin`，随机密码在当前终端显示一次。已有管理员继续使用原账号。
 8. 以 web 为公开目录启动仅绑定 127.0.0.1 的 PHP 本地服务。

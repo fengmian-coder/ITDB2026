@@ -13,6 +13,10 @@ use yii\web\View;
 $this->title = '制作世界杯纪念卡';
 $this->params['breadcrumbs'][] = '纪念卡片';
 $this->registerJsFile('@web/js/memory-card.js', ['position' => View::POS_END, 'depends' => [app\assets\AppAsset::class]]);
+if ($card !== null) {
+    $selectedTeam = array_column($teams, null, 'id')[$card['team_id']] ?? null;
+    $card['flag_url'] = \app\components\TeamFlag::url($selectedTeam['fifa_code'] ?? null);
+}
 ?>
 <div class="project-page">
     <header class="project-intro"><h1>制作世界杯纪念卡</h1><p class="project-lead">选择球队和比赛，写下感想，把这一刻留在纪念卡里</p></header>

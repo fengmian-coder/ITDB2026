@@ -246,6 +246,7 @@ CSS, [], 'wc-match-view');
         </div>
     <?php endif ?>
     <p class="mt-3">
+        <?= Html::a('制作这场比赛的纪念卡', ['/memory/card', 'team_id' => $match['home_team_id'], 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('为这场比赛留言', ['/guestbook/index', 'match_id' => $match['id']], ['class' => 'btn btn-outline-primary']) ?>
     </p>
 </div>

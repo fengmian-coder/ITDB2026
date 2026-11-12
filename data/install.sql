@@ -76,6 +76,7 @@ CREATE TABLE `tournament_team` (
     `team_id`           BIGINT UNSIGNED NOT NULL,
     `group_code`        CHAR(1) NOT NULL,
     `final_result_code` VARCHAR(20) NULL,
+    `profile_json`      JSON NULL COMMENT '2026届球队简介、主教练、三位代表球员和来源；由A/C轻量档案维护',
     `created_at`        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at`        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`tournament_id`, `team_id`),

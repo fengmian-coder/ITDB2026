@@ -10,6 +10,7 @@ declare(strict_types=1);
 use app\assets\TeamStatsAsset;
 use app\models\TournamentTeam;
 use yii\helpers\Html;
+use yii\helpers\Json;
 
 /** @var yii\web\View $this */
 /** @var array $teams */
@@ -17,6 +18,7 @@ use yii\helpers\Html;
 /** @var int|null $rightId */
 /** @var array|null $comparison */
 TeamStatsAsset::register($this);
+if ($comparison !== null) \app\assets\TeamCompareAsset::register($this);
 $this->title = '球队 PK | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '球队列表', 'url' => ['/national-team/index']];
 $this->params['breadcrumbs'][] = '球队 PK';
@@ -44,8 +46,9 @@ $format = static function (string $key, mixed $value): string {
 ?>
 <div class="team-compare">
     <header class="stats-hero mb-4">
+        <?= Html::a('← 返回球队列表', ['/national-team/index'], ['class' => 'text-white d-inline-block mb-3']) ?>
         <h1>球队 PK</h1>
-        <p class="mb-0">选择两支参赛球队，比较它们在 2026 世界杯的场上表现。</p>
+        <p class="mb-0">选择两支参赛球队，比较它们在 2026 世界杯的场上表现</p>
     </header>
     <?= Html::beginForm(['/national-team/compare'], 'get', ['class' => 'stats-panel mb-4']) ?>
         <div class="row g-3 align-items-end">
@@ -58,16 +61,31 @@ $format = static function (string $key, mixed $value): string {
                 <?= Html::dropDownList('right_id', $rightId, $options, ['id' => 'compare-right', 'class' => 'form-select', 'prompt' => '选择球队', 'required' => true]) ?>
             </div>
             <div class="col-md-2 d-grid">
-                <?= Html::submitButton('比较球队', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('比较球队', ['class' => 'btn btn-primary text-nowrap']) ?>
             </div>
         </div>
     <?= Html::endForm() ?>
     <?php if ($comparison === null): ?>
         <div class="stats-panel text-center py-5">
             <h2 class="h4">选好球队，开始比较</h2>
-            <p class="text-body-secondary mb-0">两支球队的比赛场次、进失球和胜率将在这里并排展示。</p>
+            <p class="text-body-secondary mb-0">两支球队的比赛场次、进失球和胜率将在这里并排展示</p>
         </div>
     <?php else: ?>
+        <section class="stats-panel mb-4" aria-labelledby="compare-chart-title">
+            <h2 id="compare-chart-title" class="h4 mb-3">两队胜平负</h2>
+            <div class="row text-center">
+                <?php foreach (['left', 'right'] as $side): $team = $comparison[$side]; ?>
+                    <div class="col-6">
+                        <?= \app\components\TeamFlag::render($team['fifa_code'], $team['team_name']) ?>
+                        <strong class="d-block mt-2"><?= Html::encode($team['team_name']) ?></strong>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div id="compare-chart" class="wc-team-compare-chart" role="img" aria-label="两队胜平负双环形图"></div>
+            <p id="compare-chart-status" class="small text-body-secondary mb-0" role="status"></p>
+            <noscript><p class="small mb-0">启用 JavaScript 可查看图表，下方对比数据仍可阅读</p></noscript>
+            <script type="application/json" id="team-compare-data"><?= Json::htmlEncode($comparison) ?></script>
+        </section>
         <section class="stats-panel" aria-label="两队统计对比">
             <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
                 <h2 class="h4 mb-0">本届赛事表现</h2>
@@ -75,11 +93,12 @@ $format = static function (string $key, mixed $value): string {
             </div>
             <div class="table-responsive">
                 <table class="table stats-comparison align-middle mb-0">
-                    <caption>2026 届已完赛统计。场均数据保留两位小数，胜率保留一位小数。</caption>
+                    <caption>2026 届已完赛统计。场均数据保留两位小数，胜率保留一位小数</caption>
                     <thead><tr>
                         <th scope="col">统计项</th>
                         <?php foreach (['left', 'right'] as $side): ?>
                             <th scope="col">
+                                <div class="mb-2"><?= \app\components\TeamFlag::render($comparison[$side]['fifa_code'], $comparison[$side]['team_name']) ?></div>
                                 <?= Html::a(Html::encode($comparison[$side]['team_name']), ['/national-team/view', 'id' => $comparison[$side]['team_id']]) ?>
                                 <span class="d-block small text-body-secondary mt-1"><?= Html::encode($comparison[$side]['fifa_code']) ?></span>
                             </th>
@@ -98,5 +117,5 @@ $format = static function (string $key, mixed $value): string {
             </div>
         </section>
     <?php endif; ?>
-    <p class="small text-body-secondary mt-3">统计仅含本届已结束比赛。优先采用 120 分钟累计比分，点球大战单列。场上战平计为平局，暂无完赛记录时场均值和胜率显示“暂无”。</p>
+    <p class="small text-body-secondary mt-3">统计仅含本届已结束比赛。优先采用 120 分钟累计比分，点球大战单列。场上战平计为平局，暂无完赛记录时场均值和胜率显示“暂无”</p>
 </div>

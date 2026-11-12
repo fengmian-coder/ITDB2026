@@ -76,6 +76,8 @@ try {
     }
     $check((int) $pdo->query('SELECT COUNT(*) FROM tournament_team WHERE final_result_code IS NULL')->fetchColumn() === 0, 'final results restored');
     $check((int) $pdo->query('SELECT COUNT(*) FROM match_story WHERE is_published=1')->fetchColumn() === 8, 'published stories restored');
+    $check((int) $pdo->query("SELECT COUNT(*) FROM tournament_team WHERE JSON_TYPE(profile_json)='OBJECT'")->fetchColumn() === 48, '48 profile JSON objects restored');
+    $check((int) $pdo->query("SELECT COUNT(*) FROM tournament_team WHERE JSON_LENGTH(profile_json,'$.players')=3 AND JSON_UNQUOTE(JSON_EXTRACT(profile_json,'$.coach_name'))<>''")->fetchColumn() === 48, 'each profile has coach and three players');
     preg_match('/Generated password \(shown once\): (\S+)/', $output, $credential);
     $admin = $pdo->query('SELECT username,password_hash FROM admin_user')->fetch(PDO::FETCH_ASSOC);
     $check($admin['username'] === 'wcj_admin' && isset($credential[1])

@@ -68,6 +68,10 @@ class NationalTeamController extends Controller
         $q = trim((string) $q);
 
         $query = NationalTeam::findActive()
+            ->andWhere(['id' => TournamentTeam::find()->alias('tt')
+                ->select('tt.team_id')
+                ->innerJoin(['t' => Tournament::tableName()], '[[t.id]] = [[tt.tournament_id]]')
+                ->where(['t.year' => self::TOURNAMENT_YEAR])])
             ->orderBy(['name_zh' => SORT_ASC, 'id' => SORT_ASC]);
 
         if ($q !== '') {
@@ -112,6 +116,7 @@ class NationalTeamController extends Controller
 
         return $this->render('view', [
             'team' => $team,
+            'profile' => (new \app\services\TeamProfileService())->get($team),
             'stats' => $this->teamStatsService->getTeamStats($teamId),
             'participation' => $this->findParticipation($teamId),
         ]);

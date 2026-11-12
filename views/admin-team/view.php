@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => '球队管理', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <header class="admin-page-heading"><h1><?= Html::encode($model->name_zh) ?></h1><?= Html::a('修改球队', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></header>
+<p><?= Html::a('维护 2026 球队档案', ['profile', 'id' => $model->id], ['class' => 'btn btn-outline-primary']) ?></p>
 <dl class="row">
 <?php foreach (['id', 'fifa_code', 'name_zh', 'name_en', 'flag_path', 'description'] as $attribute): ?>
 <dt class="col-md-3"><?= Html::encode($model->getAttributeLabel($attribute)) ?></dt><dd class="col-md-9 text-break"><?= nl2br(Html::encode((string) $model->$attribute)) ?></dd>

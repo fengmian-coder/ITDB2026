@@ -1,0 +1,1352 @@
+{
+    "year": 2026,
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+    "source_sha256": "02a0a9beb5d219e7cc0aedde19273e9a3bfe4818ecd600d37804b8801dd96d94",
+    "selection": "每队按DF、MF、FW各取名单所列国家队出场数最多的一人；不是完整阵容或官方最佳阵容",
+    "teams": {
+        "ALG": {
+            "summary": "阿尔及利亚的本届参赛阵容由 Vladimir Petkovic 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Vladimir Petkovic",
+            "coach_description": "2026 世界杯带队主教练，国籍：瑞士",
+            "players": [
+                {
+                    "name": "Aissa Mandi",
+                    "position": "DF",
+                    "description": "国家队累计出场 123 次、进球 8 个，效力于 Lille OSC (FRA)",
+                    "shirt_number": 2
+                },
+                {
+                    "name": "Nabil Bentaleb",
+                    "position": "MF",
+                    "description": "国家队累计出场 64 次、进球 6 个，效力于 Lille OSC (FRA)",
+                    "shirt_number": 19
+                },
+                {
+                    "name": "Riyad Mahrez",
+                    "position": "FW",
+                    "description": "国家队累计出场 120 次、进球 40 个，效力于 Al Ahli FC (KSA)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=1",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 1 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "ARG": {
+            "summary": "阿根廷的本届参赛阵容由 Lionel Scaloni 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Lionel Scaloni",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Nicolas Otamendi",
+                    "position": "DF",
+                    "description": "国家队累计出场 139 次、进球 8 个，效力于 SL Benfica (POR)",
+                    "shirt_number": 19
+                },
+                {
+                    "name": "Rodrigo De Paul",
+                    "position": "MF",
+                    "description": "国家队累计出场 94 次、进球 2 个，效力于 Inter Miami CF (USA)",
+                    "shirt_number": 7
+                },
+                {
+                    "name": "Lionel Messi",
+                    "position": "FW",
+                    "description": "国家队累计出场 207 次、进球 125 个，效力于 Inter Miami CF (USA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=2",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 2 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "AUS": {
+            "summary": "澳大利亚的本届参赛阵容由 Tony Popovic 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、5名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Tony Popovic",
+            "coach_description": "2026 世界杯带队主教练，国籍：澳大利亚",
+            "players": [
+                {
+                    "name": "Aziz Behich",
+                    "position": "DF",
+                    "description": "国家队累计出场 87 次、进球 3 个，效力于 Melbourne City FC (AUS)",
+                    "shirt_number": 16
+                },
+                {
+                    "name": "Jackson Irvine",
+                    "position": "MF",
+                    "description": "国家队累计出场 86 次、进球 14 个，效力于 FC St. Pauli (GER)",
+                    "shirt_number": 22
+                },
+                {
+                    "name": "Mathew Leckie",
+                    "position": "FW",
+                    "description": "国家队累计出场 82 次、进球 14 个，效力于 Melbourne City FC (AUS)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=3",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 3 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "AUT": {
+            "summary": "奥地利的本届参赛阵容由 Ralf Rangnick 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、11名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Ralf Rangnick",
+            "coach_description": "2026 世界杯带队主教练，国籍：德国",
+            "players": [
+                {
+                    "name": "David Alaba",
+                    "position": "DF",
+                    "description": "国家队累计出场 117 次、进球 15 个，效力于 Real Madrid C. F. (ESP)",
+                    "shirt_number": 8
+                },
+                {
+                    "name": "Marcel Sabitzer",
+                    "position": "MF",
+                    "description": "国家队累计出场 102 次、进球 27 个，效力于 Borussia Dortmund (GER)",
+                    "shirt_number": 9
+                },
+                {
+                    "name": "Marko Arnautovic",
+                    "position": "FW",
+                    "description": "国家队累计出场 137 次、进球 49 个，效力于 FK Crvena Zvezda (SRB)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=4",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 4 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "BEL": {
+            "summary": "比利时的本届参赛阵容由 Rudi Garcia 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Rudi Garcia",
+            "coach_description": "2026 世界杯带队主教练，国籍：法国",
+            "players": [
+                {
+                    "name": "Thomas Meunier",
+                    "position": "DF",
+                    "description": "国家队累计出场 83 次、进球 10 个，效力于 Lille OSC (FRA)",
+                    "shirt_number": 15
+                },
+                {
+                    "name": "Axel Witsel",
+                    "position": "MF",
+                    "description": "国家队累计出场 140 次、进球 12 个，效力于 Girona FC (ESP)",
+                    "shirt_number": 6
+                },
+                {
+                    "name": "Romelu Lukaku",
+                    "position": "FW",
+                    "description": "国家队累计出场 132 次、进球 93 个，效力于 SSC Napoli (ITA)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=5",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 5 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "BIH": {
+            "summary": "波斯尼亚和黑塞哥维那的本届参赛阵容由 Sergej Barbarez 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Sergej Barbarez",
+            "coach_description": "2026 世界杯带队主教练，国籍：波斯尼亚和黑塞哥维那",
+            "players": [
+                {
+                    "name": "Sead Kolasinac",
+                    "position": "DF",
+                    "description": "国家队累计出场 69 次、进球 0 个，效力于 Atalanta Bergamo (ITA)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Amir Hadziahmetovic",
+                    "position": "MF",
+                    "description": "国家队累计出场 37 次、进球 0 个，效力于 Hull City FC (ENG)",
+                    "shirt_number": 16
+                },
+                {
+                    "name": "Edin Dzeko",
+                    "position": "FW",
+                    "description": "国家队累计出场 151 次、进球 73 个，效力于 FC Schalke 04 (GER)",
+                    "shirt_number": 11
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=6",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 6 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "BRA": {
+            "summary": "巴西的本届参赛阵容由 Carlo Ancelotti 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、6名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Carlo Ancelotti",
+            "coach_description": "2026 世界杯带队主教练，国籍：意大利",
+            "players": [
+                {
+                    "name": "Marquinhos",
+                    "position": "DF",
+                    "description": "国家队累计出场 110 次、进球 7 个，效力于 Paris Saint-Germain (FRA)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Casemiro",
+                    "position": "MF",
+                    "description": "国家队累计出场 91 次、进球 10 个，效力于 Manchester United FC (ENG)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Neymar Jr",
+                    "position": "FW",
+                    "description": "国家队累计出场 130 次、进球 80 个，效力于 Santos FC (BRA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=7",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 7 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CPV": {
+            "summary": "佛得角的本届参赛阵容由 Bubista 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、12名中场和3名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Bubista",
+            "coach_description": "2026 世界杯带队主教练，国籍：佛得角",
+            "players": [
+                {
+                    "name": "Stopira",
+                    "position": "DF",
+                    "description": "国家队累计出场 61 次、进球 4 个，效力于 SCU Torreense (POR)",
+                    "shirt_number": 2
+                },
+                {
+                    "name": "Garry Rodrigues",
+                    "position": "MF",
+                    "description": "国家队累计出场 63 次、进球 10 个，效力于 Apollon Limassol (CYP)",
+                    "shirt_number": 11
+                },
+                {
+                    "name": "Ryan Mendes",
+                    "position": "FW",
+                    "description": "国家队累计出场 102 次、进球 22 个，效力于 Iğdır FK (TUR)",
+                    "shirt_number": 20
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=8",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 8 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CAN": {
+            "summary": "加拿大的本届参赛阵容由 Jesse Marsch 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Jesse Marsch",
+            "coach_description": "2026 世界杯带队主教练，国籍：美国",
+            "players": [
+                {
+                    "name": "Richie Laryea",
+                    "position": "DF",
+                    "description": "国家队累计出场 81 次、进球 1 个，效力于 Toronto FC (CAN)",
+                    "shirt_number": 22
+                },
+                {
+                    "name": "Jonathan Osorio",
+                    "position": "MF",
+                    "description": "国家队累计出场 93 次、进球 10 个，效力于 Toronto FC (CAN)",
+                    "shirt_number": 21
+                },
+                {
+                    "name": "Cyle Larin",
+                    "position": "FW",
+                    "description": "国家队累计出场 94 次、进球 32 个，效力于 Southampton FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=9",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 9 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "COL": {
+            "summary": "哥伦比亚的本届参赛阵容由 Nestor Lorenzo 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Nestor Lorenzo",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Davinson Sanchez",
+                    "position": "DF",
+                    "description": "国家队累计出场 84 次、进球 4 个，效力于 Galatasaray SK (TUR)",
+                    "shirt_number": 23
+                },
+                {
+                    "name": "James Rodriguez",
+                    "position": "MF",
+                    "description": "国家队累计出场 131 次、进球 31 个，效力于 Minnesota United FC (USA)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Luis Diaz",
+                    "position": "FW",
+                    "description": "国家队累计出场 79 次、进球 23 个，效力于 FC Bayern München (GER)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=10",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 10 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "COD": {
+            "summary": "刚果民主共和国的本届参赛阵容由 Sebastien Desabre 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Sebastien Desabre",
+            "coach_description": "2026 世界杯带队主教练，国籍：法国",
+            "players": [
+                {
+                    "name": "Chancel Mbemba",
+                    "position": "DF",
+                    "description": "国家队累计出场 113 次、进球 7 个，效力于 Lille OSC (FRA)",
+                    "shirt_number": 22
+                },
+                {
+                    "name": "Samuel Moutoussamy",
+                    "position": "MF",
+                    "description": "国家队累计出场 62 次、进球 0 个，效力于 Atromitos FC (GRE)",
+                    "shirt_number": 8
+                },
+                {
+                    "name": "Cedric Bakambu",
+                    "position": "FW",
+                    "description": "国家队累计出场 73 次、进球 21 个，效力于 Real Betis (ESP)",
+                    "shirt_number": 17
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=11",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 11 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CIV": {
+            "summary": "科特迪瓦的本届参赛阵容由 Émerse Faé 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、6名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Émerse Faé",
+            "coach_description": "2026 世界杯带队主教练，国籍：科特迪瓦",
+            "players": [
+                {
+                    "name": "Ghislain Konan",
+                    "position": "DF",
+                    "description": "国家队累计出场 57 次、进球 0 个，效力于 Gil Vicente FC (POR)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Franck Kessie",
+                    "position": "MF",
+                    "description": "国家队累计出场 108 次、进球 16 个，效力于 Al Ahli FC (KSA)",
+                    "shirt_number": 8
+                },
+                {
+                    "name": "Nicolas Pepe",
+                    "position": "FW",
+                    "description": "国家队累计出场 60 次、进球 14 个，效力于 Villarreal CF (ESP)",
+                    "shirt_number": 19
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=12",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 12 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CRO": {
+            "summary": "克罗地亚的本届参赛阵容由 Zlatko Dalic 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、9名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Zlatko Dalic",
+            "coach_description": "2026 世界杯带队主教练，国籍：克罗地亚",
+            "players": [
+                {
+                    "name": "Josko Gvardiol",
+                    "position": "DF",
+                    "description": "国家队累计出场 52 次、进球 4 个，效力于 Manchester City FC (ENG)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Luka Modric",
+                    "position": "MF",
+                    "description": "国家队累计出场 202 次、进球 29 个，效力于 AC Milan (ITA)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Ivan Perisic",
+                    "position": "FW",
+                    "description": "国家队累计出场 158 次、进球 39 个，效力于 PSV Eindhoven (NED)",
+                    "shirt_number": 14
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=13",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 13 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CUW": {
+            "summary": "库拉索的本届参赛阵容由 Dick Advocaat 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Dick Advocaat",
+            "coach_description": "2026 世界杯带队主教练，国籍：荷兰",
+            "players": [
+                {
+                    "name": "Jurien Gaari",
+                    "position": "DF",
+                    "description": "国家队累计出场 62 次、进球 1 个，效力于 Abha Club (KSA)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Leandro Bacuna",
+                    "position": "MF",
+                    "description": "国家队累计出场 75 次、进球 16 个，效力于 Iğdır FK (TUR)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Kenji Gorre",
+                    "position": "FW",
+                    "description": "国家队累计出场 39 次、进球 6 个，效力于 Maccabi Haifa FC (ISR)",
+                    "shirt_number": 14
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=14",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 14 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "CZE": {
+            "summary": "捷克的本届参赛阵容由 Miroslav Koubek 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Miroslav Koubek",
+            "coach_description": "2026 世界杯带队主教练，国籍：捷克",
+            "players": [
+                {
+                    "name": "Vladimir Coufal",
+                    "position": "DF",
+                    "description": "国家队累计出场 65 次、进球 2 个，效力于 TSG Hoffenheim (GER)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Tomas Soucek",
+                    "position": "MF",
+                    "description": "国家队累计出场 93 次、进球 17 个，效力于 West Ham United FC (ENG)",
+                    "shirt_number": 22
+                },
+                {
+                    "name": "Patrik Schick",
+                    "position": "FW",
+                    "description": "国家队累计出场 56 次、进球 26 个，效力于 Bayer 04 Leverkusen (GER)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=15",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 15 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "ECU": {
+            "summary": "厄瓜多尔的本届参赛阵容由 Sebastian Beccacece 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Sebastian Beccacece",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Angelo Preciado",
+                    "position": "DF",
+                    "description": "国家队累计出场 60 次、进球 0 个，效力于 Atlético Mineiro (BRA)",
+                    "shirt_number": 17
+                },
+                {
+                    "name": "Moises Caicedo",
+                    "position": "MF",
+                    "description": "国家队累计出场 65 次、进球 3 个，效力于 Chelsea FC (ENG)",
+                    "shirt_number": 23
+                },
+                {
+                    "name": "Enner Valencia",
+                    "position": "FW",
+                    "description": "国家队累计出场 109 次、进球 49 个，效力于 CF Pachuca (MEX)",
+                    "shirt_number": 13
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=16",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 16 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "EGY": {
+            "summary": "埃及的本届参赛阵容由 Hossam Hassan 带队，FIFA 名单收录26名球员，包括4名门将、8名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Hossam Hassan",
+            "coach_description": "2026 世界杯带队主教练，国籍：埃及",
+            "players": [
+                {
+                    "name": "Ramy Rabia",
+                    "position": "DF",
+                    "description": "国家队累计出场 52 次、进球 6 个，效力于 Al Ain FC (UAE)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Hamdy Fathy",
+                    "position": "MF",
+                    "description": "国家队累计出场 68 次、进球 4 个，效力于 Al Wakrah SC (QAT)",
+                    "shirt_number": 14
+                },
+                {
+                    "name": "Mohamed Salah",
+                    "position": "FW",
+                    "description": "国家队累计出场 121 次、进球 68 个，效力于 Liverpool FC (ENG)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=17",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 17 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "ENG": {
+            "summary": "英格兰的本届参赛阵容由 Thomas Tuchel 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Thomas Tuchel",
+            "coach_description": "2026 世界杯带队主教练，国籍：德国",
+            "players": [
+                {
+                    "name": "John Stones",
+                    "position": "DF",
+                    "description": "国家队累计出场 94 次、进球 3 个，效力于 Manchester City FC (ENG)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Jordan Henderson",
+                    "position": "MF",
+                    "description": "国家队累计出场 91 次、进球 3 个，效力于 Brentford FC (ENG)",
+                    "shirt_number": 14
+                },
+                {
+                    "name": "Harry Kane",
+                    "position": "FW",
+                    "description": "国家队累计出场 121 次、进球 85 个，效力于 FC Bayern München (GER)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=18",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 18 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "FRA": {
+            "summary": "法国的本届参赛阵容由 Didier Deschamps 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Didier Deschamps",
+            "coach_description": "2026 世界杯带队主教练，国籍：法国",
+            "players": [
+                {
+                    "name": "Lucas Digne",
+                    "position": "DF",
+                    "description": "国家队累计出场 64 次、进球 0 个，效力于 Aston Villa FC (ENG)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Ngolo Kante",
+                    "position": "MF",
+                    "description": "国家队累计出场 69 次、进球 2 个，效力于 Fenerbahçe SK (TUR)",
+                    "shirt_number": 13
+                },
+                {
+                    "name": "Kylian Mbappe",
+                    "position": "FW",
+                    "description": "国家队累计出场 106 次、进球 66 个，效力于 Real Madrid C. F. (ESP)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=19",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 19 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "GER": {
+            "summary": "德国的本届参赛阵容由 Julian Nagelsmann 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、11名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Julian Nagelsmann",
+            "coach_description": "2026 世界杯带队主教练，国籍：德国",
+            "players": [
+                {
+                    "name": "Joshua Kimmich",
+                    "position": "DF",
+                    "description": "国家队累计出场 114 次、进球 10 个，效力于 FC Bayern München (GER)",
+                    "shirt_number": 6
+                },
+                {
+                    "name": "Leroy Sane",
+                    "position": "MF",
+                    "description": "国家队累计出场 80 次、进球 18 个，效力于 Galatasaray SK (TUR)",
+                    "shirt_number": 19
+                },
+                {
+                    "name": "Kai Havertz",
+                    "position": "FW",
+                    "description": "国家队累计出场 62 次、进球 25 个，效力于 Arsenal FC (ENG)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=20",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 20 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "GHA": {
+            "summary": "加纳的本届参赛阵容由 Carlos Queiroz 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、6名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Carlos Queiroz",
+            "coach_description": "2026 世界杯带队主教练，国籍：葡萄牙",
+            "players": [
+                {
+                    "name": "Baba Rahman",
+                    "position": "DF",
+                    "description": "国家队累计出场 54 次、进球 1 个，效力于 PAOK Saloniki (GRE)",
+                    "shirt_number": 17
+                },
+                {
+                    "name": "Thomas Partey",
+                    "position": "MF",
+                    "description": "国家队累计出场 62 次、进球 16 个，效力于 Villarreal CF (ESP)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Jordan Ayew",
+                    "position": "FW",
+                    "description": "国家队累计出场 124 次、进球 34 个，效力于 Leicester City FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=21",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 21 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "HAI": {
+            "summary": "海地的本届参赛阵容由 Sebastien Migne 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Sebastien Migne",
+            "coach_description": "2026 世界杯带队主教练，国籍：法国",
+            "players": [
+                {
+                    "name": "Ricardo Ade",
+                    "position": "DF",
+                    "description": "国家队累计出场 64 次、进球 2 个，效力于 LDU Quito (ECU)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Danley Jean Jacques",
+                    "position": "MF",
+                    "description": "国家队累计出场 34 次、进球 6 个，效力于 Philadelphia Union (USA)",
+                    "shirt_number": 17
+                },
+                {
+                    "name": "Duckens Nazon",
+                    "position": "FW",
+                    "description": "国家队累计出场 84 次、进球 44 个，效力于 Esteghlal Tehran FC (IRN)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=22",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 22 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "IRN": {
+            "summary": "伊朗的本届参赛阵容由 Amir Ghalehnoy 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Amir Ghalehnoy",
+            "coach_description": "2026 世界杯带队主教练，国籍：伊朗",
+            "players": [
+                {
+                    "name": "Ehsan Hajisafi",
+                    "position": "DF",
+                    "description": "国家队累计出场 148 次、进球 7 个，效力于 Sepahan SC (IRN)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Alireza Jahanbakhsh",
+                    "position": "MF",
+                    "description": "国家队累计出场 101 次、进球 17 个，效力于 FCV Dender EH (BEL)",
+                    "shirt_number": 7
+                },
+                {
+                    "name": "Mehdi Taremi",
+                    "position": "FW",
+                    "description": "国家队累计出场 109 次、进球 59 个，效力于 Olympiacos FC (GRE)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=23",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 23 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "IRQ": {
+            "summary": "伊拉克的本届参赛阵容由 Graham Arnold 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Graham Arnold",
+            "coach_description": "2026 世界杯带队主教练，国籍：澳大利亚",
+            "players": [
+                {
+                    "name": "Rebin Sulaka",
+                    "position": "DF",
+                    "description": "国家队累计出场 58 次、进球 1 个，效力于 Port FC (THA)",
+                    "shirt_number": 2
+                },
+                {
+                    "name": "Ibrahim Bayesh",
+                    "position": "MF",
+                    "description": "国家队累计出场 79 次、进球 8 个，效力于 Al Dhafra SCC (UAE)",
+                    "shirt_number": 8
+                },
+                {
+                    "name": "Aymen Hussein",
+                    "position": "FW",
+                    "description": "国家队累计出场 97 次、进球 34 个，效力于 Al Karma SC (IRQ)",
+                    "shirt_number": 18
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=24",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 24 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "JPN": {
+            "summary": "日本的本届参赛阵容由 Hajime Moriyasu 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Hajime Moriyasu",
+            "coach_description": "2026 世界杯带队主教练，国籍：日本",
+            "players": [
+                {
+                    "name": "Yuto Nagatomo",
+                    "position": "DF",
+                    "description": "国家队累计出场 146 次、进球 4 个，效力于 FC Tokyo (JPN)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Junya Ito",
+                    "position": "MF",
+                    "description": "国家队累计出场 73 次、进球 16 个，效力于 KRC Genk (BEL)",
+                    "shirt_number": 14
+                },
+                {
+                    "name": "Ayase Ueda",
+                    "position": "FW",
+                    "description": "国家队累计出场 44 次、进球 18 个，效力于 Feyenoord Rotterdam (NED)",
+                    "shirt_number": 18
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=25",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 25 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "JOR": {
+            "summary": "约旦的本届参赛阵容由 Jamal Sellami 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Jamal Sellami",
+            "coach_description": "2026 世界杯带队主教练，国籍：摩洛哥",
+            "players": [
+                {
+                    "name": "Ehsan Haddad",
+                    "position": "DF",
+                    "description": "国家队累计出场 93 次、进球 2 个，效力于 Al Hussein SC (JOR)",
+                    "shirt_number": 23
+                },
+                {
+                    "name": "Rajaei Ayed",
+                    "position": "MF",
+                    "description": "国家队累计出场 73 次、进球 0 个，效力于 Al Hussein SC (JOR)",
+                    "shirt_number": 14
+                },
+                {
+                    "name": "Mousa Altamari",
+                    "position": "FW",
+                    "description": "国家队累计出场 95 次、进球 25 个，效力于 Stade Rennais FC (FRA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=26",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 26 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "KOR": {
+            "summary": "韩国的本届参赛阵容由 Myungbo Hong 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、11名中场和3名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Myungbo Hong",
+            "coach_description": "2026 世界杯带队主教练，国籍：韩国",
+            "players": [
+                {
+                    "name": "Minjae Kim",
+                    "position": "DF",
+                    "description": "国家队累计出场 82 次、进球 4 个，效力于 FC Bayern München (GER)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Jaesung Lee",
+                    "position": "MF",
+                    "description": "国家队累计出场 107 次、进球 15 个，效力于 1. FSV Mainz 05 (GER)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Heungmin Son",
+                    "position": "FW",
+                    "description": "国家队累计出场 147 次、进球 56 个，效力于 LAFC (USA)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=27",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 27 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "MEX": {
+            "summary": "墨西哥的本届参赛阵容由 Javier Aguirre 带队，FIFA 名单收录26名球员，包括3名门将、7名后卫、8名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Javier Aguirre",
+            "coach_description": "2026 世界杯带队主教练，国籍：墨西哥",
+            "players": [
+                {
+                    "name": "Jesus Gallardo",
+                    "position": "DF",
+                    "description": "国家队累计出场 127 次、进球 3 个，效力于 Deportivo Toluca FC (MEX)",
+                    "shirt_number": 23
+                },
+                {
+                    "name": "Orbelin Pineda",
+                    "position": "MF",
+                    "description": "国家队累计出场 94 次、进球 12 个，效力于 AEK Athens (GRE)",
+                    "shirt_number": 17
+                },
+                {
+                    "name": "Raul Jimenez",
+                    "position": "FW",
+                    "description": "国家队累计出场 130 次、进球 48 个，效力于 Fulham FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=28",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 28 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "MAR": {
+            "summary": "摩洛哥的本届参赛阵容由 Mohamed Ouahbi 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Mohamed Ouahbi",
+            "coach_description": "2026 世界杯带队主教练，国籍：摩洛哥",
+            "players": [
+                {
+                    "name": "Achraf Hakimi",
+                    "position": "DF",
+                    "description": "国家队累计出场 102 次、进球 12 个，效力于 Paris Saint-Germain (FRA)",
+                    "shirt_number": 2
+                },
+                {
+                    "name": "Sofyan Amrabat",
+                    "position": "MF",
+                    "description": "国家队累计出场 78 次、进球 0 个，效力于 Real Betis (ESP)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Ayoub El Kaabi",
+                    "position": "FW",
+                    "description": "国家队累计出场 72 次、进球 35 个，效力于 Olympiacos FC (GRE)",
+                    "shirt_number": 20
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=29",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 29 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "NED": {
+            "summary": "荷兰的本届参赛阵容由 Ronald Koeman 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Ronald Koeman",
+            "coach_description": "2026 世界杯带队主教练，国籍：荷兰",
+            "players": [
+                {
+                    "name": "Virgil Van Dijk",
+                    "position": "DF",
+                    "description": "国家队累计出场 96 次、进球 13 个，效力于 Liverpool FC (ENG)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Frenkie De Jong",
+                    "position": "MF",
+                    "description": "国家队累计出场 70 次、进球 2 个，效力于 FC Barcelona (ESP)",
+                    "shirt_number": 21
+                },
+                {
+                    "name": "Memphis Depay",
+                    "position": "FW",
+                    "description": "国家队累计出场 112 次、进球 55 个，效力于 SC Corinthians (BRA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=30",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 30 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "NZL": {
+            "summary": "新西兰的本届参赛阵容由 Darren Bazeley 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Darren Bazeley",
+            "coach_description": "2026 世界杯带队主教练，国籍：新西兰",
+            "players": [
+                {
+                    "name": "Michael Boxall",
+                    "position": "DF",
+                    "description": "国家队累计出场 67 次、进球 1 个，效力于 Minnesota United FC (USA)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Elijah Just",
+                    "position": "MF",
+                    "description": "国家队累计出场 47 次、进球 12 个，效力于 Motherwell FC (SCO)",
+                    "shirt_number": 11
+                },
+                {
+                    "name": "Chris Wood",
+                    "position": "FW",
+                    "description": "国家队累计出场 93 次、进球 45 个，效力于 Nottingham Forest FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=31",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 31 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "NOR": {
+            "summary": "挪威的本届参赛阵容由 Stale Solbakken 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、10名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Stale Solbakken",
+            "coach_description": "2026 世界杯带队主教练，国籍：挪威",
+            "players": [
+                {
+                    "name": "Kristoffer Ajer",
+                    "position": "DF",
+                    "description": "国家队累计出场 57 次、进球 2 个，效力于 Brentford FC (ENG)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Martin Odegaard",
+                    "position": "MF",
+                    "description": "国家队累计出场 73 次、进球 5 个，效力于 Arsenal FC (ENG)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Alexander Sorloth",
+                    "position": "FW",
+                    "description": "国家队累计出场 77 次、进球 26 个，效力于 Atlético De Madrid (ESP)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=32",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 32 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "PAN": {
+            "summary": "巴拿马的本届参赛阵容由 Thomas Christiansen 带队，FIFA 名单收录26名球员，包括3名门将、11名后卫、8名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Thomas Christiansen",
+            "coach_description": "2026 世界杯带队主教练，国籍：西班牙",
+            "players": [
+                {
+                    "name": "Eric Davis",
+                    "position": "DF",
+                    "description": "国家队累计出场 109 次、进球 9 个，效力于 CD Plaza Amador (PAN)",
+                    "shirt_number": 15
+                },
+                {
+                    "name": "Anibal Godoy",
+                    "position": "MF",
+                    "description": "国家队累计出场 160 次、进球 4 个，效力于 San Diego FC (USA)",
+                    "shirt_number": 20
+                },
+                {
+                    "name": "Jose Fajardo",
+                    "position": "FW",
+                    "description": "国家队累计出场 72 次、进球 17 个，效力于 CD Universidad Católica (ECU)",
+                    "shirt_number": 17
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=33",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 33 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "PAR": {
+            "summary": "巴拉圭的本届参赛阵容由 Gustavo Alfaro 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、9名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Gustavo Alfaro",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Gustavo Gomez",
+                    "position": "DF",
+                    "description": "国家队累计出场 94 次、进球 4 个，效力于 SE Palmeiras (BRA)",
+                    "shirt_number": 15
+                },
+                {
+                    "name": "Miguel Almiron",
+                    "position": "MF",
+                    "description": "国家队累计出场 80 次、进球 10 个，效力于 Atlanta United FC (USA)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Antonio Sanabria",
+                    "position": "FW",
+                    "description": "国家队累计出场 50 次、进球 7 个，效力于 US Cremonese (ITA)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=34",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 34 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "POR": {
+            "summary": "葡萄牙的本届参赛阵容由 Roberto Martinez 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、6名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Roberto Martinez",
+            "coach_description": "2026 世界杯带队主教练，国籍：西班牙",
+            "players": [
+                {
+                    "name": "Ruben Dias",
+                    "position": "DF",
+                    "description": "国家队累计出场 80 次、进球 3 个，效力于 Manchester City FC (ENG)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Bernardo Silva",
+                    "position": "MF",
+                    "description": "国家队累计出场 113 次、进球 14 个，效力于 Manchester City FC (ENG)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Cristiano Ronaldo",
+                    "position": "FW",
+                    "description": "国家队累计出场 233 次、进球 146 个，效力于 Al Nassr FC (KSA)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=35",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 35 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "QAT": {
+            "summary": "卡塔尔的本届参赛阵容由 Julen Lopetegui 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Julen Lopetegui",
+            "coach_description": "2026 世界杯带队主教练，国籍：西班牙",
+            "players": [
+                {
+                    "name": "Boualem Khoukhi",
+                    "position": "DF",
+                    "description": "国家队累计出场 131 次、进球 21 个，效力于 Al Sadd SC (QAT)",
+                    "shirt_number": 16
+                },
+                {
+                    "name": "Abdulaziz Hatem",
+                    "position": "MF",
+                    "description": "国家队累计出场 133 次、进球 11 个，效力于 Al Rayyan SC (QAT)",
+                    "shirt_number": 6
+                },
+                {
+                    "name": "Hassan Alhaydos",
+                    "position": "FW",
+                    "description": "国家队累计出场 191 次、进球 40 个，效力于 Al Sadd SC (QAT)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=36",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 36 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "KSA": {
+            "summary": "沙特阿拉伯的本届参赛阵容由 Georgios Donis 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Georgios Donis",
+            "coach_description": "2026 世界杯带队主教练，国籍：希腊",
+            "players": [
+                {
+                    "name": "Saud Abdulhamid",
+                    "position": "DF",
+                    "description": "国家队累计出场 58 次、进球 1 个，效力于 RC Lens (FRA)",
+                    "shirt_number": 12
+                },
+                {
+                    "name": "Mohamed Kanno",
+                    "position": "MF",
+                    "description": "国家队累计出场 82 次、进球 8 个，效力于 Al Hilal SC (KSA)",
+                    "shirt_number": 23
+                },
+                {
+                    "name": "Salem Aldawsari",
+                    "position": "FW",
+                    "description": "国家队累计出场 114 次、进球 27 个，效力于 Al Hilal SC (KSA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=37",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 37 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "SCO": {
+            "summary": "苏格兰的本届参赛阵容由 Steve Clarke 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Steve Clarke",
+            "coach_description": "2026 世界杯带队主教练，国籍：苏格兰",
+            "players": [
+                {
+                    "name": "Andy Robertson",
+                    "position": "DF",
+                    "description": "国家队累计出场 97 次、进球 4 个，效力于 Liverpool FC (ENG)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "John McGinn",
+                    "position": "MF",
+                    "description": "国家队累计出场 89 次、进球 21 个，效力于 Aston Villa FC (ENG)",
+                    "shirt_number": 7
+                },
+                {
+                    "name": "Lyndon Dykes",
+                    "position": "FW",
+                    "description": "国家队累计出场 53 次、进球 10 个，效力于 Charlton Athletic FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=38",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 38 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "SEN": {
+            "summary": "塞内加尔的本届参赛阵容由 Pape Thiaw 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Pape Thiaw",
+            "coach_description": "2026 世界杯带队主教练，国籍：塞内加尔",
+            "players": [
+                {
+                    "name": "Kalidou Koulibaly",
+                    "position": "DF",
+                    "description": "国家队累计出场 106 次、进球 2 个，效力于 Al Hilal SC (KSA)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Idrissa Gana Gueye",
+                    "position": "MF",
+                    "description": "国家队累计出场 140 次、进球 7 个，效力于 Everton FC (ENG)",
+                    "shirt_number": 5
+                },
+                {
+                    "name": "Sadio Mane",
+                    "position": "FW",
+                    "description": "国家队累计出场 134 次、进球 54 个，效力于 Al Nassr FC (KSA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=39",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 39 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "RSA": {
+            "summary": "南非的本届参赛阵容由 Hugo Broos 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、5名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Hugo Broos",
+            "coach_description": "2026 世界杯带队主教练，国籍：比利时",
+            "players": [
+                {
+                    "name": "Aubrey Modiba",
+                    "position": "DF",
+                    "description": "国家队累计出场 52 次、进球 3 个，效力于 Mamelodi Sundowns FC (RSA)",
+                    "shirt_number": 6
+                },
+                {
+                    "name": "Teboho Mokoena",
+                    "position": "MF",
+                    "description": "国家队累计出场 60 次、进球 10 个，效力于 Mamelodi Sundowns FC (RSA)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Lyle Foster",
+                    "position": "FW",
+                    "description": "国家队累计出场 32 次、进球 10 个，效力于 Burnley FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=40",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 40 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "ESP": {
+            "summary": "西班牙的本届参赛阵容由 Luis De La Fuente 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Luis De La Fuente",
+            "coach_description": "2026 世界杯带队主教练，国籍：西班牙",
+            "players": [
+                {
+                    "name": "Aymeric Laporte",
+                    "position": "DF",
+                    "description": "国家队累计出场 54 次、进球 2 个，效力于 Athletic Club (ESP)",
+                    "shirt_number": 14
+                },
+                {
+                    "name": "Rodri",
+                    "position": "MF",
+                    "description": "国家队累计出场 70 次、进球 4 个，效力于 Manchester City FC (ENG)",
+                    "shirt_number": 16
+                },
+                {
+                    "name": "Ferran Torres",
+                    "position": "FW",
+                    "description": "国家队累计出场 65 次、进球 25 个，效力于 FC Barcelona (ESP)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=41",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 41 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "SWE": {
+            "summary": "瑞典的本届参赛阵容由 Graham Potter 带队，FIFA 名单收录26名球员，包括3名门将、11名后卫、7名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Graham Potter",
+            "coach_description": "2026 世界杯带队主教练，国籍：英格兰",
+            "players": [
+                {
+                    "name": "Victor Lindelof",
+                    "position": "DF",
+                    "description": "国家队累计出场 80 次、进球 3 个，效力于 Aston Villa FC (ENG)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Mattias Svanberg",
+                    "position": "MF",
+                    "description": "国家队累计出场 42 次、进球 3 个，效力于 VfL Wolfsburg (GER)",
+                    "shirt_number": 19
+                },
+                {
+                    "name": "Alexander Isak",
+                    "position": "FW",
+                    "description": "国家队累计出场 62 次、进球 18 个，效力于 Liverpool FC (ENG)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=42",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 42 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "SUI": {
+            "summary": "瑞士的本届参赛阵容由 Murat Yakin 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Murat Yakin",
+            "coach_description": "2026 世界杯带队主教练，国籍：瑞士",
+            "players": [
+                {
+                    "name": "Ricardo Rodriguez",
+                    "position": "DF",
+                    "description": "国家队累计出场 144 次、进球 9 个，效力于 Real Betis (ESP)",
+                    "shirt_number": 13
+                },
+                {
+                    "name": "Granit Xhaka",
+                    "position": "MF",
+                    "description": "国家队累计出场 152 次、进球 18 个，效力于 Sunderland AFC (ENG)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Breel Embolo",
+                    "position": "FW",
+                    "description": "国家队累计出场 92 次、进球 26 个，效力于 Stade Rennais FC (FRA)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=43",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 43 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "TUN": {
+            "summary": "突尼斯的本届参赛阵容由 Herve Renard 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、8名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Herve Renard",
+            "coach_description": "2026 世界杯带队主教练，国籍：法国",
+            "players": [
+                {
+                    "name": "Montassar Talbi",
+                    "position": "DF",
+                    "description": "国家队累计出场 67 次、进球 4 个，效力于 FC Lorient (FRA)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Ellyes Skhiri",
+                    "position": "MF",
+                    "description": "国家队累计出场 86 次、进球 4 个，效力于 Eintracht Frankfurt (GER)",
+                    "shirt_number": 17
+                },
+                {
+                    "name": "Elias Achouri",
+                    "position": "FW",
+                    "description": "国家队累计出场 33 次、进球 5 个，效力于 FC København (DEN)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=44",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 44 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "TUR": {
+            "summary": "土耳其的本届参赛阵容由 Vincenzo Montella 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Vincenzo Montella",
+            "coach_description": "2026 世界杯带队主教练，国籍：意大利",
+            "players": [
+                {
+                    "name": "Merih Demiral",
+                    "position": "DF",
+                    "description": "国家队累计出场 65 次、进球 6 个，效力于 Al Ahli FC (KSA)",
+                    "shirt_number": 3
+                },
+                {
+                    "name": "Hakan Calhanoglu",
+                    "position": "MF",
+                    "description": "国家队累计出场 108 次、进球 22 个，效力于 FC Internazionale Milano (ITA)",
+                    "shirt_number": 10
+                },
+                {
+                    "name": "Kerem Akturkoglu",
+                    "position": "FW",
+                    "description": "国家队累计出场 54 次、进球 15 个，效力于 Fenerbahçe SK (TUR)",
+                    "shirt_number": 7
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=45",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 45 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "URU": {
+            "summary": "乌拉圭的本届参赛阵容由 Marcelo Bielsa 带队，FIFA 名单收录26名球员，包括3名门将、7名后卫、11名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Marcelo Bielsa",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Jose Maria Gimenez",
+                    "position": "DF",
+                    "description": "国家队累计出场 99 次、进球 8 个，效力于 Atlético De Madrid (ESP)",
+                    "shirt_number": 2
+                },
+                {
+                    "name": "Rodrigo Bentancur",
+                    "position": "MF",
+                    "description": "国家队累计出场 76 次、进球 3 个，效力于 Tottenham Hotspur FC (ENG)",
+                    "shirt_number": 6
+                },
+                {
+                    "name": "Darwin Nunez",
+                    "position": "FW",
+                    "description": "国家队累计出场 41 次、进球 13 个，效力于 Al Hilal SC (KSA)",
+                    "shirt_number": 9
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=46",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 46 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "USA": {
+            "summary": "美国的本届参赛阵容由 Mauricio Pochettino 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Mauricio Pochettino",
+            "coach_description": "2026 世界杯带队主教练，国籍：阿根廷",
+            "players": [
+                {
+                    "name": "Tim Ream",
+                    "position": "DF",
+                    "description": "国家队累计出场 86 次、进球 1 个，效力于 Charlotte FC (USA)",
+                    "shirt_number": 13
+                },
+                {
+                    "name": "Weston McKennie",
+                    "position": "MF",
+                    "description": "国家队累计出场 71 次、进球 12 个，效力于 Juventus FC (ITA)",
+                    "shirt_number": 8
+                },
+                {
+                    "name": "Christian Pulisic",
+                    "position": "FW",
+                    "description": "国家队累计出场 90 次、进球 33 个，效力于 AC Milan (ITA)",
+                    "shirt_number": 10
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=47",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 47 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        },
+        "UZB": {
+            "summary": "乌兹别克斯坦的本届参赛阵容由 Fabio Cannavaro 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、10名中场和3名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+            "coach_name": "Fabio Cannavaro",
+            "coach_description": "2026 世界杯带队主教练，国籍：意大利",
+            "players": [
+                {
+                    "name": "Farrukh Sayfiev",
+                    "position": "DF",
+                    "description": "国家队累计出场 72 次、进球 1 个，效力于 FK Neftchi Farg'ona (UZB)",
+                    "shirt_number": 4
+                },
+                {
+                    "name": "Otabek Shukurov",
+                    "position": "MF",
+                    "description": "国家队累计出场 93 次、进球 10 个，效力于 Baniyas Club (UAE)",
+                    "shirt_number": 7
+                },
+                {
+                    "name": "Eldor Shomurodov",
+                    "position": "FW",
+                    "description": "国家队累计出场 96 次、进球 45 个，效力于 Başakşehir FK (TUR)",
+                    "shirt_number": 14
+                }
+            ],
+            "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=48",
+            "source_label": "FIFA 2026 世界杯官方名单 · 第 48 页",
+            "edition": "2026-07-19 22:34 UTC · Version 1"
+        }
+    }
+}

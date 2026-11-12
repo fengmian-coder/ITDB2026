@@ -12,6 +12,7 @@ namespace app\controllers;
 use app\services\MatchQueryService;
 use app\services\JourneyFlowService;
 use app\services\TeamStatsService;
+use app\models\Tournament;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
@@ -38,6 +39,9 @@ class InsightController extends Controller
 
     public function actionIndex(): string
     {
+        if (!Tournament::find()->where(['year' => 2026])->exists()) {
+            return $this->render('empty');
+        }
         return $this->render('index', [
             'ranking' => $this->teamStatsService->getScoringRanking(),
             'stages' => $this->matchQueryService->getStageSummary(),

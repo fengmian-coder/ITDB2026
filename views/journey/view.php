@@ -80,6 +80,7 @@ CSS, [], 'journey-view');
 <div class="journey-view pb-4">
     <header class="journey-hero rounded-4 p-4 p-md-5 mb-4">
         <p class="journey-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / 2026</p>
+        <div class="mb-3"><?= \app\components\TeamFlag::render($team['fifa_code'], $team['name_zh'], $team['flag_path'] ?? null, 'lg') ?></div>
         <h1 class="display-6 fw-bold mb-3"><?= Html::encode($team['name_zh']) ?>的世界杯之旅</h1>
         <p class="mb-3"><?= Html::encode($team['fifa_code'] . ' · ' . $team['group_code'] . ' 组') ?>
             · 最终成绩 <?= Html::encode($finalResultLabels[$team['final_result_code']] ?? '暂无记录') ?></p>
