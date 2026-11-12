@@ -53,7 +53,7 @@ $formatRate = static function ($value): string {
             </div>
         </div>
         <div class="d-flex flex-wrap gap-2">
-            <?= Html::a('球队 PK', ['/national-team/compare', 'left_id' => $team->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('与其他球队比较', ['/national-team/compare', 'left_id' => $team->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('晋级之路', ['/journey/view', 'team_id' => $team->id], ['class' => 'btn btn-outline-primary']) ?>
             <?= Html::a('本届比赛', ['/wc-match/index', 'team_id' => $team->id], ['class' => 'btn btn-outline-secondary']) ?>
         </div>
@@ -64,7 +64,7 @@ $formatRate = static function ($value): string {
     <?php endif; ?>
 
     <?php if (!$hasMatches): ?>
-        <div class="alert alert-info">该球队暂无完赛记录，统计显示为“暂无”。</div>
+        <div class="alert alert-info">该球队暂无完赛记录，统计显示为“暂无”</div>
     <?php endif; ?>
 
     <h2 class="h4 mb-3">球队 DNA</h2>
@@ -141,6 +141,6 @@ $formatRate = static function ($value): string {
     </div>
 
     <p class="small text-body-secondary mt-3 mb-0">
-        统计口径：仅计算 2026 届已结束比赛；最终场上比分优先 120 分钟累计值，点球大战不计入总进球。
+        统计口径：仅计算 2026 届已结束比赛；最终场上比分优先 120 分钟累计值，点球大战不计入总进球
     </p>
 </div>

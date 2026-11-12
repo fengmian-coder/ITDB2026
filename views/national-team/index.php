@@ -24,50 +24,47 @@ $teams = $dataProvider->getModels();
 $pagination = $dataProvider->pagination;
 ?>
 <div class="national-team-index">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+    <div class="mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
         <div>
-            <h1 class="h2 mb-1">2026 参赛球队</h1>
-            <p class="text-body-secondary mb-0">共 <?= (int) $pagination->totalCount ?> 支球队，点击查看球队 DNA。</p>
+            <h1 class="h2 mb-1">探索每一支球队</h1>
+            <p class="text-body-secondary mb-0">搜索球队，查看比赛历程和相关比赛</p>
         </div>
-        <?= Html::beginForm(['/national-team/index'], 'get', ['class' => 'd-flex gap-2', 'role' => 'search']) ?>
+        <?= Html::a('球队对比', ['/national-team/compare'], ['class' => 'btn btn-outline-primary text-nowrap']) ?>
+        </div>
+        <?= Html::beginForm(['/national-team/index'], 'get', ['class' => 'd-flex gap-2 w-100 mt-4', 'role' => 'search']) ?>
             <label for="team-q" class="visually-hidden">搜索球队</label>
             <input id="team-q" type="search" name="q" value="<?= Html::encode($q) ?>"
                    class="form-control" placeholder="中文名 / 英文名 / FIFA 代码" maxlength="80">
-            <button type="submit" class="btn btn-primary">搜索</button>
+            <button type="submit" class="btn btn-primary text-nowrap">搜索</button>
             <?php if ($q !== ''): ?>
-                <a class="btn btn-outline-secondary" href="<?= Url::to(['/national-team/index']) ?>">清除</a>
+                <a class="btn btn-outline-secondary text-nowrap" href="<?= Url::to(['/national-team/index']) ?>">清除</a>
             <?php endif; ?>
         <?= Html::endForm() ?>
+        <p class="small text-body-secondary mt-2 mb-0"><?= $q === '' ? '2026 参赛球队' : '匹配结果' ?>：<?= (int) $pagination->totalCount ?> 支</p>
     </div>
 
     <?php if ($teams === []): ?>
         <div class="border rounded p-4 text-body-secondary">
-            没有匹配的球队。请尝试其他关键词。
+            <?= $q === '' ? '暂无可展示的参赛球队' : '没有匹配的球队，请尝试其他关键词' ?>
         </div>
     <?php else: ?>
         <div class="row g-3">
             <?php foreach ($teams as $team): ?>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center">
-                            <?= $this->render('_flag', ['team' => $team, 'size' => 'sm']) ?>
-                            <h2 class="h5 mt-3 mb-1">
-                                <?= Html::a(
-                                    Html::encode($team->name_zh),
-                                    ['/national-team/view', 'id' => $team->id],
-                                    ['class' => 'text-decoration-none'],
-                                ) ?>
-                            </h2>
-                            <p class="small text-body-secondary mb-2"><?= Html::encode($team->name_en) ?></p>
-                            <span class="badge text-bg-dark"><?= Html::encode($team->fifa_code) ?></span>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a class="wc-team-card" href="<?= Url::to(['/national-team/view', 'id' => $team->id]) ?>">
+                        <?= $this->render('_flag', ['team' => $team, 'size' => 'sm']) ?>
+                        <div class="wc-team-card-copy">
+                            <h2><?= Html::encode($team->name_zh) ?></h2>
+                            <p><?= Html::encode($team->name_en) ?></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div class="mt-4">
-            <?= LinkPager::widget(['pagination' => $pagination]) ?>
-        </div>
+        <nav class="wc-team-pagination mt-4" aria-label="球队列表分页">
+            <?= LinkPager::widget(['pagination' => $pagination, 'prevPageLabel' => '上一页', 'nextPageLabel' => '下一页']) ?>
+        </nav>
     <?php endif; ?>
 </div>

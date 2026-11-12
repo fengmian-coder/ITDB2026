@@ -89,7 +89,8 @@
     .insight-page .stats-chart-ranking { height: 420px; }
 }
 .insight-sections { flex-wrap: wrap; }
-.insight-page .flow-panel, .insight-page .scatter-panel { grid-column: 1 / -1; }
+.insight-page .flow-panel { grid-column: 1 / -1; }
+.insight-page .scatter-panel { grid-column: auto; }
 .insight-page .flow-scroll { overflow-x: auto; }
 .insight-page #flow-chart { min-width: 850px; height: 460px; }
 .insight-page .flow-picker { min-width: 180px; }

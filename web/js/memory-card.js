@@ -21,6 +21,7 @@
     const data = JSON.parse(dataElement.textContent);
     const thought = document.getElementById('memory-thought');
     let photo = null;
+    let teamFlag = null;
     let photoVersion = 0;
     let ready = false;
     const font = '"Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
@@ -54,6 +55,7 @@
         ctx.fillStyle = '#175b46'; ctx.fillRect(0, 0, 1200, 175);
         line('我的世界杯记忆', 64, 89, 42, '#ffffff', 700);
         line('WORLD CUP JOURNEY · 2026', 66, 137, 21, '#d6e7d7');
+        if (teamFlag) ctx.drawImage(teamFlag, 1040, 53, 96, 72);
         line(`球队：${data.team_name}`, 64, 243, 31, '#175b46', 700);
         line(data.date, 66, 293, 22, '#607367');
         line(data.stage, 66, 331, 22, '#607367');
@@ -108,7 +110,16 @@
     });
     download.disabled = true;
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
-    fontsReady.then(() => { ready = true; draw(); download.disabled = false; });
+    const flagReady = (async () => {
+        if (!data.flag_url) return;
+        try {
+            const image = new Image();
+            image.src = data.flag_url;
+            await image.decode();
+            teamFlag = image;
+        } catch (error) { /* A missing flag must not prevent PNG export. */ }
+    })();
+    Promise.all([fontsReady, flagReady]).then(() => { ready = true; draw(); download.disabled = false; });
     download.addEventListener('click', () => {
         if (!ready) return;
         canvas.toBlob((blob) => {

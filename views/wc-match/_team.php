@@ -16,19 +16,9 @@ use yii\helpers\Url;
 /** @var int|string $teamId */
 
 $name = $team['name_zh'] ?? $team['name_en'] ?? ('球队 ID ' . $teamId);
-$path = str_replace('\\', '/', trim((string) ($team['flag_path'] ?? '')));
-$segments = explode('/', $path);
-$flagUrl = null;
-if ($path !== '' && !str_starts_with($path, '/') && !preg_match('/[\x00-\x1F\x7F%:?#]/', $path)
-    && !in_array('..', $segments, true) && !in_array('.', $segments, true)) {
-    $flagUrl = Url::to('@web/' . implode('/', array_map('rawurlencode', $segments)));
-}
 ?>
 <span class="d-inline-flex flex-column align-items-center gap-1 mw-100">
-    <?php if ($flagUrl !== null): ?>
-        <?= Html::img($flagUrl, ['alt' => $name . '国旗', 'loading' => 'lazy',
-            'class' => 'rounded border', 'style' => 'width:48px;height:32px;object-fit:contain;']) ?>
-    <?php endif ?>
+    <?= \app\components\TeamFlag::render($team['fifa_code'] ?? null, $name, $team['flag_path'] ?? null) ?>
     <?= Html::a(Html::encode($name), ['/national-team/view', 'id' => $teamId], [
         'class' => 'fw-bold text-reset text-decoration-none',
     ]) ?>

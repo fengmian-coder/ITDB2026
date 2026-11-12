@@ -12,15 +12,15 @@
         element.classList.toggle('text-body-secondary', !error);
     };
     if (!window.echarts) {
-        ['ranking', 'compare', 'stages', 'flow', 'scatter'].forEach((name) => status(name, '图表资源加载失败，请查看数据表。', true));
+        ['ranking', 'stages', 'flow', 'scatter'].forEach((name) => status(name, '图表资源加载失败，请查看数据表。', true));
         byId('insight-refresh').disabled = true;
         return;
     }
     const charts = {};
-    ['ranking', 'compare', 'stages', 'flow', 'scatter'].forEach((name) => {
+    ['ranking', 'stages', 'flow', 'scatter'].forEach((name) => {
         charts[name] = echarts.init(byId(`${name}-chart`), null, {renderer: 'svg'});
     });
-    const state = {ranking: config.ranking, stages: config.stages, comparison: config.comparison,
+    const state = {ranking: config.ranking, stages: config.stages,
         flow: config.flow, selectedTeam: ''};
     const controllers = {};
     const label = (team) => `${team.team_name} · ${team.fifa_code}`;
@@ -90,44 +90,6 @@
         table('ranking', state.ranking.map((team) => [label(team), team.matches_played, team.goals_for, team.goals_against]), '暂无参赛球队数据。', 4);
         status('ranking', state.ranking.length === 0 ? '暂无参赛球队数据。'
             : hasFinished(state.ranking) ? `共 ${state.ranking.length} 支球队，按进球数降序排列。` : '暂无完赛记录，当前进球统计均为 0。');
-    }
-    function renderCompare() {
-        const pair = state.comparison;
-        const rows = pair ? [pair.left, pair.right] : [];
-        ['left', 'right'].forEach((side) => {
-            const team = pair?.[side];
-            byId(`compare-${side}-code`).textContent = team?.fifa_code || '—';
-            byId(`compare-${side}-name`).textContent = team?.team_name || '选择球队';
-        });
-        const option = base();
-        option.tooltip = {trigger: 'item', renderMode: 'richText', confine: true};
-        option.legend.data = ['胜', '平', '负'];
-        const radius = Math.min(90, charts.compare.getWidth() * 0.21);
-        option.series = rows.map((team, index) => ({
-            name: label(team), type: 'pie', radius: [radius * 0.68, radius],
-            center: [index === 0 ? '25%' : '75%', '44%'],
-            label: {show: false}, emphasis: {scaleSize: 4},
-            stillShowZeroSum: false, emptyCircleStyle: {color: palette().line},
-            data: [['wins', '胜'], ['draws', '平'], ['losses', '负']].map(([key, name]) => ({name, value: team[key]})),
-        }));
-        option.title = rows.map((team, index) => ({
-            text: team.win_rate == null ? '暂无' : `${(team.win_rate * 100).toFixed(1)}%`,
-            subtext: '胜率', left: index === 0 ? '25%' : '75%', top: '34%', textAlign: 'center',
-            textStyle: {color: palette().text, fontSize: window.innerWidth < 576 ? 18 : 22},
-            subtextStyle: {color: palette().text, fontSize: 12},
-        }));
-        charts.compare.setOption(option, {notMerge: true});
-        table('compare', rows.map((team) => [label(team), team.wins, team.draws, team.losses, team.penalty_wins]), '至少需要两支参赛球队。', 5);
-        status('compare', !pair ? '至少需要两支参赛球队。' : hasFinished(rows) ? '场上平局计为平局，点球大战获胜单列。' : '所选球队暂无完赛记录。');
-        const link = new URL(byId('insight-pk-link').href);
-        if (pair) {
-            link.searchParams.set('left_id', pair.left.team_id);
-            link.searchParams.set('right_id', pair.right.team_id);
-        } else {
-            link.searchParams.delete('left_id');
-            link.searchParams.delete('right_id');
-        }
-        byId('insight-pk-link').href = link.href;
     }
     function renderStages() {
         const option = base();
@@ -204,13 +166,17 @@
         byId('scatter-team-stats').textContent = selected
             ? `${selected.matches_played} 场完赛 · ${selected.goals_for} 进球 · ${selected.goals_against} 失球 · 场均进球 ${selected.goals_per_match?.toFixed(2) ?? '暂无'} · 场均失球 ${selected.goals_against_per_match?.toFixed(2) ?? '暂无'}`
             : '也可以使用上方“追踪球队”选择器。';
-        const link = byId('scatter-journey-link');
-        link.hidden = !selected;
-        if (selected) {
-            const url = new URL(config.journeyUrl, location.href);
-            url.searchParams.set('team_id', selected.team_id);
-            link.href = url.href;
-        }
+        [['scatter-journey-link', config.journeyUrl, 'team_id'],
+            ['scatter-team-link', config.teamUrl, 'id'],
+            ['scatter-compare-link', config.compareUrl, 'left_id']].forEach(([id, target, param]) => {
+            const link = byId(id);
+            link.hidden = !selected;
+            if (selected) {
+                const url = new URL(target, location.href);
+                url.searchParams.set(param, selected.team_id);
+                link.href = url.href;
+            }
+        });
     }
     function selectTeam(id) {
         state.selectedTeam = String(id);
@@ -241,43 +207,17 @@
             if (controllers[name] === controller) charts[name].hideLoading();
         }
     }
-    function refreshCompare() {
-        const left = byId('insight-left').value;
-        const right = byId('insight-right').value;
-        if (!left || !right || left === right) {
-            controllers.compare?.abort();
-            delete controllers.compare;
-            charts.compare.hideLoading();
-            state.comparison = null;
-            renderCompare();
-            status('compare', left && right ? '请选择两支不同的球队。' : '至少需要两支参赛球队。', true);
-            return Promise.resolve();
-        }
-        const url = new URL(config.compareUrl, location.href);
-        url.searchParams.set('left_id', left);
-        url.searchParams.set('right_id', right);
-        return load('compare', url, (data) => { state.comparison = data; renderCompare(); });
-    }
     byId('ranking-limit').addEventListener('change', renderRanking);
-    ['insight-left', 'insight-right'].forEach((id) => byId(id).addEventListener('change', refreshCompare));
     byId('insight-refresh').addEventListener('click', async (event) => {
         const button = event.currentTarget;
         button.disabled = true;
         await load('ranking', config.rankingUrl, (data) => {
             state.ranking = data;
-            // 参赛队增删后同步三个选择器，避免继续请求已失去参赛资格的旧 ID。
-            ['flow-team', 'insight-left', 'insight-right'].forEach((id) => {
-                const select = byId(id);
-                const previous = select.value;
-                select.replaceChildren();
-                if (id === 'flow-team') select.add(new Option('全部球队', ''));
-                data.forEach((team) => select.add(new Option(label(team), String(team.team_id))));
-                select.disabled = id !== 'flow-team' && data.length < 2;
-                select.value = previous;
-                if (id !== 'flow-team' && !select.value && data.length) {
-                    select.selectedIndex = id === 'insight-right' && data.length > 1 ? 1 : 0;
-                }
-            });
+            const select = byId('flow-team');
+            const previous = select.value;
+            select.replaceChildren(new Option('全部球队', ''));
+            data.forEach((team) => select.add(new Option(label(team), String(team.team_id))));
+            select.value = previous;
             state.selectedTeam = byId('flow-team').value;
             renderRanking();
             renderScatter();
@@ -286,24 +226,21 @@
         await Promise.allSettled([
             load('flow', config.flowUrl, (data) => { state.flow = data; renderFlow(); }),
             load('stages', config.stagesUrl, (data) => { state.stages = data; renderStages(); }),
-            refreshCompare(),
         ]);
         button.disabled = false;
     });
     renderRanking();
-    renderCompare();
     renderStages();
     renderFlow();
     renderScatter();
     const resize = () => {
         Object.values(charts).forEach((chart) => chart.resize());
-        renderCompare();
     };
     if (window.ResizeObserver) {
         new ResizeObserver(resize).observe(root);
     } else {
         window.addEventListener('resize', resize);
     }
-    new MutationObserver(() => { renderRanking(); renderCompare(); renderStages(); renderFlow(); renderScatter(); })
+    new MutationObserver(() => { renderRanking(); renderStages(); renderFlow(); renderScatter(); })
         .observe(document.documentElement, {attributes: true, attributeFilter: ['data-bs-theme']});
 })();

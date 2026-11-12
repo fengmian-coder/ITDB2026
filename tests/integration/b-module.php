@@ -259,6 +259,21 @@ try {
     }
     $check($request($guest, 'api/team-stats&id=999999')[0] === 404, 'absent statistics team 404');
     $check($request($guest, 'national-team/index')[0] === 200, 'C national team list');
+    $activeNavigation = static function (string $html): array {
+        $dom = new DOMDocument();
+        $previous = libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $html);
+        libxml_clear_errors(); libxml_use_internal_errors($previous);
+        $links = (new DOMXPath($dom))->query('//header[@id="header"]//a[contains(concat(" ",normalize-space(@class)," ")," active ")]');
+        return array_map(static fn ($link) => trim($link->textContent), iterator_to_array($links));
+    };
+    foreach (['national-team/index', 'national-team/view&id=' . $home, 'national-team/compare', 'journey/view&team_id=' . $home] as $route) {
+        $check($activeNavigation($request($guest, $route)[1]) === ['球队'], 'team navigation active for ' . $route);
+    }
+    $check($activeNavigation($request($guest, 'wc-match/view&id=' . $m1)[1]) === ['比赛'], 'match detail navigation active');
+    $check($activeNavigation($request($guest, 'insight/index')[1]) === ['数据总览'], 'overview navigation active');
+    [$status, $html] = $request($guest, 'national-team/index');
+    $check(str_contains($html, 'class="wc-team-card"') && !str_contains($html, 'badge text-bg-dark'), 'whole team card is link without code badge');
     [$status, $html] = $request($guest, 'national-team/index&q=ZZX');
     $check($status === 200 && str_contains($html, 'TEST ONLY home')
         && !str_contains($html, 'TEST ONLY away'), 'C actual team search');
@@ -274,6 +289,10 @@ try {
     [$status, $html] = $request($guest, 'national-team/compare&left_id=' . $home . '&right_id=' . $away);
     $check($status === 200 && str_contains($html, '50.0%') && str_contains($html, '1.50'), 'PK C rates formatted without new aggregation');
     $check(str_contains($html, '交换球队') && str_contains($html, 'right_id=' . $home), 'PK swap preserves reverse IDs');
+    $check(str_contains($html, 'id="compare-chart"') && str_contains($html, 'js/team-compare.js'), 'comparison owns WDL chart');
+    preg_match('/<script type="application\/json" id="team-compare-data">(.*?)<\/script>/s', $html, $pairSeed);
+    $pairData = json_decode($pairSeed[1] ?? '', true, 512, JSON_THROW_ON_ERROR);
+    $check($pairData === $teamStats->getCompareStats($home, $away), 'WDL chart reuses exact comparison service values');
     foreach (['left_id=0', 'left_id[]=1', 'left_id=-1', 'left_id=1.5', 'left_id=100000000000000000000',
         'left_id=' . $home . '&right_id=' . $home] as $query) {
         $check($request($guest, 'national-team/compare&' . $query)[0] === 400, 'PK invalid parameter ' . $query);
@@ -281,7 +300,8 @@ try {
     $check($request($guest, 'national-team/compare&right_id=999999')[0] === 404, 'PK missing partial participant 404');
     [$status, $html] = $request($guest, 'insight/index');
     $check($status === 200 && str_contains($html, 'id="ranking-chart"')
-        && str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="stages-chart"'), 'three chart containers rendered');
+        && !str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="stages-chart"'), 'overview separates tournament charts from team comparison');
+    $check(str_contains($html, 'id="scatter-team-link"') && str_contains($html, 'id="scatter-compare-link"'), 'overview connects selected team to profile and comparison');
     $check(str_contains($html, 'vendor/echarts/echarts.min.js') && str_contains($html, 'js/insight-charts.js'), 'single local chart library registered');
     $extractChartData = static function (string $html): array {
         preg_match('/<script type="application\/json" id="insight-data">(.*?)<\/script>/s', $html, $match);
@@ -425,6 +445,13 @@ try {
     }
     $check($request($guest, 'wc-match/index&page_size=100')[0] === 200, 'maximum page size accepted');
     $outsider = $insert('national_team', ['fifa_code' => 'ZZZ', 'name_zh' => 'TEST ONLY outsider', 'name_en' => 'TEST ONLY outsider']);
+    [$status, $html] = $request($guest, 'national-team/index&q=ZZZ');
+    $check($status === 200 && !str_contains($html, 'TEST ONLY outsider'), 'public list excludes active nonparticipant');
+    $otherYear = $insert('tournament', ['year' => 2030, 'name' => 'TEST ONLY other year', 'start_date' => '2030-06-01', 'end_date' => '2030-07-01']);
+    $db->createCommand()->insert('tournament_team', ['tournament_id' => $otherYear, 'team_id' => $outsider, 'group_code' => 'A'])->execute();
+    $check(!str_contains($request($guest, 'national-team/index&q=ZZZ')[1], 'TEST ONLY outsider'), 'other tournament participation excluded');
+    $db->createCommand()->delete('tournament_team', ['tournament_id' => $otherYear])->execute();
+    $db->createCommand()->delete('tournament', ['id' => $otherYear])->execute();
     $emptyTeam = $insert('national_team', ['fifa_code' => 'ZZW', 'name_zh' => 'TEST ONLY no games', 'name_en' => 'TEST ONLY no games']);
     $db->createCommand()->insert('tournament_team', ['tournament_id' => $tournament, 'team_id' => $emptyTeam, 'group_code' => 'A'])->execute();
     $emptyStats = $teamStats->getTeamStats($emptyTeam);
@@ -506,6 +533,8 @@ try {
     $check($request($guest, 'journey/view&team_id=' . $outsider)[0] === 404, 'nonparticipant journey 404');
     $check($request($guest, 'journey/view&team_id=999999')[0] === 404, 'missing team journey 404');
     $db->createCommand()->update('tournament', ['year' => 2030], ['id' => $tournament])->execute();
+    [$status, $html] = $request($guest, 'insight/index');
+    $check($status === 200 && str_contains($html, '赛事数据尚未就绪'), 'uninitialized chart page has useful empty state');
     $check($request($guest, 'journey/view&team_id=' . $home)[0] === 500, 'uninitialized 2026 is explicit server failure');
     $db->createCommand()->update('tournament', ['year' => 2026], ['id' => $tournament])->execute();
     $check(count($journey->getTeamJourney($home)) === 4, 'valid journey retains all matches');
