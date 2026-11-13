@@ -89,6 +89,7 @@ CSS, [], 'journey-view');
         <p class="mb-0 opacity-75">从开场到终场，沿着时间回看每一场比赛。所有时间均为北京时间</p>
     </header>
 
+    <?= $this->render('_map', ['map' => $map, 'team' => $team]) ?>
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="journey-search-title">
         <div class="card-body p-3 p-md-4">
             <h2 id="journey-search-title" class="h6 fw-bold mb-3">查看球队历程</h2>

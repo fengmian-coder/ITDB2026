@@ -1,0 +1,150 @@
+{
+  "source": "https://github.com/openfootball/worldcup.json/blob/master/2026/worldcup.stadiums.json",
+  "source_blob": "60ac2b887db54670f40323989f8aa471a40ccd9b",
+  "stadiums": [
+    {
+      "name": "Toronto Stadium",
+      "city": "Toronto",
+      "country_code": "CA",
+      "latitude": 43.633333,
+      "longitude": -79.418611,
+      "source_name": "BMO Field",
+      "source_coords": "43°38'0\"N 79°25'07\"W"
+    },
+    {
+      "name": "BC Place Vancouver",
+      "city": "Vancouver",
+      "country_code": "CA",
+      "latitude": 49.276667,
+      "longitude": -123.111944,
+      "source_name": "BC Place",
+      "source_coords": "49°16'36\"N 123°6'43\"W"
+    },
+    {
+      "name": "Mexico City Stadium",
+      "city": "Mexico City",
+      "country_code": "MX",
+      "latitude": 19.303056,
+      "longitude": -99.150556,
+      "source_name": "Estadio Azteca",
+      "source_coords": "19°18'11\"N 99°09'02\"W"
+    },
+    {
+      "name": "Guadalajara Stadium",
+      "city": "Zapopan",
+      "country_code": "MX",
+      "latitude": 20.681667,
+      "longitude": -103.462778,
+      "source_name": "Estadio Akron",
+      "source_coords": "20°40'54\"N 103°27'46\"W"
+    },
+    {
+      "name": "Monterrey Stadium",
+      "city": "Guadalupe",
+      "country_code": "MX",
+      "latitude": 25.669167,
+      "longitude": -100.244444,
+      "source_name": "Estadio BBVA",
+      "source_coords": "25°40'9\"N 100°14'40\"W"
+    },
+    {
+      "name": "Atlanta Stadium",
+      "city": "Atlanta",
+      "country_code": "US",
+      "latitude": 33.755556,
+      "longitude": -84.4,
+      "source_name": "Mercedes-Benz Stadium",
+      "source_coords": "33°45'20\"N 84°24'00\"W"
+    },
+    {
+      "name": "Boston Stadium",
+      "city": "Foxborough",
+      "country_code": "US",
+      "latitude": 42.091,
+      "longitude": -71.264,
+      "source_name": "Gillette Stadium",
+      "source_coords": "42.091°N 71.264°W"
+    },
+    {
+      "name": "Dallas Stadium",
+      "city": "Arlington",
+      "country_code": "US",
+      "latitude": 32.747778,
+      "longitude": -97.092778,
+      "source_name": "AT&T Stadium",
+      "source_coords": "32°44'52\"N 97°5'34\"W"
+    },
+    {
+      "name": "Houston Stadium",
+      "city": "Houston",
+      "country_code": "US",
+      "latitude": 29.684722,
+      "longitude": -95.410833,
+      "source_name": "NRG Stadium",
+      "source_coords": "29°41'5\"N 95°24'39\"W"
+    },
+    {
+      "name": "Kansas City Stadium",
+      "city": "Kansas City",
+      "country_code": "US",
+      "latitude": 39.048889,
+      "longitude": -94.483889,
+      "source_name": "Arrowhead Stadium",
+      "source_coords": "39°2'56\"N 94°29'2\"W"
+    },
+    {
+      "name": "Los Angeles Stadium",
+      "city": "Inglewood",
+      "country_code": "US",
+      "latitude": 33.953,
+      "longitude": -118.339,
+      "source_name": "SoFi Stadium",
+      "source_coords": "33.953°N 118.339°W"
+    },
+    {
+      "name": "Miami Stadium",
+      "city": "Miami Gardens",
+      "country_code": "US",
+      "latitude": 25.958056,
+      "longitude": -80.238889,
+      "source_name": "Hard Rock Stadium",
+      "source_coords": "25°57'29\"N 80°14'20\"W"
+    },
+    {
+      "name": "New York New Jersey Stadium",
+      "city": "East Rutherford",
+      "country_code": "US",
+      "latitude": 40.813528,
+      "longitude": -74.074361,
+      "source_name": "MetLife Stadium",
+      "source_coords": "40°48'48.7\"N 74°4'27.7\"W"
+    },
+    {
+      "name": "Philadelphia Stadium",
+      "city": "Philadelphia",
+      "country_code": "US",
+      "latitude": 39.900833,
+      "longitude": -75.1675,
+      "source_name": "Lincoln Financial Field",
+      "source_coords": "39°54'3\"N 75°10'3\"W"
+    },
+    {
+      "name": "San Francisco Bay Area Stadium",
+      "city": "Santa Clara",
+      "country_code": "US",
+      "latitude": 37.403,
+      "longitude": -121.97,
+      "source_name": "Levi's Stadium",
+      "source_coords": "37.403°N 121.970°W"
+    },
+    {
+      "name": "Seattle Stadium",
+      "city": "Seattle",
+      "country_code": "US",
+      "latitude": 47.595278,
+      "longitude": -122.331667,
+      "source_name": "Lumen Field",
+      "source_coords": "47°35'43\"N 122°19'54\"W"
+    }
+  ]
+}

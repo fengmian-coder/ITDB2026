@@ -5,7 +5,7 @@
  * 负责人：B
  * 依赖：Yii 2.0、WcMatch、Tournament、MatchStory、NationalTeam、TournamentTeam
  * 球队资料与最终成绩读取 C 的 NationalTeam / TournamentTeam
- * 最近修改：2026-11-11
+ * 最近修改：2026-11-13，补充地图所需场馆资料
  */
 
 declare(strict_types=1);
@@ -41,7 +41,7 @@ class JourneyService
 {
     private const ADVANCEMENT_STAGES = ['R32', 'R16', 'QF', 'SF'];
     private const FIELDS = [
-        'id', 'match_no', 'home_team_id', 'away_team_id', 'kickoff_utc', 'stage_code', 'status',
+        'id', 'match_no', 'home_team_id', 'away_team_id', 'stadium_id', 'kickoff_utc', 'stage_code', 'status',
         'home_score_90', 'away_score_90', 'home_score_120', 'away_score_120',
         'home_penalties', 'away_penalties', 'winner_team_id',
     ];
@@ -54,7 +54,8 @@ class JourneyService
      *   opponent: array{team_id: int|string, name_zh: string|null, name_en: string|null,
      *     fifa_code: string|null, flag_path: string|null}, is_home: bool,
      *   goals_for: int|null, goals_against: int|null, penalties_for: int|null,
-     *   penalties_against: int|null, advancement_result: string|null, is_featured: bool
+     *   penalties_against: int|null, advancement_result: string|null, is_featured: bool,
+     *   stadium: array{id: int|string, name: string, city: string, country_code: string}|null
      * }>
      */
     public function getTeamJourney(int $teamId): array
@@ -117,6 +118,9 @@ class JourneyService
         // 否则没有故事的普通比赛会被过滤。仅读 ID，不读取草稿正文或时间轴。
         return WcMatch::find()->alias('m')->select($columns)
             ->with([
+                'stadium' => static function (ActiveQuery $query): void {
+                    $query->select(['id', 'name', 'city', 'country_code']);
+                },
                 'homeTeam' => static function (ActiveQuery $query): void {
                     $query->select(['id', 'name_zh', 'name_en', 'fifa_code', 'flag_path']);
                 },
@@ -180,6 +184,7 @@ class JourneyService
             'kickoff_utc' => $this->utcTimestamp($row['kickoff_utc']),
             'stage_code' => $row['stage_code'],
             'status' => $row['status'],
+            'stadium' => $row['stadium'] ?? null,
             'opponent' => [
                 'team_id' => $this->identifier($row[$isHome ? 'away_team_id' : 'home_team_id']),
                 'name_zh' => $opponent['name_zh'] ?? null,
