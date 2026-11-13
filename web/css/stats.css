@@ -96,7 +96,19 @@
 .insight-page #scatter-chart { height: 390px; }
 .insight-page .scatter-team-card { padding: 18px 22px; border-radius: 14px; background: var(--insight-surface); border-left: 3px solid var(--insight-green); }
 .insight-page .scatter-team-card p { margin-top: 6px; color: var(--bs-secondary-color); }
-.insight-page .scatter-team-card a { color: var(--insight-green); text-underline-offset: 3px; }
+.insight-page .scatter-team-card a:not(.btn) { color: var(--insight-green); text-underline-offset: 3px; }
+.insight-page .scatter-team-card .btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #176246;
+    --bs-btn-border-color: #176246;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #104b35;
+    --bs-btn-hover-border-color: #104b35;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #104b35;
+    --bs-btn-active-border-color: #104b35;
+    color: #fff;
+}
 .insight-page .insight-team { padding: 14px 8px; }
 @media (max-width: 575.98px) {
     .insight-page #flow-chart { height: 420px; }
