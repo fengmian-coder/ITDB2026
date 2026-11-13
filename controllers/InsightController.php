@@ -44,7 +44,7 @@ class InsightController extends Controller
         }
         return $this->render('index', [
             'ranking' => $this->teamStatsService->getScoringRanking(),
-            'stages' => $this->matchQueryService->getStageSummary(),
+            'calendar' => $this->matchQueryService->getMatchCalendar(),
             'flow' => $this->journeyFlowService->getFlow(),
         ]);
     }

@@ -75,26 +75,31 @@ class WcMatchController extends Controller
      * View 参数 match 为 Service 的完整详情数组，不在此重新处理故事、事件或标签。
      * mixed 用于接收原始路由参数，防止隐式类型转换绕过 ID 校验。
      */
-    public function actionView(mixed $id): string
+    public function actionView(mixed $id, mixed $team_id = null): string
     {
         $matchId = $this->positiveMatchId($id);
         $match = $this->matchQueryService->getMatchDetail($matchId);
+        $contextTeamId = $team_id === null ? null : $this->positiveMatchId($team_id, '球队 ID');
+        if ($contextTeamId !== null && !in_array((string) $contextTeamId,
+            [(string) $match['home_team_id'], (string) $match['away_team_id']], true)) {
+            throw new BadRequestHttpException('所选球队未参加这场比赛');
+        }
 
-        return $this->render('view', ['match' => $match]);
+        return $this->render('view', ['match' => $match, 'contextTeamId' => $contextTeamId]);
     }
 
     /** Service 接收 int；超出 PHP 整数范围的 ID 返回 400，不能截断后查询另一场比赛。 */
-    private function positiveMatchId(mixed $id): int
+    private function positiveMatchId(mixed $id, string $label = '比赛 ID'): int
     {
         if ((!is_int($id) && !is_string($id)) || !preg_match('/^[0-9]+$/D', (string) $id)) {
-            throw new BadRequestHttpException('比赛 ID 必须为正整数');
+            throw new BadRequestHttpException($label . ' 必须为正整数');
         }
 
         $digits = ltrim((string) $id, '0');
         $maximum = (string) PHP_INT_MAX;
         if ($digits === '' || strlen($digits) > strlen($maximum)
             || (strlen($digits) === strlen($maximum) && strcmp($digits, $maximum) > 0)) {
-            throw new BadRequestHttpException('比赛 ID 超出有效范围');
+            throw new BadRequestHttpException($label . ' 超出有效范围');
         }
 
         return (int) $digits;

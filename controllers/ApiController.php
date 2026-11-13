@@ -81,9 +81,10 @@ class ApiController extends Controller
     {
         return match ($chart) {
             'stage-goals' => $this->success($this->matchQueryService->getStageSummary()),
+            'match-calendar' => $this->success($this->matchQueryService->getMatchCalendar()),
             'scoring-ranking' => $this->success($this->getTeamStatsService()->getScoringRanking()),
             'journey-flow' => $this->success(Yii::createObject(\app\services\JourneyFlowService::class)->getFlow()),
-            default => $this->failure(400, 'INVALID_CHART', '支持 chart=stage-goals、scoring-ranking 或 journey-flow'),
+            default => $this->failure(400, 'INVALID_CHART', '支持 chart=stage-goals、scoring-ranking、journey-flow 或 match-calendar'),
         };
     }
 

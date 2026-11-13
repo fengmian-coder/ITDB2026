@@ -12,20 +12,19 @@
         element.classList.toggle('text-body-secondary', !error);
     };
     if (!window.echarts) {
-        ['ranking', 'stages', 'flow', 'scatter'].forEach((name) => status(name, '图表资源加载失败，请查看数据表。', true));
+        ['ranking', 'flow', 'scatter'].forEach((name) => status(name, '图表资源加载失败，请查看数据表。', true));
         byId('insight-refresh').disabled = true;
         return;
     }
     const charts = {};
-    ['ranking', 'stages', 'flow', 'scatter'].forEach((name) => {
+    ['ranking', 'flow', 'scatter'].forEach((name) => {
         charts[name] = echarts.init(byId(`${name}-chart`), null, {renderer: 'svg'});
     });
-    const state = {ranking: config.ranking, stages: config.stages,
+    const state = {ranking: config.ranking,
         flow: config.flow, selectedTeam: ''};
     const controllers = {};
     const label = (team) => `${team.team_name} · ${team.fifa_code}`;
     const hasFinished = (teams) => teams.some((team) => team.matches_played > 0);
-    const stageLabel = (stage) => config.stageLabels[stage.stage_code] || stage.stage_code;
     const palette = () => {
         const dark = document.documentElement.dataset.bsTheme === 'dark';
         return {text: dark ? '#e4ece7' : '#273e30', line: dark ? '#46534c' : '#e2e8e3',
@@ -68,12 +67,16 @@
     function renderRanking() {
         const limit = byId('ranking-limit').value;
         const rows = limit === 'all' ? state.ranking : state.ranking.slice(0, Number(limit));
+        // 每队保留可读的行高，全部排名直接展开，避免缩放窗口隐藏后续球队。
+        byId('ranking-chart').style.height = `${Math.max(526, rows.length * 34 + 90)}px`;
+        charts.ranking.resize();
         const option = base();
         option.legend = {show: false};
         option.grid.right = 48;
         option.xAxis = valueAxis('进球');
         option.yAxis = categoryAxis(rows.map(label));
         option.yAxis.inverse = true;
+        option.yAxis.axisLabel.interval = 0;
         Object.assign(option.yAxis.axisLabel, {width: window.innerWidth < 576 ? 100 : 180, overflow: 'truncate'});
         option.series = [{name: '进球', type: 'bar', data: rows.map((team) => ({
             value: team.goals_for,
@@ -81,32 +84,10 @@
         })), itemStyle: {borderRadius: [0, 6, 6, 0]}, showBackground: true,
             backgroundStyle: {color: palette().line + '55', borderRadius: 6},
             label: {show: true, position: 'right', color: palette().text}, barMaxWidth: 26}];
-        if (rows.length > 15) {
-            option.dataZoom = [{type: 'slider', yAxisIndex: 0, startValue: 0, endValue: 14,
-                right: 0, width: 14, zoomLock: true, filterMode: 'empty'}];
-            option.grid.right = 64;
-        }
         charts.ranking.setOption(option, {notMerge: true});
         table('ranking', state.ranking.map((team) => [label(team), team.matches_played, team.goals_for, team.goals_against]), '暂无参赛球队数据。', 4);
         status('ranking', state.ranking.length === 0 ? '暂无参赛球队数据。'
-            : hasFinished(state.ranking) ? `共 ${state.ranking.length} 支球队，按进球数降序排列。` : '暂无完赛记录，当前进球统计均为 0。');
-    }
-    function renderStages() {
-        const option = base();
-        option.xAxis = categoryAxis(state.stages.map(stageLabel));
-        option.xAxis.axisLabel.rotate = window.innerWidth < 576 ? 30 : 0;
-        option.yAxis = [valueAxis('场次'), valueAxis('进球')];
-        option.series = [
-            {name: '有效场次', type: 'bar', data: state.stages.map((stage) => stage.match_count), barMaxWidth: 26, itemStyle: {borderRadius: [4, 4, 0, 0]}},
-            {name: '已完赛', type: 'bar', data: state.stages.map((stage) => stage.finished_match_count), barMaxWidth: 26, itemStyle: {borderRadius: [4, 4, 0, 0]}},
-            // null 表示该阶段尚无完赛数据，保留折线缺口，不能转换为 0。
-            {name: '进球', type: 'line', yAxisIndex: 1, connectNulls: false, symbolSize: 9, lineStyle: {width: 3},
-                data: state.stages.map((stage) => stage.total_goals)},
-        ];
-        charts.stages.setOption(option, {notMerge: true});
-        table('stages', state.stages.map((stage) => [stageLabel(stage), stage.match_count, stage.finished_match_count, stage.total_goals]), '暂无有效赛程数据。', 4);
-        status('stages', !state.stages.length ? '暂无有效赛程数据。'
-            : state.stages.every((stage) => stage.total_goals === null) ? '暂无完赛记录，进球数据为“暂无”。' : '取消比赛已排除，进球数不含点球大战。');
+            : hasFinished(state.ranking) ? `当前显示 ${rows.length} / ${state.ranking.length} 支球队，按进球数降序排列。` : '暂无完赛记录，当前进球统计均为 0。');
     }
     function renderFlow() {
         const flow = state.flow;
@@ -225,12 +206,10 @@
         });
         await Promise.allSettled([
             load('flow', config.flowUrl, (data) => { state.flow = data; renderFlow(); }),
-            load('stages', config.stagesUrl, (data) => { state.stages = data; renderStages(); }),
         ]);
         button.disabled = false;
     });
     renderRanking();
-    renderStages();
     renderFlow();
     renderScatter();
     const resize = () => {
@@ -241,6 +220,6 @@
     } else {
         window.addEventListener('resize', resize);
     }
-    new MutationObserver(() => { renderRanking(); renderStages(); renderFlow(); renderScatter(); })
+    new MutationObserver(() => { renderRanking(); renderFlow(); renderScatter(); })
         .observe(document.documentElement, {attributes: true, attributeFilter: ['data-bs-theme']});
 })();

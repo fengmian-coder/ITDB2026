@@ -140,6 +140,46 @@ class MatchQueryService
         }
     }
 
+    /** 北京时间比赛日历，空日期补齐为零场，进球只统计已完赛场上比分。 */
+    public function getMatchCalendar(): array
+    {
+        try {
+            $rows = $this->relatedMatchQuery()->andWhere(['<>', 'm.status', 'CANCELLED'])
+                ->orderBy(['m.kickoff_utc' => SORT_ASC, 'm.match_no' => SORT_ASC, 'm.id' => SORT_ASC])->all();
+            $days = [];
+            foreach ($rows as $row) {
+                $match = $this->serializeMatch($row);
+                $local = (new \DateTimeImmutable($match['kickoff_utc'], new \DateTimeZone('UTC')))
+                    ->setTimezone(new \DateTimeZone('Asia/Shanghai'));
+                $date = $local->format('Y-m-d');
+                $days[$date] ??= ['date' => $date, 'match_count' => 0, 'finished_match_count' => 0, 'total_goals' => null, 'matches' => []];
+                ++$days[$date]['match_count'];
+                if ($match['status'] === 'FINISHED') {
+                    ++$days[$date]['finished_match_count'];
+                    $days[$date]['total_goals'] = ($days[$date]['total_goals'] ?? 0)
+                        + $match['final_score']['home'] + $match['final_score']['away'];
+                }
+                $days[$date]['matches'][] = ['id' => $match['id'], 'time' => $local->format('H:i'),
+                    'home' => $match['home_team']['name_zh'] ?? '球队 #' . $match['home_team_id'],
+                    'away' => $match['away_team']['name_zh'] ?? '球队 #' . $match['away_team_id'],
+                    'stage' => $match['stage_code'], 'status' => $match['status'], 'score' => $match['final_score']];
+            }
+            if ($days === []) {
+                return ['timezone' => 'Asia/Shanghai', 'days' => []];
+            }
+            $start = new \DateTimeImmutable(array_key_first($days));
+            $end = (new \DateTimeImmutable(array_key_last($days)))->modify('last day of this month');
+            $result = [];
+            for ($date = $start->modify('first day of this month'); $date <= $end; $date = $date->modify('+1 day')) {
+                $key = $date->format('Y-m-d');
+                $result[] = $days[$key] ?? ['date' => $key, 'match_count' => 0, 'finished_match_count' => 0, 'total_goals' => null, 'matches' => []];
+            }
+            return ['timezone' => 'Asia/Shanghai', 'days' => $result];
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception, __FUNCTION__);
+        }
+    }
+
     private function baseMatchQuery(): ActiveQuery
     {
         // year 是 V1.1 已明确的赛事字段；不假定 2026 届的自增 ID 恰好为 1。

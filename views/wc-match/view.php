@@ -17,6 +17,9 @@ use yii\helpers\Url;
 
 $this->title = '比赛 #' . $match['match_no'] . ' | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
+if ($contextTeamId !== null) {
+    $this->params['breadcrumbs'][] = ['label' => '球队比赛历程', 'url' => ['/journey/view', 'team_id' => $contextTeamId]];
+}
 $this->params['breadcrumbs'][] = '比赛 #' . $match['match_no'];
 $this->params['meta_description'] = '查看比赛基本信息、各时段比分以及已发布的精选故事与事件时间轴';
 $stageLabels = [
@@ -88,7 +91,9 @@ $this->registerCss(<<<'CSS'
 CSS, [], 'wc-match-view');
 ?>
 <div class="wc-match-view pb-4">
-    <div class="mb-3"><?= Html::a('← 返回比赛列表', ['/wc-match/index'], ['class' => 'text-decoration-none']) ?></div>
+    <div class="mb-3"><?= $contextTeamId === null
+        ? Html::a('← 返回比赛列表', ['/wc-match/index'], ['class' => 'text-decoration-none'])
+        : Html::a('← 返回球队比赛历程', ['/journey/view', 'team_id' => $contextTeamId], ['class' => 'text-decoration-none']) ?></div>
     <header class="wc-scoreboard rounded-4 p-4 p-md-5 mb-4">
         <p class="wc-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / MATCH <?= Html::encode((string) $match['match_no']) ?></p>
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
@@ -121,8 +126,8 @@ CSS, [], 'wc-match-view');
         </div>
     </header>
     <div class="d-flex flex-wrap gap-2 mb-4">
-        <?= Html::a('主队晋级之路', ['/journey/view', 'team_id' => $match['home_team_id']], ['class' => 'btn btn-outline-primary']) ?>
-        <?= Html::a('客队晋级之路', ['/journey/view', 'team_id' => $match['away_team_id']], ['class' => 'btn btn-outline-primary']) ?>
+        <?= Html::a('主队比赛历程', ['/journey/view', 'team_id' => $match['home_team_id']], ['class' => 'btn btn-outline-primary']) ?>
+        <?= Html::a('客队比赛历程', ['/journey/view', 'team_id' => $match['away_team_id']], ['class' => 'btn btn-outline-primary']) ?>
         <?php if ($match['winner_team'] !== null): ?>
             <span class="align-self-center small text-body-secondary">最终获胜球队
                 <?= Html::encode($match['winner_team']['name_zh']) ?>
@@ -246,7 +251,14 @@ CSS, [], 'wc-match-view');
         </div>
     <?php endif ?>
     <p class="mt-3">
-        <?= Html::a('制作这场比赛的纪念卡', ['/memory/card', 'team_id' => $match['home_team_id'], 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
+        <?php if ($contextTeamId !== null): ?>
+            <?= Html::a('制作这场比赛的纪念卡', ['/memory/card', 'team_id' => $contextTeamId, 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
+        <?php else: ?>
+            <?php foreach (['home', 'away'] as $side): ?>
+                <?= Html::a(Html::encode('为' . ($match[$side . '_team']['name_zh'] ?? '球队 #' . $match[$side . '_team_id']) . '制作纪念卡'),
+                    ['/memory/card', 'team_id' => $match[$side . '_team_id'], 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
+            <?php endforeach ?>
+        <?php endif ?>
         <?= Html::a('为这场比赛留言', ['/guestbook/index', 'match_id' => $match['id']], ['class' => 'btn btn-outline-primary']) ?>
     </p>
 </div>

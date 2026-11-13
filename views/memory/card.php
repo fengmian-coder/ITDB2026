@@ -22,16 +22,17 @@ if ($card !== null) {
     <header class="project-intro"><h1>制作世界杯纪念卡</h1><p class="project-lead">选择球队和比赛，写下感想，把这一刻留在纪念卡里</p></header>
     <div class="memory-workspace">
         <section class="memory-controls" aria-label="纪念卡编辑">
-            <h2>01 / 选择球队和比赛</h2>
+            <h2>选择球队和比赛</h2>
             <?= Html::beginForm(['/memory/card'], 'get', ['id' => 'memory-selection']) ?>
             <label for="memory-team">选择球队</label>
             <?= Html::dropDownList('team_id', $selectedTeamId, array_column($teams, 'name_zh', 'id'), ['prompt' => '请选择球队', 'id' => 'memory-team', 'class' => 'form-select mb-3']) ?>
             <label for="memory-match">选择比赛</label>
-            <?= Html::dropDownList('match_id', $selectedMatchId, $matches, ['prompt' => '请选择比赛（北京时间）', 'id' => 'memory-match', 'class' => 'form-select mb-3']) ?>
+            <?= Html::dropDownList('match_id', $selectedMatchId, $matches, ['prompt' => $selectedTeamId === null ? '请先选择球队' : ($matches === [] ? '这支球队暂无比赛' : '请选择比赛（北京时间）'), 'id' => 'memory-match', 'class' => 'form-select mb-3', 'disabled' => $matches === []]) ?>
             <?= Html::submitButton('确认选择', ['class' => 'btn btn-outline-success w-100']) ?>
             <?= Html::endForm() ?>
-            <p class="memory-hint mt-2">选择球队后点击“确认选择”，再选择比赛并再次确认</p>
-            <h2 class="mt-4">02 / 填写感想与添加照片</h2>
+            <p class="memory-hint mt-2">选择球队后自动加载比赛，选择比赛后更新预览。</p>
+            <noscript><p class="memory-hint">选择球队后点击“确认选择”加载比赛，选好比赛后再次确认。</p></noscript>
+            <h2 class="mt-4">填写感想与添加照片</h2>
             <label for="memory-thought">一句感想</label>
             <textarea id="memory-thought" class="form-control" maxlength="100" rows="3" placeholder="写下你的观赛感想"></textarea>
             <p class="memory-hint">最多 100 字，感想和照片不会上传到服务器</p>
@@ -45,7 +46,7 @@ if ($card !== null) {
             <?php if ($card !== null): ?>
                 <canvas id="memory-canvas" width="1200" height="800" role="img" aria-label="<?= Html::encode($card['team_name'] . '的世界杯纪念卡') ?>">纪念卡：<?= Html::encode($card['home_name'] . ' ' . $card['score'] . ' ' . $card['away_name']) ?></canvas>
                 <script id="memory-data" type="application/json"><?= Json::htmlEncode($card) ?></script>
-                <p class="memory-hint mt-3"><?= Html::a('查看这场比赛', ['/wc-match/view', 'id' => $card['match_id']]) ?> · <?= Html::a('查看球队旅程', ['/journey/view', 'team_id' => $card['team_id']]) ?></p>
+                <p class="memory-hint mt-3"><?= Html::a('查看这场比赛', ['/wc-match/view', 'id' => $card['match_id'], 'team_id' => $card['team_id']]) ?> · <?= Html::a('查看球队比赛历程', ['/journey/view', 'team_id' => $card['team_id']]) ?></p>
             <?php else: ?>
                 <div class="memory-placeholder"><h2>纪念卡预览</h2><p><?= $teams === [] ? '暂无可选球队和比赛数据' : '确认球队和比赛后，这里会显示纪念卡预览' ?></p></div>
             <?php endif ?>

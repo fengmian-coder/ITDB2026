@@ -230,6 +230,24 @@ try {
     $check($request($guest, 'wc-match/index')[0] === 200, 'public match list');
     $check($request($guest, 'wc-match/view&id=' . $m2)[0] === 200, 'public match detail');
     $check($request($guest, 'journey/view&team_id=' . $home)[0] === 200, 'journey real matches');
+    $journeyHtml = html_entity_decode($request($guest, 'journey/view&team_id=' . $away)[1], ENT_QUOTES, 'UTF-8');
+    $check(str_contains($journeyHtml, 'id=' . $m2 . '&team_id=' . $away), 'journey passes selected away team');
+    [$contextStatus, $contextHtml] = $request($guest, 'wc-match/view&id=' . $m2 . '&team_id=' . $away);
+    $check($contextStatus === 200 && str_contains($contextHtml, '返回球队比赛历程'), 'contextual match returns to journey');
+    $contextHtml = html_entity_decode($contextHtml, ENT_QUOTES, 'UTF-8');
+    $check(str_contains($contextHtml, 'r=memory%2Fcard&team_id=' . $away . '&match_id=' . $m2), 'away team retained in memory link');
+    $plainHtml = html_entity_decode($request($guest, 'wc-match/view&id=' . $m2)[1], ENT_QUOTES, 'UTF-8');
+    foreach ([$home, $away] as $choice) {
+        $check(str_contains($plainHtml, 'r=memory%2Fcard&team_id=' . $choice . '&match_id=' . $m2), 'direct match offers team choice');
+    }
+    foreach (['0', '-1', '1.5', '%5B%5D=1', '999999'] as $invalidTeam) {
+        $query = $invalidTeam === '%5B%5D=1' ? 'team_id%5B%5D=1' : 'team_id=' . $invalidTeam;
+        $check($request($guest, 'wc-match/view&id=' . $m2 . '&' . $query)[0] === 400, 'invalid or unrelated context team rejected');
+    }
+    $memoryHtml = $request($guest, 'memory/card&team_id=' . $away . '&match_id=' . $m2)[1];
+    preg_match('/<script id="memory-data" type="application\/json">(.*?)<\/script>/s', $memoryHtml, $memoryMatch);
+    $memoryData = json_decode($memoryMatch[1] ?? '', true, 512, JSON_THROW_ON_ERROR);
+    $check((string) $memoryData['team_id'] === (string) $away, 'memory editor preselects journey away team');
     $check($request($guest, 'wc-match/view&id=0')[0] === 400, 'invalid match 400');
     $check($request($guest, 'wc-match/view&id=999999')[0] === 404, 'absent match 404');
     $check($request($guest, 'api/insights&chart=stage-goals')[0] === 200, 'stage API real database');
@@ -300,7 +318,7 @@ try {
     $check($request($guest, 'national-team/compare&right_id=999999')[0] === 404, 'PK missing partial participant 404');
     [$status, $html] = $request($guest, 'insight/index');
     $check($status === 200 && str_contains($html, 'id="ranking-chart"')
-        && !str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="stages-chart"'), 'overview separates tournament charts from team comparison');
+        && !str_contains($html, 'id="compare-chart"') && str_contains($html, 'id="match-calendar"'), 'overview separates tournament charts from team comparison');
     $check(str_contains($html, 'id="scatter-team-link"') && str_contains($html, 'id="scatter-compare-link"'), 'overview connects selected team to profile and comparison');
     $check(str_contains($html, 'vendor/echarts/echarts.min.js') && str_contains($html, 'js/insight-charts.js'), 'single local chart library registered');
     $extractChartData = static function (string $html): array {
@@ -311,7 +329,18 @@ try {
     $check(array_column($chartData['ranking'], 'team_id') === [$home, $away], 'chart seed uses complete C ranking');
     $check($chartData['ranking'][0]['goals_for'] === 3 && $chartData['ranking'][0]['draws'] === 1
         && $chartData['ranking'][0]['penalty_wins'] === 1, 'chart data separates extra time and penalties');
-    $check($chartData['stages'] === $summary, 'chart stages equal B service');
+    $calendar = $service->getMatchCalendar();
+    $check($chartData['calendar'] === $calendar, 'calendar SSR equals service');
+    $calendarDays = array_column($calendar['days'], null, 'date');
+    $check($calendarDays['2026-06-12']['match_count'] === 3 && $calendarDays['2026-06-12']['finished_match_count'] === 2, 'calendar uses Beijing date and excludes cancellation');
+    $check($calendarDays['2026-06-12']['total_goals'] === 5, 'calendar extra time counted once and penalties excluded');
+    $check($calendarDays['2026-06-01']['match_count'] === 0 && $calendarDays['2026-06-01']['total_goals'] === null, 'calendar fills empty dates');
+    [$calendarStatus, $calendarJson] = $request($guest, 'api/insights&chart=match-calendar');
+    $check($calendarStatus === 200 && json_decode($calendarJson, true)['data'] === $calendar, 'calendar API matches SSR');
+    $db->createCommand()->update('wc_match', ['kickoff_utc' => '2026-06-11 15:59:00'], ['id' => $m1])->execute();
+    $boundaryDays = array_column($service->getMatchCalendar()['days'], null, 'date');
+    $check($boundaryDays['2026-06-11']['match_count'] === 1 && $boundaryDays['2026-06-12']['match_count'] === 2, 'calendar splits correctly at Beijing midnight');
+    $db->createCommand()->update('wc_match', ['kickoff_utc' => $base['kickoff_utc']], ['id' => $m1])->execute();
     $check(str_contains($html, 'id="flow-chart"') && str_contains($html, 'id="scatter-chart"'), 'flow and scatter chart containers');
     $flowService = new app\services\JourneyFlowService();
     $flow = $flowService->getFlow();
@@ -480,10 +509,10 @@ try {
     $emptyCharts = $extractChartData($html);
     $check($status === 200 && array_sum(array_column($emptyCharts['ranking'], 'matches_played')) === 0,
         'charts keep real zero counts when no finished matches');
-    $check($emptyCharts['stages'][0]['total_goals'] === null, 'SSR seed keeps no-finished null');
+    $check(array_column($emptyCharts['calendar']['days'], null, 'date')['2026-06-12']['total_goals'] === null, 'SSR seed keeps no-finished null');
     $db->createCommand()->update('wc_match', ['status' => 'CANCELLED'], ['match_no' => 4])->execute();
     $emptyCharts = $extractChartData($request($guest, 'insight/index')[1]);
-    $check($emptyCharts['stages'] === [], 'cancelled-only schedule produces empty stage data');
+    $check($emptyCharts['calendar']['days'] === [], 'cancelled-only schedule produces empty stage data');
     $check(count($emptyCharts['flow']['links']) === 1 && $emptyCharts['flow']['links'][0]['target'] === 'pending:entry', 'cancelled matches excluded from flow');
     $db->createCommand()->update('wc_match', ['status' => 'SCHEDULED'], ['match_no' => 4])->execute();
     foreach ($savedMatches as $savedMatch) {
