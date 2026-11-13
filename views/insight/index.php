@@ -14,7 +14,7 @@ use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var array $ranking */
-/** @var array $stages */
+/** @var array $calendar */
 /** @var array $flow */
 InsightAsset::register($this);
 $this->title = '世界杯数据 | WorldCup Journey';
@@ -26,10 +26,11 @@ foreach ($ranking as $team) {
     $teamOptions[$team['team_id']] = $team['team_name'] . ' · ' . $team['fifa_code'];
 }
 $seed = [
-    'ranking' => $ranking, 'stages' => $stages, 'flow' => $flow,
+    'ranking' => $ranking, 'calendar' => $calendar, 'flow' => $flow,
     'stageLabels' => $stageLabels,
     'rankingUrl' => Url::to(['/api/insights', 'chart' => 'scoring-ranking']),
-    'stagesUrl' => Url::to(['/api/insights', 'chart' => 'stage-goals']),
+    'calendarUrl' => Url::to(['/api/insights', 'chart' => 'match-calendar']),
+    'matchUrl' => Url::to(['/wc-match/view']),
     'flowUrl' => Url::to(['/api/insights', 'chart' => 'journey-flow']),
     'teamUrl' => Url::to(['/national-team/view']),
     'compareUrl' => Url::to(['/national-team/compare']),
@@ -50,7 +51,7 @@ $seed = [
             <a href="#flow-title">晋级流向 <span aria-hidden="true">→</span></a>
             <a href="#ranking-title">进球排名 <span aria-hidden="true">→</span></a>
             <a href="#scatter-title">攻防表现 <span aria-hidden="true">→</span></a>
-            <a href="#stages-title">赛事进程 <span aria-hidden="true">→</span></a>
+            <a href="#calendar-title">比赛日历 <span aria-hidden="true">→</span></a>
         </nav>
     </header>
     <noscript><p class="alert alert-info">启用 JavaScript 后可查看和刷新图表。下方数据表可以直接阅读</p></noscript>
@@ -119,34 +120,15 @@ $seed = [
                     <div class="d-flex gap-3 flex-wrap">
                     <?= Html::a('查看球队', ['/national-team/view'], ['id' => 'scatter-team-link', 'class' => 'small', 'hidden' => true]) ?>
                     <?= Html::a('比较这支球队', ['/national-team/compare'], ['id' => 'scatter-compare-link', 'class' => 'small', 'hidden' => true]) ?>
-                    <?= Html::a('查看球队完整旅程', ['/journey/view'], ['id' => 'scatter-journey-link', 'class' => 'small', 'hidden' => true]) ?>
+                    <?= Html::a('查看比赛历程', ['/journey/view'], ['id' => 'scatter-journey-link', 'class' => 'btn btn-sm btn-primary', 'hidden' => true]) ?>
                     </div>
                 </div>
                 <p class="small text-body-secondary mt-2 mb-0">完整数值可在进球排名数据表中查阅，场均数据仅展示有完赛记录的球队</p>
             </section>
-            <section class="stats-panel stages-panel" aria-labelledby="stages-title">
-                <div class="d-flex flex-wrap justify-content-between gap-2 align-items-center">
-                    <h2 class="h4 mb-0" id="stages-title">阶段场次与进球</h2>
-                    <p class="small text-body-secondary mb-0">从小组赛到决赛 · 柱状图为场次，折线为进球</p>
-                </div>
-                <p class="chart-status small text-body-secondary mt-2" id="stages-status" role="status" aria-live="polite"></p>
-                <div class="stats-chart" id="stages-chart" aria-label="各比赛阶段有效场次、完赛场次及进球图"></div>
-                <details><summary>查看阶段数据表</summary>
-                    <div class="table-responsive"><table class="table table-sm">
-                        <caption>有效场次包含未完赛赛程，进球仅统计已完赛比赛</caption>
-                        <thead><tr><th scope="col">阶段</th><th scope="col">有效场次</th><th scope="col">已完赛</th><th scope="col">进球</th></tr></thead>
-                        <tbody id="stages-table">
-                            <?php foreach ($stages as $stage): ?>
-                                <tr><td><?= Html::encode($stageLabels[$stage['stage_code']] ?? $stage['stage_code']) ?></td><td><?= (int) $stage['match_count'] ?></td><td><?= (int) $stage['finished_match_count'] ?></td><td><?= $stage['total_goals'] === null ? '暂无' : (int) $stage['total_goals'] ?></td></tr>
-                            <?php endforeach; ?>
-                            <?php if ($stages === []): ?><tr><td colspan="4">暂无有效赛程数据</td></tr><?php endif; ?>
-                        </tbody>
-                    </table></div>
-                </details>
-            </section>
+    <?= $this->render('_calendar', ['calendar' => $calendar]) ?>
     </div>
     <details class="insight-method mt-4"><summary>统计口径</summary>
-        <p class="small text-body-secondary mt-2">数据取自当前数据库中的 2026 届已完赛记录。120 分钟比分为累计值，点球大战不计入进球。阶段场次排除取消比赛，无完赛记录的阶段进球显示“暂无”</p>
+        <p class="small text-body-secondary mt-2">数据取自当前数据库中的 2026 届已完赛记录。120 分钟比分为累计值，点球大战不计入进球。日历按北京时间归日并排除取消比赛，无完赛记录的日期进球显示“暂无”</p>
     </details>
 </div>
 <script type="application/json" id="insight-data"><?= Json::htmlEncode($seed) ?></script>

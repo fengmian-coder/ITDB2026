@@ -25,7 +25,8 @@ foreach ($teams as $option) {
 }
 
 $this->title = $team['name_zh'] . '的世界杯之旅 | WorldCup Journey';
-$this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
+$this->params['breadcrumbs'][] = ['label' => '球队列表', 'url' => ['/national-team/index']];
+$this->params['breadcrumbs'][] = ['label' => $team['name_zh'], 'url' => ['/national-team/view', 'id' => $team['id']]];
 $this->params['breadcrumbs'][] = '球队比赛历程';
 $this->params['meta_description'] = '按时间浏览球队的 2026 世界杯赛程、比分、晋级结果和精选比赛故事';
 
@@ -82,11 +83,13 @@ CSS, [], 'journey-view');
         <p class="journey-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / 2026</p>
         <div class="mb-3"><?= \app\components\TeamFlag::render($team['fifa_code'], $team['name_zh'], $team['flag_path'] ?? null, 'lg') ?></div>
         <h1 class="display-6 fw-bold mb-3"><?= Html::encode($team['name_zh']) ?>的世界杯之旅</h1>
+        <?= Html::a('← 返回球队详情', ['/national-team/view', 'id' => $team['id']], ['class' => 'btn btn-outline-light btn-sm mb-3']) ?>
         <p class="mb-3"><?= Html::encode($team['fifa_code'] . ' · ' . $team['group_code'] . ' 组') ?>
             · 最终成绩 <?= Html::encode($finalResultLabels[$team['final_result_code']] ?? '暂无记录') ?></p>
         <p class="mb-0 opacity-75">从开场到终场，沿着时间回看每一场比赛。所有时间均为北京时间</p>
     </header>
 
+    <?= $this->render('_map', ['map' => $map, 'team' => $team]) ?>
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="journey-search-title">
         <div class="card-body p-3 p-md-4">
             <h2 id="journey-search-title" class="h6 fw-bold mb-3">查看球队历程</h2>
@@ -126,7 +129,7 @@ CSS, [], 'journey-view');
                     $kickoff = $beijingTime($item['kickoff_utc']);
                     $opponent = $item['opponent'];
                     $hasScore = $item['goals_for'] !== null && $item['goals_against'] !== null;
-                    $detailUrl = Url::to(['/wc-match/view', 'id' => $item['match_id']]);
+                    $detailUrl = Url::to(['/wc-match/view', 'id' => $item['match_id'], 'team_id' => $team['id']]);
                     ?>
                     <li class="journey-step">
                         <div class="row g-3">
@@ -185,7 +188,7 @@ CSS, [], 'journey-view');
                                                 <?= Html::a('比赛详情 →', $detailUrl, ['class' => 'small fw-semibold',
                                                     'aria-label' => '查看比赛 #' . $item['match_no'] . ' 详情']) ?>
                                                 <?php if ($item['is_featured']): ?>
-                                                    <?= Html::a('阅读精选故事', ['/wc-match/view', 'id' => $item['match_id'], '#' => 'match-story-title'], ['class' => 'small']) ?>
+                                                    <?= Html::a('阅读精选故事', ['/wc-match/view', 'id' => $item['match_id'], 'team_id' => $team['id'], '#' => 'match-story-title'], ['class' => 'small']) ?>
                                                 <?php endif ?>
                                             </div>
                                         </div>

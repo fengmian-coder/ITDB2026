@@ -2,10 +2,15 @@
 (() => {
     'use strict';
     const teamSelect = document.getElementById('memory-team');
-    if (teamSelect) {
+    const matchSelect = document.getElementById('memory-match');
+    const selectionForm = document.getElementById('memory-selection');
+    if (teamSelect && matchSelect && selectionForm) {
         teamSelect.addEventListener('change', () => {
-            document.getElementById('memory-match').value = '';
+            // 新球队先刷新其比赛选项，避免提交上一支球队的比赛 ID。
+            matchSelect.value = '';
+            selectionForm.requestSubmit();
         });
+        matchSelect.addEventListener('change', () => selectionForm.requestSubmit());
     }
     const canvas = document.getElementById('memory-canvas');
     const dataElement = document.getElementById('memory-data');

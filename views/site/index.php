@@ -19,7 +19,7 @@ $this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::
             <h1>每支球队，都有自己的世界杯旅程</h1>
             <p class="wc-hero-description">查看球队与比赛信息，制作自己的世界杯纪念卡</p>
             <div class="wc-hero-actions">
-                <?= Html::a('探索球队 →', ['/site/explore'], ['class' => 'btn wc-hero-button']) ?>
+                <?= Html::a('选择球队，开始旅程 →', ['/site/explore'], ['class' => 'btn wc-hero-button']) ?>
                 <?= Html::a('探索比赛 →', ['/wc-match/index'], ['class' => 'btn wc-hero-secondary']) ?>
             </div>
         </div>
@@ -67,9 +67,5 @@ $this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::
                 <div class="wc-card-example-footer"><p class="wc-card-signature">WorldCup Journey · 2026</p><?= Html::a('比赛与图片来源：FIFA', 'https://inside.fifa.com/organisation/news/spain-crowned-world-cup-2026-champions-new-york-new-jersey', ['class' => 'wc-example-source', 'target' => '_blank', 'rel' => 'noopener noreferrer']) ?></div>
             </div>
         </div>
-    </section>
-    <section class="wc-home-links wc-home-inner" aria-label="更多入口">
-        <div><p>认识网站背后的伙伴，或留下你的观赛感想</p></div>
-        <div class="d-flex gap-3 flex-wrap"><?= Html::a('关于我们', ['/project-team/index']) ?><?= Html::a('球迷留言', ['/guestbook/index']) ?><?= Html::a('课程作业下载', ['/document/index']) ?></div>
     </section>
 </div>

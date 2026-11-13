@@ -64,6 +64,7 @@ class JourneyController extends Controller
             'teamId' => $teamId,
             'journey' => $journey,
             'team' => $team,
+            'map' => (new \app\services\JourneyMapService())->build($journey),
             'teams' => $this->teamDirectoryService->getTeams(true),
         ]);
     }

@@ -42,18 +42,6 @@ $items = [
         'url' => ['/memory/card'],
     ],
     [
-        'label' => '球迷留言',
-        'url' => ['/guestbook/index'],
-    ],
-    [
-        'label' => '关于我们',
-        'url' => ['/project-team/index'],
-    ],
-    [
-        'label' => '作业下载',
-        'url' => ['/document/index'],
-    ],
-    [
         'label' => '后台管理',
         'url' => ['/admin-dashboard/index'],
         'visible' => !Yii::$app->user->isGuest,

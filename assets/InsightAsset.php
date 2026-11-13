@@ -14,6 +14,6 @@ class InsightAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $js = ['vendor/echarts/echarts.min.js', 'js/insight-charts.js'];
+    public $js = ['vendor/echarts/echarts.min.js', 'js/insight-charts.js', 'js/match-calendar.js'];
     public $depends = [TeamStatsAsset::class];
 }
