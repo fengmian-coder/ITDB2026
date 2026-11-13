@@ -3,7 +3,7 @@
  * WorldCup Journey - 本地一键还原入口
  * 模块：C 数据库与 D 部署；负责人：C/D，B 协助实现
  * 依赖：DatabaseSetupService、MatchDataImportService、A 的 project/init
- * 最近修改：2026-11-11
+ * 最近修改：2026-11-13
  */
 declare(strict_types=1);
 
@@ -36,6 +36,7 @@ class DeployController extends Controller
                 return ExitCode::DATAERR;
             }
             $this->registerDocuments();
+            $this->registerDocuments('b-documents-manifest.json');
             if (!AdminUser::find()->exists() && Yii::$app->runAction('admin/create', ['wcj_admin']) !== ExitCode::OK) {
                 return ExitCode::DATAERR;
             }
@@ -51,10 +52,10 @@ class DeployController extends Controller
     }
 
     /** 按 A 的资料清单定位成员，避免假定任何数据库内部 ID。 */
-    private function registerDocuments(): void
+    private function registerDocuments(string $manifest = 'a-documents-manifest.json'): void
     {
         $profiles = json_decode(file_get_contents(Yii::getAlias('@app/data/project-members.json')), true, 512, JSON_THROW_ON_ERROR);
-        $bundle = json_decode(file_get_contents(Yii::getAlias('@app/data/a-documents-manifest.json')), true, 512, JSON_THROW_ON_ERROR);
+        $bundle = json_decode(file_get_contents(Yii::getAlias('@app/data/' . $manifest)), true, 512, JSON_THROW_ON_ERROR);
         $owners = array_values(array_filter($profiles, static fn ($row) => $row['code'] === $bundle['personal_owner']));
         if ((int) ProjectTeam::find()->count() !== 1 || count($owners) !== 1) {
             $this->stdout("请按现有团队归属运行 project/register-bundle 登记课程文件。\n");
@@ -67,7 +68,7 @@ class DeployController extends Controller
             $this->stdout("请按现有成员归属运行 project/register-bundle 登记课程文件。\n");
             return;
         }
-        if (Yii::$app->runAction('project/register-bundle', [(int) $team->id, (int) $members[0]->id]) !== ExitCode::OK) {
+        if (Yii::$app->runAction('project/register-bundle', [(int) $team->id, (int) $members[0]->id, $manifest]) !== ExitCode::OK) {
             throw new \RuntimeException('课程文件登记失败。');
         }
     }

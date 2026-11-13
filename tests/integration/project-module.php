@@ -158,6 +158,13 @@ try {
     $document = ProjectDocument::findOne(['title' => $marker . '_file']);
     $uploadedDocumentId = $document?->id;
     $check($uploaded['status'] === 303 && $document !== null, '管理员可以上传课程文件');
+    $sectionContains = static function (string $html, string $section, string $title): bool {
+        preg_match('~<section id="' . $section . '-documents"[^>]*>(.*?)</section>~s', $html, $match);
+        return str_contains($match[1] ?? '', htmlspecialchars($title, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+    };
+    $downloads = $request('document/index');
+    $check($downloads['status'] === 200 && $sectionContains($downloads['body'], 'team', $marker . '_file'), '团队上传文件展示在团队栏目');
+    $check(!$sectionContains($downloads['body'], 'personal', $marker . '_file'), '团队文件不混入个人栏目');
     $storage = new DocumentStorageService();
     $uploadPaths[] = $storage->resolve($document);
     $check(preg_match('~\Ateam/[a-f0-9]{32}\.txt\z~', $document->relative_path) === 1, '随机存储名称且忽略客户端路径');
@@ -177,6 +184,9 @@ try {
     $uploadPaths[] = $storage->resolve($document);
     $check($converted['status'] === 303 && str_starts_with($document->relative_path, 'personal/')
         && !is_file($uploadPaths[0]), '改变作业类型时同步迁移到对应受控目录');
+    $downloads = $request('document/index');
+    $check($sectionContains($downloads['body'], 'personal', $marker . '_file'), '个人文件展示在个人栏目');
+    $check(!$sectionContains($downloads['body'], 'team', $marker . '_file'), '分类修改后原栏目同步移除');
     $realRelativePath = $document->relative_path;
     $document->updateAttributes(['relative_path' => '../config/db.local.php']);
     $check($request('document/download&id=' . $document->id)['status'] === 404, '数据库中的越界路径同样不能下载');

@@ -3,7 +3,7 @@
  * WorldCup Journey - 初始化可在后台编辑的课程团队资料。
  * 模块：A 团队资料；负责人：A。
  * 依赖：ProjectTeam、ProjectMember、C 的 15 表结构。
- * 最近修改：2026-11-10。
+ * 最近修改：2026-11-13，B 协助接入个人作业资料包。
  */
 declare(strict_types=1);
 
@@ -22,9 +22,12 @@ use yii\web\UploadedFile;
 class ProjectController extends Controller
 {
     /** 在其他成员电脑上登记仓库自带的课程文件；不依赖本机数据库 ID。 */
-    public function actionRegisterBundle(int $teamId, int $memberId): int
+    public function actionRegisterBundle(int $teamId, int $memberId, string $manifest = 'a-documents-manifest.json'): int
     {
-        $bundleFile = Yii::getAlias('@app/data/a-documents-manifest.json');
+        if (!in_array($manifest, ['a-documents-manifest.json', 'b-documents-manifest.json'], true)) {
+            throw new RuntimeException('不支持的课程资料清单。');
+        }
+        $bundleFile = Yii::getAlias('@app/data/' . $manifest);
         $bundle = json_decode(file_get_contents($bundleFile), true, 512, JSON_THROW_ON_ERROR);
         Yii::$app->db->transaction(static function () use ($bundle, $teamId, $memberId): void {
             foreach ($bundle['documents'] as $entry) {
@@ -39,7 +42,7 @@ class ProjectController extends Controller
                     'file_size' => $entry['file_size'],
                 ]);
                 if (!$document->validate(['project_team_id', 'member_id', 'document_type', 'title'])) {
-                    throw new RuntimeException('资料归属校验失败，请核对团队及 A 的成员编号。');
+                    throw new RuntimeException('资料归属校验失败，请核对团队及资料所属成员编号。');
                 }
                 $path = (new DocumentStorageService())->resolve($document);
                 if (!hash_equals($entry['sha256'], hash_file('sha256', $path)) || filesize($path) !== $entry['file_size']) {
