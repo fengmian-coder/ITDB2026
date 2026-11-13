@@ -71,7 +71,7 @@ try {
     $pdo->exec('USE `' . $name . '`');
     $check(count($pdo->query('SHOW TABLES')->fetchAll()) === 15, '15 C tables restored');
     foreach (['national_team' => 48, 'tournament_team' => 48, 'wc_match' => 104, 'match_story' => 8,
-        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 6] as $table => $count) {
+        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 9] as $table => $count) {
         $check((int) $pdo->query('SELECT COUNT(*) FROM ' . $table)->fetchColumn() === $count, 'deployment row count ' . $table);
     }
     $check((int) $pdo->query('SELECT COUNT(*) FROM tournament_team WHERE final_result_code IS NULL')->fetchColumn() === 0, 'final results restored');

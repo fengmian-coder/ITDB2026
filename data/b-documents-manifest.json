@@ -1,0 +1,30 @@
+{
+    "format_version": 1,
+    "personal_owner": "B",
+    "documents": [
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业1：胡乐妍",
+            "relative_path": "personal/00b50803dd845f57eac108ccfdf399e4.zip",
+            "original_name": "作业1(2413272_胡乐妍).zip",
+            "file_size": 3239971,
+            "sha256": "00b50803dd845f57eac108ccfdf399e4b475a665739d58d215a219f98950e7a4"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业2：胡乐妍",
+            "relative_path": "personal/d89b77992a3d56a73451833d2090c53c.zip",
+            "original_name": "作业2(2413272_胡乐妍).zip",
+            "file_size": 93467383,
+            "sha256": "d89b77992a3d56a73451833d2090c53cc45ea1c132471d21e878efe73fdb0158"
+        },
+        {
+            "document_type": "PERSONAL",
+            "title": "个人作业3：胡乐妍",
+            "relative_path": "personal/c5c6a7fbd5f6434bcf28b5dd4dc625b3.zip",
+            "original_name": "作业3(2413272_胡乐妍).zip",
+            "file_size": 4160364,
+            "sha256": "c5c6a7fbd5f6434bcf28b5dd4dc625b3d1ec859df28e3116b3c52ef70900b607"
+        }
+    ]
+}

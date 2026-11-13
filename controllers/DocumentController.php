@@ -3,7 +3,7 @@
  * WorldCup Journey - 公开作业列表及受控附件下载。
  * 模块：A 作业下载；负责人：A。
  * 依赖：ProjectDocument、DocumentStorageService。
- * 最近修改：2026-11-10。
+ * 最近修改：2026-11-13，B 协助拆分团队及个人作业栏目。
  */
 declare(strict_types=1);
 namespace app\controllers;
@@ -27,11 +27,15 @@ class DocumentController extends Controller
 
     public function actionIndex(): string
     {
-        $provider = new ActiveDataProvider([
-            'query' => ProjectDocument::find()->with(['projectTeam', 'member'])->orderBy(['uploaded_at' => SORT_DESC, 'id' => SORT_DESC]),
-            'pagination' => ['pageSize' => 20],
-        ]);
-        return $this->render('index', compact('provider'));
+        $providers = [];
+        foreach (['TEAM' => 'team-page', 'PERSONAL' => 'personal-page'] as $type => $pageParam) {
+            $providers[$type] = new ActiveDataProvider([
+                'query' => ProjectDocument::find()->where(['document_type' => $type])
+                    ->with(['projectTeam', 'member'])->orderBy(['uploaded_at' => SORT_DESC, 'id' => SORT_DESC]),
+                'pagination' => ['pageSize' => 20, 'pageParam' => $pageParam, 'pageSizeParam' => false],
+            ]);
+        }
+        return $this->render('index', compact('providers'));
     }
 
     public function actionDownload(mixed $id): Response
