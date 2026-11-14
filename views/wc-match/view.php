@@ -135,6 +135,9 @@ CSS, [], 'wc-match-view');
         <?php endif ?>
     </div>
 
+    <?php if ($story !== null): ?>
+        <?= $this->render('_momentum', ['momentum' => $momentum, 'match' => $match]) ?>
+    <?php endif ?>
     <section class="mb-4" aria-labelledby="match-scores-title">
         <h2 id="match-scores-title" class="h5 fw-bold mb-3">比分记录</h2>
         <div class="row g-3">

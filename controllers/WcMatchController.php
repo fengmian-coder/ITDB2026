@@ -85,7 +85,11 @@ class WcMatchController extends Controller
             throw new BadRequestHttpException('所选球队未参加这场比赛');
         }
 
-        return $this->render('view', ['match' => $match, 'contextTeamId' => $contextTeamId]);
+        return $this->render('view', [
+            'match' => $match,
+            'contextTeamId' => $contextTeamId,
+            'momentum' => (new \app\services\MatchMomentumService())->build($match),
+        ]);
     }
 
     /** Service 接收 int；超出 PHP 整数范围的 ID 返回 400，不能截断后查询另一场比赛。 */
