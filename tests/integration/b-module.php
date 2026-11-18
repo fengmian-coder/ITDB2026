@@ -726,18 +726,51 @@ try {
     $memory = new app\services\MemoryCardService();
     [$homeStatus, $homeHtml] = $request($guest, 'site/index');
     $check($homeStatus === 200
-        && preg_match('~<header id="header">.*?<a\b[^>]*href="[^"]*r=document%2Findex"[^>]*>课程作业下载</a>.*?</header>~s', $homeHtml) === 1
-        && !str_contains($homeHtml, '课程作业下载 →'),
-        'assignment download appears in the main navigation without a hero button');
-    [$downloadStatus, $downloadHtml] = $request($guest, 'document/index');
-    $check($downloadStatus === 200 && str_contains($downloadHtml, 'id="team-documents"')
-        && str_contains($downloadHtml, 'id="personal-documents"')
-        && $activeNavigation($downloadHtml) === ['课程作业下载'], 'assignment navigation opens both categories and is active');
-    $check(preg_match('~<header id="header">.*?<a\b[^>]*href="[^"]*r=project-team%2Findex"[^>]*>团队介绍</a>~s', $homeHtml) === 1,
-        'main navigation exposes the team introduction');
+        && !str_contains($homeHtml, '>课程作业下载</a>') && !str_contains($homeHtml, '>作业下载</a>'),
+        'assignment entries are consolidated into about navigation');
+    $check($request($guest, 'document/index')[0] === 302
+        && str_contains((string) curl_getinfo($guest, CURLINFO_REDIRECT_URL), 'r=project-team%2Findex'),
+        'legacy assignment directory redirects to about');
+    $check(preg_match('~<header id="header">.*?<a\b[^>]*href="[^"]*r=project-team%2Findex"[^>]*>关于我们</a>~s', $homeHtml) === 1,
+        'main navigation exposes about');
     [$teamPageStatus, $teamPageHtml] = $request($guest, 'project-team/index');
-    $check($teamPageStatus === 200 && str_contains($teamPageHtml, '<h1>团队介绍</h1>')
-        && $activeNavigation($teamPageHtml) === ['团队介绍'], 'team introduction opens and its menu item is active');
+    $check($teamPageStatus === 200 && str_contains($teamPageHtml, '<h1>关于我们</h1>')
+        && $activeNavigation($teamPageHtml) === ['关于我们'], 'about opens and its menu item is active');
+    // Only the isolated test database receives these assignment fixtures.
+    $project = $insert('project_team', ['name' => 'TEST ONLY project']);
+    $otherProject = $insert('project_team', ['name' => 'TEST ONLY other project']);
+    $memberA = $insert('project_member', ['project_team_id' => $project, 'display_name' => 'TEST MEMBER A', 'role_title' => 'Frontend']);
+    $memberB = $insert('project_member', ['project_team_id' => $project, 'display_name' => 'TEST MEMBER B', 'role_title' => 'Matches']);
+    $emptyMember = $insert('project_member', ['project_team_id' => $project, 'display_name' => 'TEST EMPTY MEMBER', 'role_title' => 'Database']);
+    $assignmentBase = ['project_team_id' => $project, 'relative_path' => 'personal/' . str_repeat('a', 32) . '.txt', 'original_name' => 'test.txt', 'file_size' => 12];
+    $personalA = $insert('project_document', array_replace($assignmentBase, ['member_id' => $memberA, 'document_type' => 'PERSONAL', 'title' => 'ONLY_A_<script>assignment</script>']));
+    foreach ([10, 2, 1] as $assignmentNumber) {
+        $insert('project_document', array_replace($assignmentBase, ['member_id' => $memberA, 'document_type' => 'PERSONAL', 'title' => '个人作业' . $assignmentNumber]));
+    }
+    $insert('project_document', array_replace($assignmentBase, ['member_id' => $memberB, 'document_type' => 'PERSONAL', 'title' => 'ONLY_B_ASSIGNMENT']));
+    $insert('project_document', array_replace($assignmentBase, ['project_team_id' => $otherProject, 'member_id' => $memberA, 'document_type' => 'PERSONAL', 'title' => 'WRONG_TEAM_ASSIGNMENT']));
+    $insert('project_document', array_replace($assignmentBase, ['document_type' => 'TEAM', 'relative_path' => 'team/' . str_repeat('b', 32) . '.txt', 'title' => 'SHARED_TEAM_ASSIGNMENT']));
+    [$aboutStatus, $aboutHtml] = $request($guest, 'project-team/index');
+    $check($aboutStatus === 200 && str_contains($aboutHtml, '点击成员卡片，查看并下载该成员的个人作业')
+        && str_contains($aboutHtml, 'r=project-team%2Fmember&amp;id=' . $memberA), 'about explains and links member cards');
+    $check(str_contains($aboutHtml, 'SHARED_TEAM_ASSIGNMENT') && !str_contains($aboutHtml, 'ONLY_A_')
+        && !str_contains($aboutHtml, 'ONLY_B_ASSIGNMENT') && !str_contains($aboutHtml, 'WRONG_TEAM_ASSIGNMENT'), 'about only lists shared assignments');
+    $check(!str_contains($aboutHtml, '查看比赛信息'), 'unrelated match call to action removed');
+    [$memberStatus, $memberHtml] = $request($guest, 'project-team/member&id=' . $memberA);
+    $check($memberStatus === 200 && str_contains($memberHtml, 'ONLY_A_&lt;script&gt;assignment&lt;/script&gt;')
+        && !str_contains($memberHtml, 'ONLY_A_<script>'), 'member assignment titles are encoded');
+    $check(strpos($memberHtml, '>作业 1</h3>') < strpos($memberHtml, '>作业 2</h3>')
+        && strpos($memberHtml, '>作业 2</h3>') < strpos($memberHtml, '>作业 10</h3>'), 'assignments sort naturally by number rather than upload time');
+    $check(!str_contains($memberHtml, 'ONLY_B_ASSIGNMENT') && !str_contains($memberHtml, 'SHARED_TEAM_ASSIGNMENT')
+        && !str_contains($memberHtml, 'WRONG_TEAM_ASSIGNMENT'), 'personal assignments respect member and team ownership');
+    $check(str_contains($memberHtml, 'r=document%2Fdownload&amp;id=' . $personalA)
+        && str_contains($memberHtml, '返回关于我们') && $activeNavigation($memberHtml) === ['关于我们'], 'member page retains downloads return link and active navigation');
+    $check(str_contains($request($guest, 'project-team/member&id=' . $emptyMember)[1], '个人作业待上传'), 'member with no assignments has an empty state');
+    foreach (['-1', '0', '99999999999999999999', '%3Cscript%3E', '%5B%5D'] as $invalidMember) {
+        $route = $invalidMember === '%5B%5D' ? 'project-team/member&id%5B%5D=1' : 'project-team/member&id=' . $invalidMember;
+        $check($request($guest, $route)[0] === 400, 'invalid member ID refused ' . $invalidMember);
+    }
+    $check($request($guest, 'project-team/member&id=999999999')[0] === 404, 'missing member returns 404');
     $check($request($guest, 'memory/card')[0] === 200, 'memory selection entry');
     $card = $memory->getEditor($home, $m2)['card'];
     $check($card['score'] === '2 : 2' && $card['penalties'] === '点球 4 : 3', 'memory score and penalties separated');

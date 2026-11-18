@@ -17,6 +17,7 @@ use RuntimeException;
 use Yii;
 use yii\console\Controller;
 use yii\console\ExitCode;
+use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
 class ProjectController extends Controller
@@ -31,9 +32,6 @@ class ProjectController extends Controller
         $bundle = json_decode(file_get_contents($bundleFile), true, 512, JSON_THROW_ON_ERROR);
         Yii::$app->db->transaction(static function () use ($bundle, $teamId, $memberId): void {
             foreach ($bundle['documents'] as $entry) {
-                if (ProjectDocument::find()->where(['relative_path' => $entry['relative_path']])->exists()) {
-                    continue;
-                }
                 $document = new ProjectDocument([
                     'project_team_id' => $teamId,
                     'member_id' => $entry['document_type'] === 'PERSONAL' ? $memberId : null,
@@ -48,12 +46,55 @@ class ProjectController extends Controller
                 if (!hash_equals($entry['sha256'], hash_file('sha256', $path)) || filesize($path) !== $entry['file_size']) {
                     throw new RuntimeException('资料文件校验失败，请检查仓库文件是否完整。');
                 }
+                $existing = ProjectDocument::findOne(['relative_path' => $entry['relative_path']]);
+                if ($existing !== null) {
+                    if ((int) $existing->project_team_id !== $teamId || $existing->document_type !== $document->document_type
+                        || (string) $existing->member_id !== (string) $document->member_id) {
+                        throw new RuntimeException('资料已登记于其他归属，请核对团队和成员。');
+                    }
+                    continue;
+                }
                 if (!$document->save(false)) {
                     throw new RuntimeException('资料记录登记失败。');
                 }
             }
+            // 仅替换清单列明、归属和元数据仍匹配的旧个人作业，原实体文件保留。
+            $superseded = [];
+            foreach ($bundle['superseded_documents'] ?? [] as $entry) {
+                foreach (ProjectDocument::find()->where([
+                    'project_team_id' => $teamId, 'member_id' => $memberId, 'document_type' => 'PERSONAL',
+                    'relative_path' => $entry['relative_path'], 'title' => $entry['title'],
+                    'original_name' => $entry['original_name'], 'file_size' => $entry['file_size'],
+                ])->all() as $oldDocument) {
+                    $superseded[$oldDocument->id] = $oldDocument;
+                }
+            }
+            if ($superseded !== []) {
+                $directory = Yii::$app->runtimePath . '/backups';
+                FileHelper::createDirectory($directory);
+                $backupDirectory = $directory . '/assignment-bundle-' . gmdate('Ymd-His') . '-' . bin2hex(random_bytes(4));
+                FileHelper::createDirectory($backupDirectory);
+                foreach ($superseded as $oldDocument) {
+                    $source = (new DocumentStorageService())->resolve($oldDocument);
+                    $destination = $backupDirectory . '/' . basename($oldDocument->relative_path);
+                    if (!copy($source, $destination) || hash_file('sha256', $source) !== hash_file('sha256', $destination)) {
+                        throw new RuntimeException('旧作业附件备份失败，本次替换已撤销。');
+                    }
+                }
+                $snapshot = ['operation' => 'replace-bundled-assignments', 'documents' => array_map(
+                    static fn (ProjectDocument $document): array => $document->getAttributes(), array_values($superseded))];
+                $backup = $backupDirectory . '/records.json';
+                if (file_put_contents($backup, json_encode($snapshot, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR), LOCK_EX) === false) {
+                    throw new RuntimeException('旧作业记录备份失败，本次替换已撤销。');
+                }
+                foreach ($superseded as $document) {
+                    if ($document->delete() !== 1) {
+                        throw new RuntimeException('旧作业记录替换失败，本次替换已撤销。');
+                    }
+                }
+            }
         });
-        $this->stdout("资料包登记完成，已有记录保持不变。\n");
+        $this->stdout("资料包登记完成，已按清单替换旧版个人作业，其他记录及原文件保留。\n");
         return ExitCode::OK;
     }
 

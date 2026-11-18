@@ -1,0 +1,53 @@
+/* Croatia editorial sample. Existing team pages retain their original layout. */
+.team-profile-feature .team-profile-intro { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
+.team-profile-feature .team-profile-about > p { font-size: 17px; line-height: 1.85; }
+.team-profile-feature .team-profile-about .project-eyebrow { font-size: 14px; }
+.team-profile-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 22px 0 0; }
+.team-profile-facts dt { color: var(--bs-secondary-color); font-size: 14px; font-weight: 400; margin-bottom: 8px; }
+.team-profile-facts dd { font-size: 20px; font-weight: 600; margin: 0; }
+.team-roster-counts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.team-roster-counts > span { display: inline-flex; align-items: center; gap: 16px; border: 1px solid var(--bs-border-color); padding: 6px 12px; border-radius: 6px; font-size: 15px; color: var(--bs-secondary-color); }
+.team-roster-counts strong { color: var(--bs-body-color); font-size: 18px; }
+.team-coach-with-photo { display: flex; align-items: center; gap: 22px; }
+.team-coach-with-photo > div { min-width: 0; }
+.team-coach-with-photo h3 { font-size: 25px; margin-bottom: 10px; }
+.team-coach-with-photo > div > p:last-child { font-size: 15px; color: var(--bs-secondary-color); line-height: 1.8; }
+.team-person-photo { margin: 0; position: relative; background: var(--bs-tertiary-bg); }
+.team-person-photo > img { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; object-position: center top; }
+.team-person-photo figcaption { position: absolute; right: 10px; bottom: 10px; }
+.team-person-photo figcaption a { display: inline-block; padding: 3px 8px; background: #152c26d9; color: #fff; border-radius: 4px; font-size: 12px; text-decoration: none; }
+.team-person-photo figcaption a:hover { text-decoration: underline; }
+.team-coach-photo { width: 120px; height: 170px; flex: 0 0 120px; border-radius: 8px; overflow: hidden; }
+.team-coach-photo > img { height: 170px; transform: scale(1.5); transform-origin: center top; }
+.team-coach-photo figcaption { right: 6px; bottom: 6px; }
+.team-player-visual { padding: 0; overflow: hidden; }
+.team-player-copy { padding: 20px 24px 22px; }
+.team-player-copy h3 { font-size: 23px; line-height: 1.6; margin: 0 0 8px; }
+.team-player-copy .team-name-original { color: var(--bs-secondary-color); font-size: 14px; font-weight: 400; }
+.team-profile-feature .team-person-original { color: var(--bs-secondary-color); font-size: 14px; line-height: 1.6; margin: 4px 0 14px; }
+.team-player-copy .team-player-club { font-size: 16px; line-height: 1.7; margin-bottom: 10px; }
+.team-player-copy .team-player-caps { font-size: 15px; line-height: 1.7; }
+.team-roster { border: 1px solid var(--bs-border-color); border-radius: 10px; overflow: hidden; }
+.team-roster > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 8px 16px; padding: 20px 24px; background: var(--bs-tertiary-bg); }
+.team-roster > summary::-webkit-details-marker { display: none; }
+.team-roster > summary:focus-visible { outline: 3px solid #b08b36; outline-offset: -4px; }
+.team-roster > summary strong { font-size: 20px; font-weight: 600; }
+.team-roster-expand, .team-roster-collapse { font-size: 16px; color: #175b46; white-space: nowrap; }
+.team-roster-collapse, .team-roster[open] .team-roster-expand { display: none; }
+.team-roster[open] .team-roster-collapse { display: inline; }
+.team-roster-body { padding: 16px 24px 24px; }
+.team-roster-original { color: var(--bs-secondary-color); font-size: 14px; line-height: 1.7; font-weight: 400; }
+.team-roster .table-responsive { overflow-y: hidden; }
+.team-roster-table { font-size: 16px; table-layout: fixed; width: 100%; }
+.team-roster-table th, .team-roster-table td { overflow-wrap: anywhere; }
+.team-roster-table thead th:first-child { width: 90px; }
+.team-roster-table > :not(caption) > * > * { padding: 12px 16px; vertical-align: middle; }
+.team-roster-table thead th { font-weight: 600; color: var(--bs-secondary-color); font-size: 14px; }
+.team-roster-table tbody th[scope="row"] { font-weight: 500; }
+.team-roster-table .team-roster-group > th { background: #edf4e9; color: #326444; font-weight: 600; font-size: 15px; }
+.team-roster-number { width: 90px; color: var(--bs-secondary-color); font-variant-numeric: tabular-nums; }
+.team-photo-attribution { font-size: 14px; margin: 8px 0; overflow-wrap: anywhere; }
+[data-bs-theme="dark"] .team-roster-expand, [data-bs-theme="dark"] .team-roster-collapse { color: #b7dbc3; }
+[data-bs-theme="dark"] .team-roster-table .team-roster-group > th { background: #314e39; color: #bfdfc4; }
+@media (max-width: 991px) { .team-profile-feature .team-profile-intro { grid-template-columns: 1fr; }.team-profile-feature .team-profile-players { grid-template-columns: 1fr; }.team-coach-photo > img { height: 170px; } }
+@media (max-width: 575px) { .team-roster > summary, .team-roster-body { padding-left: 16px; padding-right: 16px; }.team-coach-with-photo { gap: 16px; }.team-coach-photo { width: 100px; flex-basis: 100px; } }

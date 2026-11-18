@@ -21,6 +21,9 @@ use app\models\TournamentTeam;
 $this->title = $team->name_zh . ' | WorldCup Journey';
 $this->params['breadcrumbs'][] = ['label' => '球队列表', 'url' => ['/national-team/index']];
 $this->params['breadcrumbs'][] = $team->name_zh;
+if ($feature !== null) {
+    $this->registerCssFile('@web/css/team-profile.css', ['depends' => [app\assets\AppAsset::class]]);
+}
 
 $finalResult = $participation['final_result_code'] ?? $stats['final_result_code'] ?? null;
 $finalResultLabel = TournamentTeam::FINAL_RESULT_LABELS[$finalResult] ?? $finalResult;
@@ -60,7 +63,7 @@ $formatRate = static function ($value): string {
     </div>
 
     <?php if ($profile !== null): ?>
-        <?= $this->render('_profile', ['team' => $team, 'profile' => $profile]) ?>
+        <?= $this->render('_profile', ['team' => $team, 'profile' => $profile, 'feature' => $feature]) ?>
     <?php elseif ($team->description): ?>
         <p class="text-body-secondary"><?= nl2br(Html::encode($team->description)) ?></p>
     <?php endif; ?>
