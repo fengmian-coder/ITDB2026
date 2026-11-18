@@ -26,6 +26,8 @@ use yii\db\ActiveRecord;
  */
 class Tournament extends ActiveRecord
 {
+    public const WORLD_CUP_YEAR = 2026;
+
     public static function tableName(): string
     {
         return 'tournament';

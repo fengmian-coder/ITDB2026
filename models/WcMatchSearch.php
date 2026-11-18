@@ -13,7 +13,6 @@ use yii\web\BadRequestHttpException;
 
 class WcMatchSearch extends Model
 {
-    public $tournament_id;
     public $team_id;
     public $stage_code;
     public $status;
@@ -21,7 +20,7 @@ class WcMatchSearch extends Model
     public function rules(): array
     {
         return [
-            [['tournament_id', 'team_id'], 'safe'],
+            ['team_id', 'safe'],
             ['stage_code', 'in', 'range' => WcMatch::STAGE_CODES, 'strict' => true],
             ['status', 'in', 'range' => WcMatch::STATUS_CODES, 'strict' => true],
         ];
@@ -29,7 +28,7 @@ class WcMatchSearch extends Model
 
     public function attributeLabels(): array
     {
-        return ['tournament_id' => '赛事 ID', 'team_id' => '球队 ID', 'stage_code' => '比赛阶段', 'status' => '比赛状态'];
+        return ['team_id' => '球队 ID', 'stage_code' => '比赛阶段', 'status' => '比赛状态'];
     }
 
     public function search(array $params = []): ActiveDataProvider
@@ -38,10 +37,8 @@ class WcMatchSearch extends Model
         if (!is_array($input)) {
             throw new BadRequestHttpException('比赛筛选格式无效');
         }
-        foreach (['tournament_id', 'team_id'] as $attribute) {
-            $value = $input[$attribute] ?? null;
-            $this->$attribute = $value === null || $value === '' ? null : $this->positiveDigits($value, '18446744073709551615');
-        }
+        $teamId = $input['team_id'] ?? null;
+        $this->team_id = $teamId === null || $teamId === '' ? null : $this->positiveDigits($teamId, '18446744073709551615');
         $this->stage_code = $input['stage_code'] ?? null;
         $this->status = $input['status'] ?? null;
         foreach (['stage_code', 'status'] as $attribute) {
@@ -67,8 +64,7 @@ class WcMatchSearch extends Model
         if (!isset($order['id'])) {
             $order['id'] = SORT_ASC;
         }
-        $query = WcMatch::find()->andFilterWhere(['tournament_id' => $this->tournament_id,
-            'stage_code' => $this->stage_code, 'status' => $this->status]);
+        $query = WcMatch::find()->andFilterWhere(['stage_code' => $this->stage_code, 'status' => $this->status]);
         if ($this->team_id !== null) {
             $query->andWhere(['or', ['home_team_id' => $this->team_id], ['away_team_id' => $this->team_id]]);
         }

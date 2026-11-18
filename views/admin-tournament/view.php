@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card border-0 shadow-sm rounded-4 mb-4">
         <div class="card-body p-4">
             <dl class="row mb-0">
-                <?php foreach (['id', 'year', 'name', 'start_date', 'end_date', 'description'] as $attribute): ?>
+                <?php foreach (['year', 'name', 'start_date', 'end_date', 'description'] as $attribute): ?>
                     <dt class="col-12 col-md-3 text-body-secondary fw-normal"><?= Html::encode($model->getAttributeLabel($attribute)) ?></dt>
                     <dd class="col-12 col-md-9 text-break" style="white-space: pre-wrap"><?= Html::encode($model->$attribute === null || $model->$attribute === '' ? '—' : (string) $model->$attribute) ?></dd>
                 <?php endforeach ?>

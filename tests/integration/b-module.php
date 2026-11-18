@@ -51,6 +51,8 @@ try {
         $db->createCommand()->insert($table, $row)->execute();
         return (int) $db->getLastInsertID();
     };
+    $otherTournament = $insert('tournament', ['year' => 2030, 'name' => 'TEST_ONLY_OTHER_EDITION',
+        'start_date' => '2030-06-01', 'end_date' => '2030-07-01']);
     $tournament = $insert('tournament', ['year' => 2026, 'name' => 'TEST ONLY tournament', 'start_date' => '2026-06-11', 'end_date' => '2026-07-19']);
     $home = $insert('national_team', ['fifa_code' => 'ZZX', 'name_zh' => 'TEST ONLY home', 'name_en' => 'TEST ONLY home']);
     $away = $insert('national_team', ['fifa_code' => 'ZZY', 'name_zh' => 'TEST ONLY away', 'name_en' => 'TEST ONLY away']);
@@ -135,25 +137,30 @@ try {
     $check($request($admin, 'auth/login', ['_csrf' => $csrf, 'AdminLoginForm' => ['username' => 'b_test', 'password' => $password]])[0] === 302, 'real administrator login');
     foreach (['admin-tournament', 'admin-stadium', 'admin-match', 'admin-story'] as $module) {
         $check($request($admin, $module . '/index')[0] === 200, 'authenticated list ' . $module);
-        $check($request($admin, $module . '/create')[0] === 200, 'authenticated form ' . $module);
+        $check($request($admin, $module . '/create')[0] === ($module === 'admin-tournament' ? 302 : 200), 'authenticated create route ' . $module);
         $check($request($admin, $module . '/delete&id=1')[0] === 405, 'GET delete refused ' . $module);
     }
     $check($request($admin, 'admin-match/create', ['WcMatch' => []])[0] === 400, 'CSRF required');
     // 登录后 Yii 会更新 CSRF cookie，写操作使用登录后表单中的新 token。
-    $csrf = $token($request($admin, 'admin-tournament/create')[1]);
+    $csrf = $token($request($admin, 'admin-tournament/update&id=' . $tournament)[1]);
 
-    $tournamentResponse = $request($admin, 'admin-tournament/create', ['_csrf' => $csrf, 'Tournament' => [
-        'year' => 2030, 'name' => 'TEST_ONLY_CRUD', 'start_date' => '2030-06-01', 'end_date' => '2030-07-01']]);
-    $crudTournament = (int) $scalar("SELECT id FROM tournament WHERE year=2030");
-    if ($crudTournament === 0) {
-        preg_match('/<div class="alert alert-danger"[^>]*>(.*?)<\/div>/s', $tournamentResponse[1], $error);
-        throw new RuntimeException('Tournament form HTTP ' . $tournamentResponse[0] . ' ' . strip_tags($error[1] ?? 'unknown error'));
-    }
-    $check($crudTournament > 0, 'tournament HTTP create');
-    $request($admin, 'admin-tournament/update&id=' . $crudTournament, ['_csrf' => $csrf, 'Tournament' => ['name' => 'TEST_ONLY_UPDATED']]);
-    $check($scalar('SELECT name FROM tournament WHERE id=' . $crudTournament) === 'TEST_ONLY_UPDATED', 'tournament HTTP update');
-    $request($admin, 'admin-tournament/delete&id=' . $crudTournament, ['_csrf' => $csrf, 'confirm_delete' => '1']);
-    $check((int) $scalar('SELECT COUNT(*) FROM tournament WHERE id=' . $crudTournament) === 0, 'unreferenced tournament delete');
+    [$editionStatus, $editionHtml] = $request($admin, 'admin-tournament/index');
+    $check($editionStatus === 200 && str_contains($editionHtml, 'TEST ONLY tournament')
+        && !str_contains($editionHtml, 'TEST_ONLY_OTHER_EDITION'), 'tournament admin only lists 2026');
+    $check($request($admin, 'admin-tournament/update&id=' . $otherTournament)[0] === 404, 'other tournament edition cannot be edited');
+    $check($request($admin, 'admin-tournament/update&id=' . $tournament, ['_csrf' => $csrf, 'Tournament' => ['year' => 2030]])[0] === 400,
+        'tournament year cannot be changed');
+    $check($request($admin, 'admin-tournament/update&id=' . $tournament, ['_csrf' => $csrf, 'Tournament' => ['description' => 'TEST_ONLY_UPDATED']])[0] === 302
+        && $scalar('SELECT description FROM tournament WHERE id=' . $tournament) === 'TEST_ONLY_UPDATED', 'tournament description remains editable');
+    $legacyMatch = $insert('wc_match', array_replace($base, [
+        'tournament_id' => $otherTournament, 'match_no' => 99, 'status' => 'SCHEDULED']));
+    [$matchAdminStatus, $matchAdminHtml] = $request($admin, 'admin-match/index');
+    $check($matchAdminStatus === 200 && str_contains($matchAdminHtml, '2026 世界杯')
+        && !str_contains($matchAdminHtml, '赛事 ID') && !str_contains($matchAdminHtml, '>99</td>'),
+        'match list hides tournament IDs and matches from another edition');
+    $check($request($admin, 'admin-match/view&id=' . $legacyMatch)[0] === 404, 'other edition match cannot be opened');
+    $check(!str_contains($request($admin, 'admin-match/create')[1], 'WcMatch[tournament_id]'), 'match form omits the tournament field');
+    $check(!str_contains($request($admin, 'admin-tournament/view&id=' . $tournament)[1], '赛事 ID'), 'edition detail hides the internal ID');
     $request($admin, 'admin-stadium/create', ['_csrf' => $csrf, 'Stadium' => [
         'name' => 'TEST_ONLY_CRUD', 'city' => 'TEST_ONLY', 'country_code' => 'CA', 'timezone_name' => '']]);
     $crudStadium = (int) $scalar("SELECT id FROM stadium WHERE name='TEST_ONLY_CRUD'");
@@ -163,9 +170,13 @@ try {
     $request($admin, 'admin-stadium/delete&id=' . $crudStadium, ['_csrf' => $csrf, 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM stadium WHERE id=' . $crudStadium) === 0, 'unreferenced stadium delete');
     $request($admin, 'admin-match/create', ['_csrf' => $csrf, 'WcMatch' => array_replace($base, [
-        'match_no' => 5, 'status' => 'SCHEDULED', 'summary' => 'TEST_ONLY_CRUD'])]);
+        'tournament_id' => $otherTournament, 'match_no' => 5, 'status' => 'SCHEDULED', 'summary' => 'TEST_ONLY_CRUD'])]);
     $crudMatch = (int) $scalar('SELECT id FROM wc_match WHERE match_no=5');
-    $check($crudMatch > 0, 'match HTTP create');
+    $check($crudMatch > 0 && $tournament !== 1
+        && (int) $scalar('SELECT tournament_id FROM wc_match WHERE id=' . $crudMatch) === $tournament,
+        'match HTTP create derives the current tournament ID, ignoring the submitted ID');
+    $db->createCommand()->delete('wc_match', ['id' => $legacyMatch])->execute();
+    $db->createCommand()->delete('tournament', ['id' => $otherTournament])->execute();
     $request($admin, 'admin-match/update&id=' . $crudMatch, ['_csrf' => $csrf, 'WcMatch' => [
         'status' => 'FINISHED', 'home_score_90' => 1]]);
     $check($scalar('SELECT status FROM wc_match WHERE id=' . $crudMatch) === 'SCHEDULED', 'unpaired score rejected before saving');

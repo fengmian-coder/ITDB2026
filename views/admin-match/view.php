@@ -20,7 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('返回列表', ['/admin-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
         </div></header>
     <div class="card border-0 shadow-sm rounded-4 mb-4"><div class="card-body p-4"><dl class="row mb-0">
-        <?php foreach (['id', 'tournament_id', 'match_no', 'home_team_id', 'away_team_id', 'stadium_id', 'kickoff_utc',
+        <dt class="col-12 col-md-3 text-body-secondary fw-normal">所属赛事</dt>
+        <dd class="col-12 col-md-9">2026 世界杯</dd>
+        <?php foreach (['id', 'match_no', 'home_team_id', 'away_team_id', 'stadium_id', 'kickoff_utc',
             'stage_code', 'group_code', 'status', 'home_score_90', 'away_score_90', 'home_score_120', 'away_score_120',
             'home_penalties', 'away_penalties', 'winner_team_id', 'summary'] as $attribute): ?>
             <dt class="col-12 col-md-3 text-body-secondary fw-normal"><?= Html::encode($model->getAttributeLabel($attribute)) ?></dt>

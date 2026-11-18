@@ -2,7 +2,7 @@
 /**
  * WorldCup Journey - 后台赛事届次 CRUD
  * 模块：B 赛事与比赛后端；负责人：B
- * 依赖：Tournament、TournamentSearch、WcMatch、D 的管理员授权配置
+ * 依赖：Tournament、WcMatch、D 的管理员授权配置
  * 最近修改：2026-11-10（A 接入统一后台布局）
  */
 declare(strict_types=1);
@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\models\Tournament;
-use app\models\TournamentSearch;
 use app\models\WcMatch;
 use Yii;
 use yii\db\Exception as DatabaseException;
@@ -63,18 +62,7 @@ class AdminTournamentController extends Controller
 
     public function actionIndex(): string
     {
-        $searchModel = new TournamentSearch();
-        $dataProvider = $searchModel->search($this->request->getQueryParams());
-        try {
-            $pagination = $dataProvider->getPagination();
-            $pagination->totalCount = $dataProvider->getTotalCount();
-            if ($pagination->getPage() >= max(1, $pagination->getPageCount())) {
-                throw new BadRequestHttpException('请求页码超出赛事列表范围');
-            }
-            return $this->render('index', compact('searchModel', 'dataProvider'));
-        } catch (DatabaseException $exception) {
-            throw $this->databaseFailure($exception);
-        }
+        return $this->render('index', ['model' => $this->currentTournament()]);
     }
 
     public function actionView(mixed $id): string
@@ -84,6 +72,10 @@ class AdminTournamentController extends Controller
 
     public function actionCreate(): string|Response
     {
+        $existing = $this->currentTournament();
+        if ($existing !== null) {
+            return $this->redirect(['view', 'id' => $existing->id]);
+        }
         return $this->edit($this->newModel(), 'create');
     }
 
@@ -131,9 +123,13 @@ class AdminTournamentController extends Controller
             if (!is_array($input)) {
                 throw new BadRequestHttpException('赛事表单格式无效');
             }
+            if (array_key_exists('year', $input)
+                && !in_array($input['year'], [Tournament::WORLD_CUP_YEAR, (string) Tournament::WORLD_CUP_YEAR], true)) {
+                throw new BadRequestHttpException('赛事年份固定为 2026');
+            }
             // 只写 V1.1 已明确的业务字段，不接受 id、审计列或其他模块字段。
             $values = array_intersect_key($input,
-                array_flip(['year', 'name', 'start_date', 'end_date', 'description']));
+                array_flip(['name', 'start_date', 'end_date', 'description']));
             foreach ($values as $value) {
                 if ($value !== null && (!is_scalar($value) || is_bool($value))) {
                     throw new BadRequestHttpException('赛事字段格式无效');
@@ -158,13 +154,22 @@ class AdminTournamentController extends Controller
 
     protected function newModel(): Tournament
     {
-        return new Tournament();
+        return new Tournament(['year' => Tournament::WORLD_CUP_YEAR]);
+    }
+
+    private function currentTournament(): ?Tournament
+    {
+        try {
+            return Tournament::findOne(['year' => Tournament::WORLD_CUP_YEAR]);
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
     }
 
     protected function findModel(int $id): Tournament
     {
         try {
-            $model = Tournament::findOne($id);
+            $model = Tournament::findOne(['id' => $id, 'year' => Tournament::WORLD_CUP_YEAR]);
         } catch (DatabaseException $exception) {
             throw $this->databaseFailure($exception);
         }

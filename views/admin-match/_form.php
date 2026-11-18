@@ -14,8 +14,9 @@ $action = $model->isNewRecord ? ['/admin-match/create'] : ['/admin-match/update'
 <div class="card border-0 shadow-sm rounded-4"><div class="card-body p-4">
     <?= Html::beginForm($action, 'post') ?>
     <?= Html::errorSummary($model, ['class' => 'alert alert-danger']) ?>
+    <p class="text-body-secondary">所属赛事：2026 世界杯</p>
     <div class="row g-3">
-        <?php foreach (['tournament_id', 'match_no', 'home_team_id', 'away_team_id', 'stadium_id', 'kickoff_utc'] as $attribute): ?>
+        <?php foreach (['match_no', 'home_team_id', 'away_team_id', 'stadium_id', 'kickoff_utc'] as $attribute): ?>
             <div class="col-12 col-md-6 col-xl-4"><?= Html::activeLabel($model, $attribute, ['class' => 'form-label']) ?>
                 <?= Html::activeTextInput($model, $attribute, ['class' => 'form-control', 'required' => true, 'placeholder' => $attribute === 'kickoff_utc' ? 'YYYY-MM-DD HH:MM:SS（UTC）' : null]) ?></div>
         <?php endforeach ?>
