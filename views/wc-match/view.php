@@ -14,9 +14,10 @@ use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var array $match Service 的完整详情；发布控制及事件排序均由 Service 完成 */
+/** @var array $matchListRoute 返回赛程时使用的站内路由 */
 
 $this->title = '比赛 #' . $match['match_no'] . ' | WorldCup Journey';
-$this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => ['/wc-match/index']];
+$this->params['breadcrumbs'][] = ['label' => '比赛赛程', 'url' => $matchListRoute];
 if ($contextTeamId !== null) {
     $this->params['breadcrumbs'][] = ['label' => '球队比赛历程', 'url' => ['/journey/view', 'team_id' => $contextTeamId]];
 }
@@ -83,6 +84,9 @@ $this->registerCss(<<<'CSS'
 .wc-match-view .wc-event { position: relative; border-left: 2px solid var(--bs-border-color); margin-left: .5rem; padding: 0 0 1.5rem 1.5rem; }
 .wc-match-view .wc-event::before { content: ''; position: absolute; left: -.4rem; top: .35rem; width: .7rem; height: .7rem; border-radius: 50%; background: #167d72; }
 .wc-match-view .wc-event:last-child { padding-bottom: 0; }
+.wc-match-view .wc-event[aria-current="true"] { background: var(--bs-success-bg-subtle); }
+.wc-match-view .wc-event[aria-current="true"]::before { outline: 3px solid var(--bs-success-border-subtle); }
+.wc-match-view .wc-event, .wc-match-view #momentum-title { scroll-margin-top: 6rem; }
 .wc-match-view .wc-info dd { overflow-wrap: anywhere; }
 @media (max-width: 575.98px) {
     .wc-match-view .wc-fixture { gap: .5rem; }
@@ -92,7 +96,7 @@ CSS, [], 'wc-match-view');
 ?>
 <div class="wc-match-view pb-4">
     <div class="mb-3"><?= $contextTeamId === null
-        ? Html::a('← 返回比赛列表', ['/wc-match/index'], ['class' => 'text-decoration-none'])
+        ? Html::a('← 返回比赛列表', $matchListRoute, ['class' => 'text-decoration-none'])
         : Html::a('← 返回球队比赛历程', ['/journey/view', 'team_id' => $contextTeamId], ['class' => 'text-decoration-none']) ?></div>
     <header class="wc-scoreboard rounded-4 p-4 p-md-5 mb-4">
         <p class="wc-eyebrow fw-semibold mb-2">WORLD CUP JOURNEY / MATCH <?= Html::encode((string) $match['match_no']) ?></p>
@@ -222,7 +226,7 @@ CSS, [], 'wc-match-view');
                         <?php else: ?>
                             <ol class="wc-timeline mb-0">
                                 <?php foreach ($events as $event): ?>
-                                    <li class="wc-event">
+                                    <li class="wc-event" id="match-event-<?= Html::encode((string) $event['id']) ?>">
                                         <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                                             <span class="fw-bold">
                                                 <?php if ($event['minute'] !== null): ?>

@@ -86,9 +86,12 @@ class SiteController extends Controller
     public function actionIndex(): string
     {
         $teams = (new TeamDirectoryService())->getTeams();
-        $matches = (new MatchQueryService())->getMatchList(['page_size' => 1]);
+        $matchQuery = new MatchQueryService();
+        $matches = $matchQuery->getMatchList(['page_size' => 1]);
+        $featured = $matchQuery->getMatchList(['featured' => 1, 'page_size' => 3]);
         return $this->render('index', ['teamCount' => count($teams),
-            'matchCount' => $matches['pagination']['total_count']]);
+            'matchCount' => $matches['pagination']['total_count'],
+            'featuredMatches' => $featured['items']]);
     }
 
     /** C 的球队页未交付前提供只读入口；不实现 DNA、PK 或重复统计。 */

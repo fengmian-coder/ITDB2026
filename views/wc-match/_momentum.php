@@ -23,9 +23,18 @@ use yii\helpers\Json;
             <label for="momentum-position" class="form-label small">拖动回看关键时刻</label>
             <input type="range" class="form-range" id="momentum-position" min="0" max="<?= count($momentum['points']) - 1 ?>" value="0">
             <div id="momentum-detail" class="rounded-3 bg-body-tertiary p-3 mt-2" role="status" aria-live="polite"></div>
+            <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                <a id="momentum-event-link" class="btn btn-sm btn-outline-secondary" hidden>查看时间轴事件</a>
+                <button type="button" id="momentum-copy" class="btn btn-sm btn-outline-secondary" hidden>复制此刻链接</button>
+                <span id="momentum-copy-status" class="small text-body-secondary" role="status"></span>
+            </div>
+            <input type="url" id="momentum-share-url" class="form-control form-control-sm mt-2"
+                   aria-label="关键时刻链接" readonly hidden>
             <div id="momentum-nodes" class="d-flex flex-wrap gap-2 mt-3">
                 <?php foreach ($momentum['points'] as $index => $point): ?>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" data-point="<?= $index ?>"><?= Html::encode($point['label'] . ' · ' . $point['home'] . '–' . $point['away']) ?></button>
+                    <?php $anchor = $point['event_id'] ?? ($index === 0 ? 'start' : 'end'); ?>
+                    <button type="button" id="momentum-point-<?= Html::encode((string) $anchor) ?>"
+                            class="btn btn-sm btn-outline-secondary" data-point="<?= $index ?>"><?= Html::encode($point['label'] . ' · ' . $point['home'] . '–' . $point['away']) ?></button>
                 <?php endforeach ?>
             </div>
             <p class="small text-body-secondary mt-3 mb-0">走势核对90分钟及加时累计比分，点球大战单独展示。</p>

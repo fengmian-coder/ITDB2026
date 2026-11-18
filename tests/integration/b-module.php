@@ -432,6 +432,11 @@ try {
     $story = (int) $scalar('SELECT id FROM match_story');
     $check($scalar('SELECT created_at FROM match_story') !== null, 'database audit defaults');
     $check($service->getMatchDetail($m2)['story'] === null, 'draft hidden');
+    [$featuredStatus, $featuredHtml] = $request($guest, 'wc-match/index&featured=1');
+    $check($featuredStatus === 200 && str_contains($featuredHtml, '暂无符合条件的比赛')
+        && !str_contains($featuredHtml, 'TEST ONLY story'), 'featured list excludes drafts');
+    $check(!str_contains($request($guest, 'site/index')[1], 'featured-matches-title'), 'homepage hides empty featured section');
+    $check($request($guest, 'wc-match/index&featured%5B%5D=1')[0] === 400, 'featured filter rejects a non-scalar value');
     $check($request($admin, 'admin-story/create', ['_csrf' => $csrf, 'MatchStory' => $storyData])[0] === 200 && (int) $scalar('SELECT COUNT(*) FROM match_story') === 1, 'unique story per match');
     $eventData = ['team_id' => $home, 'minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
     $check($request($admin, 'admin-story/event-create&id=' . $story, ['_csrf' => $csrf, 'MatchEvent' => $eventData])[0] === 302, 'event created');
@@ -454,12 +459,74 @@ try {
     $check($detail['events'][0]['sort_order'] === 1, 'event order');
     [$status, $html] = $request($guest, 'wc-match/view&id=' . $m2);
     $check($status === 200 && str_contains($html, 'TEST_ONLY_PRIVATE_BODY') && !str_contains($html, '<svg onload=alert(1)>'), 'published detail and escaping');
+    [$homeStatus, $homeHtml] = $request($guest, 'site/index');
+    $check($homeStatus === 200 && str_contains($homeHtml, 'featured-matches-title')
+        && str_contains($homeHtml, 'TEST ONLY story') && str_contains($homeHtml, 'featured=1')
+        && str_contains($homeHtml, 'list%5Bfeatured%5D=1'),
+        'homepage links to published stories and the featured list');
+    $check($service->getMatchList(['featured' => 1, 'stage' => 'FINAL', 'team_id' => $away])['pagination']['total_count'] === 1
+        && $service->getMatchList(['featured' => 1, 'stage' => 'GROUP'])['pagination']['total_count'] === 0,
+        'featured, stage and team filters combine');
+    $filterOptions = $service->getMatchFilterOptions();
+    $teamIdsByStage = $filterOptions['team_ids'];
+    $check(in_array((string) $home, $teamIdsByStage['featured']['FINAL'], true)
+        && in_array((string) $away, $teamIdsByStage['featured']['FINAL'], true)
+        && !isset($teamIdsByStage['featured']['GROUP']), 'featured options include both teams only in published stages');
+    $check($filterOptions['featured_counts'] === ['FINAL' => 1], 'featured stage count uses published stories only');
+    [$stageStatus, $stageHtml] = $request($guest, 'wc-match/index&featured=1');
+    $check($stageStatus === 200
+        && preg_match('/<select id="match-stage"[^>]*>(.*?)<\/select>/s', $stageHtml, $featuredStages) === 1
+        && str_contains($featuredStages[1], '决赛（1 场）') && !str_contains($featuredStages[1], 'value="GROUP"'),
+        'featured stage choices show counts and exclude stages without stories');
+    $check($request($guest, 'wc-match/index&featured=1&stage=GROUP&team_id=' . $away)[0] === 302
+        && str_contains((string) curl_getinfo($guest, CURLINFO_REDIRECT_URL), 'team_id=' . $away)
+        && !str_contains((string) curl_getinfo($guest, CURLINFO_REDIRECT_URL), 'stage='),
+        'unavailable featured stage falls back and keeps a team that still qualifies');
+    $check(str_contains($request($guest, 'wc-match/index&featured=1&team_id=' . $away)[1], '原阶段暂无精选，已切换至全部阶段。'),
+        'featured stage fallback explains the change');
+    [$summaryStatus, $summaryHtml] = $request($guest, 'wc-match/index&stage=FINAL&team_id=' . $away . '&featured=1&page_size=1');
+    $summaryHtml = html_entity_decode($summaryHtml, ENT_QUOTES, 'UTF-8');
+    $check($summaryStatus === 200 && str_contains($summaryHtml, '共 1 场')
+        && str_contains($summaryHtml, 'aria-label="清除筛选：决赛"')
+        && str_contains($summaryHtml, 'aria-label="清除筛选：TEST ONLY away · ZZY"')
+        && str_contains($summaryHtml, 'aria-label="清除筛选：只看精选"'), 'results summarize the three applied filters');
+    $check(str_contains($summaryHtml, 'page_size=1&team_id=' . $away . '&featured=1#match-list-title')
+        && str_contains($summaryHtml, 'page_size=1&stage=FINAL&featured=1#match-list-title')
+        && str_contains($summaryHtml, 'page_size=1&stage=FINAL&team_id=' . $away . '#match-list-title'),
+        'each clear link drops one filter and returns to the results heading');
+    $secondFeature = $insert('match_story', ['match_id' => $m1, 'title' => 'TEST ONLY <featured>',
+        'summary' => 'TEST ONLY summary', 'body' => 'TEST ONLY body', 'is_published' => 1]);
+    [$featuredStatus, $featuredHtml] = $request($guest, 'wc-match/index&featured=1&page_size=1');
+    $check($featuredStatus === 200 && str_contains($featuredHtml, 'page=2')
+        && preg_match('/page=2[^"]*featured=1/', $featuredHtml) === 1
+        && str_contains($featuredHtml, 'TEST ONLY &lt;featured&gt;') && !str_contains($featuredHtml, 'TEST ONLY story'),
+        'featured pagination retains filter and escapes story title');
+    [$listStatus, $listHtml] = $request($guest, 'wc-match/index&featured=1&team_id=' . $away . '&page_size=1&page=2');
+    $listHtml = html_entity_decode($listHtml, ENT_QUOTES, 'UTF-8');
+    $check(str_contains($listHtml, 'page_size=1&team_id=' . $away . '#match-list-title')
+        && !str_contains($listHtml, 'page=2&page_size=1&team_id=' . $away . '#match-list-title'),
+        'clearing a filter on the second page starts from page one');
+    $check($listStatus === 200 && str_contains($listHtml, 'id="match-card-' . $m2 . '"')
+        && preg_match('/href="[^"]*\?(r=wc-match%2Fview&id=' . $m2 . '&list%5Bpage%5D=2[^"]*)"/', $listHtml, $detailLink) === 1,
+        'second featured page carries filters into the match detail');
+    [$returnStatus, $returnHtml] = $request($guest, substr($detailLink[1], 2));
+    $returnHtml = html_entity_decode($returnHtml, ENT_QUOTES, 'UTF-8');
+    $check($returnStatus === 200 && preg_match('/href="[^"]*\?(r=wc-match%2Findex&team_id=' . $away
+        . '&featured=1&page=2&page_size=1)#match-card-' . $m2 . '"/', $returnHtml, $returnLink) === 1,
+        'match detail returns to the same filtered page and card');
+    [$backStatus, $backHtml] = $request($guest, substr($returnLink[1], 2));
+    $check($backStatus === 200 && str_contains($backHtml, 'id="match-card-' . $m2 . '"'), 'return link resolves to the original match card');
+    [$invalidReturnStatus, $invalidReturnHtml] = $request($guest, 'wc-match/view&id=' . $m2 . '&list%5Bpage%5D[]=2');
+    $check($invalidReturnStatus === 200 && str_contains($invalidReturnHtml, '返回比赛列表')
+        && !str_contains($invalidReturnHtml, '#match-card-'), 'invalid return context falls back to the ordinary list');
+    $db->createCommand()->delete('match_story', ['id' => $secondFeature])->execute();
     $request($admin, 'admin-story/tag-delete&id=' . $story . '&tag_id=' . $tag, ['_csrf' => $csrf, 'confirm_shared' => '1', 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM match_tag') === 1, 'referenced tag protected');
     $request($admin, 'admin-match/delete&id=' . $m2, ['_csrf' => $csrf, 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM wc_match') === 4, 'referenced match protected');
     $request($admin, 'admin-story/update&id=' . $story, ['_csrf' => $csrf, 'MatchStory' => ['is_published' => '0']]);
     $check($service->getMatchDetail($m2)['tags'] === [], 'withdrawal hides tags');
+    $check($service->getMatchList(['featured' => 1])['pagination']['total_count'] === 0, 'withdrawal removes a featured match');
     $request($admin, 'admin-story/delete&id=' . $story, ['_csrf' => $csrf, 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM match_story') === 0 && (int) $scalar('SELECT COUNT(*) FROM match_story_tag') === 0, 'story and links deleted');
     $check((int) $scalar('SELECT COUNT(*) FROM match_event') === 2 && (int) $scalar('SELECT COUNT(*) FROM match_tag') === 1, 'events and dictionary preserved');
@@ -504,6 +571,16 @@ try {
     $db->createCommand()->delete('tournament', ['id' => $otherYear])->execute();
     $emptyTeam = $insert('national_team', ['fifa_code' => 'ZZW', 'name_zh' => 'TEST ONLY no games', 'name_en' => 'TEST ONLY no games']);
     $db->createCommand()->insert('tournament_team', ['tournament_id' => $tournament, 'team_id' => $emptyTeam, 'group_code' => 'A'])->execute();
+    [$stageStatus, $stageHtml] = $request($guest, 'wc-match/index&stage=FINAL');
+    $check($stageStatus === 200
+        && preg_match('/<select id="match-team-id"[^>]*>(.*?)<\/select>/s', $stageHtml, $teamSelect) === 1
+        && str_contains($teamSelect[1], 'value="' . $away . '"')
+        && !str_contains($teamSelect[1], 'value="' . $emptyTeam . '"'),
+        'server-rendered team options respect the requested stage');
+    $check($request($guest, 'wc-match/index&stage=FINAL&team_id=' . $emptyTeam)[0] === 302
+        && str_contains((string) curl_getinfo($guest, CURLINFO_REDIRECT_URL), 'stage=FINAL')
+        && !str_contains((string) curl_getinfo($guest, CURLINFO_REDIRECT_URL), 'team_id='),
+        'stale team selection returns to the requested stage without the team');
     $emptyStats = $teamStats->getTeamStats($emptyTeam);
     $check($emptyStats['matches_played'] === 0 && $emptyStats['goals_for'] === 0
         && $emptyStats['goals_per_match'] === null && $emptyStats['win_rate'] === null,
@@ -636,7 +713,20 @@ try {
     }
     $directory = new app\services\TeamDirectoryService();
     $memory = new app\services\MemoryCardService();
-    $check($request($guest, 'site/index')[0] === 200, 'integrated A homepage');
+    [$homeStatus, $homeHtml] = $request($guest, 'site/index');
+    $check($homeStatus === 200
+        && preg_match('~<header id="header">.*?<a\b[^>]*href="[^"]*r=document%2Findex"[^>]*>课程作业下载</a>.*?</header>~s', $homeHtml) === 1
+        && !str_contains($homeHtml, '课程作业下载 →'),
+        'assignment download appears in the main navigation without a hero button');
+    [$downloadStatus, $downloadHtml] = $request($guest, 'document/index');
+    $check($downloadStatus === 200 && str_contains($downloadHtml, 'id="team-documents"')
+        && str_contains($downloadHtml, 'id="personal-documents"')
+        && $activeNavigation($downloadHtml) === ['课程作业下载'], 'assignment navigation opens both categories and is active');
+    $check(preg_match('~<header id="header">.*?<a\b[^>]*href="[^"]*r=project-team%2Findex"[^>]*>团队介绍</a>~s', $homeHtml) === 1,
+        'main navigation exposes the team introduction');
+    [$teamPageStatus, $teamPageHtml] = $request($guest, 'project-team/index');
+    $check($teamPageStatus === 200 && str_contains($teamPageHtml, '<h1>团队介绍</h1>')
+        && $activeNavigation($teamPageHtml) === ['团队介绍'], 'team introduction opens and its menu item is active');
     $check($request($guest, 'memory/card')[0] === 200, 'memory selection entry');
     $card = $memory->getEditor($home, $m2)['card'];
     $check($card['score'] === '2 : 2' && $card['penalties'] === '点球 4 : 3', 'memory score and penalties separated');
