@@ -7,6 +7,10 @@
 declare(strict_types=1);
 use yii\helpers\Html;
 use app\models\TeamProfileForm;
+if (isset($feature)) {
+    echo $this->render('_profile_feature', compact('team', 'profile', 'feature'));
+    return;
+}
 ?>
 <section class="team-profile mb-5" aria-labelledby="team-profile-heading">
     <div class="team-profile-intro">
