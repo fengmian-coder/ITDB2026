@@ -13,7 +13,9 @@ use app\models\WcMatch;
 use app\models\WcMatchSearch;
 use app\models\MatchStory;
 use app\models\MatchEvent;
+use app\models\Tournament;
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\Exception as DatabaseException;
 use yii\db\IntegrityException;
 use yii\filters\AccessControl;
@@ -66,6 +68,7 @@ class AdminMatchController extends Controller
     {
         $searchModel = new WcMatchSearch();
         $dataProvider = $searchModel->search($this->request->getQueryParams());
+        $dataProvider->query->andWhere(['tournament_id' => $this->currentTournamentIds()]);
         try {
             $pagination = $dataProvider->getPagination();
             $pagination->totalCount = $dataProvider->getTotalCount();
@@ -134,7 +137,7 @@ class AdminMatchController extends Controller
             }
             // 只写 V1.1 已明确的业务字段，不接受 id、审计列或其他模块字段。
             $values = array_intersect_key($input,
-                array_flip(['tournament_id', 'match_no', 'home_team_id', 'away_team_id', 'stadium_id',
+                array_flip(['match_no', 'home_team_id', 'away_team_id', 'stadium_id',
                     'kickoff_utc', 'stage_code', 'group_code', 'status', 'home_score_90', 'away_score_90',
                     'home_score_120', 'away_score_120', 'home_penalties', 'away_penalties', 'winner_team_id', 'summary']));
             foreach ($values as $value) {
@@ -167,15 +170,21 @@ class AdminMatchController extends Controller
 
     protected function newModel(): WcMatch
     {
-        $model = new WcMatch();
-        $model->status = 'SCHEDULED';
-        return $model;
+        try {
+            $tournamentId = $this->currentTournamentIds()->scalar();
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception);
+        }
+        if ($tournamentId === false) {
+            throw new NotFoundHttpException('请先在赛事管理中建立 2026 世界杯赛事资料');
+        }
+        return new WcMatch(['tournament_id' => $tournamentId, 'status' => 'SCHEDULED']);
     }
 
     protected function findModel(int $id): WcMatch
     {
         try {
-            $model = WcMatch::findOne($id);
+            $model = WcMatch::find()->where(['id' => $id, 'tournament_id' => $this->currentTournamentIds()])->one();
         } catch (DatabaseException $exception) {
             throw $this->databaseFailure($exception);
         }
@@ -183,6 +192,11 @@ class AdminMatchController extends Controller
             throw new NotFoundHttpException('比赛不存在');
         }
         return $model;
+    }
+
+    private function currentTournamentIds(): ActiveQuery
+    {
+        return Tournament::find()->select('id')->where(['year' => Tournament::WORLD_CUP_YEAR]);
     }
 
     protected function hasDependents(WcMatch $model): bool

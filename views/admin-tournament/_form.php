@@ -16,8 +16,8 @@ $action = $model->isNewRecord ? ['/admin-tournament/create'] : ['/admin-tourname
         <?= Html::errorSummary($model, ['class' => 'alert alert-danger', 'header' => '请检查以下字段：']) ?>
         <div class="row g-3">
             <div class="col-12 col-md-4">
-                <?= Html::activeLabel($model, 'year', ['class' => 'form-label']) ?>
-                <?= Html::activeInput('number', $model, 'year', ['class' => 'form-control', 'required' => true, 'min' => 0, 'max' => 65535, 'step' => 1]) ?>
+                <p class="form-label">赛事年份</p>
+                <p class="form-control-plaintext mb-0"><?= Html::encode((string) $model->year) ?></p>
             </div>
             <div class="col-12 col-md-8">
                 <?= Html::activeLabel($model, 'name', ['class' => 'form-label']) ?>
