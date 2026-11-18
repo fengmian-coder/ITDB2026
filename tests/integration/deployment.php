@@ -71,7 +71,7 @@ try {
     $pdo->exec('USE `' . $name . '`');
     $check(count($pdo->query('SHOW TABLES')->fetchAll()) === 15, '15 C tables restored');
     foreach (['national_team' => 48, 'tournament_team' => 48, 'wc_match' => 104, 'match_story' => 8,
-        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 9] as $table => $count) {
+        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 7] as $table => $count) {
         $check((int) $pdo->query('SELECT COUNT(*) FROM ' . $table)->fetchColumn() === $count, 'deployment row count ' . $table);
     }
     $check((int) $pdo->query('SELECT COUNT(*) FROM tournament_team WHERE final_result_code IS NULL')->fetchColumn() === 0, 'final results restored');
@@ -97,6 +97,25 @@ try {
     $check($snapshot() === $before, 'repeat keeps every value, timestamp, administrator and document');
     $check(!str_contains($output, 'Generated password'), 'repeat preserves existing administrator');
 
+    // Simulate an existing installation that still has A's five separate files.
+    $aBundle = json_decode(file_get_contents($root . '/data/a-documents-manifest.json'), true, 512, JSON_THROW_ON_ERROR);
+    $ownerA = $pdo->query("SELECT id,project_team_id FROM project_member WHERE display_name='卢苑'")->fetch(PDO::FETCH_ASSOC);
+    $legacyInsert = $pdo->prepare('INSERT INTO project_document (project_team_id,member_id,document_type,title,relative_path,original_name,file_size) VALUES (?,?,?,?,?,?,?)');
+    foreach ($aBundle['superseded_documents'] as $entry) {
+        $legacyInsert->execute([$ownerA['project_team_id'], $ownerA['id'], 'PERSONAL', $entry['title'], $entry['relative_path'], $entry['original_name'], $entry['file_size']]);
+    }
+    $check((int) $pdo->query('SELECT COUNT(*) FROM project_document')->fetchColumn() === 12, 'legacy five-file installation simulated');
+    [$status, $output, $error] = $run([PHP_BINARY, $console]);
+    $check($status === 0 && $snapshot() === $before, 'legacy A files replaced while all current records and other tables are preserved');
+    $backups = glob($directory . '/backups/assignment-bundle-*/records.json');
+    $check(count($backups) === 1 && count(json_decode(file_get_contents($backups[0]), true)['documents']) === 5, 'five old records backed up before replacement');
+    foreach ($aBundle['superseded_documents'] as $entry) {
+        $check(hash_file('sha256', dirname($backups[0]) . '/' . basename($entry['relative_path'])) === $entry['sha256']
+            && hash_file('sha256', $root . '/data/' . $entry['relative_path']) === $entry['sha256'], 'old attachment retained and backup verified');
+    }
+    [$status] = $run([PHP_BINARY, $console]);
+    $check($status === 0 && $snapshot() === $before && count(glob($directory . '/backups/assignment-bundle-*/records.json')) === 1, 'replacement is repeatable without duplicates or extra backups');
+
     // HTTP 直接使用还原库，验证公开页面、资料下载及后台访问控制。
     $socket = stream_socket_server('tcp://127.0.0.1:0');
     $port = (int) substr(strrchr(stream_socket_get_name($socket, false), ':'), 1);
@@ -117,7 +136,7 @@ try {
         usleep(100000);
     }
     $client = curl_init();
-    curl_setopt_array($client, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 15]);
+    curl_setopt_array($client, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 15, CURLOPT_FOLLOWLOCATION => true]);
     foreach (['site/index', 'national-team/index', 'national-team/compare', 'insight/index',
         'wc-match/index', 'document/index', 'auth/login'] as $route) {
         curl_setopt($client, CURLOPT_URL, 'http://127.0.0.1:' . $port . '/index.php?r=' . $route);

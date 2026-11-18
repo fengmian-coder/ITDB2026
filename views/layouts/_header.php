@@ -42,12 +42,9 @@ $items = [
         'url' => ['/memory/card'],
     ],
     [
-        'label' => '团队介绍',
+        'label' => '关于我们',
+        'active' => $controllerId === 'project-team',
         'url' => ['/project-team/index'],
-    ],
-    [
-        'label' => '课程作业下载',
-        'url' => ['/document/index'],
     ],
     [
         'label' => '后台管理',

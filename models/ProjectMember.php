@@ -46,4 +46,11 @@ class ProjectMember extends ActiveRecord
     {
         return $this->hasOne(ProjectTeam::class, ['id' => 'project_team_id']);
     }
+
+    public function getDocuments(): ActiveQuery
+    {
+        return $this->hasMany(ProjectDocument::class, ['member_id' => 'id', 'project_team_id' => 'project_team_id'])
+            ->andWhere(['document_type' => 'PERSONAL'])
+            ->orderBy(['uploaded_at' => SORT_DESC, 'id' => SORT_DESC]);
+    }
 }
