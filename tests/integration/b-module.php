@@ -432,6 +432,11 @@ try {
     $story = (int) $scalar('SELECT id FROM match_story');
     $check($scalar('SELECT created_at FROM match_story') !== null, 'database audit defaults');
     $check($service->getMatchDetail($m2)['story'] === null, 'draft hidden');
+    [$featuredStatus, $featuredHtml] = $request($guest, 'wc-match/index&featured=1');
+    $check($featuredStatus === 200 && str_contains($featuredHtml, '暂无符合条件的比赛')
+        && !str_contains($featuredHtml, 'TEST ONLY story'), 'featured list excludes drafts');
+    $check(!str_contains($request($guest, 'site/index')[1], 'featured-matches-title'), 'homepage hides empty featured section');
+    $check($request($guest, 'wc-match/index&featured%5B%5D=1')[0] === 400, 'featured filter rejects a non-scalar value');
     $check($request($admin, 'admin-story/create', ['_csrf' => $csrf, 'MatchStory' => $storyData])[0] === 200 && (int) $scalar('SELECT COUNT(*) FROM match_story') === 1, 'unique story per match');
     $eventData = ['team_id' => $home, 'minute' => '45', 'added_minute' => '2', 'period_code' => 'H1', 'event_type' => 'OTHER', 'description' => 'TEST_ONLY_EVENT_LATE', 'sort_order' => 10];
     $check($request($admin, 'admin-story/event-create&id=' . $story, ['_csrf' => $csrf, 'MatchEvent' => $eventData])[0] === 302, 'event created');
@@ -454,12 +459,28 @@ try {
     $check($detail['events'][0]['sort_order'] === 1, 'event order');
     [$status, $html] = $request($guest, 'wc-match/view&id=' . $m2);
     $check($status === 200 && str_contains($html, 'TEST_ONLY_PRIVATE_BODY') && !str_contains($html, '<svg onload=alert(1)>'), 'published detail and escaping');
+    [$homeStatus, $homeHtml] = $request($guest, 'site/index');
+    $check($homeStatus === 200 && str_contains($homeHtml, 'featured-matches-title')
+        && str_contains($homeHtml, 'TEST ONLY story') && str_contains($homeHtml, 'featured=1'),
+        'homepage links to published stories and the featured list');
+    $check($service->getMatchList(['featured' => 1, 'stage' => 'FINAL', 'team_id' => $away])['pagination']['total_count'] === 1
+        && $service->getMatchList(['featured' => 1, 'stage' => 'GROUP'])['pagination']['total_count'] === 0,
+        'featured, stage and team filters combine');
+    $secondFeature = $insert('match_story', ['match_id' => $m1, 'title' => 'TEST ONLY <featured>',
+        'summary' => 'TEST ONLY summary', 'body' => 'TEST ONLY body', 'is_published' => 1]);
+    [$featuredStatus, $featuredHtml] = $request($guest, 'wc-match/index&featured=1&page_size=1');
+    $check($featuredStatus === 200 && str_contains($featuredHtml, 'page=2')
+        && preg_match('/page=2[^"]*featured=1/', $featuredHtml) === 1
+        && str_contains($featuredHtml, 'TEST ONLY &lt;featured&gt;') && !str_contains($featuredHtml, 'TEST ONLY story'),
+        'featured pagination retains filter and escapes story title');
+    $db->createCommand()->delete('match_story', ['id' => $secondFeature])->execute();
     $request($admin, 'admin-story/tag-delete&id=' . $story . '&tag_id=' . $tag, ['_csrf' => $csrf, 'confirm_shared' => '1', 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM match_tag') === 1, 'referenced tag protected');
     $request($admin, 'admin-match/delete&id=' . $m2, ['_csrf' => $csrf, 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM wc_match') === 4, 'referenced match protected');
     $request($admin, 'admin-story/update&id=' . $story, ['_csrf' => $csrf, 'MatchStory' => ['is_published' => '0']]);
     $check($service->getMatchDetail($m2)['tags'] === [], 'withdrawal hides tags');
+    $check($service->getMatchList(['featured' => 1])['pagination']['total_count'] === 0, 'withdrawal removes a featured match');
     $request($admin, 'admin-story/delete&id=' . $story, ['_csrf' => $csrf, 'confirm_delete' => '1']);
     $check((int) $scalar('SELECT COUNT(*) FROM match_story') === 0 && (int) $scalar('SELECT COUNT(*) FROM match_story_tag') === 0, 'story and links deleted');
     $check((int) $scalar('SELECT COUNT(*) FROM match_event') === 2 && (int) $scalar('SELECT COUNT(*) FROM match_tag') === 1, 'events and dictionary preserved');

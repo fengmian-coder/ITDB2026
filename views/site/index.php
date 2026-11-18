@@ -44,6 +44,36 @@ $this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::
             </div>
         </div>
     </section>
+    <?php if ($featuredMatches !== []): ?>
+        <section class="py-4" aria-labelledby="featured-matches-title">
+            <div class="wc-home-inner">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                    <h2 class="h3 mb-0" id="featured-matches-title">精选比赛</h2>
+                    <?= Html::a('查看全部精选 →', ['/wc-match/index', 'featured' => 1], ['class' => 'btn btn-outline-success']) ?>
+                </div>
+                <div class="row g-3">
+                    <?php foreach ($featuredMatches as $match): ?>
+                        <div class="col-12 col-md-4">
+                            <article class="card position-relative h-100 rounded-4 shadow-sm">
+                                <div class="card-body d-flex flex-column gap-2 p-3 p-lg-4">
+                                    <p class="small text-body-secondary mb-0">第 <?= (int) $match['match_no'] ?> 场
+                                        <?php if ($match['final_score']['home'] !== null && $match['final_score']['away'] !== null): ?>
+                                            · <?= (int) $match['final_score']['home'] ?> : <?= (int) $match['final_score']['away'] ?>
+                                        <?php endif ?>
+                                    </p>
+                                    <h3 class="h5 mb-2"><?= Html::encode($match['featured_title']) ?></h3>
+                                    <?= Html::a('回看比赛 →', ['/wc-match/view', 'id' => $match['id']], [
+                                        'class' => 'stretched-link mt-auto align-self-start',
+                                        'aria-label' => '回看比赛：' . $match['featured_title'],
+                                    ]) ?>
+                                </div>
+                            </article>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </section>
+    <?php endif ?>
     <section class="wc-memory-section">
         <div class="wc-home-inner wc-memory-layout">
             <div class="wc-memory-copy">

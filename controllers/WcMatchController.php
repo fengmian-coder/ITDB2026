@@ -22,7 +22,7 @@ use yii\web\Controller;
  */
 class WcMatchController extends Controller
 {
-    private const FILTER_KEYS = ['stage', 'team_id', 'page', 'page_size'];
+    private const FILTER_KEYS = ['stage', 'team_id', 'page', 'page_size', 'featured'];
 
     public function __construct(
         $id,
@@ -49,7 +49,7 @@ class WcMatchController extends Controller
     /**
      * wc-match/index → views/wc-match/index.php。
      * View 参数：matches 为 Service 的 items，pagination、teams 原样传递。
-     * filters 含四个白名单键；阶段/球队保留有效输入，页码/页大小使用 Service 返回值。
+     * 阶段、球队及精选状态保留有效输入，页码和页大小使用 Service 返回值。
      */
     public function actionIndex(): string
     {
@@ -64,6 +64,7 @@ class WcMatchController extends Controller
             'filters' => [
                 'stage' => $filters['stage'] ?? null,
                 'team_id' => $filters['team_id'] ?? null,
+                'featured' => in_array($filters['featured'] ?? null, ['1', 1], true),
                 'page' => $result['pagination']['page'],
                 'page_size' => $result['pagination']['page_size'],
             ],

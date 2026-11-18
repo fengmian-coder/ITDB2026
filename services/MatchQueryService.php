@@ -67,7 +67,8 @@ class MatchQueryService
     private const TEAM_FIELDS = ['id', 'name_zh', 'name_en', 'fifa_code', 'flag_path'];
 
     /**
-     * stage/team_id 为 null 或空字符串时不筛选；page 默认 1，page_size 可选，默认 20。
+     * stage/team_id 为 null 或空字符串时不筛选；featured=1 只查询已发布故事对应的比赛。
+     * page 默认 1，page_size 可选，默认 20。
      * 页码须为 PHP 整数范围内正整数，页大小为 1—100；超页返回 400。
      * 不存在或未参加本届的球队返回 404；参赛但无匹配比赛时返回空列表。
      *
@@ -85,7 +86,6 @@ class MatchQueryService
                 throw new NotFoundHttpException('未找到该球队或其 2026 世界杯参赛记录');
             }
             $query = $this->filteredMatchQuery($options);
-            // 只连接赛事父表，不连接事件或标签，计数和分页不会被一对多关系放大。
             $totalCount = (int) (clone $query)->count('m.id');
             $pagination = $this->pagination($options['page'], $options['page_size'], $totalCount);
             $rows = $totalCount === 0 ? [] : $query
@@ -234,6 +234,11 @@ class MatchQueryService
                 ['m.away_team_id' => $options['team_id']],
             ]);
         }
+        if ($options['featured']) {
+            $query->innerJoin(['story' => MatchStory::tableName()], '[[story.match_id]] = [[m.id]]')
+                ->andWhere(['story.is_published' => 1])
+                ->addSelect(['featured_title' => 'story.title']);
+        }
         return $query->orderBy(['m.kickoff_utc' => SORT_ASC, 'm.match_no' => SORT_ASC, 'm.id' => SORT_ASC]);
     }
 
@@ -284,7 +289,7 @@ class MatchQueryService
 
     private function normalizeFilters(array $filters): array
     {
-        if (array_diff(array_keys($filters), ['stage', 'team_id', 'page', 'page_size']) !== []) {
+        if (array_diff(array_keys($filters), ['stage', 'team_id', 'page', 'page_size', 'featured']) !== []) {
             throw new BadRequestHttpException('包含不支持的比赛筛选参数');
         }
         $stage = $filters['stage'] ?? null;
@@ -298,10 +303,15 @@ class MatchQueryService
         if ($teamId === '') {
             $teamId = null;
         }
+        $featured = $filters['featured'] ?? '';
+        if (!in_array($featured, ['', '0', '1', 0, 1], true)) {
+            throw new BadRequestHttpException('精选比赛筛选参数无效');
+        }
 
         return [
             'stage' => $stage,
             'team_id' => $teamId === null ? null : $this->positiveDigits($teamId, 'team_id', '18446744073709551615'),
+            'featured' => in_array($featured, ['1', 1], true),
             'page' => array_key_exists('page', $filters)
                 ? (int) $this->positiveDigits($filters['page'], 'page', (string) PHP_INT_MAX) : 1,
             'page_size' => array_key_exists('page_size', $filters)
@@ -344,6 +354,9 @@ class MatchQueryService
             $match[$key] = $this->record($row[$relation] ?? null, self::TEAM_FIELDS, ['id']);
         }
         $match['final_score'] = $this->finalScore($match);
+        if (isset($row['featured_title'])) {
+            $match['featured_title'] = $row['featured_title'];
+        }
         return $match;
     }
 

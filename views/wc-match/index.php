@@ -17,7 +17,7 @@ use yii\helpers\Url;
 /** @var array $matches Service 的 items；不在页面查询或补造数据 */
 /** @var array $teams 本届全部参赛球队目录 */
 /** @var array{page: int, page_size: int, total_count: int, page_count: int} $pagination */
-/** @var array{stage: ?string, team_id: int|string|null, page: int, page_size: int} $filters */
+/** @var array{stage: ?string, team_id: int|string|null, featured: bool, page: int, page_size: int} $filters */
 
 $this->title = '比赛赛程与赛果 | WorldCup Journey';
 $this->params['breadcrumbs'][] = '比赛赛程';
@@ -59,6 +59,9 @@ $pageUrl = static function (int $target) use ($filters, $pagination): string {
         if (($filters[$key] ?? null) !== null && $filters[$key] !== '') {
             $params[$key] = $filters[$key];
         }
+    }
+    if ($filters['featured']) {
+        $params['featured'] = 1;
     }
     return Url::to($params);
 };
@@ -121,13 +124,21 @@ CSS, [], 'wc-match-index');
                     <?= Html::submitButton('筛选比赛', ['class' => 'btn btn-primary flex-grow-1']) ?>
                     <?= Html::a('重置', ['/wc-match/index'], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <?= Html::checkbox('featured', $filters['featured'], [
+                            'id' => 'match-featured', 'class' => 'form-check-input', 'value' => '1',
+                        ]) ?>
+                        <?= Html::label('只看精选', 'match-featured', ['class' => 'form-check-label']) ?>
+                    </div>
+                </div>
             <?= Html::endForm() ?>
             <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">筛选同时匹配主队和客队</p>
         </div>
     </section>
     <section aria-labelledby="match-list-title">
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-            <h2 id="match-list-title" class="h5 fw-bold mb-0">比赛一览</h2>
+            <h2 id="match-list-title" class="h5 fw-bold mb-0"><?= $filters['featured'] ? '精选比赛' : '比赛一览' ?></h2>
             <span class="small text-body-secondary">按开赛时间排列 · 北京时间</span>
         </div>
         <?php if ($matches === []): ?>
@@ -159,6 +170,9 @@ CSS, [], 'wc-match-index');
                                         <?= Html::encode($statusLabels[$item['status']] ?? $item['status']) ?>
                                     </span>
                                 </div>
+                                <?php if (isset($item['featured_title'])): ?>
+                                    <h3 class="h6 mb-3"><?= Html::encode($item['featured_title']) ?></h3>
+                                <?php endif ?>
                                 <div class="wc-fixture text-center mb-3">
                                     <div class="wc-team">
                                         <div class="small text-body-secondary mb-1">主队</div>
