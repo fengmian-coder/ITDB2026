@@ -15,6 +15,7 @@ use app\services\MatchQueryService;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\web\Response;
 
 /**
  * 只读取请求、调用 Service 并渲染；比分、发布过滤和数据库查询均由 Service 负责。
@@ -51,20 +52,40 @@ class WcMatchController extends Controller
      * View 参数：matches 为 Service 的 items，pagination、teams 原样传递。
      * 阶段、球队及精选状态保留有效输入，页码和页大小使用 Service 返回值。
      */
-    public function actionIndex(): string
+    public function actionIndex(): string|Response
     {
         // 保留参数是否存在及原始类型，包括显式传入的 null，由 Service 统一校验。
         $filters = array_intersect_key($this->request->getQueryParams(), array_flip(self::FILTER_KEYS));
         $result = $this->matchQueryService->getMatchList($filters);
+        $filterOptions = $this->matchQueryService->getMatchFilterOptions();
+        $stage = $filters['stage'] ?? '';
+        $featured = in_array($filters['featured'] ?? null, ['1', 1], true);
+        $teamId = $filters['team_id'] ?? '';
+        $stageReset = $featured && $stage !== '' && !isset($filterOptions['featured_counts'][$stage]);
+        $allowedTeamIds = $filterOptions['team_ids'][$featured ? 'featured' : 'all'][$stageReset ? '' : $stage] ?? [];
+        if ($stageReset) {
+            unset($filters['stage'], $filters['page']);
+            \Yii::$app->session->setFlash('match-stage-fallback', true);
+        }
+        if (($featured || $stage !== '') && $teamId !== ''
+            && !in_array(ltrim((string) $teamId, '0'), $allowedTeamIds, true)) {
+            unset($filters['team_id'], $filters['page']);
+        }
+        if ($stageReset || ($teamId !== '' && !isset($filters['team_id']))) {
+            return $this->redirect(['/wc-match/index'] + $filters);
+        }
 
         return $this->render('index', [
             'matches' => $result['items'],
             'pagination' => $result['pagination'],
             'teams' => $result['teams'],
+            'filterOptions' => $filterOptions,
+            'allowedTeamIds' => $allowedTeamIds,
+            'stageReset' => $featured && \Yii::$app->session->getFlash('match-stage-fallback', false),
             'filters' => [
                 'stage' => $filters['stage'] ?? null,
-                'team_id' => $filters['team_id'] ?? null,
-                'featured' => in_array($filters['featured'] ?? null, ['1', 1], true),
+                'team_id' => $teamId === '' ? null : ltrim((string) $teamId, '0'),
+                'featured' => $featured,
                 'page' => $result['pagination']['page'],
                 'page_size' => $result['pagination']['page_size'],
             ],
@@ -76,7 +97,7 @@ class WcMatchController extends Controller
      * View 参数 match 为 Service 的完整详情数组，不在此重新处理故事、事件或标签。
      * mixed 用于接收原始路由参数，防止隐式类型转换绕过 ID 校验。
      */
-    public function actionView(mixed $id, mixed $team_id = null): string
+    public function actionView(mixed $id, mixed $team_id = null, mixed $list = null): string
     {
         $matchId = $this->positiveMatchId($id);
         $match = $this->matchQueryService->getMatchDetail($matchId);
@@ -89,8 +110,29 @@ class WcMatchController extends Controller
         return $this->render('view', [
             'match' => $match,
             'contextTeamId' => $contextTeamId,
+            'matchListRoute' => $this->matchListRoute($list, $matchId),
             'momentum' => (new \app\services\MatchMomentumService())->build($match),
         ]);
+    }
+
+    private function matchListRoute(mixed $list, int $matchId): array
+    {
+        $route = ['/wc-match/index'];
+        if (!is_array($list)) {
+            return $route;
+        }
+
+        try {
+            $filters = $this->matchQueryService->normalizeFilters(
+                array_intersect_key($list, array_flip(self::FILTER_KEYS))
+            );
+        } catch (BadRequestHttpException) {
+            return $route;
+        }
+
+        $filters['featured'] = $filters['featured'] ? 1 : null;
+        return $route + array_filter($filters, static fn ($value): bool => $value !== null)
+            + ['#' => 'match-card-' . $matchId];
     }
 
     /** Service 接收 int；超出 PHP 整数范围的 ID 返回 400，不能截断后查询另一场比赛。 */

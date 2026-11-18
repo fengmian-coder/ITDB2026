@@ -11,11 +11,15 @@ declare(strict_types=1);
 
 use app\models\WcMatch;
 use yii\helpers\Html;
+use yii\helpers\Json;
 use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var array $matches Service 的 items；不在页面查询或补造数据 */
 /** @var array $teams 本届全部参赛球队目录 */
+/** @var array $filterOptions */
+/** @var string[] $allowedTeamIds */
+/** @var bool $stageReset */
 /** @var array{page: int, page_size: int, total_count: int, page_count: int} $pagination */
 /** @var array{stage: ?string, team_id: int|string|null, featured: bool, page: int, page_size: int} $filters */
 
@@ -26,6 +30,9 @@ $teamOptions = [];
 foreach ($teams as $team) {
     $teamOptions[$team['id']] = $team['name_zh'] . ' · ' . $team['fifa_code'];
 }
+$hasTeamScope = $filters['featured'] || !empty($filters['stage']);
+$visibleTeamOptions = $hasTeamScope ? array_intersect_key($teamOptions, array_flip($allowedTeamIds)) : $teamOptions;
+$this->registerJsFile('@web/js/match-team-filter.js', ['depends' => [app\assets\AppAsset::class]]);
 $stageLabels = [
     'GROUP' => '小组赛', 'R32' => '32 强赛', 'R16' => '16 强赛',
     'QF' => '四分之一决赛', 'SF' => '半决赛', 'THIRD' => '季军赛', 'FINAL' => '决赛',
@@ -33,6 +40,13 @@ $stageLabels = [
 $stageOptions = [];
 foreach (WcMatch::STAGE_CODES as $code) {
     $stageOptions[$code] = $stageLabels[$code] ?? $code;
+}
+$visibleStageOptions = $stageOptions;
+if ($filters['featured']) {
+    $visibleStageOptions = array_intersect_key($stageOptions, $filterOptions['featured_counts']);
+    foreach ($visibleStageOptions as $code => $label) {
+        $visibleStageOptions[$code] = $label . '（' . $filterOptions['featured_counts'][$code] . ' 场）';
+    }
 }
 $statusLabels = [
     'SCHEDULED' => '未开始', 'IN_PROGRESS' => '进行中', 'FINISHED' => '已结束',
@@ -53,24 +67,28 @@ $beijingTime = static function (?string $value): ?DateTimeImmutable {
 };
 $page = $pagination['page'];
 $pageCount = $pagination['page_count'];
-$pageUrl = static function (int $target) use ($filters, $pagination): string {
-    $params = ['/wc-match/index', 'page' => $target, 'page_size' => $pagination['page_size']];
-    foreach (['stage', 'team_id'] as $key) {
-        if (($filters[$key] ?? null) !== null && $filters[$key] !== '') {
-            $params[$key] = $filters[$key];
-        }
-    }
-    if ($filters['featured']) {
-        $params['featured'] = 1;
-    }
-    return Url::to($params);
-};
+$listParams = array_filter([
+    'page' => $page,
+    'page_size' => $pagination['page_size'],
+    'stage' => $filters['stage'],
+    'team_id' => $filters['team_id'],
+    'featured' => $filters['featured'] ? 1 : null,
+], static fn ($value): bool => $value !== null && $value !== '');
+$pageUrl = static fn (int $target): string => Url::to(
+    ['/wc-match/index', 'page' => $target] + $listParams
+);
+$activeFilters = array_filter([
+    'stage' => $stageOptions[$listParams['stage'] ?? ''] ?? null,
+    'team_id' => $teamOptions[$listParams['team_id'] ?? ''] ?? null,
+    'featured' => $filters['featured'] ? '只看精选' : null,
+], static fn (?string $label): bool => $label !== null);
 $this->registerCss(<<<'CSS'
 .wc-match-index { flex: 1; --wc-accent: #e4d59c; }
 .wc-match-index .wc-hero { background: #174f35; color: #fff; text-align: left; }
 .wc-match-index .wc-hero .wc-eyebrow { color: var(--wc-accent); letter-spacing: .12em; font-size: 14px; line-height: 1.5; max-width: none; margin: 0 0 12px; }
-.wc-match-index .wc-total { color: var(--wc-accent); font-variant-numeric: tabular-nums; }
 .wc-match-index .wc-card { border-top: 3px solid #48785a !important; }
+.wc-match-index .wc-card:target { outline: 2px solid var(--bs-success-text-emphasis); }
+.wc-match-index .wc-card, .wc-match-index #match-list-title { scroll-margin-top: 6rem; }
 .wc-match-index .wc-team { min-width: 0; overflow-wrap: anywhere; }
 .wc-match-index .wc-score { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 750; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .wc-match-index .wc-fixture { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .75rem; align-items: center; }
@@ -89,17 +107,9 @@ CSS, [], 'wc-match-index');
 ?>
 <div class="wc-match-index pb-4">
     <header class="wc-hero rounded-4 p-4 p-md-5 mb-4">
-        <div class="d-flex flex-wrap align-items-end justify-content-between gap-3">
-            <div>
-                <p class="wc-eyebrow fw-semibold">WORLD CUP JOURNEY / 2026</p>
-                <h1 class="display-6 fw-bold mb-2">每一场，都是旅程</h1>
-                <p class="mb-0 opacity-75">2026 世界杯赛程与赛果 · 所有开赛时间均为北京时间</p>
-            </div>
-            <div class="text-md-end">
-                <div class="wc-total fs-2 fw-bold"><?= Html::encode((string) $pagination['total_count']) ?></div>
-                <div class="small opacity-75">场符合当前条件的比赛</div>
-            </div>
-        </div>
+        <p class="wc-eyebrow fw-semibold">WORLD CUP JOURNEY / 2026</p>
+        <h1 class="display-6 fw-bold mb-2">每一场，都是旅程</h1>
+        <p class="mb-0 opacity-75">2026 世界杯赛程与赛果 · 所有开赛时间均为北京时间</p>
     </header>
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="match-filter-title">
         <div class="card-body p-3 p-md-4">
@@ -109,14 +119,16 @@ CSS, [], 'wc-match-index');
                 <?= Html::hiddenInput('page_size', (string) $pagination['page_size']) ?>
                 <div class="col-12 col-md-5">
                     <?= Html::label('比赛阶段', 'match-stage', ['class' => 'form-label small']) ?>
-                    <?= Html::dropDownList('stage', $filters['stage'] ?? '', $stageOptions, [
-                        'id' => 'match-stage', 'class' => 'form-select', 'prompt' => '全部阶段',
+                    <?= Html::dropDownList('stage', $filters['stage'] ?? '', $visibleStageOptions, [
+                        'id' => 'match-stage', 'class' => 'form-select',
+                        'prompt' => $visibleStageOptions === [] ? '暂无精选阶段' : '全部阶段',
                     ]) ?>
                 </div>
                 <div class="col-12 col-md-4">
                     <?= Html::label('球队', 'match-team-id', ['class' => 'form-label small']) ?>
-                    <?= Html::dropDownList('team_id', $filters['team_id'] ?? '', $teamOptions, [
-                        'id' => 'match-team-id', 'class' => 'form-select', 'prompt' => '全部球队',
+                    <?= Html::dropDownList('team_id', $filters['team_id'] ?? '', $visibleTeamOptions, [
+                        'id' => 'match-team-id', 'class' => 'form-select',
+                        'prompt' => $visibleTeamOptions === [] ? '暂无可选球队' : '全部球队',
                         'aria-describedby' => 'match-team-hint',
                     ]) ?>
                 </div>
@@ -133,14 +145,39 @@ CSS, [], 'wc-match-index');
                     </div>
                 </div>
             <?= Html::endForm() ?>
-            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">筛选同时匹配主队和客队</p>
+            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">球队选项随比赛阶段和「只看精选」更新</p>
+            <p id="match-stage-feedback" class="small text-body-secondary mb-0" role="status"><?= $stageReset ? '原阶段暂无精选，已切换至全部阶段。' : '' ?></p>
+            <script type="application/json" id="match-team-filter-data"><?= Json::htmlEncode([
+                'teams' => array_map(static fn (array $team): array => [
+                    (string) $team['id'], $teamOptions[$team['id']],
+                ], $teams),
+                'teamIds' => $filterOptions['team_ids'],
+                'stageLabels' => $stageOptions,
+                'featuredCounts' => $filterOptions['featured_counts'],
+            ]) ?></script>
         </div>
     </section>
     <section aria-labelledby="match-list-title">
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-            <h2 id="match-list-title" class="h5 fw-bold mb-0"><?= $filters['featured'] ? '精选比赛' : '比赛一览' ?></h2>
+            <div class="d-flex flex-wrap align-items-baseline gap-2">
+                <h2 id="match-list-title" class="h5 fw-bold mb-0"><?= $filters['featured'] ? '精选比赛' : '比赛一览' ?></h2>
+                <span class="small text-body-secondary">共 <?= (int) $pagination['total_count'] ?> 场</span>
+            </div>
             <span class="small text-body-secondary">按开赛时间排列 · 北京时间</span>
         </div>
+        <?php if ($activeFilters !== []): ?>
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-3" id="match-active-filters">
+                <span class="small text-body-secondary">当前筛选</span>
+                <?php foreach ($activeFilters as $key => $label): ?>
+                    <?php $clearRoute = ['/wc-match/index', '#' => 'match-list-title'] + $listParams; ?>
+                    <?php unset($clearRoute[$key], $clearRoute['page']); ?>
+                    <?= Html::a(Html::encode($label) . ' <span aria-hidden="true">×</span>', $clearRoute, [
+                        'class' => 'btn btn-sm btn-outline-secondary rounded-pill px-3',
+                        'aria-label' => '清除筛选：' . $label,
+                    ]) ?>
+                <?php endforeach ?>
+            </div>
+        <?php endif ?>
         <?php if ($matches === []): ?>
             <div class="wc-empty rounded-4 text-center py-5 px-3">
                 <h3 class="h5 mb-2">暂无符合条件的比赛</h3>
@@ -154,10 +191,11 @@ CSS, [], 'wc-match-index');
                     $kickoff = $beijingTime($item['kickoff_utc']);
                     $finalScore = $item['final_score'];
                     $hasFinalScore = $finalScore['home'] !== null && $finalScore['away'] !== null;
-                    $detailUrl = Url::to(['/wc-match/view', 'id' => $item['id']]);
+                    $detailUrl = Url::to(['/wc-match/view', 'id' => $item['id'], 'list' => $listParams]);
                     ?>
                     <div class="col-12 col-xl-6">
-                        <article class="wc-card card h-100 border-0 shadow-sm rounded-4">
+                        <article class="wc-card card h-100 border-0 shadow-sm rounded-4"
+                                 id="match-card-<?= Html::encode((string) $item['id']) ?>" tabindex="-1">
                             <div class="card-body p-4">
                                 <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
                                     <span class="small fw-semibold">比赛 #<?= Html::encode((string) $item['match_no']) ?>

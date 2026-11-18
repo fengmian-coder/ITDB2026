@@ -103,6 +103,41 @@ class MatchQueryService
         }
     }
 
+    public function getMatchFilterOptions(): array
+    {
+        try {
+            $rows = $this->baseMatchQuery()
+                ->select(['m.stage_code', 'm.home_team_id', 'm.away_team_id', 'published_id' => 'story.match_id'])
+                ->leftJoin(['story' => MatchStory::tableName()],
+                    '[[story.match_id]] = [[m.id]] AND [[story.is_published]] = 1')
+                ->all();
+
+            $teams = ['all' => [], 'featured' => []];
+            $featuredCounts = [];
+            foreach ($rows as $row) {
+                if ($row['published_id'] !== null) {
+                    $stage = $row['stage_code'];
+                    $featuredCounts[$stage] = ($featuredCounts[$stage] ?? 0) + 1;
+                }
+                foreach (['', $row['stage_code']] as $stage) {
+                    foreach ([$row['home_team_id'], $row['away_team_id']] as $teamId) {
+                        $teams['all'][$stage][(string) $teamId] = (string) $teamId;
+                        if ($row['published_id'] !== null) {
+                            $teams['featured'][$stage][(string) $teamId] = (string) $teamId;
+                        }
+                    }
+                }
+            }
+
+            return [
+                'team_ids' => array_map(static fn (array $stages): array => array_map('array_values', $stages), $teams),
+                'featured_counts' => $featuredCounts,
+            ];
+        } catch (DatabaseException $exception) {
+            throw $this->databaseFailure($exception, __FUNCTION__);
+        }
+    }
+
     /** 不存在或不属于 2026 届的比赛返回 404；非法 ID 返回 400。 */
     public function getMatchDetail(int $matchId): array
     {
@@ -287,7 +322,7 @@ class MatchQueryService
         ])->groupBy(['m.stage_code']);
     }
 
-    private function normalizeFilters(array $filters): array
+    public function normalizeFilters(array $filters): array
     {
         if (array_diff(array_keys($filters), ['stage', 'team_id', 'page', 'page_size', 'featured']) !== []) {
             throw new BadRequestHttpException('包含不支持的比赛筛选参数');

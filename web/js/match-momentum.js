@@ -7,6 +7,12 @@
     const slider = document.getElementById('momentum-position');
     const detail = document.getElementById('momentum-detail');
     const nodes = document.getElementById('momentum-nodes');
+    const buttons = Array.from(nodes.querySelectorAll('button'));
+    const eventLink = document.getElementById('momentum-event-link');
+    const copyButton = document.getElementById('momentum-copy');
+    const copyStatus = document.getElementById('momentum-copy-status');
+    const shareInput = document.getElementById('momentum-share-url');
+    let currentEvent = null;
     let chart;
     let selected = 0;
     function select(index) {
@@ -21,12 +27,21 @@
         description.className = 'small mb-0 mt-2';
         description.textContent = [point.player, point.description].filter(Boolean).join(' · ');
         detail.append(title, description);
-        nodes.querySelectorAll('button').forEach(button => {
+        buttons.forEach(button => {
             const active = Number(button.dataset.point) === index;
             button.classList.toggle('btn-success', active);
             button.classList.toggle('btn-outline-secondary', !active);
             button.setAttribute('aria-pressed', String(active));
         });
+        currentEvent?.removeAttribute('aria-current');
+        currentEvent = document.getElementById(`match-event-${point.event_id}`);
+        eventLink.hidden = currentEvent === null;
+        if (currentEvent) {
+            currentEvent.setAttribute('aria-current', 'true');
+            eventLink.href = `#${currentEvent.id}`;
+        }
+        copyStatus.textContent = '';
+        shareInput.hidden = true;
         if (chart) render();
     }
     function render() {
@@ -54,11 +69,38 @@
         const button = event.target.closest('[data-point]');
         if (button) select(Number(button.dataset.point));
     });
+    function selectFromLink() {
+        const fragment = window.location.hash.slice(1);
+        const index = buttons.findIndex(button => button.id === fragment);
+        if (index === -1) return false;
+
+        select(index);
+        document.getElementById('momentum-title').scrollIntoView({block: 'start'});
+        return true;
+    }
+
+    copyButton.hidden = false;
+    copyButton.addEventListener('click', async () => {
+        const index = selected;
+        const url = new URL(window.location.href);
+        url.hash = buttons[index].id;
+        try {
+            await navigator.clipboard.writeText(url.href);
+            if (selected === index) copyStatus.textContent = '链接已复制';
+        } catch {
+            if (selected !== index) return;
+            shareInput.value = url.href;
+            shareInput.hidden = false;
+            shareInput.select();
+            copyStatus.textContent = '可手动复制下方链接';
+        }
+    });
+    window.addEventListener('hashchange', selectFromLink);
     if (window.echarts) {
         chart = echarts.init(root, null, {renderer: 'svg'});
         chart.on('click', event => { if (Number.isInteger(event.dataIndex)) select(event.dataIndex); });
         new ResizeObserver(() => chart.resize()).observe(root);
         new MutationObserver(render).observe(document.documentElement, {attributes: true, attributeFilter: ['data-bs-theme']});
     } else root.textContent = '图表暂不可用，可使用下方按钮回看比分。';
-    select(0);
+    if (!selectFromLink()) select(0);
 })();

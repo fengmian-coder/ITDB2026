@@ -42,6 +42,14 @@ $items = [
         'url' => ['/memory/card'],
     ],
     [
+        'label' => '团队介绍',
+        'url' => ['/project-team/index'],
+    ],
+    [
+        'label' => '课程作业下载',
+        'url' => ['/document/index'],
+    ],
+    [
         'label' => '后台管理',
         'url' => ['/admin-dashboard/index'],
         'visible' => !Yii::$app->user->isGuest,

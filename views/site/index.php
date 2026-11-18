@@ -62,7 +62,7 @@ $this->registerCssFile('@web/css/home.css', ['depends' => [app\assets\AppAsset::
                                         <?php endif ?>
                                     </p>
                                     <h3 class="h5 mb-2"><?= Html::encode($match['featured_title']) ?></h3>
-                                    <?= Html::a('回看比赛 →', ['/wc-match/view', 'id' => $match['id']], [
+                                    <?= Html::a('回看比赛 →', ['/wc-match/view', 'id' => $match['id'], 'list' => ['featured' => 1]], [
                                         'class' => 'stretched-link mt-auto align-self-start',
                                         'aria-label' => '回看比赛：' . $match['featured_title'],
                                     ]) ?>
