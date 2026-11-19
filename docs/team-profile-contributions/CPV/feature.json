@@ -1,0 +1,302 @@
+{
+  "CPV": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=8",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "佛得角的本届参赛阵容由 Bubista 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、12名中场和3名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "佛得角本届参赛阵容共 26 人。",
+    "coach_name": "Bubista",
+    "coach_name_zh": "布比斯塔",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：佛得角",
+    "coach_facts": "前佛得角国家队队长，2020 年出任主教练，带领球队首次进入世界杯决赛圈。",
+    "coach_photo": "cpv-coach",
+    "player_photos": {
+      "2": "cpv-stopira",
+      "11": "cpv-rodrigues",
+      "20": "cpv-mendes"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "2026 年"
+      },
+      {
+        "label": "上届成绩",
+        "value": "未参赛"
+      },
+      {
+        "label": "本届队长",
+        "value": "瑞安·门德斯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA · 佛得角球队历史与资料",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/fifa.com/en/articles/cabo-verde-team-profile-history"
+    },
+    "translation_source": {
+      "label": "球探体育 · 佛得角名单译名参照",
+      "url": "https://sports.spbo.com/s/football/global/202605/26353708.html"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Vozinha",
+        "club": "GD Chaves (POR)",
+        "caps": 94,
+        "goals": 0,
+        "name_zh": "沃津哈",
+        "club_zh": "查维斯"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Stopira",
+        "club": "SCU Torreense (POR)",
+        "caps": 61,
+        "goals": 4,
+        "name_zh": "斯托皮拉",
+        "club_zh": "托伦斯"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Diney Borges",
+        "club": "Al Bataeh Club (UAE)",
+        "caps": 36,
+        "goals": 2,
+        "name_zh": "迪内·博尔热斯",
+        "club_zh": "巴塔"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Pico Lopes",
+        "club": "Shamrock Rovers FC (IRL)",
+        "caps": 49,
+        "goals": 0,
+        "name_zh": "皮科·洛佩斯",
+        "club_zh": "沙姆洛克流浪者"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Logan Costa",
+        "club": "Villarreal CF (ESP)",
+        "caps": 28,
+        "goals": 0,
+        "name_zh": "洛根·科斯塔",
+        "club_zh": "比利亚雷亚尔"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Kevin Pina",
+        "club": "FC Krasnodar (RUS)",
+        "caps": 35,
+        "goals": 4,
+        "name_zh": "凯文·皮纳",
+        "club_zh": "克拉斯诺达尔"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Jovane Cabral",
+        "club": "CF Estrela Da Amadora (POR)",
+        "caps": 31,
+        "goals": 3,
+        "name_zh": "乔瓦内·卡布拉尔",
+        "club_zh": "阿马多拉之星"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Joao Paulo",
+        "club": "FC FCSB (ROU)",
+        "caps": 43,
+        "goals": 1,
+        "name_zh": "若昂·保罗",
+        "club_zh": "布加勒斯特星"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Gilson Benchimol",
+        "club": "FC Akron Tolyatti (RUS)",
+        "caps": 23,
+        "goals": 6,
+        "name_zh": "吉尔松·本希莫尔",
+        "club_zh": "陶里亚蒂阿克隆"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Jamiro Monteiro",
+        "club": "PEC Zwolle (NED)",
+        "caps": 59,
+        "goals": 5,
+        "name_zh": "贾米罗·蒙泰罗",
+        "club_zh": "兹沃勒"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Garry Rodrigues",
+        "club": "Apollon Limassol (CYP)",
+        "caps": 63,
+        "goals": 10,
+        "name_zh": "加里·罗德里格斯",
+        "club_zh": "阿波罗利马索尔"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Marcio Rosa",
+        "club": "PFC Montana (BUL)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "马尔西奥·罗萨",
+        "club_zh": "蒙塔纳"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Sidny Lopes Cabral",
+        "club": "SL Benfica (POR)",
+        "caps": 14,
+        "goals": 4,
+        "name_zh": "西德尼·洛佩斯·卡布拉尔",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Deroy Duarte",
+        "club": "PFC Ludogorets Razgrad (BUL)",
+        "caps": 37,
+        "goals": 1,
+        "name_zh": "德罗伊·杜阿尔特",
+        "club_zh": "卢多戈雷茨"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Laros Duarte",
+        "club": "Puskás Akadémia FC (HUN)",
+        "caps": 24,
+        "goals": 1,
+        "name_zh": "拉罗斯·杜阿尔特",
+        "club_zh": "普斯卡什学院"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Yannick Semedo",
+        "club": "SC Farense (POR)",
+        "caps": 13,
+        "goals": 1,
+        "name_zh": "扬尼克·塞梅多",
+        "club_zh": "法鲁人"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Willy Semedo",
+        "club": "AC Omonia (CYP)",
+        "caps": 41,
+        "goals": 3,
+        "name_zh": "威利·塞梅多",
+        "club_zh": "尼科西亚奥莫尼亚"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Telmo Arcanjo",
+        "club": "Vitória SC (POR)",
+        "caps": 18,
+        "goals": 1,
+        "name_zh": "特尔莫·阿尔坎若",
+        "club_zh": "吉马良斯"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Dailon Livramento",
+        "club": "Casa Pia AC (POR)",
+        "caps": 25,
+        "goals": 7,
+        "name_zh": "戴隆·利夫拉门托",
+        "club_zh": "卡萨皮亚"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Ryan Mendes",
+        "club": "Iğdır FK (TUR)",
+        "caps": 102,
+        "goals": 22,
+        "name_zh": "瑞安·门德斯",
+        "club_zh": "厄德尔"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Nuno da Costa",
+        "club": "Başakşehir FK (TUR)",
+        "caps": 13,
+        "goals": 2,
+        "name_zh": "努诺·达科斯塔",
+        "club_zh": "伊斯坦布尔巴萨克赛尔"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Steven Moreira",
+        "club": "Columbus Crew (USA)",
+        "caps": 24,
+        "goals": 0,
+        "name_zh": "史蒂文·莫雷拉",
+        "club_zh": "哥伦布机员"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "CJ dos Santos",
+        "club": "San Diego FC (USA)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "CJ·多斯桑托斯",
+        "club_zh": "圣迭戈"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Wagner Pina",
+        "club": "Trabzonspor (TUR)",
+        "caps": 15,
+        "goals": 0,
+        "name_zh": "瓦格纳·皮纳",
+        "club_zh": "特拉布宗体育"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Kelvin Pires",
+        "club": "SJK (FIN)",
+        "caps": 6,
+        "goals": 1,
+        "name_zh": "凯尔文·皮雷斯",
+        "club_zh": "塞伊奈约基"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Helio Varela",
+        "club": "Maccabi Tel-Aviv FC (ISR)",
+        "caps": 24,
+        "goals": 1,
+        "name_zh": "埃利奥·瓦雷拉",
+        "club_zh": "特拉维夫马卡比"
+      }
+    ]
+  }
+}

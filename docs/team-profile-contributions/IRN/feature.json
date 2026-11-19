@@ -1,0 +1,302 @@
+{
+  "IRN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=23",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "伊朗的本届参赛阵容由 Amir Ghalehnoy 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "伊朗本届参赛阵容共 26 人。",
+    "coach_name": "Amir Ghalehnoy",
+    "coach_name_zh": "阿米尔·加勒诺伊",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：伊朗",
+    "coach_facts": "2006 至 2007 年曾执教伊朗，2023 年再次接手国家队，随后带队进入亚洲杯四强并晋级本届世界杯。",
+    "coach_photo": "irn-coach",
+    "player_photos": {
+      "3": "irn-hajisafi",
+      "7": "irn-jahanbakhsh",
+      "9": "irn-taremi"
+    },
+    "facts": [
+      {
+        "label": "此前最佳",
+        "value": "小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1978 年"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA · 伊朗球队历史与资料",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/ir-iran-team-profile-history"
+    },
+    "translation_source": {
+      "label": "封面新闻／新浪 · 伊朗名单译名参照",
+      "url": "https://finance.sina.com.cn/wm/2026-06-02/doc-inhzynrr7904425.shtml"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Alireza Beiranvand",
+        "club": "Tractor Sazi Tabriz FC (IRN)",
+        "caps": 90,
+        "goals": 0,
+        "name_zh": "贝兰万德",
+        "club_zh": "大不里士拖拉机"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Saleh Hardani",
+        "club": "Esteghlal Tehran FC (IRN)",
+        "caps": 20,
+        "goals": 1,
+        "name_zh": "萨利赫·哈达尼",
+        "club_zh": "德黑兰独立"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Ehsan Hajisafi",
+        "club": "Sepahan SC (IRN)",
+        "caps": 148,
+        "goals": 7,
+        "name_zh": "哈吉萨菲",
+        "club_zh": "塞帕罕"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Shoja Khalilzadeh",
+        "club": "Tractor Sazi Tabriz FC (IRN)",
+        "caps": 61,
+        "goals": 2,
+        "name_zh": "舒贾·哈利勒扎德",
+        "club_zh": "大不里士拖拉机"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Milad Mohammadi",
+        "club": "Persepolis FC (IRN)",
+        "caps": 80,
+        "goals": 1,
+        "name_zh": "米拉德·穆罕默迪",
+        "club_zh": "波斯波利斯"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Saeid Ezatolahi",
+        "club": "Shabab Al Ahli Club (UAE)",
+        "caps": 87,
+        "goals": 2,
+        "name_zh": "赛义德·埃扎托拉希",
+        "club_zh": "迪拜国民青年"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Alireza Jahanbakhsh",
+        "club": "FCV Dender EH (BEL)",
+        "caps": 101,
+        "goals": 17,
+        "name_zh": "贾汉巴赫什",
+        "club_zh": "登德"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Mohammad Mohebbi",
+        "club": "FC Rostov (RUS)",
+        "caps": 40,
+        "goals": 14,
+        "name_zh": "穆罕默德·莫赫比",
+        "club_zh": "罗斯托夫"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Mehdi Taremi",
+        "club": "Olympiacos FC (GRE)",
+        "caps": 109,
+        "goals": 59,
+        "name_zh": "塔雷米",
+        "club_zh": "奥林匹亚科斯"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Mehdi Ghayedi",
+        "club": "Al Nasr SC (UAE)",
+        "caps": 31,
+        "goals": 10,
+        "name_zh": "迈赫迪·加耶迪",
+        "club_zh": "迪拜胜利"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Ali Alipour",
+        "club": "Persepolis FC (IRN)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "阿里·阿利普尔",
+        "club_zh": "波斯波利斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Payam Niazmand",
+        "club": "Persepolis FC (IRN)",
+        "caps": 15,
+        "goals": 0,
+        "name_zh": "帕亚姆·尼亚曼德",
+        "club_zh": "波斯波利斯"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Hossein Kanani",
+        "club": "Persepolis FC (IRN)",
+        "caps": 67,
+        "goals": 6,
+        "name_zh": "侯赛因·卡纳尼",
+        "club_zh": "波斯波利斯"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Saman Ghoddos",
+        "club": "Al Ittihad Kalba SCC (UAE)",
+        "caps": 71,
+        "goals": 3,
+        "name_zh": "萨曼·戈多斯",
+        "club_zh": "卡尔巴联合"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Roozbeh Cheshmi",
+        "club": "Esteghlal Tehran FC (IRN)",
+        "caps": 41,
+        "goals": 3,
+        "name_zh": "鲁兹贝·切什米",
+        "club_zh": "德黑兰独立"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Mehdi Torabi",
+        "club": "Tractor Sazi Tabriz FC (IRN)",
+        "caps": 53,
+        "goals": 7,
+        "name_zh": "梅迪·托拉比",
+        "club_zh": "大不里士拖拉机"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "Arya Yousefi",
+        "club": "Sepahan SC (IRN)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "阿丽亚·尤素菲",
+        "club_zh": "塞帕罕"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Amirhossein Hosseinzadeh",
+        "club": "Tractor Sazi Tabriz FC (IRN)",
+        "caps": 20,
+        "goals": 5,
+        "name_zh": "阿米尔侯赛因·侯赛因扎德",
+        "club_zh": "大不里士拖拉机"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Ali Nemati",
+        "club": "Foolad Khuzestan FC (IRN)",
+        "caps": 21,
+        "goals": 0,
+        "name_zh": "阿里·内马蒂",
+        "club_zh": "胡齐斯坦钢铁"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Shahriyar Moghanloo",
+        "club": "Al Ittihad Kalba SCC (UAE)",
+        "caps": 24,
+        "goals": 2,
+        "name_zh": "沙赫里亚尔·莫汉卢",
+        "club_zh": "卡尔巴联合"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Mohammad Ghorbani",
+        "club": "Al Wahda SC (UAE)",
+        "caps": 17,
+        "goals": 0,
+        "name_zh": "穆罕默德·戈尔巴尼",
+        "club_zh": "阿布扎比统一"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Hossein Hosseini",
+        "club": "Sepahan SC (IRN)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "侯赛因·侯赛尼",
+        "club_zh": "塞帕罕"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "name": "Ramin Rezaeian",
+        "club": "Foolad Khuzestan FC (IRN)",
+        "caps": 77,
+        "goals": 10,
+        "name_zh": "拉明·雷扎伊扬",
+        "club_zh": "胡齐斯坦钢铁"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Dennis Dargahi",
+        "club": "Standard Liège (BEL)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "丹尼斯·达尔加希",
+        "club_zh": "标准列日"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Danial Iri",
+        "club": "Malavan Anzali FC (IRN)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "达尼亚尔·埃里",
+        "club_zh": "马拉云"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Amirmohammad Razaghinia",
+        "club": "Esteghlal Tehran FC (IRN)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "阿米尔穆罕默德·拉扎格尼亚",
+        "club_zh": "德黑兰独立"
+      }
+    ]
+  }
+}

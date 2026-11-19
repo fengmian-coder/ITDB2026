@@ -21,8 +21,22 @@ $features = json_decode(file_get_contents($root . '/data/team-profile-features-2
 $credits = json_decode(file_get_contents($root . '/web/images/team-profiles/credits.json'), true, 512, JSON_THROW_ON_ERROR);
 $check($features['source_sha256'] === $bundle['source_sha256'], 'roster source version is retained');
 $service = new TeamProfileFeatureService();
-$expectedCounts = ['CRO'=>['GK'=>3,'DF'=>8,'MF'=>9,'FW'=>6], 'UZB'=>['GK'=>3,'DF'=>10,'MF'=>10,'FW'=>3], 'URU'=>['GK'=>3,'DF'=>7,'MF'=>11,'FW'=>5], 'IRQ'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7]];
-$check(count($features['teams']) === count($expectedCounts), 'only four approved team pages are enhanced');
+// Position counts independently checked against the fixed FIFA PDF pages.
+$expectedCounts = [
+    'CRO'=>['GK'=>3,'DF'=>8,'MF'=>9,'FW'=>6],
+    'UZB'=>['GK'=>3,'DF'=>10,'MF'=>10,'FW'=>3],
+    'URU'=>['GK'=>3,'DF'=>7,'MF'=>11,'FW'=>5],
+    'IRQ'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'IRN'=>['GK'=>3,'DF'=>9,'MF'=>8,'FW'=>6],
+    'COD'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'CAN'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'GHA'=>['GK'=>3,'DF'=>9,'MF'=>6,'FW'=>8],
+    'QAT'=>['GK'=>3,'DF'=>9,'MF'=>5,'FW'=>9],
+    'ECU'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'CPV'=>['GK'=>3,'DF'=>8,'MF'=>12,'FW'=>3],
+    'RSA'=>['GK'=>3,'DF'=>10,'MF'=>5,'FW'=>8],
+];
+$check(count($features['teams']) === count($expectedCounts), 'only the integrated team pages are enhanced');
 foreach ($expectedCounts as $code => $expected) {
     $teamProfile = $bundle['teams'][$code];
     $teamFeature = $service->get($code, $teamProfile);
@@ -54,13 +68,45 @@ foreach ($sample['highlighted'] as $player) {
     $check($player['photo']['name'] === $player['name'], 'player photograph identity');
     $check($player['photo']['date'] === '2026-07-02' && $player['photo']['author'] === 'Bryan Berlin / WikiPortraits', 'same-event 2026 photographs');
 }
-foreach ($credits as $photo) {
+// Two specific photographs selected by the user for the course assignment.
+// These checks verify truthful provenance, not permission from the rights holder.
+$coursePhotos = [
+    'cpv-coach' => [
+        'name' => 'Bubista',
+        'source_host' => 'baike.baidu.com',
+        'path' => 'images/team-profiles/cpv-coach.png',
+        'sha256' => '68a4b9a59fb57d263276c4d7c2329e3e4d52d6d77feb5d1ead3c0275eb1233b0',
+        'acquisition' => 'user_attachment',
+    ],
+    'rsa-mokoena' => [
+        'name' => 'Teboho Mokoena',
+        'source_host' => 'sundownsfc.co.za',
+        'path' => 'images/team-profiles/rsa-mokoena.jpg',
+        'sha256' => 'c2b887b5d502e9477366c725e26ab4ab0eed8699bea9c2eb65f19efe19a96a72',
+        'acquisition' => 'source_download',
+    ],
+];
+$check(array_keys(array_filter($credits, static fn(array $p): bool => ($p['rights_status'] ?? '') === 'unverified')) === array_keys($coursePhotos), 'only the two selected photographs use the course-assignment provenance record');
+foreach ($credits as $key => $photo) {
     $path = $root . '/web/' . $photo['path'];
     $size = getimagesize($path);
     $check($size !== false && $size[0] === $photo['width'] && $size[1] === $photo['height'], 'image dimensions');
     $check(hash_file('sha256', $path) === $photo['sha256'], 'image SHA256');
-    $check(parse_url($photo['source_url'], PHP_URL_HOST) === 'commons.wikimedia.org'
-        && parse_url($photo['license_url'], PHP_URL_HOST) === 'creativecommons.org' && $photo['author'] !== '', 'image attribution');
+    if (isset($coursePhotos[$key])) {
+        $selected = $coursePhotos[$key];
+        $check($photo['name'] === $selected['name'] && $photo['path'] === $selected['path']
+            && $photo['sha256'] === $selected['sha256']
+            && parse_url($photo['source_url'], PHP_URL_HOST) === $selected['source_host']
+            && $photo['acquisition'] === $selected['acquisition'] && $photo['author'] !== ''
+            && $photo['rights_status'] === 'unverified' && $photo['license_url'] === null
+            && $photo['license'] === '版权保留 · 未取得开放许可'
+            && $photo['date_kind'] === 'accessed' && $photo['date'] === '2026-11-19'
+            && str_contains($photo['date_note'], '未注明拍摄日期')
+            && str_contains($photo['usage_basis'], '不代表照片权利人授权'), 'truthful course photo provenance ' . $key);
+    } else {
+        $check(parse_url($photo['source_url'], PHP_URL_HOST) === 'commons.wikimedia.org'
+            && parse_url($photo['license_url'], PHP_URL_HOST) === 'creativecommons.org' && $photo['author'] !== '', 'image attribution');
+    }
 }
 $modified = $profile; $modified['summary'] = '管理员编辑的球队简介';
 $check($service->get('CRO', $modified)['summary'] === $modified['summary'], 'custom team summary retained');
@@ -85,6 +131,13 @@ foreach (NationalTeam::find()->where(['fifa_code'=>array_keys($bundle['teams'])]
     if (isset($expectedCounts[$team->fifa_code])) {
         $check(substr_count($html, 'class="team-roster-number"') === 26 && substr_count($html, 'class="team-person-photo') === 4, 'complete roster and four photos ' . $team->fifa_code);
         $check(substr_count($html, 'class="team-roster-original"') === 52 && str_contains($html, '完整参赛名单（26人）'), 'bilingual names and compact roster header ' . $team->fifa_code);
+    }
+    if (in_array($team->fifa_code, ['CPV', 'RSA'], true)) {
+        $check(str_contains($html, '收录日期 2026-11-19') && str_contains($html, '版权保留 · 未取得开放许可'), 'course photo date and rights statement rendered ' . $team->fifa_code);
+        $check(!str_contains($html, '使用 Commons 预览版'), 'mixed image sources are not described as entirely Commons ' . $team->fifa_code);
+    }
+    if ($team->fifa_code === 'CPV') {
+        $check(str_contains($html, '/images/team-profiles/cpv-coach.png') && str_contains($html, 'object-fit: contain;'), 'user supplied PNG is displayed without cropping its watermark');
     }
     if ($team->fifa_code === 'CRO') {
         $check(substr_count($html, 'class="team-roster-number"') === 26, 'all 26 roster rows rendered');

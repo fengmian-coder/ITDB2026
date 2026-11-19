@@ -1,0 +1,302 @@
+{
+  "CAN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=9",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "加拿大的本届参赛阵容由 Jesse Marsch 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "加拿大本届参赛阵容共 26 人。",
+    "coach_name": "Jesse Marsch",
+    "coach_name_zh": "杰西·马什",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：美国",
+    "coach_facts": "2024 年接手加拿大，曾执教萨尔茨堡、莱比锡和利兹联，带队获得 2024 年美洲杯第四名。",
+    "coach_photo": "can-coach",
+    "player_photos": {
+      "22": "can-laryea",
+      "21": "can-osorio",
+      "9": "can-larin"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "1986 年"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "本届身份",
+        "value": "联合东道主"
+      }
+    ],
+    "history_source": {
+      "label": "Concacaf · 加拿大球队历史与资料",
+      "url": "https://www.concacaf.com/news/fifa-world-cup-2026-team-profile-canada"
+    },
+    "translation_source": {
+      "label": "懂球帝／凤凰网 · 加拿大名单译名参照",
+      "url": "https://h5.ifeng.com/c/vivoArticle/v002SSetnfnTA5W2o1A5069QmGoOfAjCe6MnV4--EmSUYbTc__?isNews=1&showComments=0"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Dayne St. Clair",
+        "club": "Inter Miami CF (USA)",
+        "caps": 20,
+        "goals": 0,
+        "name_zh": "戴恩·圣克莱尔",
+        "club_zh": "迈阿密国际"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Alistair Johnston",
+        "club": "Celtic FC (SCO)",
+        "caps": 63,
+        "goals": 1,
+        "name_zh": "阿利斯泰尔·约翰斯顿",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Alfie Jones",
+        "club": "Middlesbrough FC (ENG)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "阿尔菲·琼斯",
+        "club_zh": "米德尔斯堡"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Luc de Fougerolles",
+        "club": "FCV Dender EH (BEL)",
+        "caps": 18,
+        "goals": 0,
+        "name_zh": "卢克·德富热罗勒",
+        "club_zh": "登德"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Joel Waterman",
+        "club": "Chicago Fire FC (USA)",
+        "caps": 17,
+        "goals": 0,
+        "name_zh": "乔尔·沃特曼",
+        "club_zh": "芝加哥火焰"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Mathieu Choiniere",
+        "club": "LAFC (USA)",
+        "caps": 25,
+        "goals": 0,
+        "name_zh": "马蒂厄·乔伊涅雷",
+        "club_zh": "洛杉矶FC"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Stephen Eustaquio",
+        "club": "LAFC (USA)",
+        "caps": 61,
+        "goals": 5,
+        "name_zh": "斯蒂芬·欧斯塔基奥",
+        "club_zh": "洛杉矶FC"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Ismael Kone",
+        "club": "US Sassuolo (ITA)",
+        "caps": 42,
+        "goals": 4,
+        "name_zh": "伊斯梅尔·科内",
+        "club_zh": "萨索洛"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Cyle Larin",
+        "club": "Southampton FC (ENG)",
+        "caps": 94,
+        "goals": 32,
+        "name_zh": "凯尔·拉林",
+        "club_zh": "南安普顿"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Jonathan David",
+        "club": "Juventus FC (ITA)",
+        "caps": 82,
+        "goals": 42,
+        "name_zh": "乔纳森·戴维",
+        "club_zh": "尤文图斯"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Liam Millar",
+        "club": "Hull City FC (ENG)",
+        "caps": 44,
+        "goals": 1,
+        "name_zh": "利亚姆·米勒",
+        "club_zh": "赫尔城"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "name": "Tani Oluwaseyi",
+        "club": "Villarreal CF (ESP)",
+        "caps": 29,
+        "goals": 2,
+        "name_zh": "塔尼·奥卢瓦塞伊",
+        "club_zh": "比利亚雷亚尔"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Derek Cornelius",
+        "club": "Rangers FC (SCO)",
+        "caps": 48,
+        "goals": 1,
+        "name_zh": "德里克·科尼利厄斯",
+        "club_zh": "格拉斯哥流浪者"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Jacob Shaffelburg",
+        "club": "LAFC (USA)",
+        "caps": 36,
+        "goals": 6,
+        "name_zh": "雅各布·沙费尔伯格",
+        "club_zh": "洛杉矶FC"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Moise Bombito",
+        "club": "OGC Nice (FRA)",
+        "caps": 23,
+        "goals": 0,
+        "name_zh": "莫伊兹·邦比托",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Maxime Crepeau",
+        "club": "Orlando City SC (USA)",
+        "caps": 37,
+        "goals": 0,
+        "name_zh": "马克西姆·克雷波",
+        "club_zh": "奥兰多城"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Tajon Buchanan",
+        "club": "Villarreal CF (ESP)",
+        "caps": 65,
+        "goals": 8,
+        "name_zh": "塔琼·布坎南",
+        "club_zh": "比利亚雷亚尔"
+      },
+      {
+        "shirt_number": 18,
+        "position": "GK",
+        "name": "Owen Goodman",
+        "club": "Barnsley (ENG)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "欧文·古德曼",
+        "club_zh": "巴恩斯利"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Alphonso Davies",
+        "club": "FC Bayern München (GER)",
+        "caps": 59,
+        "goals": 15,
+        "name_zh": "阿方索·戴维斯",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Ali Ahmed",
+        "club": "Norwich City FC (ENG)",
+        "caps": 28,
+        "goals": 1,
+        "name_zh": "阿里·艾哈迈德",
+        "club_zh": "诺维奇"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Jonathan Osorio",
+        "club": "Toronto FC (CAN)",
+        "caps": 93,
+        "goals": 10,
+        "name_zh": "乔纳森·奥索里奥",
+        "club_zh": "多伦多FC"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Richie Laryea",
+        "club": "Toronto FC (CAN)",
+        "caps": 81,
+        "goals": 1,
+        "name_zh": "里奇·拉尔贾",
+        "club_zh": "多伦多FC"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "name": "Niko Sigur",
+        "club": "HNK Hajduk Split (CRO)",
+        "caps": 22,
+        "goals": 2,
+        "name_zh": "尼科·西古尔",
+        "club_zh": "斯普利特哈伊杜克"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Promise David",
+        "club": "Royale Union Saint-Gilloise (BEL)",
+        "caps": 14,
+        "goals": 4,
+        "name_zh": "普罗米斯·戴维",
+        "club_zh": "圣吉罗斯联合"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Nathan Saliba",
+        "club": "RSC Anderlecht (BEL)",
+        "caps": 18,
+        "goals": 3,
+        "name_zh": "内森·萨利巴",
+        "club_zh": "安德莱赫特"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Jayden Nelson",
+        "club": "Austin FC (USA)",
+        "caps": 16,
+        "goals": 3,
+        "name_zh": "杰登·尼尔森",
+        "club_zh": "奥斯汀"
+      }
+    ]
+  }
+}

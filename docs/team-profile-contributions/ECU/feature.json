@@ -1,0 +1,302 @@
+{
+  "ECU": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=16",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "厄瓜多尔的本届参赛阵容由 Sebastian Beccacece 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "厄瓜多尔本届参赛阵容共 26 人。",
+    "coach_name": "Sebastian Beccacece",
+    "coach_name_zh": "塞巴斯蒂安·贝卡塞斯",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：阿根廷",
+    "coach_facts": "2024 年美洲杯后接手厄瓜多尔，此前曾执教西班牙埃尔切，本届率队以南美区预选赛第二名晋级。",
+    "coach_photo": "ecu-coach",
+    "player_photos": {
+      "17": "ecu-preciado",
+      "23": "ecu-caicedo",
+      "13": "ecu-valencia"
+    },
+    "facts": [
+      {
+        "label": "此前最佳",
+        "value": "2006 年十六强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "首次参赛",
+        "value": "2002 年"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA · 厄瓜多尔球队历史与资料",
+      "url": "https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/ecuador-en-la-copa-mundial-fifa-historia"
+    },
+    "translation_source": {
+      "label": "直播吧／新浪 · 厄瓜多尔名单译名参照",
+      "url": "https://news.sina.com.cn/zx/2026-06-02/doc-inhzyhiy3424585.shtml"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Hernan Galindez",
+        "club": "CA Huracán (ARG)",
+        "caps": 39,
+        "goals": 0,
+        "name_zh": "埃尔南·加林德斯",
+        "club_zh": "飓风"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Felix Torres",
+        "club": "SC Internacional (BRA)",
+        "caps": 50,
+        "goals": 5,
+        "name_zh": "费利克斯·托雷斯",
+        "club_zh": "巴西国际"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Piero Hincapie",
+        "club": "Arsenal FC (ENG)",
+        "caps": 56,
+        "goals": 2,
+        "name_zh": "皮耶罗·因卡皮耶",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Joel Ordonez",
+        "club": "Club Brugge (BEL)",
+        "caps": 20,
+        "goals": 0,
+        "name_zh": "乔尔·奥尔多涅斯",
+        "club_zh": "布鲁日"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "name": "Jordy Alcivar",
+        "club": "Independiente Del Valle (ECU)",
+        "caps": 12,
+        "goals": 1,
+        "name_zh": "霍尔迪·阿尔西瓦尔",
+        "club_zh": "山谷独立"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Willian Pacho",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 38,
+        "goals": 2,
+        "name_zh": "威廉·帕乔",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 7,
+        "position": "DF",
+        "name": "Pervis Estupinan",
+        "club": "AC Milan (ITA)",
+        "caps": 56,
+        "goals": 5,
+        "name_zh": "佩尔维斯·埃斯图皮尼安",
+        "club_zh": "AC 米兰"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Anthony Valencia",
+        "club": "Royal Antwerp FC (BEL)",
+        "caps": 3,
+        "goals": 1,
+        "name_zh": "安东尼·瓦伦西亚",
+        "club_zh": "安特卫普"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "John Yeboah",
+        "club": "Venezia FC (ITA)",
+        "caps": 26,
+        "goals": 3,
+        "name_zh": "约翰·叶博亚",
+        "club_zh": "威尼斯"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Kendry Paez",
+        "club": "CA River Plate (ARG)",
+        "caps": 27,
+        "goals": 2,
+        "name_zh": "肯德里·派斯",
+        "club_zh": "河床"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Kevin Rodriguez",
+        "club": "Royale Union Saint-Gilloise (BEL)",
+        "caps": 35,
+        "goals": 2,
+        "name_zh": "凯文·罗德里格斯",
+        "club_zh": "圣吉罗斯联合"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Moises Ramirez",
+        "club": "AE Kifisia FC (GRE)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "莫伊塞斯·拉米雷斯",
+        "club_zh": "基菲西亚"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "name": "Enner Valencia",
+        "club": "CF Pachuca (MEX)",
+        "caps": 109,
+        "goals": 49,
+        "name_zh": "恩纳·瓦伦西亚",
+        "club_zh": "帕丘卡"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Alan Minda",
+        "club": "Atlético Mineiro (BRA)",
+        "caps": 21,
+        "goals": 2,
+        "name_zh": "阿兰·明达",
+        "club_zh": "米内罗竞技"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Pedro Vite",
+        "club": "Pumas UNAM (MEX)",
+        "caps": 21,
+        "goals": 1,
+        "name_zh": "佩德罗·维特",
+        "club_zh": "美洲狮"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "name": "Jordy Caicedo",
+        "club": "CA Huracán (ARG)",
+        "caps": 23,
+        "goals": 4,
+        "name_zh": "霍尔迪·凯塞多",
+        "club_zh": "飓风"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "Angelo Preciado",
+        "club": "Atlético Mineiro (BRA)",
+        "caps": 60,
+        "goals": 0,
+        "name_zh": "安赫洛·普雷西亚多",
+        "club_zh": "米内罗竞技"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Denil Castillo",
+        "club": "FC Midtjylland (DEN)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "德尼尔·卡斯蒂略",
+        "club_zh": "中日德兰"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Gonzalo Plata",
+        "club": "CR Flamengo (BRA)",
+        "caps": 54,
+        "goals": 9,
+        "name_zh": "贡萨洛·普拉塔",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Nilson Angulo",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 18,
+        "goals": 3,
+        "name_zh": "尼尔松·安古洛",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Alan Franco",
+        "club": "Atlético Mineiro (BRA)",
+        "caps": 62,
+        "goals": 1,
+        "name_zh": "阿兰·弗兰科",
+        "club_zh": "米内罗竞技"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Gonzalo Valle",
+        "club": "LDU Quito (ECU)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "贡萨洛·瓦列",
+        "club_zh": "基多大学体育"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Moises Caicedo",
+        "club": "Chelsea FC (ENG)",
+        "caps": 65,
+        "goals": 3,
+        "name_zh": "莫伊塞斯·凯塞多",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Jeremy Arevalo",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "杰里米·阿雷瓦洛",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Jackson Porozo",
+        "club": "Club Tijuana (MEX)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "杰克逊·波罗索",
+        "club_zh": "蒂华纳"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Yaimar Medina",
+        "club": "KRC Genk (BEL)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "亚伊马尔·梅迪纳",
+        "club_zh": "亨克"
+      }
+    ]
+  }
+}

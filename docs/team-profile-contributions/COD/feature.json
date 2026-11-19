@@ -1,0 +1,302 @@
+{
+  "COD": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=11",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "刚果民主共和国的本届参赛阵容由 Sebastien Desabre 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "刚果民主共和国本届参赛阵容共 26 人。",
+    "coach_name": "Sebastien Desabre",
+    "coach_name_zh": "塞巴斯蒂安·德萨布尔",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+    "coach_facts": "曾执教乌干达国家队，本届带领刚果民主共和国结束长达 52 年的等待，重返世界杯决赛圈。",
+    "coach_photo": "cod-coach",
+    "player_photos": {
+      "22": "cod-mbemba",
+      "8": "cod-moutoussamy",
+      "17": "cod-bakambu"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "1974 年（扎伊尔）"
+      },
+      {
+        "label": "上届成绩",
+        "value": "未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 52 年"
+      }
+    ],
+    "history_source": {
+      "label": "CAF · 刚果民主共和国球队历史与资料",
+      "url": "https://www.cafonline.com/news/desabre-names-fearless-dr-congo-squad-for-historic-world-cup-return/"
+    },
+    "translation_source": {
+      "label": "新浪体育 · 民主刚果名单译名参照",
+      "url": "https://sports.sina.com.cn/l/2026-06-02/doc-inhzzcps4859058.shtml"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Lionel Mpasi",
+        "club": "Le Havre AC (FRA)",
+        "caps": 32,
+        "goals": 0,
+        "name_zh": "利昂内尔·姆帕西",
+        "club_zh": "勒阿弗尔"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Aaron Wan-Bissaka",
+        "club": "West Ham United FC (ENG)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "万·比萨卡",
+        "club_zh": "西汉姆联"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Steve Kapuadi",
+        "club": "Widzew Łódź (POL)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "史蒂夫·卡普阿迪",
+        "club_zh": "罗兹维泽夫"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Axel Tuanzebe",
+        "club": "Burnley FC (ENG)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "图安泽贝",
+        "club_zh": "伯恩利"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Dylan Batubinsika",
+        "club": "AEL FC (GRE)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "迪伦·巴图宾西卡",
+        "club_zh": "拉里萨"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Ngalayel Mukau",
+        "club": "Lille OSC (FRA)",
+        "caps": 18,
+        "goals": 0,
+        "name_zh": "恩加拉耶尔·穆考",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Nathanael Mbuku",
+        "club": "Montpellier HSC (FRA)",
+        "caps": 22,
+        "goals": 2,
+        "name_zh": "纳塔纳埃尔·姆布库",
+        "club_zh": "蒙彼利埃"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Samuel Moutoussamy",
+        "club": "Atromitos FC (GRE)",
+        "caps": 62,
+        "goals": 0,
+        "name_zh": "萨穆埃尔·穆图萨米",
+        "club_zh": "阿特罗米托斯"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Brian Cipenga",
+        "club": "CD Castellón (ESP)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "布赖恩·齐本加",
+        "club_zh": "卡斯特利翁"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Theo Bongonda",
+        "club": "FC Spartak Moscow (RUS)",
+        "caps": 40,
+        "goals": 7,
+        "name_zh": "西奥·邦贡达",
+        "club_zh": "莫斯科斯巴达"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Gael Kakuta",
+        "club": "AEL FC (GRE)",
+        "caps": 31,
+        "goals": 5,
+        "name_zh": "盖尔·卡库塔",
+        "club_zh": "拉里萨"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Joris Kayembe",
+        "club": "KRC Genk (BEL)",
+        "caps": 30,
+        "goals": 1,
+        "name_zh": "约里斯·卡延贝",
+        "club_zh": "亨克"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "name": "Meschack Elia",
+        "club": "Alanyaspor (TUR)",
+        "caps": 70,
+        "goals": 12,
+        "name_zh": "梅沙克·伊利亚",
+        "club_zh": "阿拉尼亚体育"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Noah Sadiki",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 24,
+        "goals": 0,
+        "name_zh": "诺亚·萨迪基",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Aaron Tshibola",
+        "club": "Kilmarnock FC (SCO)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "阿伦·齐博拉",
+        "club_zh": "基尔马诺克"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Timothy Fayulu",
+        "club": "FC Noah (ARM)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "蒂莫西·法尤鲁",
+        "club_zh": "诺亚"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Cedric Bakambu",
+        "club": "Real Betis (ESP)",
+        "caps": 73,
+        "goals": 21,
+        "name_zh": "巴坎布",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Charles Pickel",
+        "club": "RCD Espanyol (ESP)",
+        "caps": 36,
+        "goals": 1,
+        "name_zh": "夏尔·皮克尔",
+        "club_zh": "西班牙人"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Fiston Mayele",
+        "club": "Pyramids FC (EGY)",
+        "caps": 38,
+        "goals": 6,
+        "name_zh": "菲斯顿·马耶莱",
+        "club_zh": "金字塔"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Yoane Wissa",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 42,
+        "goals": 11,
+        "name_zh": "约安·维萨",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Matthieu Epolo",
+        "club": "Standard Liège (BEL)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "马蒂厄·埃波洛",
+        "club_zh": "标准列日"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Chancel Mbemba",
+        "club": "Lille OSC (FRA)",
+        "caps": 113,
+        "goals": 7,
+        "name_zh": "尚塞尔·姆本巴",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 23,
+        "position": "FW",
+        "name": "Simon Banza",
+        "club": "Al Jazira (UAE)",
+        "caps": 17,
+        "goals": 2,
+        "name_zh": "西蒙·班扎",
+        "club_zh": "阿布扎比半岛"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Gedeon Kalulu",
+        "club": "Aris Limassol FC (CYP)",
+        "caps": 29,
+        "goals": 0,
+        "name_zh": "热代翁·卡卢卢",
+        "club_zh": "阿里斯利马索尔"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Edo Kayembe",
+        "club": "Watford FC (ENG)",
+        "caps": 45,
+        "goals": 2,
+        "name_zh": "埃多·卡延贝",
+        "club_zh": "沃特福德"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Arthur Masuaku",
+        "club": "RC Lens (FRA)",
+        "caps": 48,
+        "goals": 4,
+        "name_zh": "阿图尔·马苏亚库",
+        "club_zh": "朗斯"
+      }
+    ]
+  }
+}

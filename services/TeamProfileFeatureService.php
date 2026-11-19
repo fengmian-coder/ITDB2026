@@ -38,7 +38,7 @@ class TeamProfileFeatureService
         $photo = static function (?string $key, string $name) use ($credits): ?array {
             $item = $credits[$key ?? ''] ?? null;
             if (!is_array($item) || ($item['name'] ?? '') !== $name
-                || !preg_match('~\Aimages/team-profiles/[a-z0-9-]+\.(?:jpg|webp)\z~', $item['path'] ?? '')
+                || !preg_match('~\Aimages/team-profiles/[a-z0-9-]+\.(?:jpg|webp|png)\z~', $item['path'] ?? '')
                 || !is_file(Yii::getAlias('@app/web/') . $item['path'])) {
                 return null;
             }
