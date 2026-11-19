@@ -1,0 +1,302 @@
+{
+  "EGY": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=17",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "埃及的本届参赛阵容由 Hossam Hassan 带队，FIFA 名单收录26名球员，包括4名门将、8名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Hossam Hassan",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：埃及",
+    "summary": "埃及时隔一届重返世界杯，并在 2026 年首次打进十六强。",
+    "coach_name_zh": "胡萨姆·哈桑",
+    "coach_facts": "球员时代随埃及队参加 1990 年世界杯。2024 年 2 月出任埃及队主教练，率队打进 2026 年世界杯十六强。",
+    "coach_photo": "egy-coach",
+    "player_photos": {
+      "5": "egy-rabia",
+      "14": "egy-fathy",
+      "10": "egy-salah"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2026 年十六强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "世界杯参赛次数",
+        "value": "第 4 次（含本届）"
+      }
+    ],
+    "history_source": {
+      "label": "非洲足联埃及世界杯历史与哈桑执教经历",
+      "url": "https://www.cafonline.com/caf-strategy-conference/news/caf-strategy-conference-hossam-hassan-the-egyptian-legend-who-finally-took-the-pharaohs-into-the-world-cup-knockouts/"
+    },
+    "translation_source": {
+      "label": "企鹅体育埃及名单报道（译名参照）",
+      "url": "https://www.qie.tv/news/detail/20260389328201"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 77,
+        "goals": 0,
+        "name": "Mohamed Elshenawy",
+        "name_zh": "穆罕默德·埃尔谢纳维",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 23,
+        "goals": 2,
+        "name": "Yasser Ibrahim",
+        "name_zh": "亚西尔·易卜拉欣",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 48,
+        "goals": 0,
+        "name": "Mohamed Hany",
+        "name_zh": "穆罕默德·哈尼",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Zamalek SC (EGY)",
+        "caps": 15,
+        "goals": 0,
+        "name": "Hossam Abdelmaguid",
+        "name_zh": "胡萨姆·阿卜杜勒马吉德",
+        "club_zh": "扎马雷克"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "Al Ain FC (UAE)",
+        "caps": 52,
+        "goals": 6,
+        "name": "Ramy Rabia",
+        "name_zh": "拉米·拉比亚",
+        "club_zh": "艾因"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "club": "OGC Nice (FRA)",
+        "caps": 38,
+        "goals": 3,
+        "name": "Mohamed Abdelmoneim",
+        "name_zh": "穆罕默德·阿卜杜勒穆奈姆",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 100,
+        "goals": 24,
+        "name": "Trézéguet",
+        "name_zh": "特雷泽盖",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 34,
+        "goals": 2,
+        "name": "Emam Ashour",
+        "name_zh": "伊马姆·阿舒尔",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "FC Barcelona (ESP)",
+        "caps": 6,
+        "goals": 0,
+        "name": "Hamza Abdelkarim",
+        "name_zh": "哈姆扎·阿卜杜勒卡里姆",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "club": "Liverpool FC (ENG)",
+        "caps": 121,
+        "goals": 68,
+        "name": "Mohamed Salah",
+        "name_zh": "穆罕默德·萨拉赫",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "club": "Pyramids FC (EGY)",
+        "caps": 7,
+        "goals": 4,
+        "name": "Mostafa Zico",
+        "name_zh": "穆斯塔法·济科",
+        "club_zh": "金字塔"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "club": "Real Oviedo (ESP)",
+        "caps": 6,
+        "goals": 0,
+        "name": "Haissem Hassan",
+        "name_zh": "海萨姆·哈桑",
+        "club_zh": "皇家奥维耶多"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "Zamalek SC (EGY)",
+        "caps": 42,
+        "goals": 1,
+        "name": "Ahmed Fatouh",
+        "name_zh": "艾哈迈德·法图赫",
+        "club_zh": "扎马雷克"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "club": "Al Wakrah SC (QAT)",
+        "caps": 68,
+        "goals": 4,
+        "name": "Hamdy Fathy",
+        "name_zh": "哈姆迪·法特希",
+        "club_zh": "沃克拉"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "Pyramids FC (EGY)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Karim Hafez",
+        "name_zh": "卡里姆·哈菲兹",
+        "club_zh": "金字塔"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "club": "Zamalek SC (EGY)",
+        "caps": 0,
+        "goals": 0,
+        "name": "Mahdy Soliman",
+        "name_zh": "马赫迪·苏莱曼",
+        "club_zh": "扎马雷克"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "Pyramids FC (EGY)",
+        "caps": 27,
+        "goals": 0,
+        "name": "Mohanad Lashin",
+        "name_zh": "穆哈纳德·拉辛",
+        "club_zh": "金字塔"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "club": "Al Najmah SC (KSA)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Nabil Donga",
+        "name_zh": "纳比勒·东加",
+        "club_zh": "纳杰马"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 40,
+        "goals": 1,
+        "name": "Marawan Attia",
+        "name_zh": "马尔万·阿提亚",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "club": "FC Nordsjælland (DEN)",
+        "caps": 25,
+        "goals": 3,
+        "name": "Ibrahim Adel",
+        "name_zh": "易卜拉欣·阿德尔",
+        "club_zh": "北西兰"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "club": "ZED FC (EGY)",
+        "caps": 17,
+        "goals": 2,
+        "name": "Mahmoud Saber",
+        "name_zh": "马哈茂德·萨贝尔",
+        "club_zh": "ZED 足球俱乐部"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "club": "Manchester City FC (ENG)",
+        "caps": 55,
+        "goals": 11,
+        "name": "Omar Marmoush",
+        "name_zh": "奥马尔·马尔穆什",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 15,
+        "goals": 0,
+        "name": "Mostafa Shoubir",
+        "name_zh": "穆斯塔法·舒贝尔",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "ZED FC (EGY)",
+        "caps": 3,
+        "goals": 0,
+        "name": "Tarek Alaa",
+        "name_zh": "塔里克·阿拉",
+        "club_zh": "ZED 足球俱乐部"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 68,
+        "goals": 5,
+        "name": "Zizo",
+        "name_zh": "齐佐",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 26,
+        "position": "GK",
+        "club": "El Gouna FC (EGY)",
+        "caps": 0,
+        "goals": 0,
+        "name": "Mohamed Alaa",
+        "name_zh": "穆罕默德·阿拉",
+        "club_zh": "古纳"
+      }
+    ]
+  }
+}

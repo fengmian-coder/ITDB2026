@@ -1,0 +1,302 @@
+{
+  "COL": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=10",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "哥伦比亚的本届参赛阵容由 Nestor Lorenzo 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Nestor Lorenzo",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：阿根廷",
+    "summary": "哥伦比亚曾在 2014 年世界杯进入八强，时隔一届重返世界杯。",
+    "coach_name_zh": "内斯托尔·洛伦索",
+    "coach_facts": "2022 年受聘执教哥伦比亚男足，率队闯入 2024 年美洲杯决赛并获得亚军。",
+    "coach_photo": "col-coach",
+    "player_photos": {
+      "23": "col-sanchez",
+      "10": "col-rodriguez",
+      "7": "col-diaz"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2014 年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "世界杯参赛次数",
+        "value": "第 7 次（含本届）"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 哥伦比亚世界杯历史与 2026 赛程",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/colombia-team-profile-history"
+    },
+    "translation_source": {
+      "label": "NOWnews 哥伦比亚阵容报道（译名参照）",
+      "url": "https://www.nownews.com/news/6849446"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Atlético Nacional (COL)",
+        "caps": 130,
+        "goals": 0,
+        "name": "David Ospina",
+        "name_zh": "大卫·奥斯皮纳",
+        "club_zh": "国民竞技"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 51,
+        "goals": 5,
+        "name": "Daniel Muñoz",
+        "name_zh": "丹尼尔·穆尼奥斯",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Bologna FC (ITA)",
+        "caps": 42,
+        "goals": 1,
+        "name": "Jhon Lucumí",
+        "name_zh": "约翰·卢库米",
+        "club_zh": "博洛尼亚"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "CA Independiente (ARG)",
+        "caps": 69,
+        "goals": 0,
+        "name": "Santiago Arias",
+        "name_zh": "圣地亚哥·阿里亚斯",
+        "club_zh": "阿根廷独立"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "club": "CA River Plate (ARG)",
+        "caps": 27,
+        "goals": 0,
+        "name": "Kevin Castaño",
+        "name_zh": "凯文·卡斯塔尼奥",
+        "club_zh": "河床"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "SL Benfica (POR)",
+        "caps": 37,
+        "goals": 2,
+        "name": "Richard Ríos",
+        "name_zh": "理查德·里奥斯",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "FC Bayern München (GER)",
+        "caps": 79,
+        "goals": 23,
+        "name": "Luis Diaz",
+        "name_zh": "路易斯·迪亚斯",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "CR Flamengo (BRA)",
+        "caps": 25,
+        "goals": 2,
+        "name": "Jorge Carrascal",
+        "name_zh": "豪尔赫·卡拉斯卡尔",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "FC Krasnodar (RUS)",
+        "caps": 24,
+        "goals": 6,
+        "name": "Jhon Córdoba",
+        "name_zh": "约翰·科尔多瓦",
+        "club_zh": "克拉斯诺达尔"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "Minnesota United FC (USA)",
+        "caps": 131,
+        "goals": 31,
+        "name": "James Rodriguez",
+        "name_zh": "哈梅斯·罗德里格斯",
+        "club_zh": "明尼苏达联"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "club": "SE Palmeiras (BRA)",
+        "caps": 43,
+        "goals": 7,
+        "name": "Jhon Arias",
+        "name_zh": "约翰·阿里亚斯",
+        "club_zh": "帕尔梅拉斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "Atlas FC (MEX)",
+        "caps": 47,
+        "goals": 0,
+        "name": "Camilo Vargas",
+        "name_zh": "卡米洛·巴尔加斯",
+        "club_zh": "阿特拉斯"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "Cagliari (ITA)",
+        "caps": 55,
+        "goals": 8,
+        "name": "Yerry Mina",
+        "name_zh": "耶里·米纳",
+        "club_zh": "卡利亚里"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "club": "Racing Santander (ESP)",
+        "caps": 11,
+        "goals": 1,
+        "name": "Gustavo Puerta",
+        "name_zh": "古斯塔沃·普埃塔",
+        "club_zh": "桑坦德竞技"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "club": "Athletico Paranaense (BRA)",
+        "caps": 10,
+        "goals": 0,
+        "name": "Juan Portilla",
+        "name_zh": "胡安·波尔蒂利亚",
+        "club_zh": "巴拉纳竞技"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 70,
+        "goals": 5,
+        "name": "Jefferson Lerma",
+        "name_zh": "杰弗森·莱尔马",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "club": "RCD Mallorca (ESP)",
+        "caps": 49,
+        "goals": 1,
+        "name": "Johan Mojica",
+        "name_zh": "约翰·莫希卡",
+        "club_zh": "马略卡"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "club": "CF Cruz Azul (MEX)",
+        "caps": 5,
+        "goals": 0,
+        "name": "Willer Ditta",
+        "name_zh": "威勒·迪塔",
+        "club_zh": "蓝十字"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "club": "Real Betis (ESP)",
+        "caps": 11,
+        "goals": 2,
+        "name": "Cucho Hernández",
+        "name_zh": "库乔·埃尔南德斯",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "CA River Plate (ARG)",
+        "caps": 53,
+        "goals": 6,
+        "name": "Juan Quintero",
+        "name_zh": "胡安·金特罗",
+        "club_zh": "河床"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "CA Rosario Central (ARG)",
+        "caps": 13,
+        "goals": 2,
+        "name": "Jaminton Campaz",
+        "name_zh": "哈明顿·坎帕斯",
+        "club_zh": "罗萨里奥中央"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "club": "FC Nantes (FRA)",
+        "caps": 16,
+        "goals": 0,
+        "name": "Deiver Machado",
+        "name_zh": "戴弗尔·马查多",
+        "club_zh": "南特"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 84,
+        "goals": 4,
+        "name": "Davinson Sanchez",
+        "name_zh": "达文森·桑切斯",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 24,
+        "position": "GK",
+        "club": "CA Vélez Sarsfield (ARG)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Álvaro Montero",
+        "name_zh": "阿尔瓦罗·蒙特罗",
+        "club_zh": "萨斯菲尔德"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "club": "Sporting CP (POR)",
+        "caps": 17,
+        "goals": 5,
+        "name": "Luis Suárez",
+        "name_zh": "路易斯·苏亚雷斯",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "club": "CR Vasco Da Gama (BRA)",
+        "caps": 9,
+        "goals": 2,
+        "name": "Andrés Gómez",
+        "name_zh": "安德烈斯·戈麦斯",
+        "club_zh": "瓦斯科达伽马"
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "GER": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=20",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "德国的本届参赛阵容由 Julian Nagelsmann 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、11名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Julian Nagelsmann",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：德国",
+    "summary": "德国曾四次夺得世界杯冠军，本届由纳格尔斯曼带队。",
+    "coach_name_zh": "尤利安·纳格尔斯曼",
+    "coach_facts": "2023 年 9 月出任德国队主教练，带队参加 2024 年本土欧洲杯。2026 年是他首次以德国队主教练身份参加世界杯。",
+    "coach_photo": "ger-coach",
+    "player_photos": {
+      "6": "ger-kimmich-2026",
+      "7": "ger-havertz-2026",
+      "19": "ger-sane-2026"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "四次夺冠"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "本届队长",
+        "value": "约书亚·基米希"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 德国世界杯赛程、赛果与历史",
+      "url": "https://www.fifa.com/de/articles/wm-2026-deutschland-spielplan-ergebnisse-historie"
+    },
+    "translation_source": {
+      "label": "新华社德国队名单报道（译名参照）",
+      "url": "https://www.xinhuanet.com/20260521/8d0f4841ad68464dab5f49ff6bf85dc4/c.html"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "FC Bayern München (GER)",
+        "caps": 128,
+        "goals": 0,
+        "name": "Manuel Neuer",
+        "name_zh": "曼努埃尔·诺伊尔",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 86,
+        "goals": 3,
+        "name": "Antonio Rüdiger",
+        "name_zh": "安东尼奥·吕迪格",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 15,
+        "goals": 0,
+        "name": "Waldemar Anton",
+        "name_zh": "瓦尔德马·安东",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "FC Bayern München (GER)",
+        "caps": 51,
+        "goals": 1,
+        "name": "Jonathan Tah",
+        "name_zh": "约纳坦·塔",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "club": "FC Bayern München (GER)",
+        "caps": 15,
+        "goals": 1,
+        "name": "Aleksandar Pavlović",
+        "name_zh": "亚历山大·帕夫洛维奇",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "club": "FC Bayern München (GER)",
+        "caps": 114,
+        "goals": 10,
+        "name": "Joshua Kimmich",
+        "name_zh": "约书亚·基米希",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Arsenal FC (ENG)",
+        "caps": 62,
+        "goals": 25,
+        "name": "Kai Havertz",
+        "name_zh": "凯·哈弗茨",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "FC Bayern München (GER)",
+        "caps": 73,
+        "goals": 15,
+        "name": "Leon Goretzka",
+        "name_zh": "莱昂·格雷茨卡",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 9,
+        "position": "MF",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 6,
+        "goals": 1,
+        "name": "Jamie Leweling",
+        "name_zh": "杰米·莱韦林",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "FC Bayern München (GER)",
+        "caps": 46,
+        "goals": 10,
+        "name": "Jamal Musiala",
+        "name_zh": "贾马尔·穆西亚拉",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 12,
+        "goals": 4,
+        "name": "Nick Woltemade",
+        "name_zh": "尼克·沃尔特马德",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 13,
+        "goals": 0,
+        "name": "Oliver Baumann",
+        "name_zh": "奥利弗·鲍曼",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 19,
+        "goals": 1,
+        "name": "Pascal Groß",
+        "name_zh": "帕斯卡尔·格罗斯",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 10,
+        "goals": 0,
+        "name": "Maximilian Beier",
+        "name_zh": "马克西米利安·拜尔",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 29,
+        "goals": 1,
+        "name": "Nico Schlotterbeck",
+        "name_zh": "尼科·施洛特贝克",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 9,
+        "goals": 0,
+        "name": "Angelo Stiller",
+        "name_zh": "安杰洛·施蒂勒",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "Liverpool FC (ENG)",
+        "caps": 45,
+        "goals": 11,
+        "name": "Florian Wirtz",
+        "name_zh": "弗洛里安·维尔茨",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 8,
+        "goals": 1,
+        "name": "Nathaniel Brown",
+        "name_zh": "纳撒尼尔·布朗",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 80,
+        "goals": 18,
+        "name": "Leroy Sane",
+        "name_zh": "勒鲁瓦·萨内",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 13,
+        "goals": 1,
+        "name": "Nadiem Amiri",
+        "name_zh": "纳迪姆·阿米里",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 3,
+        "goals": 0,
+        "name": "Alexander Nübel",
+        "name_zh": "亚历山大·努贝尔",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "club": "RB Leipzig (GER)",
+        "caps": 39,
+        "goals": 1,
+        "name": "David Raum",
+        "name_zh": "大卫·劳姆",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 12,
+        "goals": 2,
+        "name": "Felix Nmecha",
+        "name_zh": "费利克斯·恩梅沙",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 7,
+        "goals": 0,
+        "name": "Malick Thiaw",
+        "name_zh": "马利克·蒂亚夫",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "club": "RB Leipzig (GER)",
+        "caps": 1,
+        "goals": 1,
+        "name": "Assan Ouédraogo",
+        "name_zh": "阿桑·乌埃德拉奥戈",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 13,
+        "goals": 9,
+        "name": "Deniz Undav",
+        "name_zh": "德尼兹·翁达夫",
+        "club_zh": "斯图加特"
+      }
+    ]
+  }
+}

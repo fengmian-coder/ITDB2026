@@ -79,3 +79,47 @@
 | rsa-modiba.jpg | Aubrey Modiba，2023-07-23 | Carlo Bruil Fotografie | [Commons](https://commons.wikimedia.org/wiki/File%3AAubrey_Modiba_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | rsa-foster.jpg | Lyle Foster，2026-11-01 | Joe Peacock | [Commons](https://commons.wikimedia.org/wiki/File%3ALyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | rsa-mokoena.jpg | Teboho Mokoena，收录 2026-11-19；拍摄日期未注明 | 摄影者未注明；发布：Mamelodi Sundowns FC | [来源](https://sundownsfc.co.za/player/teboho-mokoena/) · 版权保留 · 未取得开放许可 |
+
+## 德国队
+
+四张为 2026-06-25 厄瓜多尔对德国的世界杯比赛照。署名 Bryan Berlin / WikiPortraits，保留 Commons 预览版，采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。
+
+| 文件 | 人物与来源 |
+| --- | --- |
+| ger-coach.jpg | [Julian Nagelsmann](https://commons.wikimedia.org/wiki/File:Julian_Nagelsmann_Ecuador_v_Germany_25_June_2026-046.jpg) |
+| ger-kimmich-2026.jpg | [Joshua Kimmich](https://commons.wikimedia.org/wiki/File:Joshua_Kimmich_Ecuador_v_Germany_25_June_2026-111.jpg) |
+| ger-sane-2026.jpg | [Leroy Sane，Commons 裁切版](https://commons.wikimedia.org/wiki/File:Leroy_Sane_Ecuador_v_Germany_25_June_2026-119_%28cropped%29.jpg) |
+| ger-havertz-2026.jpg | [Kai Havertz](https://commons.wikimedia.org/wiki/File:Kai_Havertz_Ecuador_v_Germany_25_June_2026-182.jpg) |
+
+## 哥伦比亚队
+
+保留 Wikimedia Commons 预览版，网页仅通过 CSS 裁切展示。
+
+| 文件 | 人物与日期 | 摄影者或权利人 | 来源与许可 |
+| --- | --- | --- | --- |
+| col-coach.jpg | Nestor Lorenzo，2018-07-04 | Jorge pinzon2001 | [Commons](https://commons.wikimedia.org/wiki/File:FWC_2018_-_Round_of_16_-_COL_v_ENG_-_N%C3%A9stor_Lorenzo.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| col-sanchez.jpg | Davinson Sanchez，2018-06-24 | Министерство спорта Республики Татарстан | [Commons](https://commons.wikimedia.org/wiki/File:D%C3%A1vinson_S%C3%A1nchez%2C_POL_vs_COL%3B_FWC_2018.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| col-rodriguez.jpg | James Rodriguez，2018-01-28 | Rufus46 | [Commons](https://commons.wikimedia.org/wiki/File:James_Rodriguez_2018.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| col-diaz.jpg | Luis Diaz，2026-01-06 | Werner100359 | [Commons](https://commons.wikimedia.org/wiki/File:FC_RB_Salzburg_gegen_FC_Bayern_M%C3%BCnchen_%282026-01-06_Testspiel%29_40_%28Luiz_D%C3%ADaz%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 土耳其队
+
+保留 Wikimedia Commons 预览版，网页仅通过 CSS 裁切展示。
+
+| 文件 | 人物与日期 | 摄影者或权利人 | 来源与许可 |
+| --- | --- | --- | --- |
+| tur-coach.jpg | Vincenzo Montella，2016-07-27 | goatling；Commons 编辑版：Danyele | [Commons](https://commons.wikimedia.org/wiki/File:Vincenzo_Montella_ICC_2016_%28edited%29.jpg) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
+| tur-demiral.jpg | Merih Demiral，2026-05-17 | OmarZi64 | [Commons](https://commons.wikimedia.org/wiki/File:Merih_Demiral_2026.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| tur-calhanoglu.jpg | Hakan Calhanoglu，2015-08-09 | Gert Zander (Fuguito) | [Commons](https://commons.wikimedia.org/wiki/File:Hakan-Calhanoglu-2015-08.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| tur-akturkoglu.jpg | Kerem Akturkoglu，2026-08-05 | Zafer | [Commons](https://commons.wikimedia.org/wiki/File:Kerem_Akt%C3%BCrko%C4%9Flu_9_Fenerbah%C3%A7e_20260805_%2811%29.JPG) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 埃及队
+
+保留 Commons 预览版。教练图来自 2018 年采访视频，三张球员照来自 2026 年 7 月 7 日阿根廷对埃及的世界杯比赛。
+
+| 文件 | 人物与日期 | 摄影者或权利人 | 来源与许可 |
+| --- | --- | --- | --- |
+| egy-coach.png | Hossam Hassan，2018-08-07（原视频发布） | Al AHLY TV | [Commons](https://commons.wikimedia.org/wiki/File:Hossam_Hassan.png) · [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) · [原视频](https://www.youtube.com/watch?v=jVPYCzx-O1k) |
+| egy-rabia.jpg | Ramy Rabia，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Ramy_Rabia_Argentina_v_Egypt_7_July_2026-223.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| egy-fathy.jpg | Hamdy Fathy，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Hamdy_Fathy_Argentina_v_Egypt_7_July_2026-220.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| egy-salah.jpg | Mohamed Salah，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
