@@ -4,6 +4,9 @@
 namespace app\controllers;
 
 use app\models\GuestbookMessage;
+use app\services\MatchQueryService;
+use DateTimeImmutable;
+use DateTimeZone;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -25,7 +28,11 @@ class GuestbookController extends Controller
 
     public function actionIndex(): string
     {
-        $model = new GuestbookMessage(['related_match_id' => $this->request->get('match_id')]);
+        $matchId = $this->request->get('match_id');
+        if ($matchId !== null && !is_string($matchId)) {
+            throw new BadRequestHttpException('关联比赛格式无效');
+        }
+        $model = new GuestbookMessage(['related_match_id' => $matchId]);
         return $this->renderIndex($model);
     }
 
@@ -58,6 +65,24 @@ class GuestbookController extends Controller
             'pagination' => ['pageSize' => 20],
         ]);
 
-        return $this->render('index', compact('model', 'provider'));
+        // Reuse the public 2026 match directory, including its pagination and identity rules.
+        $service = new MatchQueryService();
+        $first = $service->getMatchList(['page_size' => 100]);
+        $matches = $first['items'];
+        for ($page = 2; $page <= $first['pagination']['page_count']; ++$page) {
+            $matches = array_merge($matches, $service->getMatchList(['page' => $page, 'page_size' => 100])['items']);
+        }
+        $matchOptions = [];
+        $matchOptionAttributes = [];
+        foreach ($matches as $match) {
+            $time = $match['kickoff_utc'] === null ? null : DateTimeImmutable::createFromFormat(
+                '!Y-m-d H:i:s', $match['kickoff_utc'], new DateTimeZone('UTC')
+            );
+            $time = $time === false || $time === null ? null : $time->setTimezone(new DateTimeZone('Asia/Shanghai'));
+            $matchOptions[$match['id']] = ($match['home_team']['name_zh'] ?? '待定球队') . ' — '
+                . ($match['away_team']['name_zh'] ?? '待定球队') . ' · ' . ($time?->format('m-d H:i') ?? '时间待定');
+            $matchOptionAttributes[$match['id']] = ['data-date' => $time?->format('Y-m-d') ?? ''];
+        }
+        return $this->render('index', compact('model', 'provider', 'matchOptions', 'matchOptionAttributes'));
     }
 }

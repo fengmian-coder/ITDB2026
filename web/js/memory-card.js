@@ -4,31 +4,102 @@
     const teamSelect = document.getElementById('memory-team');
     const matchSelect = document.getElementById('memory-match');
     const selectionForm = document.getElementById('memory-selection');
-    if (teamSelect && matchSelect && selectionForm) {
-        teamSelect.addEventListener('change', () => {
-            // 新球队先刷新其比赛选项，避免提交上一支球队的比赛 ID。
-            matchSelect.value = '';
-            selectionForm.requestSubmit();
-        });
-        matchSelect.addEventListener('change', () => selectionForm.requestSubmit());
-    }
-    const canvas = document.getElementById('memory-canvas');
-    const dataElement = document.getElementById('memory-data');
-    if (!canvas || !dataElement) return;
-    const ctx = canvas.getContext('2d');
+    if (!teamSelect || !matchSelect || !selectionForm) return;
     const status = document.getElementById('memory-status');
     const download = document.getElementById('memory-download');
-    if (!ctx) {
-        status.textContent = '此浏览器暂不支持纪念卡绘制，请尝试更新浏览器';
-        download.disabled = true;
-        return;
-    }
-    const data = JSON.parse(dataElement.textContent);
     const thought = document.getElementById('memory-thought');
+    const photoInput = document.getElementById('memory-photo');
+    const removePhoto = document.getElementById('memory-remove-photo');
+    let canvas, ctx, data;
     let photo = null;
     let teamFlag = null;
     let photoVersion = 0;
     let ready = false;
+    let previewVersion = 0;
+    let request = null;
+    let loadedSelection = {team: teamSelect.value, match: matchSelect.value};
+    document.getElementById('memory-confirm').hidden = true;
+    document.getElementById('memory-selection-hint').textContent = '选择后自动更新预览；切换球队或比赛会保留当前感想和照片。';
+
+    async function preparePreview() {
+        const version = ++previewVersion;
+        ready = false;
+        download.disabled = true;
+        canvas = document.getElementById('memory-canvas');
+        const dataElement = document.getElementById('memory-data');
+        if (!canvas || !dataElement) return;
+        ctx = canvas.getContext('2d');
+        if (!ctx) {
+            status.textContent = '此浏览器暂不支持纪念卡绘制，请尝试更新浏览器';
+            return;
+        }
+        data = JSON.parse(dataElement.textContent);
+        teamFlag = null;
+        const flagReady = (async () => {
+            if (!data.flag_url) return null;
+            try {
+                const image = new Image();
+                image.src = data.flag_url;
+                await image.decode();
+                return image;
+            } catch { return null; }
+        })();
+        const [, flag] = await Promise.all([document.fonts?.ready ?? Promise.resolve(), flagReady]);
+        if (version !== previewVersion) return;
+        teamFlag = flag;
+        ready = true;
+        draw();
+        download.disabled = false;
+    }
+
+    async function updateSelection(event) {
+        event?.preventDefault();
+        request?.abort();
+        const current = new AbortController();
+        request = current;
+        const url = new URL(selectionForm.action, location.href);
+        url.search = new URLSearchParams(new FormData(selectionForm)).toString();
+        matchSelect.disabled = true;
+        download.disabled = true;
+        ready = false;
+        ++previewVersion;
+        status.textContent = '正在更新比赛与预览…';
+        try {
+            const response = await fetch(url, {signal: current.signal});
+            if (!response.ok) throw new Error('selection failed');
+            const html = new DOMParser().parseFromString(await response.text(), 'text/html');
+            const nextTeam = html.getElementById('memory-team');
+            const nextMatch = html.getElementById('memory-match');
+            const nextPreview = html.querySelector('.memory-preview');
+            if (!nextTeam || !nextMatch || !nextPreview) throw new Error('invalid editor response');
+            if (request !== current) return;
+            const nextMatchId = nextMatch.value;
+            teamSelect.value = nextTeam.value;
+            matchSelect.replaceChildren(...nextMatch.childNodes);
+            matchSelect.value = nextMatchId;
+            matchSelect.disabled = nextMatch.disabled;
+            document.querySelector('.memory-preview').replaceChildren(...nextPreview.childNodes);
+            loadedSelection = {team: teamSelect.value, match: matchSelect.value};
+            history.replaceState(null, '', url.pathname + url.search);
+            await preparePreview();
+            if (request === current) status.textContent = dataElementPresent() ? '预览已更新，当前感想和照片已保留' : '请选择一场比赛，当前感想和照片已保留';
+        } catch (error) {
+            if (error.name === 'AbortError' || request !== current) return;
+            teamSelect.value = loadedSelection.team;
+            matchSelect.value = loadedSelection.match;
+            matchSelect.disabled = matchSelect.options.length <= 1;
+            await preparePreview();
+            if (request === current) status.textContent = '暂时无法更新，已保留原选择和编辑内容，请重新选择后重试';
+        }
+    }
+    function dataElementPresent() { return document.getElementById('memory-data') !== null; }
+    teamSelect.addEventListener('change', () => {
+        // Never carry a match from the previous team into the new request.
+        matchSelect.value = '';
+        updateSelection();
+    });
+    matchSelect.addEventListener('change', updateSelection);
+    selectionForm.addEventListener('submit', updateSelection);
     const font = '"Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
     function line(text, x, y, size, color = '#173c32', weight = 400) {
         ctx.fillStyle = color;
@@ -88,11 +159,15 @@
         line('WorldCup Journey', 66, 752, 22, '#175b46', 700);
         line('2026', 1060, 752, 20, '#607367');
     }
-    thought.addEventListener('input', () => { if (ready) draw(); });
-    document.getElementById('memory-photo').addEventListener('change', async (event) => {
+    thought.addEventListener('input', () => {
+        document.getElementById('memory-thought-count').textContent = `${Array.from(thought.value).length} / 100 字`;
+        if (ready) draw();
+    });
+    photoInput.addEventListener('change', async (event) => {
         const version = ++photoVersion;
         const file = event.target.files[0];
         photo = null;
+        removePhoto.hidden = true;
         if (!file) { if (ready) draw(); return; }
         if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 5 * 1024 * 1024) {
             status.textContent = '请选择不超过 5 MB 的 JPG、PNG 或 WebP 图片';
@@ -105,6 +180,7 @@
             await image.decode();
             if (version !== photoVersion) return;
             photo = image;
+            removePhoto.hidden = false;
             status.textContent = '照片已加入预览';
         } catch (error) {
             status.textContent = '这张图片无法读取，请换一张';
@@ -113,26 +189,24 @@
             if (ready && version === photoVersion) draw();
         }
     });
-    download.disabled = true;
-    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
-    const flagReady = (async () => {
-        if (!data.flag_url) return;
-        try {
-            const image = new Image();
-            image.src = data.flag_url;
-            await image.decode();
-            teamFlag = image;
-        } catch (error) { /* A missing flag must not prevent PNG export. */ }
-    })();
-    Promise.all([fontsReady, flagReady]).then(() => { ready = true; draw(); download.disabled = false; });
+    removePhoto.addEventListener('click', () => {
+        ++photoVersion;
+        photo = null;
+        photoInput.value = '';
+        removePhoto.hidden = true;
+        status.textContent = '照片已移除';
+        if (ready) draw();
+    });
+    preparePreview();
     download.addEventListener('click', () => {
         if (!ready) return;
+        const filename = `WorldCup-Journey-${data.team_id}-${data.match_id}.png`;
         canvas.toBlob((blob) => {
             if (!blob) { status.textContent = '导出失败，请稍后重试'; return; }
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = `WorldCup-Journey-${data.team_id}-${data.match_id}.png`;
+            link.download = filename;
             document.body.append(link); link.click(); link.remove();
             setTimeout(() => URL.revokeObjectURL(url), 30000);
             status.textContent = '纪念卡已生成，请查看浏览器下载记录';

@@ -28,16 +28,17 @@ if ($card !== null) {
             <?= Html::dropDownList('team_id', $selectedTeamId, array_column($teams, 'name_zh', 'id'), ['prompt' => '请选择球队', 'id' => 'memory-team', 'class' => 'form-select mb-3']) ?>
             <label for="memory-match">选择比赛</label>
             <?= Html::dropDownList('match_id', $selectedMatchId, $matches, ['prompt' => $selectedTeamId === null ? '请先选择球队' : ($matches === [] ? '这支球队暂无比赛' : '请选择比赛（北京时间）'), 'id' => 'memory-match', 'class' => 'form-select mb-3', 'disabled' => $matches === []]) ?>
-            <?= Html::submitButton('确认选择', ['class' => 'btn btn-outline-success w-100']) ?>
+            <?= Html::submitButton('确认选择', ['id' => 'memory-confirm', 'class' => 'btn btn-outline-success w-100']) ?>
             <?= Html::endForm() ?>
-            <p class="memory-hint mt-2">选择球队后自动加载比赛，选择比赛后更新预览。</p>
+            <p id="memory-selection-hint" class="memory-hint mt-2">选好球队和比赛后，点击“确认选择”查看预览。</p>
             <noscript><p class="memory-hint">选择球队后点击“确认选择”加载比赛，选好比赛后再次确认。</p></noscript>
             <h2 class="mt-4">填写感想与添加照片</h2>
             <label for="memory-thought">一句感想</label>
-            <textarea id="memory-thought" class="form-control" maxlength="100" rows="3" placeholder="写下你的观赛感想"></textarea>
-            <p class="memory-hint">最多 100 字，感想和照片不会上传到服务器</p>
+            <textarea id="memory-thought" class="form-control" maxlength="100" rows="3" placeholder="写下你的观赛感想" aria-describedby="memory-thought-hint"></textarea>
+            <p id="memory-thought-hint" class="memory-hint"><span id="memory-thought-count">0 / 100 字</span>，感想和照片不会上传到服务器</p>
             <label for="memory-photo">添加照片（可选）</label>
             <input id="memory-photo" class="form-control" type="file" accept="image/jpeg,image/png,image/webp">
+            <button id="memory-remove-photo" type="button" class="btn btn-sm btn-outline-secondary mt-2" hidden>移除照片</button>
             <p class="memory-hint">支持 JPG、PNG、WebP，不超过 5 MB</p>
             <button id="memory-download" type="button" class="btn btn-success w-100 mt-3" <?= $card === null ? 'disabled' : '' ?>>下载 PNG 纪念卡 ↓</button>
             <p id="memory-status" class="memory-hint mt-2" role="status" aria-live="polite"></p>

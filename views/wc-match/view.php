@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\components\MatchDisplay;
 
 /** @var yii\web\View $this */
 /** @var array $match Service 的完整详情；发布控制及事件排序均由 Service 完成 */
@@ -39,6 +40,9 @@ $hasFinalScore = $finalScore['home'] !== null && $finalScore['away'] !== null;
 $story = $match['story'];
 $events = $match['events'];
 $tags = $match['tags'];
+if ($story !== null) {
+    $this->registerJsFile('@web/js/match-timeline.js', ['depends' => [app\assets\AppAsset::class]]);
+}
 
 // 仅做展示时区转换；不推算比赛结束时间，也不依赖服务器默认时区。
 $kickoff = null;
@@ -80,7 +84,8 @@ $this->registerCss(<<<'CSS'
 .wc-match-view #match-story-title { overflow-wrap: anywhere; }
 .wc-match-view .badge { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 .wc-match-view .wc-cover { max-height: 440px; width: 100%; object-fit: contain; background: var(--bs-tertiary-bg); }
-.wc-match-view .wc-timeline { list-style: none; padding-left: 0; }
+.wc-match-view .wc-timeline { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.wc-match-view .wc-event[hidden] { display: none; }
 .wc-match-view .wc-event { position: relative; border-left: 2px solid var(--bs-border-color); margin-left: .5rem; padding: 0 0 1.5rem 1.5rem; }
 .wc-match-view .wc-event::before { content: ''; position: absolute; left: -.4rem; top: .35rem; width: .7rem; height: .7rem; border-radius: 50%; background: #167d72; }
 .wc-match-view .wc-event:last-child { padding-bottom: 0; }
@@ -89,6 +94,8 @@ $this->registerCss(<<<'CSS'
 .wc-match-view .wc-event, .wc-match-view #momentum-title { scroll-margin-top: 6rem; }
 .wc-match-view .wc-info dd { overflow-wrap: anywhere; }
 @media (max-width: 575.98px) {
+    .wc-match-view .wc-timeline { grid-template-columns: 1fr; }
+    .wc-match-view .wc-scoreboard .wc-flag-lg { width: 64px; height: 48px; }
     .wc-match-view .wc-fixture { gap: .5rem; }
     .wc-match-view .wc-fixture .wc-team { font-size: 1rem !important; }
 }
@@ -111,14 +118,14 @@ CSS, [], 'wc-match-view');
         </div>
         <div class="wc-fixture text-center">
             <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">主队</div>
-                <?= $this->render('_team', ['team' => $match['home_team'], 'teamId' => $match['home_team_id']]) ?>
+                <?= $this->render('_team', ['team' => $match['home_team'], 'teamId' => $match['home_team_id'], 'flagSize' => 'lg']) ?>
             </div>
             <div>
                 <div class="wc-final"><?= $hasFinalScore ? Html::encode($finalScore['home'] . ' : ' . $finalScore['away']) : 'VS' ?></div>
                 <div class="small opacity-75"><?= $hasFinalScore ? '最终场上比分' : '暂无最终比分' ?></div>
             </div>
             <div class="wc-team fs-4 fw-bold"><div class="small fw-normal opacity-75 mb-2">客队</div>
-                <?= $this->render('_team', ['team' => $match['away_team'], 'teamId' => $match['away_team_id']]) ?>
+                <?= $this->render('_team', ['team' => $match['away_team'], 'teamId' => $match['away_team_id'], 'flagSize' => 'lg']) ?>
             </div>
         </div>
         <div class="text-center small mt-4 opacity-75">
@@ -139,6 +146,7 @@ CSS, [], 'wc-match-view');
         <?php endif ?>
     </div>
 
+    <?= $this->render('_actions', ['match' => $match, 'contextTeamId' => $contextTeamId]) ?>
     <?php if ($story !== null): ?>
         <?= $this->render('_momentum', ['momentum' => $momentum, 'match' => $match]) ?>
     <?php endif ?>
@@ -146,11 +154,11 @@ CSS, [], 'wc-match-view');
         <h2 id="match-scores-title" class="h5 fw-bold mb-3">比分记录</h2>
         <div class="row g-3">
             <?php foreach ([
-                ['90 分钟', $match['home_score_90'], $match['away_score_90']],
-                ['120 分钟累计', $match['home_score_120'], $match['away_score_120']],
-                ['点球大战', $match['home_penalties'], $match['away_penalties']],
-                ['最终场上比分', $finalScore['home'], $finalScore['away']],
-            ] as [$label, $homeScore, $awayScore]): ?>
+                ['90 分钟', $match['home_score_90'], $match['away_score_90'], '90'],
+                ['120 分钟累计', $match['home_score_120'], $match['away_score_120'], '120'],
+                ['点球大战', $match['home_penalties'], $match['away_penalties'], 'penalties'],
+                ['最终场上比分', $finalScore['home'], $finalScore['away'], 'final'],
+            ] as [$label, $homeScore, $awayScore, $period]): ?>
                 <div class="col-6 col-lg-3">
                     <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
                         <div class="card-body">
@@ -158,7 +166,7 @@ CSS, [], 'wc-match-view');
                             <div class="wc-score-value"><?= $homeScore !== null && $awayScore !== null
                                 ? Html::encode($homeScore . ' : ' . $awayScore) : '—' ?></div>
                             <?php if ($homeScore === null || $awayScore === null): ?>
-                                <span class="small text-body-secondary">暂无记录</span>
+                                <span class="small text-body-secondary"><?= Html::encode($period === 'final' ? '暂无最终比分' : MatchDisplay::scoreNote($match, $period)) ?></span>
                             <?php endif ?>
                         </div>
                     </div>
@@ -193,7 +201,7 @@ CSS, [], 'wc-match-view');
         </section>
     <?php else: ?>
         <div class="row g-4 align-items-start">
-            <div class="col-12 col-lg-8">
+            <div class="col-12">
                 <article class="card border-0 shadow-sm rounded-4 overflow-hidden" aria-labelledby="match-story-title">
                     <?php if ($coverUrl !== null): ?>
                         <?= Html::img($coverUrl, ['class' => 'wc-cover', 'alt' => $story['title'] . ' 封面', 'loading' => 'lazy']) ?>
@@ -217,16 +225,20 @@ CSS, [], 'wc-match-view');
                     </div>
                 </article>
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12">
                 <section class="card border-0 shadow-sm rounded-4" aria-labelledby="match-events-title">
                     <div class="card-body p-4">
-                        <h2 id="match-events-title" class="h5 fw-bold mb-4">比赛时间轴</h2>
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                            <h2 id="match-events-title" class="h5 fw-bold mb-0">比赛时间轴</h2>
+                            <button id="match-events-toggle" type="button" class="btn btn-sm btn-outline-secondary d-none" aria-controls="match-events-list" aria-expanded="true">展开全部事件</button>
+                        </div>
                         <?php if ($events === []): ?>
                             <p class="text-body-secondary mb-0">暂无已整理的比赛事件</p>
                         <?php else: ?>
-                            <ol class="wc-timeline mb-0">
+                            <p id="match-events-summary" class="small text-body-secondary">共 <?= count($events) ?> 个已整理事件，按比赛顺序展示。</p>
+                            <ol id="match-events-list" class="wc-timeline mb-0">
                                 <?php foreach ($events as $event): ?>
-                                    <li class="wc-event" id="match-event-<?= Html::encode((string) $event['id']) ?>">
+                                    <li class="wc-event" id="match-event-<?= Html::encode((string) $event['id']) ?>" data-key-event="<?= in_array($event['event_type'], MatchDisplay::KEY_EVENTS, true) ? '1' : '0' ?>">
                                         <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                                             <span class="fw-bold">
                                                 <?php if ($event['minute'] !== null): ?>
@@ -235,10 +247,9 @@ CSS, [], 'wc-match-view');
                                                     时间未标注
                                                 <?php endif ?>
                                             </span>
-                                            <!-- 未冻结的事件/时段枚举忠实显示代码，不自行过滤未知值。 -->
-                                            <span class="badge text-bg-light border text-break"><?= Html::encode($event['period_code']) ?></span>
+                                            <span class="badge text-bg-light border text-break"><?= Html::encode(MatchDisplay::period($event['period_code'])) ?></span>
                                         </div>
-                                        <div class="fw-semibold text-break mb-1"><?= Html::encode($event['event_type']) ?></div>
+                                        <div class="fw-semibold text-break mb-1"><?= Html::encode(MatchDisplay::event($event['event_type'])) ?></div>
                                         <?php if ($event['player_name'] !== null && $event['player_name'] !== ''): ?>
                                             <div class="text-break small mb-1"><?= Html::encode($event['player_name']) ?></div>
                                         <?php endif ?>
@@ -257,15 +268,5 @@ CSS, [], 'wc-match-view');
             </div>
         </div>
     <?php endif ?>
-    <p class="mt-3">
-        <?php if ($contextTeamId !== null): ?>
-            <?= Html::a('制作这场比赛的纪念卡', ['/memory/card', 'team_id' => $contextTeamId, 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
-        <?php else: ?>
-            <?php foreach (['home', 'away'] as $side): ?>
-                <?= Html::a(Html::encode('为' . ($match[$side . '_team']['name_zh'] ?? '球队 #' . $match[$side . '_team_id']) . '制作纪念卡'),
-                    ['/memory/card', 'team_id' => $match[$side . '_team_id'], 'match_id' => $match['id']], ['class' => 'btn btn-primary']) ?>
-            <?php endforeach ?>
-        <?php endif ?>
-        <?= Html::a('为这场比赛留言', ['/guestbook/index', 'match_id' => $match['id']], ['class' => 'btn btn-outline-primary']) ?>
-    </p>
+    <?= $this->render('_actions', ['match' => $match, 'contextTeamId' => $contextTeamId]) ?>
 </div>

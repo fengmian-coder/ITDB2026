@@ -1,0 +1,25 @@
+/* Guestbook only: concise form copy and consistent text hierarchy. */
+.guestbook-page { width: 100%; max-width: 960px; margin: 0 auto; color: var(--bs-body-color); font-size: 16px; line-height: 1.65; }
+.guestbook-page h1 { font-size: 32px; line-height: 1.4; font-weight: 650; margin: 0 0 24px; }
+.guestbook-page #guestbook-form { padding: 24px; border: 1px solid var(--bs-border-color); border-radius: 12px; background: var(--bs-body-bg); }
+.guestbook-page #guestbook-form .form-control,
+.guestbook-page #guestbook-form .form-select,
+.guestbook-page #guestbook-form .btn { font-size: 16px; line-height: 1.5; min-height: 44px; }
+.guestbook-page #guestbook-form [hidden] { display: none; }
+.guestbook-page .guestbook-field { margin-bottom: 20px; }
+.guestbook-page .guestbook-label { display: block; color: inherit; font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+.guestbook-page .guestbook-match-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.guestbook-page .guestbook-match-fields { display: flex; gap: 12px; }
+.guestbook-page #guestbook-date-filter { flex: 0 0 220px; }
+.guestbook-page .guestbook-match-select { flex: 1; min-width: 0; }
+.guestbook-page .guestbook-note { color: var(--bs-secondary-color); font-size: 14px; margin: 0; }
+.guestbook-page #guestbook-match-summary:not(.visually-hidden) { color: var(--bs-secondary-color); font-size: 14px; margin: 8px 0 0; }
+.guestbook-page .guestbook-submit-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.guestbook-page .guestbook-messages { margin-top: 32px; }
+.guestbook-page .guestbook-messages h2 { font-size: 22px; line-height: 1.5; font-weight: 600; margin: 0 0 16px; }
+[data-bs-theme="dark"] .guestbook-page #guestbook-all-dates { --bs-btn-color: #c5d0c9; --bs-btn-border-color: #78877e; --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #3c5144; --bs-btn-hover-border-color: #a0b3a6; }
+@media (max-width: 640px) {
+    .guestbook-page #guestbook-form { padding: 18px; }
+    .guestbook-page .guestbook-match-fields { flex-direction: column; }
+    .guestbook-page #guestbook-date-filter { flex-basis: auto; }
+}
