@@ -21,8 +21,20 @@ $features = json_decode(file_get_contents($root . '/data/team-profile-features-2
 $credits = json_decode(file_get_contents($root . '/web/images/team-profiles/credits.json'), true, 512, JSON_THROW_ON_ERROR);
 $check($features['source_sha256'] === $bundle['source_sha256'], 'roster source version is retained');
 $service = new TeamProfileFeatureService();
-$expectedCounts = ['CRO'=>['GK'=>3,'DF'=>8,'MF'=>9,'FW'=>6], 'UZB'=>['GK'=>3,'DF'=>10,'MF'=>10,'FW'=>3], 'URU'=>['GK'=>3,'DF'=>7,'MF'=>11,'FW'=>5], 'IRQ'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7]];
-$check(count($features['teams']) === count($expectedCounts), 'only four approved team pages are enhanced');
+// Position counts independently checked against the fixed FIFA PDF pages.
+$expectedCounts = [
+    'CRO'=>['GK'=>3,'DF'=>8,'MF'=>9,'FW'=>6],
+    'UZB'=>['GK'=>3,'DF'=>10,'MF'=>10,'FW'=>3],
+    'URU'=>['GK'=>3,'DF'=>7,'MF'=>11,'FW'=>5],
+    'IRQ'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'IRN'=>['GK'=>3,'DF'=>9,'MF'=>8,'FW'=>6],
+    'COD'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'CAN'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'GHA'=>['GK'=>3,'DF'=>9,'MF'=>6,'FW'=>8],
+    'QAT'=>['GK'=>3,'DF'=>9,'MF'=>5,'FW'=>9],
+    'ECU'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+];
+$check(count($features['teams']) === count($expectedCounts), 'only the integrated team pages are enhanced');
 foreach ($expectedCounts as $code => $expected) {
     $teamProfile = $bundle['teams'][$code];
     $teamFeature = $service->get($code, $teamProfile);

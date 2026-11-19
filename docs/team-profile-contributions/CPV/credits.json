@@ -1,0 +1,50 @@
+{
+  "cpv-stopira": {
+    "name": "Stopira",
+    "path": "images/team-profiles/cpv-stopira.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3ACap-vert_vs_Ethiopi_%2825%29.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Cap-vert_vs_Ethiopi_%2825%29.jpg/500px-Cap-vert_vs_Ethiopi_%2825%29.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Cap-vert_vs_Ethiopi_%2825%29.jpg",
+    "width": 500,
+    "height": 751,
+    "sha256": "b1870a6de0714b02bc98ec3fb03e05ea4f01dca22d3a2b4626c1f6907a30d6ed",
+    "author": "Effathéophile105",
+    "date": "2022-01-06",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "license": "CC BY-SA 4.0",
+    "caption": "资料照 · 2022",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  },
+  "cpv-rodrigues": {
+    "name": "Garry Rodrigues",
+    "path": "images/team-profiles/cpv-rodrigues.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3ACap-vert_vs_Ethiopi_%2824%29.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Cap-vert_vs_Ethiopi_%2824%29.jpg/500px-Cap-vert_vs_Ethiopi_%2824%29.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Cap-vert_vs_Ethiopi_%2824%29.jpg",
+    "width": 500,
+    "height": 751,
+    "sha256": "617f257f5f8ca441f9ea13645ec99b7ace123179c9ac5186bbfef29bbf8bcd23",
+    "author": "Effathéophile105",
+    "date": "2022-01-06",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "license": "CC BY-SA 4.0",
+    "caption": "资料照 · 2022",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  },
+  "cpv-mendes": {
+    "name": "Ryan Mendes",
+    "path": "images/team-profiles/cpv-mendes.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3ARyan_Mendes_Fifa_World_Cup_2026_Cabo_Verde_vs_Saudia_Arabia_%28cropped%29.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Ryan_Mendes_Fifa_World_Cup_2026_Cabo_Verde_vs_Saudia_Arabia_%28cropped%29.jpg/500px-Ryan_Mendes_Fifa_World_Cup_2026_Cabo_Verde_vs_Saudia_Arabia_%28cropped%29.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ryan_Mendes_Fifa_World_Cup_2026_Cabo_Verde_vs_Saudia_Arabia_%28cropped%29.jpg",
+    "width": 500,
+    "height": 802,
+    "sha256": "c4c416e27513855058e2121cb9f6e63e5979e28a3c08ad7609dd6edee50664ca",
+    "author": "Petsbikes",
+    "date": "2026-06-26",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license": "CC BY 4.0",
+    "caption": "2026 世界杯比赛照",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  }
+}

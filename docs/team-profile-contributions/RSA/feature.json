@@ -1,0 +1,302 @@
+{
+  "RSA": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=40",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "南非的本届参赛阵容由 Hugo Broos 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、5名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "南非本届参赛阵容共 26 人。",
+    "coach_name": "Hugo Broos",
+    "coach_name_zh": "雨果·布罗斯",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：比利时",
+    "coach_facts": "2021 年开始执教南非，带队获得 2023 届非洲杯季军，随后率球队时隔 16 年重返世界杯。",
+    "coach_photo": "rsa-coach",
+    "player_photos": {
+      "6": "rsa-modiba",
+      "4": "rsa-mokoena",
+      "9": "rsa-foster"
+    },
+    "facts": [
+      {
+        "label": "此前最佳",
+        "value": "小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 16 年"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA · 南非球队历史与资料",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/south-africa-team-profile-history"
+    },
+    "translation_source": {
+      "label": "香港01 · 南非名单译名参照（简体整理）",
+      "url": "https://www.hk01.com/%E5%8D%B3%E6%99%82%E9%AB%94%E8%82%B2/60340868/%E5%8D%97%E9%9D%9E%E4%B8%96%E7%95%8C%E7%9B%832026-%E5%9C%8B%E5%AE%B6%E9%9A%8A%E8%B6%B3%E7%90%83%E7%90%83%E5%93%A1%E5%90%8D%E5%96%AE%E9%99%A3%E5%AE%B9-%E6%8E%92%E5%90%8D-%E6%9C%80%E6%96%B0%E8%B3%BD%E7%A8%8B"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Ronwen Williams",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 68,
+        "goals": 0,
+        "name_zh": "罗恩文·威廉姆斯",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Thabang Matuludi",
+        "club": "Polokwane City FC (RSA)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "塔邦·马图卢迪",
+        "club_zh": "波洛克瓦尼城"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Khulumani Ndamane",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "库卢马尼·恩达马内",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "name": "Teboho Mokoena",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 60,
+        "goals": 10,
+        "name_zh": "特博霍·莫科纳",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "name": "Thalente Mbatha",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 20,
+        "goals": 3,
+        "name_zh": "塔伦特·姆巴塔",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Aubrey Modiba",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 52,
+        "goals": 3,
+        "name_zh": "奥布里·莫迪巴",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Oswin Appollis",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 31,
+        "goals": 8,
+        "name_zh": "奥斯温·阿波利斯",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 8,
+        "position": "FW",
+        "name": "Tshepang Moremi",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 12,
+        "goals": 1,
+        "name_zh": "切潘·莫雷米",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Lyle Foster",
+        "club": "Burnley FC (ENG)",
+        "caps": 32,
+        "goals": 10,
+        "name_zh": "莱尔·福斯特",
+        "club_zh": "伯恩利"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Relebohile Mofokeng",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "雷莱博希莱·莫福肯",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Themba Zwane",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 56,
+        "goals": 12,
+        "name_zh": "滕巴·兹瓦内",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "name": "Thapelo Maseko",
+        "club": "AEL Limassol (CYP)",
+        "caps": 11,
+        "goals": 2,
+        "name_zh": "塔佩洛·马塞科",
+        "club_zh": "AEL 利马索尔"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Sphephelo Sithole",
+        "club": "CD Tondela (POR)",
+        "caps": 32,
+        "goals": 1,
+        "name_zh": "斯费费洛·西托莱",
+        "club_zh": "通德拉"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Mbekezeli Mbokazi",
+        "club": "Chicago Fire FC (USA)",
+        "caps": 14,
+        "goals": 1,
+        "name_zh": "姆贝克泽利·姆博卡齐",
+        "club_zh": "芝加哥火焰"
+      },
+      {
+        "shirt_number": 15,
+        "position": "FW",
+        "name": "Iqraam Rayners",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 24,
+        "goals": 5,
+        "name_zh": "伊克拉姆·雷纳斯",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Sipho Chaine",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "西福·沙伊内",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Evidence Makgopa",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 31,
+        "goals": 6,
+        "name_zh": "埃维登斯·马科帕",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Samukele Kabini",
+        "club": "Molde FK (NOR)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "萨穆凯莱·卡比尼",
+        "club_zh": "莫尔德"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Nkosinathi Sibisi",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 22,
+        "goals": 0,
+        "name_zh": "恩科西纳蒂·西比西",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Khuliso Mudau",
+        "club": "Mamelodi Sundowns FC (RSA)",
+        "caps": 38,
+        "goals": 1,
+        "name_zh": "库利索·穆道",
+        "club_zh": "马梅洛迪日落"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Ime Okon",
+        "club": "Hannover 96 (GER)",
+        "caps": 12,
+        "goals": 1,
+        "name_zh": "伊梅·奥孔",
+        "club_zh": "汉诺威96"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Ricardo Goss",
+        "club": "Siwelele FC (RSA)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "里卡多·戈斯",
+        "club_zh": "西韦莱莱"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Jayden Adams",
+        "club": "Not listed in FIFA squad list",
+        "caps": 11,
+        "goals": 2,
+        "name_zh": "杰登·亚当斯",
+        "club_zh": "FIFA 名单未列明"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Olwethu Makhanya",
+        "club": "Philadelphia Union (USA)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "奥尔韦图·马卡尼亚",
+        "club_zh": "费城联合"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Kamogelo Sebelebele",
+        "club": "Orlando Pirates FC (RSA)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "卡莫盖洛·塞贝莱贝莱",
+        "club_zh": "奥兰多海盗"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Bradley Cross",
+        "club": "Kaizer Chiefs FC (RSA)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "布拉德利·克罗斯",
+        "club_zh": "凯泽酋长"
+      }
+    ]
+  }
+}

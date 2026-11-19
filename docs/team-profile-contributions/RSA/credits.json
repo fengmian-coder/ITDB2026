@@ -1,0 +1,51 @@
+{
+  "rsa-coach": {
+    "name": "Hugo Broos",
+    "path": "images/team-profiles/rsa-coach.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3AHugo_Broos_1.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Hugo_Broos_1.jpg/500px-Hugo_Broos_1.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hugo_Broos_1.jpg",
+    "width": 500,
+    "height": 604,
+    "sha256": "b8c04c890871784fb6681097edded87b2164d7af6cdb18ebc86155f36f53b2f4",
+    "author": "Дмитрий Садовник",
+    "date": "2017-06-19",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "license": "CC BY-SA 3.0",
+    "caption": "资料照 · 2017",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态",
+    "display_crop": "portrait"
+  },
+  "rsa-modiba": {
+    "name": "Aubrey Modiba",
+    "path": "images/team-profiles/rsa-modiba.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3AAubrey_Modiba_%28cropped%29.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Aubrey_Modiba_%28cropped%29.jpg/500px-Aubrey_Modiba_%28cropped%29.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Aubrey_Modiba_%28cropped%29.jpg",
+    "width": 500,
+    "height": 740,
+    "sha256": "3b1a6929c49442844667f90fa26dcdeca0cb1f7f1909f772b36f9f6e3b14e357",
+    "author": "Carlo Bruil Fotografie",
+    "date": "2023-07-23",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "license": "CC BY-SA 4.0",
+    "caption": "资料照 · 2023",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  },
+  "rsa-foster": {
+    "name": "Lyle Foster",
+    "path": "images/team-profiles/rsa-foster.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File%3ALyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Lyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg/500px-Lyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Lyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg",
+    "width": 500,
+    "height": 662,
+    "sha256": "c359e1c4a76c3cffcefa80d948e9c8f53ff73c3386e572408a37b816e47d7d79",
+    "author": "Joe Peacock",
+    "date": "2026-11-01",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "license": "CC BY-SA 4.0",
+    "caption": "资料照 · 2026",
+    "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "QAT": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=36",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "卡塔尔的本届参赛阵容由 Julen Lopetegui 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "卡塔尔本届参赛阵容共 26 人。",
+    "coach_name": "Julen Lopetegui",
+    "coach_name_zh": "胡伦·洛佩特吉",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：西班牙",
+    "coach_facts": "2025 年 5 月接手卡塔尔，带队首次通过预选赛晋级世界杯；曾执教西班牙，并率塞维利亚赢得 2020 年欧联杯。",
+    "coach_photo": "qat-coach",
+    "player_photos": {
+      "16": "qat-khoukhi",
+      "6": "qat-hatem",
+      "10": "qat-alhaydos"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "2022 年"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "首次晋级",
+        "value": "2026 年预选赛"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA · 卡塔尔球队历史与资料",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/qatar-team-profile-history"
+    },
+    "translation_source": {
+      "label": "直播吧／新浪 · 卡塔尔名单译名参照",
+      "url": "https://news.sina.com.cn/zx/2026-06-03/doc-iniaarqy4300633.shtml"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Mahmoud Abunada",
+        "club": "Al Rayyan SC (QAT)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "马哈茂德·阿布纳达",
+        "club_zh": "赖扬"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Pedro Miguel",
+        "club": "Al Sadd SC (QAT)",
+        "caps": 114,
+        "goals": 4,
+        "name_zh": "佩德罗·米格尔",
+        "club_zh": "萨德"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Lucas Mendes",
+        "club": "Al Wakrah SC (QAT)",
+        "caps": 29,
+        "goals": 2,
+        "name_zh": "卢卡斯·门德斯",
+        "club_zh": "沃克拉"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Issa Laye",
+        "club": "Al Arabi SC (QAT)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "伊萨·拉耶",
+        "club_zh": "多哈阿拉比"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Jassem Gaber",
+        "club": "Al Rayyan SC (QAT)",
+        "caps": 40,
+        "goals": 1,
+        "name_zh": "贾西姆·加贝尔",
+        "club_zh": "赖扬"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Abdulaziz Hatem",
+        "club": "Al Rayyan SC (QAT)",
+        "caps": 133,
+        "goals": 11,
+        "name_zh": "阿卜杜勒阿齐兹·哈特姆",
+        "club_zh": "赖扬"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Ahmed Alaaeldin",
+        "club": "Al Rayyan SC (QAT)",
+        "caps": 79,
+        "goals": 10,
+        "name_zh": "艾哈迈德·阿拉丁",
+        "club_zh": "赖扬"
+      },
+      {
+        "shirt_number": 8,
+        "position": "FW",
+        "name": "Edmilson Junior",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "埃德米尔森·儒尼奥尔",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Mohammed Muntari",
+        "club": "Al Gharafa SC (QAT)",
+        "caps": 74,
+        "goals": 17,
+        "name_zh": "穆罕默德·蒙塔里",
+        "club_zh": "加拉法"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Hassan Alhaydos",
+        "club": "Al Sadd SC (QAT)",
+        "caps": 191,
+        "goals": 40,
+        "name_zh": "哈桑·海多斯",
+        "club_zh": "萨德"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Akram Afif",
+        "club": "Al Sadd SC (QAT)",
+        "caps": 139,
+        "goals": 40,
+        "name_zh": "阿克拉姆·阿菲夫",
+        "club_zh": "萨德"
+      },
+      {
+        "shirt_number": 12,
+        "position": "MF",
+        "name": "Karim Boudiaf",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 130,
+        "goals": 6,
+        "name_zh": "卡里姆·布迪亚夫",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Ayoub Aloui",
+        "club": "Al Gharafa SC (QAT)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "阿尤布·阿拉维",
+        "club_zh": "加拉法"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Homam Ahmed",
+        "club": "Cultural Leonesa (ESP)",
+        "caps": 78,
+        "goals": 3,
+        "name_zh": "胡马姆·艾哈迈德",
+        "club_zh": "莱昂文体"
+      },
+      {
+        "shirt_number": 15,
+        "position": "FW",
+        "name": "Yusuf Abdurisag",
+        "club": "Al Wakrah SC (QAT)",
+        "caps": 46,
+        "goals": 3,
+        "name_zh": "优素福·阿卜杜里萨格",
+        "club_zh": "沃克拉"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Boualem Khoukhi",
+        "club": "Al Sadd SC (QAT)",
+        "caps": 131,
+        "goals": 21,
+        "name_zh": "布阿莱姆·胡希",
+        "club_zh": "萨德"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Ahmed Alganehi",
+        "club": "Al Gharafa SC (QAT)",
+        "caps": 16,
+        "goals": 1,
+        "name_zh": "艾哈迈德·加内希",
+        "club_zh": "加拉法"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Sultan Albrake",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 22,
+        "goals": 0,
+        "name_zh": "苏丹·布雷克",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Almoez Ali",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 129,
+        "goals": 58,
+        "name_zh": "阿尔莫埃兹·阿里",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Ahmed Fathy",
+        "club": "Al Arabi SC (QAT)",
+        "caps": 57,
+        "goals": 0,
+        "name_zh": "艾哈迈德·法蒂",
+        "club_zh": "多哈阿拉比"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Salah Zakaria",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "萨拉赫·扎卡里亚",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Meshaal Barsham",
+        "club": "Al Sadd SC (QAT)",
+        "caps": 60,
+        "goals": 0,
+        "name_zh": "迈沙尔·巴尔沙姆",
+        "club_zh": "萨德"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Assim Madibo",
+        "club": "Al Wakrah SC (QAT)",
+        "caps": 66,
+        "goals": 0,
+        "name_zh": "阿西姆·马迪博",
+        "club_zh": "沃克拉"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Tahsin Mohammed",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "塔赫辛·穆罕默德",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Alhashmi Alhussein",
+        "club": "Al Arabi SC (QAT)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "阿尔哈什米·侯赛因",
+        "club_zh": "多哈阿拉比"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Mohamed Manai",
+        "club": "Al Shamal SC (QAT)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "穆罕默德·马奈",
+        "club_zh": "舒马尔"
+      }
+    ]
+  }
+}
