@@ -1,0 +1,302 @@
+{
+  "TUR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=45",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "土耳其的本届参赛阵容由 Vincenzo Montella 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Vincenzo Montella",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：意大利",
+    "summary": "土耳其曾在 2002 年世界杯夺得季军，时隔 24 年重返世界杯。",
+    "coach_name_zh": "文森佐·蒙特拉",
+    "coach_facts": "2023 年 9 月出任土耳其男足主教练，率队打进 2024 年欧洲杯八强。",
+    "coach_photo": "tur-coach",
+    "player_photos": {
+      "3": "tur-demiral",
+      "10": "tur-calhanoglu",
+      "7": "tur-akturkoglu"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2002 年季军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "本届队长",
+        "value": "哈坎·恰尔汗奥卢"
+      }
+    ],
+    "history_source": {
+      "label": "欧足联土耳其世界杯赛程与历史",
+      "url": "https://www.uefa.com/european-qualifiers/news/02a6-20d15969649d-c1471bfa3c52-1000--turkiye-at-the-world-cup-2026-squad-fixtures-group-and-hi/"
+    },
+    "translation_source": {
+      "label": "企鹅体育土耳其名单报道（译名参照）",
+      "url": "https://www.qie.tv/news/detail/20260389451301"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 37,
+        "goals": 0,
+        "name": "Mert Günok",
+        "name_zh": "梅尔特·居诺克",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "AS Roma (ITA)",
+        "caps": 63,
+        "goals": 3,
+        "name": "Zeki Çelik",
+        "name_zh": "泽基·切利克",
+        "club_zh": "罗马"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 65,
+        "goals": 6,
+        "name": "Merih Demiral",
+        "name_zh": "梅里赫·德米拉尔",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 61,
+        "goals": 2,
+        "name": "Çağlar Söyüncü",
+        "name_zh": "恰拉尔·瑟云聚",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 32,
+        "goals": 1,
+        "name": "Salih Özcan",
+        "name_zh": "萨利赫·厄兹詹",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "Beşiktaş JK (TUR)",
+        "caps": 53,
+        "goals": 4,
+        "name": "Orkun Kökçü",
+        "name_zh": "奥尔昆·柯克曲",
+        "club_zh": "贝西克塔斯"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 54,
+        "goals": 15,
+        "name": "Kerem Akturkoglu",
+        "name_zh": "凯雷姆·阿克图尔科卢",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 8,
+        "position": "FW",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 33,
+        "goals": 7,
+        "name": "Arda Güler",
+        "name_zh": "阿尔达·居莱尔",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "FC Porto (POR)",
+        "caps": 10,
+        "goals": 2,
+        "name": "Deniz Gül",
+        "name_zh": "德尼兹·居尔",
+        "club_zh": "波尔图"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 108,
+        "goals": 22,
+        "name": "Hakan Calhanoglu",
+        "name_zh": "哈坎·恰尔汗奥卢",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "Juventus FC (ITA)",
+        "caps": 31,
+        "goals": 5,
+        "name": "Kenan Yıldız",
+        "name_zh": "凯南·伊尔迪兹",
+        "club_zh": "尤文图斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "Manchester United FC (ENG)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Altay Bayındır",
+        "name_zh": "阿尔泰·巴因德尔",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 25,
+        "goals": 0,
+        "name": "Eren Elmalı",
+        "name_zh": "埃伦·埃尔马勒",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 30,
+        "goals": 2,
+        "name": "Abdülkerim Bardakcı",
+        "name_zh": "阿卜杜勒凯里姆·巴尔达克哲",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 31,
+        "goals": 2,
+        "name": "Ozan Kabak",
+        "name_zh": "奥赞·卡巴克",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 34,
+        "goals": 1,
+        "name": "İsmail Yüksek",
+        "name_zh": "伊斯梅尔·尤克塞克",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "club": "Kasımpaşa SK (TUR)",
+        "caps": 48,
+        "goals": 6,
+        "name": "İrfan Can Kahveci",
+        "name_zh": "伊尔凡·詹·卡赫韦奇",
+        "club_zh": "卡斯帕萨"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 48,
+        "goals": 3,
+        "name": "Mert Müldür",
+        "name_zh": "梅尔特·穆尔杜尔",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 21,
+        "goals": 4,
+        "name": "Yunus Akgün",
+        "name_zh": "尤努斯·阿克京",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 32,
+        "goals": 2,
+        "name": "Ferdi Kadıoğlu",
+        "name_zh": "费尔迪·卡德奥卢",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 38,
+        "goals": 5,
+        "name": "Barış Alper Yılmaz",
+        "name_zh": "巴里什·阿尔佩尔·伊尔马兹",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 74,
+        "goals": 6,
+        "name": "Kaan Ayhan",
+        "name_zh": "卡安·艾汉",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 42,
+        "goals": 0,
+        "name": "Uğurcan Çakır",
+        "name_zh": "乌古尔詹·恰克尔",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Oğuz Aydın",
+        "name_zh": "奥乌兹·艾丁",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "club": "Çaykur Rizespor (TUR)",
+        "caps": 19,
+        "goals": 1,
+        "name": "Samet Akaydın",
+        "name_zh": "萨梅特·阿卡伊登",
+        "club_zh": "里泽体育"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 8,
+        "goals": 1,
+        "name": "Can Uzun",
+        "name_zh": "詹·乌尊",
+        "club_zh": "法兰克福"
+      }
+    ]
+  }
+}

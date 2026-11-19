@@ -35,6 +35,10 @@ $expectedCounts = [
     'ECU'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
     'CPV'=>['GK'=>3,'DF'=>8,'MF'=>12,'FW'=>3],
     'RSA'=>['GK'=>3,'DF'=>10,'MF'=>5,'FW'=>8],
+    'GER'=>['GK'=>3,'DF'=>8,'MF'=>11,'FW'=>4],
+    'COL'=>['GK'=>3,'DF'=>9,'MF'=>8,'FW'=>6],
+    'TUR'=>['GK'=>3,'DF'=>9,'MF'=>5,'FW'=>9],
+    'EGY'=>['GK'=>4,'DF'=>8,'MF'=>7,'FW'=>7],
 ];
 $check(count($features['teams']) === count($expectedCounts), 'only the integrated team pages are enhanced');
 foreach ($expectedCounts as $code => $expected) {
