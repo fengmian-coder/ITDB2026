@@ -47,5 +47,26 @@
     "license": "CC BY-SA 4.0",
     "caption": "资料照 · 2026",
     "note": "Commons 预览版原样保存；通过统一 CSS 显示裁切；照片年份、球衣及照片所属俱乐部不代表本届名单状态"
+  },
+  "rsa-mokoena": {
+    "name": "Teboho Mokoena",
+    "path": "images/team-profiles/rsa-mokoena.jpg",
+    "source_url": "https://sundownsfc.co.za/player/teboho-mokoena/",
+    "file_url": "https://sundownsfc.co.za/wp-content/uploads/2025/09/Mokoena-1.jpg",
+    "original_file_url": "https://sundownsfc.co.za/wp-content/uploads/2025/09/Mokoena-1.jpg",
+    "width": 1000,
+    "height": 1000,
+    "sha256": "c2b887b5d502e9477366c725e26ab4ab0eed8699bea9c2eb65f19efe19a96a72",
+    "author": "摄影者未注明；发布：Mamelodi Sundowns FC",
+    "date": "2026-11-19",
+    "date_kind": "accessed",
+    "date_note": "2026-11-19 为本项目收录日期，来源未注明拍摄日期；URL 目录年月不作为拍摄日期",
+    "license_url": null,
+    "license": "版权保留 · 未取得开放许可",
+    "rights_status": "unverified",
+    "usage_basis": "用户于 2026-11-19 指定用于小组课程作业（不发行、不盈利）；此指示不代表照片权利人授权",
+    "caption": "资料照 · 日期未注明",
+    "acquisition": "source_download",
+    "note": "来源文件原字节保存，不去水印、不修图；按用户指定用于课程作业，未声明为 CC 授权"
   }
 }

@@ -66,6 +66,17 @@
 - 文件页与人物百科图像交叉确认；页面显示名按本项目固定身份（原文拼写差异只作别名核实，不改基础身份）。
 - 资料照 · 2026；预览版字节原样保存，统一 CSS 裁切。资料照所示球衣／俱乐部不用于推断本届名单。
 
-## 未验收缺项：莫科纳照片
+## 已排除的旧候选（历史）
 
-[Commons 候选 Teboho.webp](https://commons.wikimedia.org/wiki/File:Teboho.webp) 的页面 CC BY-SA 4.0 声明与其内嵌 EXIF 中 BackpagePix 版权、Sports editorial use only 冲突，未采用。Commons 精确姓名检索主要返回 Aaron Mokoena，不能拿另一人的图替代；Go Ahead Eagles 对日落的合规图库也未找到足以确认本人的单人照片。`rsa-mokoena` 未写入 credits；草稿预览中该代表球员保留姓名及数据而无图。本队未通过四图验收。
+[Commons 候选 Teboho.webp](https://commons.wikimedia.org/wiki/File:Teboho.webp) 的页面 CC BY-SA 4.0 声明与其内嵌 EXIF 中 BackpagePix 版权、Sports editorial use only 冲突，仍未采用。没有使用 Aaron Mokoena 等同名人物照片。本轮采用下方用户指定的俱乐部官网照。
+
+## 本轮采用：日落俱乐部官网莫科纳照片
+
+用户指定[日落俱乐部官方人物页](https://sundownsfc.co.za/player/teboho-mokoena/)，随后明确要求“直接用吧，我们这个小组作业也不需要发行、盈利之类的”。本轮按该决定使用，不把用户指示写成照片权利人授权。
+
+- 官网列出姓名 Teboho Mokoena、中场、生日 1997-01-24，与固定档案代表球员对应；保留 #4 MF 身份及顺序，未改选 Themba Zwane。
+- 采用该页的[正面资料照原文件](https://sundownsfc.co.za/wp-content/uploads/2025/09/Mokoena-1.jpg)，原字节下载保存。
+- key：`rsa-mokoena`；本地：`web/images/team-profiles/rsa-mokoena.jpg`；1000 × 1000；SHA-256 `c2b887b5d502e9477366c725e26ab4ab0eed8699bea9c2eb65f19efe19a96a72`。
+- 发布来源为 Mamelodi Sundowns FC；摄影者及拍摄日期未注明，不把图片 URL 中的 2025/09 当作拍摄年月。`date_kind: accessed`，`2026-11-19` 仅为项目收录日。
+- 官网页脚保留全部权利；`rights_status: unverified`，页面显示“版权保留 · 未取得开放许可”，`license_url` 为 null，不生成虚假的 CC 链接。
+- #23 Jayden Adams 的固定 PDF 俱乐部栏为空，继续如实显示“FIFA 名单未列明”；本轮按此现有策略接入，没有补造俱乐部归属。

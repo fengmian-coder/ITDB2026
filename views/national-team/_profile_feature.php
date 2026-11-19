@@ -83,8 +83,8 @@ foreach ($feature['highlighted'] as $highlighted) {
             <p class="small mb-2"><?= Html::a(Html::encode($feature[$sourceKey]['label']), $feature[$sourceKey]['url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?></p>
         <?php endforeach ?>
         <?php foreach ($photos as $photo): ?>
-            <p class="team-photo-attribution"><?= Html::a(Html::encode($photo['name']), $photo['source_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?> · <?= Html::encode($photo['date']) ?> · <?= Html::encode($photo['author']) ?> · <?= Html::a(Html::encode($photo['license']), $photo['license_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?></p>
+            <p class="team-photo-attribution"><?= Html::a(Html::encode($photo['name']), $photo['source_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?> · <?= Html::encode((($photo['date_kind'] ?? '') === 'accessed' ? '收录日期 ' : '') . $photo['date']) ?> · <?= Html::encode($photo['author']) ?> · <?= !empty($photo['license_url']) ? Html::a(Html::encode($photo['license']), $photo['license_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) : Html::encode($photo['license']) ?></p>
         <?php endforeach ?>
-        <?php if ($photos !== []): ?><p class="small text-body-secondary mb-0">使用 Commons 预览版，页面按版式裁切显示</p><?php endif ?>
+        <?php if ($photos !== []): ?><p class="small text-body-secondary mb-0">图片保存在本站，页面按版式裁切显示；逐图来源和使用说明见上方</p><?php endif ?>
     </details>
 </section>

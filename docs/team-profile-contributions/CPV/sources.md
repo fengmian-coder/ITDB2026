@@ -64,6 +64,17 @@
 - 文件页与人物百科图像交叉确认；页面显示名按本项目固定身份（原文拼写差异只作别名核实，不改基础身份）。
 - 2026 世界杯比赛照；预览版字节原样保存，统一 CSS 裁切。资料照所示球衣／俱乐部不用于推断本届名单。
 
-## 未验收缺项：布比斯塔照片
+## 已排除的旧候选（历史）
 
-[Commons 候选 Bubista 2026.jpg](https://commons.wikimedia.org/wiki/File:Bubista_2026.jpg) 虽标注 CC BY-SA 4.0，但其[原始来源](https://polites.news/3946.html) 页脚声明只有文章文字按 CC BY 4.0 传播、其他权利保留；无法从该声明核实照片可复用许可。已排除候选图片，未把错误许可写入 credits。教练照片 key 仍代表待补的真实需求，credits 无该 key，当前草稿预览不显示教练图。本队未通过四图验收。
+[Commons 候选 Bubista 2026.jpg](https://commons.wikimedia.org/wiki/File:Bubista_2026.jpg) 虽标注 CC BY-SA 4.0，但其[原始来源](https://polites.news/3946.html) 的[专门许可页](https://polites.news/license.html) 明确排除照片。此候选仍未采用；下面使用的是用户另行提供的百度百科照片。
+
+## 本轮采用：用户提供的布比斯塔照片
+
+用户提供佩德罗·莱唐·布里托的[百度百科图片页](https://baike.baidu.com/pic/%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E8%8E%B1%E5%94%90%C2%B7%E5%B8%83%E9%87%8C%E6%89%98/67814935/1/77094b36acaf2edda3cc663bc94d16e93901203f3596?fromModule=lemma_top-image&ct=single#aid=1&pic=77094b36acaf2edda3cc663bc94d16e93901203f3596) 和同图附件，随后明确要求“直接用吧，我们这个小组作业也不需要发行、盈利之类的”。本轮按该决定使用，不把用户指示写成照片权利人授权。
+
+- key：`cpv-coach`；身份仍为固定档案中的 `Bubista`。Pedro Leitão Brito 与 Bubista 的姓名关系由本队已有 FIFA 资料佐证，未更换主教练。
+- 本地：`web/images/team-profiles/cpv-coach.png`；854 × 1080；SHA-256 `68a4b9a59fb57d263276c4d7c2329e3e4d52d6d77feb5d1ead3c0275eb1233b0`。
+- 附件 `codex-clipboard-b945eff6-b97b-43ae-8f38-f3743a3a22f5.png` 原字节保存，百度水印保留；通用照片 partial 支持 `display_crop: contain` 完整展示画面。未转换格式或修图。
+- 百度页面请求返回 403，采用用户提供的实际附件；`file_url`／`original_file_url` 为 null，未编造图片下载 URL。
+- 摄影者与拍摄日期未注明；`date_kind: accessed`，`2026-11-19` 仅为项目收录日。页面显示“收录日期”，不把该日称作拍摄日期。
+- `rights_status: unverified`，许可说明为“版权保留 · 未取得开放许可”，`license_url` 为 null。页面来源区显示真实说明，不生成虚假的 CC 链接。

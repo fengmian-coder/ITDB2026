@@ -34,7 +34,7 @@
 
 ## A 的六队正式接入（2026-11-19）
 
-伊朗、刚果民主共和国、加拿大、加纳、卡塔尔和厄瓜多尔的 24 张照片随增强资料正式接入。保留各张实际年代；2026 年资料照不笼统称为世界杯照片。预览图片原样保存，页面沿用统一 CSS。佛得角和南非仍是贡献目录中的三图草稿，未加入运行清单。
+伊朗、刚果民主共和国、加拿大、加纳、卡塔尔和厄瓜多尔的 24 张照片随增强资料正式接入。保留各张实际年代；2026 年资料照不笼统称为世界杯照片。预览图片原样保存，页面沿用统一 CSS。佛得角和南非在下一阶段按下方课程作业用图记录补齐并接入。
 
 | 文件 | 人物、来源日期 | 作者 | 来源与许可 |
 | --- | --- | --- | --- |
@@ -64,3 +64,18 @@
 | ecu-valencia.jpg | Enner Valencia，2026-06-14 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File%3AEnner_Valencia_Cote_D%27Ivoire_v_Ecuador_14_June_2026-95.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 
 日期说明：Desabre 照片只知拍摄于 2018 年 3 月，表中 2018-12-18 为可核实的 Commons 上传日；Partey 的 2026-06-24 是来源元数据日期，图片说明对应当地 6 月 23 日比赛。完整说明见 credits 的 date_note 及相应贡献目录 sources.md。
+
+## 佛得角与南非接入（2026-11-19）
+
+用户明确指定使用百度百科教练照和日落俱乐部莫科纳照用于小组课程作业（不发行、不盈利）。这两张不是 CC 授权素材；用户的使用决定不代表权利人授权。逐图保留原文件、水印及真实来源，页面标注“版权保留 · 未取得开放许可”。教练 PNG 为用户上传原件，未伪造百度图片下载 URL；莫科纳 JPG 为官网原图。两张拍摄日期均未注明，2026-11-19 仅为项目收录日。其他六张继续沿用各自 Commons 许可。
+
+| 文件 | 人物、日期说明 | 作者／发布来源 | 来源与使用说明 |
+| --- | --- | --- | --- |
+| cpv-stopira.jpg | Stopira，2022-01-06 | Effathéophile105 | [Commons](https://commons.wikimedia.org/wiki/File%3ACap-vert_vs_Ethiopi_%2825%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| cpv-rodrigues.jpg | Garry Rodrigues，2022-01-06 | Effathéophile105 | [Commons](https://commons.wikimedia.org/wiki/File%3ACap-vert_vs_Ethiopi_%2824%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| cpv-mendes.jpg | Ryan Mendes，2026-06-26 | Petsbikes | [Commons](https://commons.wikimedia.org/wiki/File%3ARyan_Mendes_Fifa_World_Cup_2026_Cabo_Verde_vs_Saudia_Arabia_%28cropped%29.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| cpv-coach.png | Bubista，收录 2026-11-19；拍摄日期未注明 | 摄影者未注明；发布：百度百科（用户提供图片） | [来源](https://baike.baidu.com/pic/%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E8%8E%B1%E5%94%90%C2%B7%E5%B8%83%E9%87%8C%E6%89%98/67814935/1/77094b36acaf2edda3cc663bc94d16e93901203f3596?fromModule=lemma_top-image&ct=single#aid=1&pic=77094b36acaf2edda3cc663bc94d16e93901203f3596) · 版权保留 · 未取得开放许可 |
+| rsa-coach.jpg | Hugo Broos，2017-06-19 | Дмитрий Садовник | [Commons](https://commons.wikimedia.org/wiki/File%3AHugo_Broos_1.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| rsa-modiba.jpg | Aubrey Modiba，2023-07-23 | Carlo Bruil Fotografie | [Commons](https://commons.wikimedia.org/wiki/File%3AAubrey_Modiba_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| rsa-foster.jpg | Lyle Foster，2026-11-01 | Joe Peacock | [Commons](https://commons.wikimedia.org/wiki/File%3ALyle_Foster_at_Timbers_v_Dynamo_1_November_2026_01.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| rsa-mokoena.jpg | Teboho Mokoena，收录 2026-11-19；拍摄日期未注明 | 摄影者未注明；发布：Mamelodi Sundowns FC | [来源](https://sundownsfc.co.za/player/teboho-mokoena/) · 版权保留 · 未取得开放许可 |
