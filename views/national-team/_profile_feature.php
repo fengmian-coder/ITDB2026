@@ -1,5 +1,5 @@
 <?php
-/** WorldCup Journey - 克罗地亚图文样板及完整名单，现有赛事统计由原页面继续展示。 */
+/** WorldCup Journey - 球队图文档案及完整名单，现有赛事统计由原页面继续展示。 */
 declare(strict_types=1);
 use app\models\TeamProfileForm;
 use yii\helpers\Html;
