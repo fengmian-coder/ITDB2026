@@ -1,4 +1,4 @@
-/* Croatia editorial sample. Existing team pages retain their original layout. */
+/* Shared editorial layout for teams with verified full-roster feature data. */
 .team-profile-feature .team-profile-intro { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
 .team-profile-feature .team-profile-about > p { font-size: 17px; line-height: 1.85; }
 .team-profile-feature .team-profile-about .project-eyebrow { font-size: 14px; }
@@ -19,6 +19,7 @@
 .team-person-photo figcaption a:hover { text-decoration: underline; }
 .team-coach-photo { width: 120px; height: 170px; flex: 0 0 120px; border-radius: 8px; overflow: hidden; }
 .team-coach-photo > img { height: 170px; transform: scale(1.5); transform-origin: center top; }
+.team-coach-photo-portrait > img { transform: none; }
 .team-coach-photo figcaption { right: 6px; bottom: 6px; }
 .team-player-visual { padding: 0; overflow: hidden; }
 .team-player-copy { padding: 20px 24px 22px; }
