@@ -34,4 +34,9 @@ class GuestbookMessage extends ActiveRecord
     {
         return $this->hasOne(GuestbookReply::class, ['message_id' => 'id']);
     }
+
+    public function attributeLabels(): array
+    {
+        return ['nickname' => '昵称', 'content' => '留言内容', 'related_match_id' => '关联比赛'];
+    }
 }

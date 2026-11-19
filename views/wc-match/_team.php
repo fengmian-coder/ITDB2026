@@ -18,7 +18,7 @@ use yii\helpers\Url;
 $name = $team['name_zh'] ?? $team['name_en'] ?? ('球队 ID ' . $teamId);
 ?>
 <span class="d-inline-flex flex-column align-items-center gap-1 mw-100">
-    <?= \app\components\TeamFlag::render($team['fifa_code'] ?? null, $name, $team['flag_path'] ?? null) ?>
+    <?= \app\components\TeamFlag::render($team['fifa_code'] ?? null, $name, $team['flag_path'] ?? null, $flagSize ?? 'sm') ?>
     <?= Html::a(Html::encode($name), ['/national-team/view', 'id' => $teamId], [
         'class' => 'fw-bold text-reset text-decoration-none',
     ]) ?>
