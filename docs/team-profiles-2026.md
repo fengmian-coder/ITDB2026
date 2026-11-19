@@ -1,6 +1,6 @@
 # 2026 球队轻量档案初版
 
-成员 A 于 2026-11-12 在现有球队模块上补充人物资料，保留球队、比赛、DNA、PK 和旅程的既有数据服务及路由。
+成员 A 于 2026-11-12 在现有球队模块上补充人物资料，保留球队、比赛、本届赛事表现、PK 和旅程的既有数据服务及路由。功能提交为 aef446e，已随 [PR #5](https://github.com/fengmian-coder/ITDB2026/pull/5) 合并至远程 main（5702f30）。
 
 ## 内容与来源
 
@@ -22,7 +22,7 @@
 
 在 `tournament_team` 增加唯一的可空扩展字段 `profile_json JSON NULL`，保存 summary、coach_name、coach_description、players、source_url、source_label、edition。players 为三项数组，每项为 name、position、description、shirt_number。档案以现有 `(tournament_id, team_id)` 关联，当前维护 2026 届快照；不添加独立球员或教练表，仍为 15 表。
 
-本次是 A 获用户授权的功能扩展，字段及 JSON 结构需随 PR 交 C 复核并纳入后续统一基线，不代表 C 已单独审核。`data/install.sql` 同步包含该字段，仅用于新空库。现有库使用以下幂等增量命令，不要重新导入建表脚本：
+本次是 A 获用户授权的功能扩展，字段及 JSON 结构已随 PR #5 合并，仍需交 C 独立复核并纳入后续统一基线；没有 C 已单独审核的证据。最初 V1.1 和四人分工文件保持原样，增量说明维护在本文件和数据字典中。`data/install.sql` 同步包含该字段，仅用于新空库。现有库使用以下幂等增量命令，不要重新导入建表脚本：
 
 ```powershell
 php yii team-profile/prepare

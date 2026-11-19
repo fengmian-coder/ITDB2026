@@ -84,8 +84,11 @@ $activeFilters = array_filter([
 ], static fn (?string $label): bool => $label !== null);
 $this->registerCss(<<<'CSS'
 .wc-match-index { flex: 1; --wc-accent: #e4d59c; }
-.wc-match-index .wc-hero { background: #174f35; color: #fff; text-align: left; }
-.wc-match-index .wc-hero .wc-eyebrow { color: var(--wc-accent); letter-spacing: .12em; font-size: 14px; line-height: 1.5; max-width: none; margin: 0 0 12px; }
+.wc-match-index .wc-hero { background: #174f35; color: #fff; text-align: left; padding: 24px 28px; }
+.wc-match-index .wc-hero h1 { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.35; margin: 0; }
+.wc-match-index .wc-hero > p { font-size: 16px; line-height: 1.7; max-width: none; margin: 8px 0 0; color: #c8ddcf; }
+.wc-match-index #match-stage-feedback:empty { display: none; }
+.wc-match-index #match-stage-feedback:not(:empty) { margin-top: 12px; }
 .wc-match-index .wc-card { border-top: 3px solid #48785a !important; }
 .wc-match-index .wc-card:target { outline: 2px solid var(--bs-success-text-emphasis); }
 .wc-match-index .wc-card, .wc-match-index #match-list-title { scroll-margin-top: 6rem; }
@@ -98,6 +101,7 @@ $this->registerCss(<<<'CSS'
 .wc-match-index .pagination { gap: .25rem; }
 .wc-match-index .page-link { border-radius: .5rem; }
 @media (max-width: 575.98px) {
+    .wc-match-index .wc-hero { padding: 20px; }
     .wc-match-index .wc-fixture { gap: .4rem; }
     .wc-match-index .wc-card .card-body { padding: 1rem; }
     .wc-match-index .pagination { font-size: .85rem; }
@@ -106,10 +110,9 @@ $this->registerCss(<<<'CSS'
 CSS, [], 'wc-match-index');
 ?>
 <div class="wc-match-index pb-4">
-    <header class="wc-hero rounded-4 p-4 p-md-5 mb-4">
-        <p class="wc-eyebrow fw-semibold">WORLD CUP JOURNEY / 2026</p>
-        <h1 class="display-6 fw-bold mb-2">每一场，都是旅程</h1>
-        <p class="mb-0 opacity-75">2026 世界杯赛程与赛果 · 所有开赛时间均为北京时间</p>
+    <header class="wc-hero rounded-4 mb-4">
+        <h1 class="fw-bold">2026 世界杯赛程</h1>
+        <p>赛程与赛果 · 开赛时间均为北京时间</p>
     </header>
     <section class="card border-0 shadow-sm rounded-4 mb-4" aria-labelledby="match-filter-title">
         <div class="card-body p-3 p-md-4">
@@ -129,7 +132,6 @@ CSS, [], 'wc-match-index');
                     <?= Html::dropDownList('team_id', $filters['team_id'] ?? '', $visibleTeamOptions, [
                         'id' => 'match-team-id', 'class' => 'form-select',
                         'prompt' => $visibleTeamOptions === [] ? '暂无可选球队' : '全部球队',
-                        'aria-describedby' => 'match-team-hint',
                     ]) ?>
                 </div>
                 <div class="col-12 col-md-3 d-flex gap-2">
@@ -145,7 +147,6 @@ CSS, [], 'wc-match-index');
                     </div>
                 </div>
             <?= Html::endForm() ?>
-            <p id="match-team-hint" class="small text-body-secondary mt-3 mb-0">球队选项随比赛阶段和「只看精选」更新</p>
             <p id="match-stage-feedback" class="small text-body-secondary mb-0" role="status"><?= $stageReset ? '原阶段暂无精选，已切换至全部阶段。' : '' ?></p>
             <script type="application/json" id="match-team-filter-data"><?= Json::htmlEncode([
                 'teams' => array_map(static fn (array $team): array => [

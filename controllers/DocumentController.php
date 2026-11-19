@@ -1,16 +1,15 @@
 <?php
 /**
- * WorldCup Journey - 公开作业列表及受控附件下载。
+ * WorldCup Journey - 旧作业入口兼容跳转及受控附件下载。
  * 模块：A 作业下载；负责人：A。
  * 依赖：ProjectDocument、DocumentStorageService。
- * 最近修改：2026-11-13，B 协助拆分团队及个人作业栏目。
+ * 最近修改：2026-11-18，A 将作业目录整合到关于我们，下载逻辑保留。
  */
 declare(strict_types=1);
 namespace app\controllers;
 
 use app\models\ProjectDocument;
 use app\services\DocumentStorageService;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -25,17 +24,9 @@ class DocumentController extends Controller
             'actions' => ['index' => ['GET', 'HEAD'], 'download' => ['GET', 'HEAD']]]];
     }
 
-    public function actionIndex(): string
+    public function actionIndex(): Response
     {
-        $providers = [];
-        foreach (['TEAM' => 'team-page', 'PERSONAL' => 'personal-page'] as $type => $pageParam) {
-            $providers[$type] = new ActiveDataProvider([
-                'query' => ProjectDocument::find()->where(['document_type' => $type])
-                    ->with(['projectTeam', 'member'])->orderBy(['uploaded_at' => SORT_DESC, 'id' => SORT_DESC]),
-                'pagination' => ['pageSize' => 20, 'pageParam' => $pageParam, 'pageSizeParam' => false],
-            ]);
-        }
-        return $this->render('index', compact('providers'));
+        return $this->redirect(['/project-team/index']);
     }
 
     public function actionDownload(mixed $id): Response

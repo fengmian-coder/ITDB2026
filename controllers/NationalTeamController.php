@@ -114,9 +114,11 @@ class NationalTeamController extends Controller
             throw new NotFoundHttpException('未找到该球队。');
         }
 
+        $profile = (new \app\services\TeamProfileService())->get($team);
         return $this->render('view', [
             'team' => $team,
-            'profile' => (new \app\services\TeamProfileService())->get($team),
+            'profile' => $profile,
+            'feature' => $profile === null ? null : (new \app\services\TeamProfileFeatureService())->get($team->fifa_code, $profile),
             'stats' => $this->teamStatsService->getTeamStats($teamId),
             'participation' => $this->findParticipation($teamId),
         ]);

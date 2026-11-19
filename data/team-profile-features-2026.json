@@ -1,0 +1,306 @@
+{
+  "year": 2026,
+  "source_sha256": "02a0a9beb5d219e7cc0aedde19273e9a3bfe4818ecd600d37804b8801dd96d94",
+  "teams": {
+    "CRO": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=13",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "克罗地亚的本届参赛阵容由 Zlatko Dalic 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、9名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "summary": "克罗地亚本届由 Zlatko Dalic 带队，26 名球员共同组成参赛阵容",
+      "coach_name": "Zlatko Dalic",
+      "coach_photo": "cro-coach",
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Dominik Livakovic",
+          "club": "GNK Dinamo Zagreb (CRO)",
+          "caps": 79,
+          "goals": 0,
+          "name_zh": "多米尼克·利瓦科维奇",
+          "club_zh": "萨格勒布迪纳摩"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Josip Stanisic",
+          "club": "FC Bayern München (GER)",
+          "caps": 35,
+          "goals": 0,
+          "name_zh": "斯坦尼西奇",
+          "club_zh": "拜仁慕尼黑"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Marin Pongracic",
+          "club": "ACF Fiorentina (ITA)",
+          "caps": 23,
+          "goals": 0,
+          "name_zh": "庞格拉西奇",
+          "club_zh": "佛罗伦萨"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Josko Gvardiol",
+          "club": "Manchester City FC (ENG)",
+          "caps": 52,
+          "goals": 4,
+          "name_zh": "格瓦迪奥尔",
+          "club_zh": "曼城"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Duje Caleta-Car",
+          "club": "Real Sociedad (ESP)",
+          "caps": 38,
+          "goals": 1,
+          "name_zh": "杜耶·卡莱塔-卡尔",
+          "club_zh": "皇家社会"
+        },
+        {
+          "shirt_number": 6,
+          "position": "DF",
+          "name": "Josip Sutalo",
+          "club": "AFC Ajax (NED)",
+          "caps": 37,
+          "goals": 0,
+          "name_zh": "约西普·苏塔洛",
+          "club_zh": "阿贾克斯"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Nikola Moro",
+          "club": "Bologna FC (ITA)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "尼古拉·莫罗",
+          "club_zh": "博洛尼亚"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Mateo Kovacic",
+          "club": "Manchester City FC (ENG)",
+          "caps": 117,
+          "goals": 5,
+          "name_zh": "科瓦契奇",
+          "club_zh": "曼城"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Andrej Kramaric",
+          "club": "TSG Hoffenheim (GER)",
+          "caps": 119,
+          "goals": 36,
+          "name_zh": "克拉马里奇",
+          "club_zh": "霍芬海姆"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Luka Modric",
+          "club": "AC Milan (ITA)",
+          "caps": 202,
+          "goals": 29,
+          "name_zh": "莫德里奇",
+          "club_zh": "AC 米兰"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Ante Budimir",
+          "club": "CA Osasuna (ESP)",
+          "caps": 41,
+          "goals": 7,
+          "name_zh": "安特·布迪米尔",
+          "club_zh": "奥萨苏纳"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Ivor Pandur",
+          "club": "Hull City FC (ENG)",
+          "caps": 0,
+          "goals": 0,
+          "name_zh": "伊沃·潘杜",
+          "club_zh": "赫尔城"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Nikola Vlasic",
+          "club": "Torino FC (ITA)",
+          "caps": 66,
+          "goals": 11,
+          "name_zh": "尼科拉·弗拉西奇",
+          "club_zh": "都灵"
+        },
+        {
+          "shirt_number": 14,
+          "position": "FW",
+          "name": "Ivan Perisic",
+          "club": "PSV Eindhoven (NED)",
+          "caps": 158,
+          "goals": 39,
+          "name_zh": "伊万·佩里西奇",
+          "club_zh": "埃因霍温"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Mario Pasalic",
+          "club": "Atalanta Bergamo (ITA)",
+          "caps": 89,
+          "goals": 12,
+          "name_zh": "马里奥·帕萨利奇",
+          "club_zh": "亚特兰大"
+        },
+        {
+          "shirt_number": 16,
+          "position": "MF",
+          "name": "Martin Baturina",
+          "club": "Como (ITA)",
+          "caps": 23,
+          "goals": 2,
+          "name_zh": "马丁·巴图里纳",
+          "club_zh": "科莫"
+        },
+        {
+          "shirt_number": 17,
+          "position": "MF",
+          "name": "Petar Sucic",
+          "club": "FC Internazionale Milano (ITA)",
+          "caps": 21,
+          "goals": 2,
+          "name_zh": "佩塔·苏契奇",
+          "club_zh": "国际米兰"
+        },
+        {
+          "shirt_number": 18,
+          "position": "DF",
+          "name": "Kristijan Jakic",
+          "club": "FC Augsburg (GER)",
+          "caps": 17,
+          "goals": 2,
+          "name_zh": "克里斯蒂扬·亚基奇",
+          "club_zh": "奥格斯堡"
+        },
+        {
+          "shirt_number": 19,
+          "position": "MF",
+          "name": "Toni Fruk",
+          "club": "HNK Rijeka (CRO)",
+          "caps": 7,
+          "goals": 1,
+          "name_zh": "托尼·弗鲁克",
+          "club_zh": "里耶卡"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Igor Matanovic",
+          "club": "SC Freiburg (GER)",
+          "caps": 12,
+          "goals": 2,
+          "name_zh": "伊戈尔·马塔诺维奇",
+          "club_zh": "弗赖堡"
+        },
+        {
+          "shirt_number": 21,
+          "position": "MF",
+          "name": "Luka Sucic",
+          "club": "Real Sociedad (ESP)",
+          "caps": 22,
+          "goals": 1,
+          "name_zh": "卢卡·苏西奇",
+          "club_zh": "皇家社会"
+        },
+        {
+          "shirt_number": 22,
+          "position": "DF",
+          "name": "Luka Vuskovic",
+          "club": "Hamburger SV (GER)",
+          "caps": 6,
+          "goals": 1,
+          "name_zh": "武什科维奇",
+          "club_zh": "汉堡"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Dominik Kotarski",
+          "club": "FC København (DEN)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "多米尼克·科塔尔斯基",
+          "club_zh": "哥本哈根"
+        },
+        {
+          "shirt_number": 24,
+          "position": "FW",
+          "name": "Marco Pasalic",
+          "club": "Orlando City SC (USA)",
+          "caps": 18,
+          "goals": 1,
+          "name_zh": "马尔科·帕萨利奇",
+          "club_zh": "奥兰多城"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Martin Erlic",
+          "club": "FC Midtjylland (DEN)",
+          "caps": 13,
+          "goals": 1,
+          "name_zh": "马丁·埃尔利奇",
+          "club_zh": "中日德兰"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Petar Musa",
+          "club": "FC Dallas (USA)",
+          "caps": 13,
+          "goals": 2,
+          "name_zh": "佩塔·穆萨",
+          "club_zh": "达拉斯"
+        }
+      ],
+      "player_photos": {
+        "4": "cro-gvardiol-2026",
+        "10": "cro-modric-2026",
+        "14": "cro-perisic-2026"
+      },
+      "coach_name_zh": "达利奇",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：克罗地亚",
+      "coach_facts": "2017 年开始执教克罗地亚，带队获得 2018 年世界杯亚军、2022 年世界杯季军",
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2018 年亚军"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022 年季军"
+        },
+        {
+          "label": "本届队长",
+          "value": "莫德里奇"
+        }
+      ],
+      "history_source": {
+        "label": "UEFA · 克罗地亚球队与教练介绍",
+        "url": "https://www.uefa.com/european-qualifiers/news/02a6-20d159312e19-b662016c6c47-1000--croatia-at-the-world-cup-2026-squad-fixtures-group-and-hi/"
+      },
+      "translation_source": {
+        "label": "央视网 · 克罗地亚世界杯正式名单（中文译名参照）",
+        "url": "https://sports.cctv.cn/2026/06/02/ARTIO1WSRREOnwtRCY4ALBdR260602.shtml"
+      }
+    }
+  }
+}
