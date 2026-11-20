@@ -123,3 +123,85 @@
 | egy-rabia.jpg | Ramy Rabia，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Ramy_Rabia_Argentina_v_Egypt_7_July_2026-223.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | egy-fathy.jpg | Hamdy Fathy，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Hamdy_Fathy_Argentina_v_Egypt_7_July_2026-220.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | egy-salah.jpg | Mohamed Salah，2026-07-07 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 塞内加尔队
+
+保留 Commons 预览版。教练图为采访截帧，三张球员图按各自年份标注。
+
+| 文件 | 人物与日期 | 摄影者或发布者 | 来源与许可 |
+| --- | --- | --- | --- |
+| sen-coach.png | Pape Thiaw，2025-06-06 | Irish Football Fan TV | [Commons](https://commons.wikimedia.org/wiki/File:Pape_Thiaw.png) · [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) · [原视频](https://www.youtube.com/watch?v=_pGkb2sWp44) |
+| sen-koulibaly.jpg | Kalidou Koulibaly，2026-06-16 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Kalidou_Koulibaly_France_v_Senegal_16_June_2026-370_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| sen-gueye.jpg | Idrissa Gana Gueye，2018-06-19 | Екатерина Лаут；Commons 裁切：FMSky | [Commons](https://commons.wikimedia.org/wiki/File:Idrissa_Gueye_%28cropped%29.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| sen-mane.jpg | Sadio Mane，2026-06-16 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Sadio_Mane_France_v_Senegal_16_June_2026-450.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 墨西哥队
+
+保留 Commons 预览版和各自的拍摄年份。阿吉雷和皮内达使用墨西哥国家队视频截帧。
+
+| 文件 | 人物与日期 | 摄影者或发布者 | 来源与许可 |
+| --- | --- | --- | --- |
+| mex-coach.png | Javier Aguirre，2025-06-29 | Selección Nacional de México | [Commons](https://commons.wikimedia.org/wiki/File:Javier_Aguirre.png) · [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) · [原视频](https://www.youtube.com/watch?v=mZXhG9AHoxE) |
+| mex-gallardo.jpg | Jesus Gallardo，2018-06-24 | Светлана Бекетова | [Commons](https://commons.wikimedia.org/wiki/File:Mex-Kor_%2845%29.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| mex-pineda.png | Orbelin Pineda，2025-03-18 | Selección Nacional de México | [Commons](https://commons.wikimedia.org/wiki/File:Orbel%C3%ADn_Pineda.png) · [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) · [原视频](https://www.youtube.com/watch?v=N-eVklUk6Oc) |
+| mex-jimenez.jpg | Raul Jimenez，2017-06-21 | Voltmetro | [Commons](https://commons.wikimedia.org/wiki/File:2017_Confederation_Cup_-_MEXNZL_-_Ra%C3%BAl_Jim%C3%A9nez_%28crop%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 奥地利队
+
+保留 Commons 预览版，按原文件标注比赛场景与年份。
+
+| 文件 | 人物与日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| aut-coach.jpg | Ralf Rangnick，2022-07-30 | Steffen Prößdorf | [Commons](https://commons.wikimedia.org/wiki/File:2022-07-30_Fu%C3%9Fball%2C_M%C3%A4nner%2C_DFL-Supercup%2C_RB_Leipzig_-_FC_Bayern_M%C3%BCnchen_1DX_3148_by_Stepro.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| aut-alaba.jpg | David Alaba，2018-06-02 | Ailura；Commons 裁切：Bayernfan2003 | [Commons](https://commons.wikimedia.org/wiki/File:20180602_AUTGER_4687_%28cropped%29_David_Alaba_%28cropped%29.jpg) · [CC BY-SA 3.0 AT](https://creativecommons.org/licenses/by-sa/3.0/at/) |
+| aut-sabitzer.jpg | Marcel Sabitzer，2015-10-12 | Steindy | [Commons](https://commons.wikimedia.org/wiki/File:AUT_vs._LIE_2015-10-12_%28143%29.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| aut-arnautovic.jpg | Marko Arnautovic，2018-04-29 | Egghead06 | [Commons](https://commons.wikimedia.org/wiki/File:Marko_Arnautovi%C4%87_West_Ham.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 巴拉圭队
+
+四张照片均拍摄于 2026-07-04 巴拉圭对法国的世界杯比赛，署名 Bryan Berlin / WikiPortraits。保留 Commons 预览版，许可为 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。
+
+| 文件 | 人物与来源 |
+| --- | --- |
+| par-coach.jpg | [Gustavo Alfaro](https://commons.wikimedia.org/wiki/File:Gustavo_Alfaro_France_v_Paraguay_4_July_2026-189.jpg) |
+| par-gomez.jpg | [Gustavo Gomez](https://commons.wikimedia.org/wiki/File:Gustavo_Gomez_France_v_Paraguay_4_July_2026-202.jpg) |
+| par-almiron.jpg | [Miguel Almiron](https://commons.wikimedia.org/wiki/File:Miguel_Almiron_France_v_Paraguay_4_July_2026-025.jpg) |
+| par-sanabria.jpg | [Antonio Sanabria](https://commons.wikimedia.org/wiki/File:Antonio_Sanabria_France_v_Paraguay_4_July_2026-021.jpg) |
+
+## 巴拿马队
+
+保留 Commons 预览版。戴维斯使用 2018 年世界杯资料照，其余三张拍摄于 2026 年巴拿马对英格兰的世界杯比赛。
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| pan-coach.jpg | Thomas Christiansen，2026-06-27 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Thomas_Christiansen_England_v_Panama_27_June_26-163.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| pan-davis.jpg | Eric Davis，2018-06-24 | Антон Зайцев | [Commons](https://commons.wikimedia.org/wiki/File:Erick_Davis_2018.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| pan-godoy.jpg | Anibal Godoy，2026-06-27 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Anibal_Godoy_England_v_Panama_27_June_26-022.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| pan-fajardo.jpg | Jose Fajardo，2026-06-27 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Jose_Fajardo_England_v_Panama_27_June_26-010.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 巴西队
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| bra-coach.jpg | Carlo Ancelotti，2026-06-13 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Carlo_Ancelotti_Brazil_V_Morocco_13_June_2026-34.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| bra-marquinhos.jpg | Marquinhos，2026-06-13 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Marquinhos_Brazil_V_Morocco_13_June_2026-75.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| bra-casemiro.jpg | Casemiro，2026-06-13 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Casemiro_Brazil_V_Morocco_13_June_2026-76_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| bra-neymar.jpg | Neymar Jr，2026-06-13 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Neymar_Junior_Brazil_V_Morocco_13_June_2026-145.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## 库拉索队
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| cuw-coach.jpg | Dick Advocaat，2021-10-20 | Анна Мейер | [Commons](https://commons.wikimedia.org/wiki/File:Dick_Advocaat_2021.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| cuw-gaari.jpg | Jurien Gaari，2023-04-19 | Carlo Bruil Fotografie | [Commons](https://commons.wikimedia.org/wiki/File:Go_Ahead_Eagles_-_RKC_Waalwijk_-_52830811567_%28cropped%29.jpg) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| cuw-bacuna.jpg | Leandro Bacuna，2016-05-07 | Ben Sutherland | [Commons](https://commons.wikimedia.org/wiki/File:Leandro_Bacuna.jpg) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| cuw-gorre.jpg | Kenji Gorre，2015-07-21 | Richard Mulder | [Commons](https://commons.wikimedia.org/wiki/File:Kenji_Gorr%C3%A9_%282015%29.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+
+## 挪威队
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| nor-coach.jpg | Stale Solbakken，2025-06-06 | MichaelEmilio | [Commons](https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_E_08.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| nor-ajer.jpg | Kristoffer Ajer，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Kristoffer_Vassbakk_Ajer_France_v_Norway_26_June_26-013.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| nor-odegaard.jpg | Martin Odegaard，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Martin_Odegaard_France_v_Norway_26_June_26-014.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| nor-sorloth.jpg | Alexander Sorloth，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Alexander_Sorloth_France_v_Norway_26_June_26-020.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |

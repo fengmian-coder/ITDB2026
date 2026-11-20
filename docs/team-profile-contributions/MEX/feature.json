@@ -1,0 +1,302 @@
+{
+  "MEX": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=28",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "墨西哥的本届参赛阵容由 Javier Aguirre 带队，FIFA 名单收录26名球员，包括3名门将、7名后卫、8名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Javier Aguirre",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：墨西哥",
+    "summary": "墨西哥曾在 1970 年和 1986 年主办世界杯并进入八强，2026 年与加拿大、美国共同主办。",
+    "coach_name_zh": "哈维尔·阿吉雷",
+    "coach_facts": "曾率墨西哥参加 2002 年和 2010 年世界杯，两届均打进十六强。2024 年第三次接任墨西哥队主教练。",
+    "coach_photo": "mex-coach",
+    "player_photos": {
+      "23": "mex-gallardo",
+      "17": "mex-pineda",
+      "9": "mex-jimenez"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1970、1986 年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "本届身份",
+        "value": "联合东道主"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 墨西哥世界杯历史与 2026 赛程",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/mexico-team-profile-history"
+    },
+    "translation_source": {
+      "label": "巴西华人网墨西哥名单报道（译名参照）",
+      "url": "https://www.br-cn.com/static/content/news/nm_news/2026-06-03/1511677040598850748.html"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "CD Guadalajara (MEX)",
+        "caps": 19,
+        "goals": 0,
+        "name": "Raúl Rangel",
+        "name_zh": "劳尔·兰赫尔",
+        "club_zh": "瓜达拉哈拉"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "PAOK Saloniki (GRE)",
+        "caps": 63,
+        "goals": 3,
+        "name": "Jorge Sánchez",
+        "name_zh": "豪尔赫·桑切斯",
+        "club_zh": "塞萨洛尼基"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "FC Lokomotiv Moscow (RUS)",
+        "caps": 72,
+        "goals": 4,
+        "name": "César Montes",
+        "name_zh": "塞萨尔·蒙特斯",
+        "club_zh": "莫斯科火车头"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 103,
+        "goals": 7,
+        "name": "Edson Álvarez",
+        "name_zh": "埃德松·阿尔瓦雷斯",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "Genoa CFC (ITA)",
+        "caps": 50,
+        "goals": 3,
+        "name": "Johan Vásquez",
+        "name_zh": "约翰·巴斯克斯",
+        "club_zh": "热那亚"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "CF Cruz Azul (MEX)",
+        "caps": 29,
+        "goals": 0,
+        "name": "Erik Lira",
+        "name_zh": "埃里克·利拉",
+        "club_zh": "蓝十字"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "club": "CD Guadalajara (MEX)",
+        "caps": 66,
+        "goals": 5,
+        "name": "Luis Romo",
+        "name_zh": "路易斯·罗莫",
+        "club_zh": "瓜达拉哈拉"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Real Betis (ESP)",
+        "caps": 7,
+        "goals": 1,
+        "name": "Álvaro Fidalgo",
+        "name_zh": "阿尔瓦罗·菲达尔戈",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "Fulham FC (ENG)",
+        "caps": 130,
+        "goals": 48,
+        "name": "Raul Jimenez",
+        "name_zh": "劳尔·希门尼斯",
+        "club_zh": "富勒姆"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "club": "Deportivo Toluca FC (MEX)",
+        "caps": 53,
+        "goals": 7,
+        "name": "Alexis Vega",
+        "name_zh": "亚历克西斯·贝加",
+        "club_zh": "托卢卡"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "AC Milan (ITA)",
+        "caps": 51,
+        "goals": 6,
+        "name": "Santiago Giménez",
+        "name_zh": "圣地亚哥·希门尼斯",
+        "club_zh": "AC 米兰"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "Club Santos Laguna (MEX)",
+        "caps": 7,
+        "goals": 0,
+        "name": "Carlos Acevedo",
+        "name_zh": "卡洛斯·阿塞韦多",
+        "club_zh": "桑托斯拉古纳"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "club": "AEL Limassol (CYP)",
+        "caps": 154,
+        "goals": 0,
+        "name": "Guillermo Ochoa",
+        "name_zh": "吉列尔莫·奥乔亚",
+        "club_zh": "利马索尔竞技"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "club": "CD Guadalajara (MEX)",
+        "caps": 8,
+        "goals": 1,
+        "name": "Armando González",
+        "name_zh": "阿曼多·冈萨雷斯",
+        "club_zh": "瓜达拉哈拉"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "Club América (MEX)",
+        "caps": 38,
+        "goals": 2,
+        "name": "Israel Reyes",
+        "name_zh": "伊斯拉埃尔·雷耶斯",
+        "club_zh": "墨西哥美洲"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "club": "Al Qadsiah FC (KSA)",
+        "caps": 27,
+        "goals": 6,
+        "name": "Julián Quiñones",
+        "name_zh": "胡利安·基尼奥内斯",
+        "club_zh": "卡迪西亚"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "AEK Athens (GRE)",
+        "caps": 94,
+        "goals": 12,
+        "name": "Orbelin Pineda",
+        "name_zh": "奥尔贝林·皮内达",
+        "club_zh": "雅典 AEK"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 9,
+        "goals": 0,
+        "name": "Obed Vargas",
+        "name_zh": "奥贝德·巴尔加斯",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "Club Tijuana (MEX)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Gilberto Mora",
+        "name_zh": "希尔韦托·莫拉",
+        "club_zh": "蒂华纳"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "club": "AZ Alkmaar (NED)",
+        "caps": 11,
+        "goals": 1,
+        "name": "Mateo Chávez",
+        "name_zh": "马特奥·查韦斯",
+        "club_zh": "阿尔克马尔"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "RSC Anderlecht (BEL)",
+        "caps": 27,
+        "goals": 3,
+        "name": "César Huerta",
+        "name_zh": "塞萨尔·乌尔塔",
+        "club_zh": "安德莱赫特"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "club": "Pumas UNAM (MEX)",
+        "caps": 14,
+        "goals": 3,
+        "name": "Guillermo Martínez",
+        "name_zh": "吉列尔莫·马丁内斯",
+        "club_zh": "美洲狮"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "club": "Deportivo Toluca FC (MEX)",
+        "caps": 127,
+        "goals": 3,
+        "name": "Jesus Gallardo",
+        "name_zh": "赫苏斯·加利亚多",
+        "club_zh": "托卢卡"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "club": "FC Dynamo Moscow (RUS)",
+        "caps": 46,
+        "goals": 5,
+        "name": "Luis Chávez",
+        "name_zh": "路易斯·查韦斯",
+        "club_zh": "莫斯科迪纳摩"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "club": "CD Guadalajara (MEX)",
+        "caps": 73,
+        "goals": 5,
+        "name": "Roberto Alvarado",
+        "name_zh": "罗伯托·阿尔瓦拉多",
+        "club_zh": "瓜达拉哈拉"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "club": "CD Guadalajara (MEX)",
+        "caps": 11,
+        "goals": 2,
+        "name": "Brian Gutiérrez",
+        "name_zh": "布赖恩·古铁雷斯",
+        "club_zh": "瓜达拉哈拉"
+      }
+    ]
+  }
+}

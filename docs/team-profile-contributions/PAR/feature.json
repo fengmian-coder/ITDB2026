@@ -1,0 +1,302 @@
+{
+  "PAR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=34",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "巴拉圭的本届参赛阵容由 Gustavo Alfaro 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、9名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Gustavo Alfaro",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：阿根廷",
+    "summary": "巴拉圭曾在 2010 年世界杯打进八强，2026 年时隔 16 年重返决赛圈。",
+    "coach_name_zh": "古斯塔沃·阿尔法罗",
+    "coach_facts": "曾率厄瓜多尔参加 2022 年世界杯，2024 年接手巴拉圭队，随后带队晋级 2026 年世界杯。",
+    "coach_photo": "par-coach",
+    "player_photos": {
+      "15": "par-gomez",
+      "10": "par-almiron",
+      "9": "par-sanabria"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2010 年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 16 年"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 巴拉圭世界杯历史与球队档案",
+      "url": "https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/paraguay-perfil-historia-mundiales"
+    },
+    "translation_source": {
+      "label": "巴西华人网巴拉圭名单报道（译名参照）",
+      "url": "https://www.br-cn.com/static/content/news/nm_news/2026-06-02/1511419760557045334.html"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Cerro Porteño (PAR)",
+        "caps": 30,
+        "goals": 0,
+        "name": "Gatito Fernández",
+        "name_zh": "加蒂托·费尔南德斯",
+        "club_zh": "波特诺山丘"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Cerro Porteño (PAR)",
+        "caps": 18,
+        "goals": 1,
+        "name": "Gustavo Velázquez",
+        "name_zh": "古斯塔沃·贝拉斯克斯",
+        "club_zh": "波特诺山丘"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 40,
+        "goals": 3,
+        "name": "Omar Alderete",
+        "name_zh": "奥马尔·阿尔德雷特",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "FC Dynamo Moscow (RUS)",
+        "caps": 22,
+        "goals": 0,
+        "name": "Juan José Cáceres",
+        "name_zh": "胡安·何塞·卡塞雷斯",
+        "club_zh": "莫斯科迪纳摩"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "Grêmio FBPA (BRA)",
+        "caps": 48,
+        "goals": 2,
+        "name": "Fabián Balbuena",
+        "name_zh": "法比安·巴尔布埃纳",
+        "club_zh": "格雷米奥"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "club": "Atlético Mineiro (BRA)",
+        "caps": 76,
+        "goals": 3,
+        "name": "Júnior Alonso",
+        "name_zh": "儒尼奥尔·阿隆索",
+        "club_zh": "米内罗竞技"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "club": "SE Palmeiras (BRA)",
+        "caps": 30,
+        "goals": 1,
+        "name": "Ramón Sosa",
+        "name_zh": "拉蒙·索萨",
+        "club_zh": "帕尔梅拉斯"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 28,
+        "goals": 3,
+        "name": "Diego Gómez",
+        "name_zh": "迭戈·戈麦斯",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "US Cremonese (ITA)",
+        "caps": 50,
+        "goals": 7,
+        "name": "Antonio Sanabria",
+        "name_zh": "安东尼奥·萨纳布里亚",
+        "club_zh": "克雷莫内塞"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "Atlanta United FC (USA)",
+        "caps": 80,
+        "goals": 10,
+        "name": "Miguel Almiron",
+        "name_zh": "米格尔·阿尔米隆",
+        "club_zh": "亚特兰大联"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "club": "SE Palmeiras (BRA)",
+        "caps": 7,
+        "goals": 1,
+        "name": "Mauricio",
+        "name_zh": "毛里西奥",
+        "club_zh": "帕尔梅拉斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "CA San Lorenzo (ARG)",
+        "caps": 11,
+        "goals": 0,
+        "name": "Orlando Gill",
+        "name_zh": "奥兰多·希尔",
+        "club_zh": "圣洛伦索"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "CA Lanús (ARG)",
+        "caps": 6,
+        "goals": 0,
+        "name": "José Canale",
+        "name_zh": "何塞·卡纳莱",
+        "club_zh": "拉努斯"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "club": "Vancouver Whitecaps FC (CAN)",
+        "caps": 38,
+        "goals": 0,
+        "name": "Andrés Cubas",
+        "name_zh": "安德烈斯·库瓦斯",
+        "club_zh": "温哥华白帽"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "SE Palmeiras (BRA)",
+        "caps": 94,
+        "goals": 4,
+        "name": "Gustavo Gomez",
+        "name_zh": "古斯塔沃·戈麦斯",
+        "club_zh": "帕尔梅拉斯"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "club": "São Paulo FC (BRA)",
+        "caps": 23,
+        "goals": 1,
+        "name": "Damián Bobadilla",
+        "name_zh": "达米安·博瓦迪利亚",
+        "club_zh": "圣保罗"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "club": "Al Ain FC (UAE)",
+        "caps": 35,
+        "goals": 6,
+        "name": "Alejandro Romero Gamarra",
+        "name_zh": "亚历杭德罗·罗梅罗·加马拉",
+        "club_zh": "艾因"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "club": "CS Independiente Rivadavia (ARG)",
+        "caps": 17,
+        "goals": 1,
+        "name": "Álex Arce",
+        "name_zh": "亚历克斯·阿尔塞",
+        "club_zh": "门多萨独立"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 37,
+        "goals": 5,
+        "name": "Julio Enciso",
+        "name_zh": "胡利奥·恩西索",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "Orlando City SC (USA)",
+        "caps": 18,
+        "goals": 0,
+        "name": "Braian Ojeda",
+        "name_zh": "布赖恩·奥赫达",
+        "club_zh": "奥兰多城"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "CA Independiente (ARG)",
+        "caps": 27,
+        "goals": 2,
+        "name": "Gabriel Ávalos",
+        "name_zh": "加布里埃尔·阿瓦洛斯",
+        "club_zh": "阿根廷独立"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "club": "Club Olimpia (PAR)",
+        "caps": 1,
+        "goals": 0,
+        "name": "Gastón Olveira",
+        "name_zh": "加斯通·奥尔韦拉",
+        "club_zh": "奥林匹亚"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "club": "Atlanta United FC (USA)",
+        "caps": 19,
+        "goals": 4,
+        "name": "Matías Galarza",
+        "name_zh": "马蒂亚斯·加拉尔萨",
+        "club_zh": "亚特兰大联"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "club": "Portsmouth FC (ENG)",
+        "caps": 4,
+        "goals": 1,
+        "name": "Gustavo Caballero",
+        "name_zh": "古斯塔沃·卡瓦列罗",
+        "club_zh": "朴茨茅斯"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "club": "Red Bull Bragantino (BRA)",
+        "caps": 6,
+        "goals": 0,
+        "name": "Isidro Pitta",
+        "name_zh": "伊西德罗·皮塔",
+        "club_zh": "布拉干蒂诺红牛"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "club": "CA Talleres (ARG)",
+        "caps": 4,
+        "goals": 1,
+        "name": "Alexandro Maidana",
+        "name_zh": "亚历山德罗·迈达纳",
+        "club_zh": "塔列雷斯"
+      }
+    ]
+  }
+}

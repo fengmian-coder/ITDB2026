@@ -1,0 +1,302 @@
+{
+  "CUW": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=14",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "库拉索的本届参赛阵容由 Dick Advocaat 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Dick Advocaat",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：荷兰",
+    "summary": "库拉索以预选赛末轮小组头名获得直通资格，2026 年迎来队史首次世界杯。",
+    "coach_name_zh": "迪克·阿德沃卡特",
+    "coach_facts": "带队获得 2026 年世界杯参赛资格，随后曾短暂离任，世界杯前重新执教库拉索。",
+    "coach_photo": "cuw-coach",
+    "player_photos": {
+      "3": "cuw-gaari",
+      "10": "cuw-bacuna",
+      "14": "cuw-gorre"
+    },
+    "facts": [
+      {
+        "label": "世界杯首秀",
+        "value": "2026 年"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "预选赛成绩",
+        "value": "末轮 B 组第一"
+      }
+    ],
+    "history_source": {
+      "label": "中北美洲及加勒比海足联库拉索晋级回顾",
+      "url": "https://www.concacaf.com/competitions/concacaf-qualifiers/news/rumbo-a-la-copa-mundial-de-la-fifa-2026-curazao"
+    },
+    "translation_source": {
+      "label": "企鹅体育库拉索名单报道（译名参照）",
+      "url": "https://www.qie.tv/news/detail/20260388905301"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Miami FC (USA)",
+        "caps": 75,
+        "goals": 0,
+        "name": "Eloy Room",
+        "name_zh": "埃洛伊·鲁姆",
+        "club_zh": "迈阿密FC"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Sparta Rotterdam (NED)",
+        "caps": 9,
+        "goals": 0,
+        "name": "Shurandy Sambo",
+        "name_zh": "舒兰迪·桑博",
+        "club_zh": "鹿特丹斯巴达"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Abha Club (KSA)",
+        "caps": 62,
+        "goals": 1,
+        "name": "Jurien Gaari",
+        "name_zh": "尤里恩·加里",
+        "club_zh": "艾卜哈"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "RKC Waalwijk (NED)",
+        "caps": 29,
+        "goals": 1,
+        "name": "Roshon van Eijma",
+        "name_zh": "罗顺·范艾马",
+        "club_zh": "瓦尔韦克"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "PEC Zwolle (NED)",
+        "caps": 30,
+        "goals": 0,
+        "name": "Sherel Floranus",
+        "name_zh": "谢雷尔·弗洛拉努斯",
+        "club_zh": "兹沃勒"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "RKC Waalwijk (NED)",
+        "caps": 30,
+        "goals": 1,
+        "name": "Godfried Roemeratoe",
+        "name_zh": "戈德弗里德·鲁梅拉图",
+        "club_zh": "瓦尔韦克"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "club": "FC Volendam (NED)",
+        "caps": 53,
+        "goals": 14,
+        "name": "Juninho Bacuna",
+        "name_zh": "儒尼尼奥·巴库纳",
+        "club_zh": "福伦丹"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "FC Zürich (SUI)",
+        "caps": 23,
+        "goals": 3,
+        "name": "Livano Comenencia",
+        "name_zh": "利瓦诺·科梅嫩西亚",
+        "club_zh": "苏黎世"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "Miami FC (USA)",
+        "caps": 16,
+        "goals": 1,
+        "name": "Jürgen Locadia",
+        "name_zh": "于尔根·洛卡迪亚",
+        "club_zh": "迈阿密FC"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "Iğdır FK (TUR)",
+        "caps": 75,
+        "goals": 16,
+        "name": "Leandro Bacuna",
+        "name_zh": "莱安德罗·巴库纳",
+        "club_zh": "厄德尔"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "AE Kifisia FC (GRE)",
+        "caps": 29,
+        "goals": 4,
+        "name": "Jeremy Antonisse",
+        "name_zh": "杰里米·安托尼斯",
+        "club_zh": "基菲夏"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "club": "Middlesbrough FC (ENG)",
+        "caps": 7,
+        "goals": 1,
+        "name": "Sontje Hansen",
+        "name_zh": "松特耶·汉森",
+        "club_zh": "米德尔斯堡"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "club": "SC Telstar (NED)",
+        "caps": 8,
+        "goals": 1,
+        "name": "Tyrese Noslin",
+        "name_zh": "泰里斯·诺斯林",
+        "club_zh": "特尔斯达"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "club": "Maccabi Haifa FC (ISR)",
+        "caps": 39,
+        "goals": 6,
+        "name": "Kenji Gorre",
+        "name_zh": "肯吉·戈雷",
+        "club_zh": "海法马卡比"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "club": "Rotherham United FC (ENG)",
+        "caps": 9,
+        "goals": 2,
+        "name": "Arjany Martha",
+        "name_zh": "阿尔贾尼·马尔塔",
+        "club_zh": "罗瑟勒姆联"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "club": "SK Beveren (BEL)",
+        "caps": 24,
+        "goals": 5,
+        "name": "Jearl Margaritha",
+        "name_zh": "耶尔·马加里塔",
+        "club_zh": "贝弗伦"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "club": "FC Volendam (NED)",
+        "caps": 37,
+        "goals": 2,
+        "name": "Brandley Kuwas",
+        "name_zh": "布兰德利·库瓦斯",
+        "club_zh": "福伦丹"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 9,
+        "goals": 0,
+        "name": "Armando Obispo",
+        "name_zh": "阿曼多·奥比斯波",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "club": "Terengganu FC (MAS)",
+        "caps": 32,
+        "goals": 9,
+        "name": "Gervane Kastaneer",
+        "name_zh": "杰尔瓦内·卡斯塔内尔",
+        "club_zh": "登嘉楼"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "club": "Kayserispor (TUR)",
+        "caps": 20,
+        "goals": 2,
+        "name": "Joshua Brenet",
+        "name_zh": "约书亚·布雷内特",
+        "club_zh": "开塞利体育"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "club": "Shefield United FC (ENG)",
+        "caps": 9,
+        "goals": 3,
+        "name": "Tahith Chong",
+        "name_zh": "陈达毅",
+        "club_zh": "谢菲尔德联"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "club": "FC Den Bosch (NED)",
+        "caps": 19,
+        "goals": 1,
+        "name": "Kevin Felida",
+        "name_zh": "凯文·费利达",
+        "club_zh": "邓伯什"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "club": "Konyaspor (TUR)",
+        "caps": 6,
+        "goals": 0,
+        "name": "Riechedly Bazoer",
+        "name_zh": "里赫德利·巴佐尔",
+        "club_zh": "科尼亚体育"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "NEC Nijmegen (NED)",
+        "caps": 5,
+        "goals": 0,
+        "name": "Deveron Fonville",
+        "name_zh": "德韦龙·丰维尔",
+        "club_zh": "奈梅亨"
+      },
+      {
+        "shirt_number": 25,
+        "position": "GK",
+        "club": "SC Telstar (NED)",
+        "caps": 4,
+        "goals": 0,
+        "name": "Tyrick Bodak",
+        "name_zh": "泰里克·博达克",
+        "club_zh": "特尔斯达"
+      },
+      {
+        "shirt_number": 26,
+        "position": "GK",
+        "club": "VVV Venlo (NED)",
+        "caps": 8,
+        "goals": 0,
+        "name": "Trevor Doornbusch",
+        "name_zh": "特雷弗·多恩布施",
+        "club_zh": "芬洛"
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "PAN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=33",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "巴拿马的本届参赛阵容由 Thomas Christiansen 带队，FIFA 名单收录26名球员，包括3名门将、11名后卫、8名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Thomas Christiansen",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：西班牙",
+    "summary": "巴拿马于 2018 年首次参加世界杯，2026 年迎来第二次参赛。",
+    "coach_name_zh": "托马斯·克里斯蒂安森",
+    "coach_facts": "2020 年出任巴拿马队主教练。在 2026 年中北美洲及加勒比海足联预选赛第三阶段，率队获得 A 组第一并直接晋级世界杯。",
+    "coach_photo": "pan-coach",
+    "player_photos": {
+      "15": "pan-davis",
+      "20": "pan-godoy",
+      "17": "pan-fajardo"
+    },
+    "facts": [
+      {
+        "label": "世界杯首秀",
+        "value": "2018 年小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "世界杯参赛次数",
+        "value": "第 2 次（含本届）"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 巴拿马世界杯历史与球队档案",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/panama-team-profile-history"
+    },
+    "translation_source": {
+      "label": "PP 体育巴拿马名单报道（译名参照）",
+      "url": "https://www.ppsports.com/article/news/2543071.html"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Club Nacional (URU)",
+        "caps": 56,
+        "goals": 0,
+        "name": "Luis Mejía",
+        "name_zh": "路易斯·梅希亚",
+        "club_zh": "乌拉圭民族"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "ŠK Slovan Bratislava (SVK)",
+        "caps": 42,
+        "goals": 3,
+        "name": "César Blackman",
+        "name_zh": "塞萨尔·布莱克曼",
+        "club_zh": "布拉迪斯拉发斯洛万"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Norwich City FC (ENG)",
+        "caps": 35,
+        "goals": 1,
+        "name": "José Córdoba",
+        "name_zh": "何塞·科尔多瓦",
+        "club_zh": "诺维奇"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Deportivo Saprissa (CRC)",
+        "caps": 100,
+        "goals": 4,
+        "name": "Fidel Escobar",
+        "name_zh": "菲德尔·埃斯科瓦尔",
+        "club_zh": "萨普里萨"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "FC Pari Nizhny Novgorod (RUS)",
+        "caps": 18,
+        "goals": 0,
+        "name": "Edgardo Fariña",
+        "name_zh": "埃德加多·法里尼亚",
+        "club_zh": "下诺夫哥罗德"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "Hapoel Kiryat Shmona FC (ISR)",
+        "caps": 70,
+        "goals": 2,
+        "name": "Cristian Martínez",
+        "name_zh": "克里斯蒂安·马丁内斯",
+        "club_zh": "谢莫纳城工人"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "club": "FC Juárez (MEX)",
+        "caps": 73,
+        "goals": 8,
+        "name": "José Luis Rodríguez",
+        "name_zh": "何塞·路易斯·罗德里格斯",
+        "club_zh": "华雷斯"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Pumas UNAM (MEX)",
+        "caps": 73,
+        "goals": 3,
+        "name": "Adalberto Carrasquilla",
+        "name_zh": "阿达尔韦托·卡拉斯基利亚",
+        "club_zh": "美洲狮"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "Deportivo Saprissa (CRC)",
+        "caps": 15,
+        "goals": 4,
+        "name": "Tomás Rodríguez",
+        "name_zh": "托马斯·罗德里格斯",
+        "club_zh": "萨普里萨"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "Club León (MEX)",
+        "caps": 58,
+        "goals": 17,
+        "name": "Ismael Díaz",
+        "name_zh": "伊斯梅尔·迪亚斯",
+        "club_zh": "莱昂"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "club": "Mazatlán FC (MEX)",
+        "caps": 107,
+        "goals": 10,
+        "name": "Edgar Yoel Bárcenas",
+        "name_zh": "埃德加·约埃尔·巴尔塞纳斯",
+        "club_zh": "马萨特兰"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "CD Marathón (HON)",
+        "caps": 5,
+        "goals": 0,
+        "name": "César Samudio",
+        "name_zh": "塞萨尔·萨穆迪奥",
+        "club_zh": "马拉松"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "Puerto Cabello CF (VEN)",
+        "caps": 25,
+        "goals": 2,
+        "name": "Jiovany Ramos",
+        "name_zh": "乔瓦尼·拉莫斯",
+        "club_zh": "卡贝略港"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "club": "Minnesota United FC (USA)",
+        "caps": 31,
+        "goals": 3,
+        "name": "Carlos Harvey",
+        "name_zh": "卡洛斯·哈维",
+        "club_zh": "明尼苏达联"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "CD Plaza Amador (PAN)",
+        "caps": 109,
+        "goals": 9,
+        "name": "Eric Davis",
+        "name_zh": "埃里克·戴维斯",
+        "club_zh": "阿马多尔广场"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "club": "LASK Linz (AUT)",
+        "caps": 53,
+        "goals": 1,
+        "name": "Andrés Andrade",
+        "name_zh": "安德烈斯·安德拉德",
+        "club_zh": "林茨"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "club": "CD Universidad Católica (ECU)",
+        "caps": 72,
+        "goals": 17,
+        "name": "Jose Fajardo",
+        "name_zh": "何塞·法哈多",
+        "club_zh": "厄瓜多尔天主教大学"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "club": "CD Universidad De Concepción (CHI)",
+        "caps": 57,
+        "goals": 15,
+        "name": "Cecilio Waterman",
+        "name_zh": "塞西利奥·沃特曼",
+        "club_zh": "康塞普西翁大学"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "CD Plaza Amador (PAN)",
+        "caps": 142,
+        "goals": 7,
+        "name": "Alberto Quintero",
+        "name_zh": "阿尔韦托·金特罗",
+        "club_zh": "阿马多尔广场"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "San Diego FC (USA)",
+        "caps": 160,
+        "goals": 4,
+        "name": "Anibal Godoy",
+        "name_zh": "阿尼瓦尔·戈多伊",
+        "club_zh": "圣迭戈"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "club": "CD Cobresal (CHI)",
+        "caps": 55,
+        "goals": 5,
+        "name": "César Yanis",
+        "name_zh": "塞萨尔·亚尼斯",
+        "club_zh": "科布雷萨尔"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "club": "Al Fayha FC (KSA)",
+        "caps": 52,
+        "goals": 0,
+        "name": "Orlando Mosquera",
+        "name_zh": "奥兰多·莫斯克拉",
+        "club_zh": "费哈"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "club": "Beşiktaş JK (TUR)",
+        "caps": 96,
+        "goals": 9,
+        "name": "Amir Murillo",
+        "name_zh": "阿米尔·穆里略",
+        "club_zh": "贝西克塔斯"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "club": "CD Universidad Católica (ECU)",
+        "caps": 15,
+        "goals": 1,
+        "name": "Azarías Londoño",
+        "name_zh": "阿萨里亚斯·隆多尼奥",
+        "club_zh": "厄瓜多尔天主教大学"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "club": "Turan Tovuz (AZE)",
+        "caps": 49,
+        "goals": 2,
+        "name": "Roderick Miller",
+        "name_zh": "罗德里克·米勒",
+        "club_zh": "图兰托武兹"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "club": "Deportivo La Guaira (VEN)",
+        "caps": 19,
+        "goals": 0,
+        "name": "Jorge Gutiérrez",
+        "name_zh": "豪尔赫·古铁雷斯",
+        "club_zh": "拉瓜伊拉体育"
+      }
+    ]
+  }
+}

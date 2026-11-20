@@ -1,0 +1,302 @@
+{
+  "NOR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=32",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "挪威的本届参赛阵容由 Stale Solbakken 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、10名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Stale Solbakken",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：挪威",
+    "summary": "挪威自 1998 年以来首次参加世界杯，并在 2026 年闯入八强。",
+    "coach_name_zh": "斯塔勒·索尔巴肯",
+    "coach_facts": "球员时代曾随挪威队参加 1998 年世界杯。2020 年接任挪威队主教练，率队在 2026 年打进世界杯八强。",
+    "coach_photo": "nor-coach",
+    "player_photos": {
+      "3": "nor-ajer",
+      "10": "nor-odegaard",
+      "7": "nor-sorloth"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2026 年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 28 年"
+      }
+    ],
+    "history_source": {
+      "label": "欧足联挪威世界杯档案",
+      "url": "https://www.uefa.com/european-qualifiers/news/02a6-20d1592b3f90-2ef16e2c5255-1000--norway-at-the-world-cup-2026-squad-fixtures-group-and-hi/"
+    },
+    "translation_source": {
+      "label": "世界足球网挪威名单报道（译名参照）",
+      "url": "https://soccerinfo.tw/squad-norway/"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Sevilla FC (ESP)",
+        "caps": 76,
+        "goals": 0,
+        "name": "Ørjan Nyland",
+        "name_zh": "厄里扬·尼兰德",
+        "club_zh": "塞维利亚"
+      },
+      {
+        "shirt_number": 2,
+        "position": "MF",
+        "club": "US Cremonese (ITA)",
+        "caps": 32,
+        "goals": 0,
+        "name": "Morten Thorsby",
+        "name_zh": "莫滕·索尔斯比",
+        "club_zh": "克雷莫内塞"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Brentford FC (ENG)",
+        "caps": 57,
+        "goals": 2,
+        "name": "Kristoffer Ajer",
+        "name_zh": "克里斯托弗·艾尔",
+        "club_zh": "布伦特福德"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Genoa CFC (ITA)",
+        "caps": 43,
+        "goals": 2,
+        "name": "Leo Østigård",
+        "name_zh": "莱奥·厄斯蒂高",
+        "club_zh": "热那亚"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "Wolverhampton Wanderers FC (ENG)",
+        "caps": 27,
+        "goals": 1,
+        "name": "David Møller Wolfe",
+        "name_zh": "大卫·默勒·沃尔费",
+        "club_zh": "狼队"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "FK Bodø/Glimt (NOR)",
+        "caps": 49,
+        "goals": 0,
+        "name": "Patrick Berg",
+        "name_zh": "帕特里克·贝格",
+        "club_zh": "博德闪耀"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 77,
+        "goals": 26,
+        "name": "Alexander Sorloth",
+        "name_zh": "亚历山大·瑟洛特",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Fulham FC (ENG)",
+        "caps": 71,
+        "goals": 1,
+        "name": "Sander Berge",
+        "name_zh": "桑德尔·贝格",
+        "club_zh": "富勒姆"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "Manchester City FC (ENG)",
+        "caps": 55,
+        "goals": 62,
+        "name": "Erling Haaland",
+        "name_zh": "埃尔林·哈兰德",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "Arsenal FC (ENG)",
+        "caps": 73,
+        "goals": 5,
+        "name": "Martin Odegaard",
+        "name_zh": "马丁·厄德高",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 30,
+        "goals": 6,
+        "name": "Jørgen Strand Larsen",
+        "name_zh": "约尔根·斯特兰德·拉森",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "Hamburger SV (GER)",
+        "caps": 0,
+        "goals": 0,
+        "name": "Sander Tangvik",
+        "name_zh": "桑德尔·唐维克",
+        "club_zh": "汉堡"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "club": "Watford FC (ENG)",
+        "caps": 8,
+        "goals": 0,
+        "name": "Egil Selvik",
+        "name_zh": "埃吉尔·塞尔维克",
+        "club_zh": "沃特福德"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "club": "SL Benfica (POR)",
+        "caps": 28,
+        "goals": 1,
+        "name": "Fredrik Aursnes",
+        "name_zh": "弗雷德里克·奥尔斯内斯",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "FK Bodø/Glimt (NOR)",
+        "caps": 22,
+        "goals": 1,
+        "name": "Fredrik André Bjørkan",
+        "name_zh": "弗雷德里克·安德烈·比约尔坎",
+        "club_zh": "博德闪耀"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "club": "Torino FC (ITA)",
+        "caps": 36,
+        "goals": 1,
+        "name": "Marcus Holmgren Pedersen",
+        "name_zh": "马库斯·霍尔姆格伦·彼得森",
+        "club_zh": "都灵"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "club": "Bologna FC (ITA)",
+        "caps": 20,
+        "goals": 0,
+        "name": "Torbjørn Heggem",
+        "name_zh": "托尔比约恩·赫格姆",
+        "club_zh": "博洛尼亚"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "club": "US Sassuolo (ITA)",
+        "caps": 39,
+        "goals": 4,
+        "name": "Kristian Thorstvedt",
+        "name_zh": "克里斯蒂安·索斯特维特",
+        "club_zh": "萨索洛"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "Rangers FC (SCO)",
+        "caps": 9,
+        "goals": 6,
+        "name": "Thelo Aasgaard",
+        "name_zh": "特洛·奥斯高",
+        "club_zh": "格拉斯哥流浪者"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "club": "RB Leipzig (GER)",
+        "caps": 30,
+        "goals": 9,
+        "name": "Antonio Nusa",
+        "name_zh": "安东尼奥·努萨",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "club": "SL Benfica (POR)",
+        "caps": 18,
+        "goals": 2,
+        "name": "Andreas Schjelderup",
+        "name_zh": "安德烈亚斯·谢尔德鲁普",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "club": "Fulham FC (ENG)",
+        "caps": 26,
+        "goals": 2,
+        "name": "Oscar Bobb",
+        "name_zh": "奥斯卡·鲍勃",
+        "club_zh": "富勒姆"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "club": "FK Bodø/Glimt (NOR)",
+        "caps": 16,
+        "goals": 1,
+        "name": "Jens Petter Hauge",
+        "name_zh": "延斯·彼得·豪格",
+        "club_zh": "博德闪耀"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "Derby County FC (ENG)",
+        "caps": 4,
+        "goals": 0,
+        "name": "Sondre Langås",
+        "name_zh": "松德雷·朗奥斯",
+        "club_zh": "德比郡"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "club": "Viking Stavanger (NOR)",
+        "caps": 2,
+        "goals": 0,
+        "name": "Henrik Falchener",
+        "name_zh": "亨里克·法尔克纳",
+        "club_zh": "维京"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 47,
+        "goals": 1,
+        "name": "Julian Ryerson",
+        "name_zh": "尤利安·里尔森",
+        "club_zh": "多特蒙德"
+      }
+    ]
+  }
+}
