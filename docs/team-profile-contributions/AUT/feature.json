@@ -1,0 +1,302 @@
+{
+  "AUT": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=4",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "奥地利的本届参赛阵容由 Ralf Rangnick 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、11名中场和4名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Ralf Rangnick",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：德国",
+    "summary": "奥地利曾在 1954 年世界杯获得季军，2026 年时隔 28 年重返决赛圈。",
+    "coach_name_zh": "拉尔夫·朗尼克",
+    "coach_facts": "2022 年接手奥地利队，率队打进 2024 年欧洲杯十六强，并获得 2026 年世界杯参赛资格。",
+    "coach_photo": "aut-coach",
+    "player_photos": {
+      "8": "aut-alaba",
+      "9": "aut-sabitzer",
+      "7": "aut-arnautovic"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1954 年季军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 28 年"
+      }
+    ],
+    "history_source": {
+      "label": "欧足联奥地利世界杯赛程与历史",
+      "url": "https://www.uefa.com/european-qualifiers/news/02a6-20d159406296-f54718194327-1000--austria-at-the-world-cup-2026-squad-fixtures-group-and-hi/"
+    },
+    "translation_source": {
+      "label": "搜狐奥地利队名单报道（译名参照）",
+      "url": "https://www.sohu.com/a/1030060901_121834716"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "FC Red Bull Salzburg (AUT)",
+        "caps": 30,
+        "goals": 0,
+        "name": "Alexander Schlager",
+        "name_zh": "亚历山大·施拉格",
+        "club_zh": "萨尔茨堡红牛"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Elche CF (ESP)",
+        "caps": 1,
+        "goals": 0,
+        "name": "David Affengruber",
+        "name_zh": "大卫·阿芬格鲁贝尔",
+        "club_zh": "埃尔切"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 36,
+        "goals": 0,
+        "name": "Kevin Danso",
+        "name_zh": "凯文·丹索",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "club": "RB Leipzig (GER)",
+        "caps": 55,
+        "goals": 4,
+        "name": "Xaver Schlager",
+        "name_zh": "克萨韦尔·施拉格",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 56,
+        "goals": 5,
+        "name": "Stefan Posch",
+        "name_zh": "斯特凡·波施",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "RB Leipzig (GER)",
+        "caps": 51,
+        "goals": 1,
+        "name": "Nicolas Seiwald",
+        "name_zh": "尼古拉斯·塞瓦尔德",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "FK Crvena Zvezda (SRB)",
+        "caps": 137,
+        "goals": 49,
+        "name": "Marko Arnautovic",
+        "name_zh": "马尔科·阿瑙托维奇",
+        "club_zh": "贝尔格莱德红星"
+      },
+      {
+        "shirt_number": 8,
+        "position": "DF",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 117,
+        "goals": 15,
+        "name": "David Alaba",
+        "name_zh": "大卫·阿拉巴",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 9,
+        "position": "MF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 102,
+        "goals": 27,
+        "name": "Marcel Sabitzer",
+        "name_zh": "马塞尔·萨比策",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "club": "SC Braga (POR)",
+        "caps": 61,
+        "goals": 1,
+        "name": "Florian Grillitsch",
+        "name_zh": "弗洛里安·格里利奇",
+        "club_zh": "布拉加"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "FC Augsburg (GER)",
+        "caps": 78,
+        "goals": 24,
+        "name": "Michael Gregoritsch",
+        "name_zh": "米夏埃尔·格雷戈里奇",
+        "club_zh": "奥格斯堡"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "FC Viktoria Plzeň (CZE)",
+        "caps": 1,
+        "goals": 0,
+        "name": "Florian Wiegele",
+        "name_zh": "弗洛里安·维格勒",
+        "club_zh": "比尔森胜利"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "club": "Brøndby IF (DEN)",
+        "caps": 18,
+        "goals": 0,
+        "name": "Patrick Pentz",
+        "name_zh": "帕特里克·彭茨",
+        "club_zh": "布隆德比"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "club": "LASK Linz (AUT)",
+        "caps": 25,
+        "goals": 5,
+        "name": "Saša Kalajdžić",
+        "name_zh": "萨沙·卡拉季奇",
+        "club_zh": "林茨"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "SC Freiburg (GER)",
+        "caps": 43,
+        "goals": 3,
+        "name": "Philipp Lienhart",
+        "name_zh": "菲利普·林哈特",
+        "club_zh": "弗赖堡"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 32,
+        "goals": 0,
+        "name": "Phillip Mwene",
+        "name_zh": "菲利普·姆韦内",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 6,
+        "goals": 1,
+        "name": "Carney Chukwuemeka",
+        "name_zh": "卡尼·丘库埃梅卡",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "club": "SV Werder Bremen (GER)",
+        "caps": 38,
+        "goals": 4,
+        "name": "Romano Schmid",
+        "name_zh": "罗马诺·施密德",
+        "club_zh": "云达不莱梅"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "club": "FC Schalke 04 (GER)",
+        "caps": 9,
+        "goals": 1,
+        "name": "Dejan Ljubičić",
+        "name_zh": "德扬·柳比契奇",
+        "club_zh": "沙尔克 04"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "FC Bayern München (GER)",
+        "caps": 61,
+        "goals": 7,
+        "name": "Konrad Laimer",
+        "name_zh": "孔拉德·莱默尔",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "VfL Wolfsburg (GER)",
+        "caps": 32,
+        "goals": 1,
+        "name": "Patrick Wimmer",
+        "name_zh": "帕特里克·维默尔",
+        "club_zh": "沃尔夫斯堡"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 21,
+        "goals": 0,
+        "name": "Alexander Prass",
+        "name_zh": "亚历山大·普拉斯",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "club": "SV Werder Bremen (GER)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Marco Friedl",
+        "name_zh": "马尔科·弗里德尔",
+        "club_zh": "云达不莱梅"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 7,
+        "goals": 0,
+        "name": "Paul Wanner",
+        "name_zh": "保罗·万纳",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "club": "Venezia FC (ITA)",
+        "caps": 4,
+        "goals": 0,
+        "name": "Michael Svoboda",
+        "name_zh": "米夏埃尔·斯沃博达",
+        "club_zh": "威尼斯"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "club": "Wolfsberger AC (AUT)",
+        "caps": 35,
+        "goals": 6,
+        "name": "Alessandro Schöpf",
+        "name_zh": "亚历山德罗·舍普夫",
+        "club_zh": "沃尔夫斯贝格"
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "SEN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=39",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "塞内加尔的本届参赛阵容由 Pape Thiaw 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Pape Thiaw",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：塞内加尔",
+    "summary": "塞内加尔在 2002 年首次参加世界杯便打进八强。",
+    "coach_name_zh": "帕佩·蒂奥",
+    "coach_facts": "率塞内加尔赢得 2022 年非洲国家锦标赛冠军，2024 年 12 月正式出任塞内加尔男足主教练。",
+    "coach_photo": "sen-coach",
+    "player_photos": {
+      "3": "sen-koulibaly",
+      "5": "sen-gueye",
+      "10": "sen-mane"
+    },
+    "facts": [
+      {
+        "label": "世界杯首秀",
+        "value": "2002 年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年十六强"
+      },
+      {
+        "label": "世界杯参赛次数",
+        "value": "第 4 次（含本届）"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 塞内加尔世界杯历史与 2026 赛程",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/senegal-team-profile-history"
+    },
+    "translation_source": {
+      "label": "企鹅体育塞内加尔名单报道（译名参照）",
+      "url": "https://www.qie.tv/news/detail/20260389443601"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "OGC Nice (FRA)",
+        "caps": 2,
+        "goals": 0,
+        "name": "Yehvann Diouf",
+        "name_zh": "耶万·迪乌夫",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "club": "Chelsea FC (ENG)",
+        "caps": 8,
+        "goals": 0,
+        "name": "Mamadou Sarr",
+        "name_zh": "马马杜·萨尔",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 106,
+        "goals": 2,
+        "name": "Kalidou Koulibaly",
+        "name_zh": "卡利杜·库利巴利",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Maccabi Haifa FC (ISR)",
+        "caps": 24,
+        "goals": 4,
+        "name": "Abdoulaye Seck",
+        "name_zh": "阿卜杜拉耶·塞克",
+        "club_zh": "海法马卡比"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "club": "Everton FC (ENG)",
+        "caps": 140,
+        "goals": 7,
+        "name": "Idrissa Gana Gueye",
+        "name_zh": "伊德里萨·加纳·盖耶",
+        "club_zh": "埃弗顿"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "club": "Rayo Vallecano (ESP)",
+        "caps": 35,
+        "goals": 0,
+        "name": "Pathé Ciss",
+        "name_zh": "帕泰·西斯",
+        "club_zh": "巴列卡诺"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Como (ITA)",
+        "caps": 6,
+        "goals": 0,
+        "name": "Assane Diao",
+        "name_zh": "阿萨内·迪奥",
+        "club_zh": "科莫"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "AS Monaco (FRA)",
+        "caps": 49,
+        "goals": 7,
+        "name": "Lamine Camara",
+        "name_zh": "拉明·卡马拉",
+        "club_zh": "摩纳哥"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "FC Lorient (FRA)",
+        "caps": 24,
+        "goals": 2,
+        "name": "Bamba Dieng",
+        "name_zh": "班巴·迪昂",
+        "club_zh": "洛里昂"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 134,
+        "goals": 54,
+        "name": "Sadio Mane",
+        "name_zh": "萨迪奥·马内",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "FC Bayern München (GER)",
+        "caps": 38,
+        "goals": 8,
+        "name": "Nicolas Jackson",
+        "name_zh": "尼古拉斯·杰克逊",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "club": "Samsunspor (TUR)",
+        "caps": 19,
+        "goals": 4,
+        "name": "Chérif Ndiaye",
+        "name_zh": "谢里夫·恩迪亚耶",
+        "club_zh": "萨姆松体育"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "club": "Everton FC (ENG)",
+        "caps": 44,
+        "goals": 5,
+        "name": "Iliman Ndiaye",
+        "name_zh": "伊利曼·恩迪亚耶",
+        "club_zh": "埃弗顿"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 34,
+        "goals": 0,
+        "name": "Ismail Jakobs",
+        "name_zh": "伊斯梅尔·雅各布斯",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "AS Monaco (FRA)",
+        "caps": 66,
+        "goals": 2,
+        "name": "Krépin Diatta",
+        "name_zh": "克雷潘·迪亚塔",
+        "club_zh": "摩纳哥"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 60,
+        "goals": 0,
+        "name": "Édouard Mendy",
+        "name_zh": "爱德华·门迪",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 43,
+        "goals": 4,
+        "name": "Pape Matar Sarr",
+        "name_zh": "帕佩·马塔尔·萨尔",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 88,
+        "goals": 23,
+        "name": "Ismaïla Sarr",
+        "name_zh": "伊斯梅拉·萨尔",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "club": "Olympique Lyonnais (FRA)",
+        "caps": 36,
+        "goals": 0,
+        "name": "Moussa Niakhaté",
+        "name_zh": "穆萨·尼亚卡特",
+        "club_zh": "里昂"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 15,
+        "goals": 4,
+        "name": "Ibrahim Mbaye",
+        "name_zh": "易卜拉欣·姆巴耶",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 24,
+        "goals": 6,
+        "name": "Habib Diarra",
+        "name_zh": "哈比卜·迪亚拉",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "club": "FC Bayern München (GER)",
+        "caps": 2,
+        "goals": 0,
+        "name": "Bara Sapoko Ndiaye",
+        "name_zh": "巴拉·萨波科·恩迪亚耶",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "club": "Le Havre AC (FRA)",
+        "caps": 8,
+        "goals": 0,
+        "name": "Mory Diaw",
+        "name_zh": "莫里·迪奥",
+        "club_zh": "勒阿弗尔"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "OGC Nice (FRA)",
+        "caps": 7,
+        "goals": 0,
+        "name": "Antoine Mendy",
+        "name_zh": "安托万·门迪",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "club": "West Ham United FC (ENG)",
+        "caps": 23,
+        "goals": 1,
+        "name": "El Hadji Malick Diouf",
+        "name_zh": "埃尔哈吉·马利克·迪乌夫",
+        "club_zh": "西汉姆联"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "club": "Villarreal CF (ESP)",
+        "caps": 46,
+        "goals": 8,
+        "name": "Pape Gueye",
+        "name_zh": "帕佩·盖耶",
+        "club_zh": "比利亚雷亚尔"
+      }
+    ]
+  }
+}

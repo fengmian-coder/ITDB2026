@@ -1,0 +1,302 @@
+{
+  "BRA": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=7",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "巴西的本届参赛阵容由 Carlo Ancelotti 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、6名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Carlo Ancelotti",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：意大利",
+    "summary": "巴西曾五次夺得世界杯冠军，并参加了自 1930 年以来的每一届世界杯。",
+    "coach_name_zh": "卡洛·安切洛蒂",
+    "coach_facts": "曾执教 AC 米兰和皇家马德里，并率两队夺得欧冠冠军。2025 年出任巴西队主教练。",
+    "coach_photo": "bra-coach",
+    "player_photos": {
+      "4": "bra-marquinhos",
+      "5": "bra-casemiro",
+      "10": "bra-neymar"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "五次夺冠"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年八强"
+      },
+      {
+        "label": "参赛纪录",
+        "value": "历届均参赛"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 巴西世界杯历史",
+      "url": "https://www.fifa.com/pt/tournaments/mens/worldcup/canadamexicousa2026/articles/brasil-copa-mundo-perfil-historia"
+    },
+    "translation_source": {
+      "label": "央视网巴西名单报道（译名参照）",
+      "url": "https://sports.cctv.cn/2026/05/19/ARTIbp4d68pXon8aP9f5fAuP260519.shtml"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "club": "Liverpool FC (ENG)",
+        "caps": 83,
+        "goals": 0,
+        "name": "Alisson",
+        "name_zh": "阿利松",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 2,
+        "position": "MF",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 5,
+        "goals": 0,
+        "name": "Éderson Silva",
+        "name_zh": "埃德松·席尔瓦",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "club": "Arsenal FC (ENG)",
+        "caps": 22,
+        "goals": 1,
+        "name": "Gabriel Magalhães",
+        "name_zh": "加布里埃尔·马加良斯",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 110,
+        "goals": 7,
+        "name": "Marquinhos",
+        "name_zh": "马尔基尼奥斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "club": "Manchester United FC (ENG)",
+        "caps": 91,
+        "goals": 10,
+        "name": "Casemiro",
+        "name_zh": "卡塞米罗",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "club": "CR Flamengo (BRA)",
+        "caps": 46,
+        "goals": 2,
+        "name": "Alex Sandro",
+        "name_zh": "阿莱士·桑德罗",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 54,
+        "goals": 13,
+        "name": "Vinícius Júnior",
+        "name_zh": "维尼修斯·儒尼奥尔",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 48,
+        "goals": 3,
+        "name": "Bruno Guimarães",
+        "name_zh": "布鲁诺·吉马良斯",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "club": "Manchester United FC (ENG)",
+        "caps": 28,
+        "goals": 4,
+        "name": "Matheus Cunha",
+        "name_zh": "马特乌斯·库尼亚",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "club": "Santos FC (BRA)",
+        "caps": 130,
+        "goals": 80,
+        "name": "Neymar Jr",
+        "name_zh": "内马尔",
+        "club_zh": "桑托斯"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "club": "FC Barcelona (ESP)",
+        "caps": 41,
+        "goals": 11,
+        "name": "Raphinha",
+        "name_zh": "拉菲尼亚",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "club": "Grêmio FBPA (BRA)",
+        "caps": 11,
+        "goals": 0,
+        "name": "Weverton",
+        "name_zh": "韦弗顿",
+        "club_zh": "格雷米奥"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "club": "CR Flamengo (BRA)",
+        "caps": 75,
+        "goals": 1,
+        "name": "Danilo",
+        "name_zh": "达尼洛",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "club": "Juventus FC (ITA)",
+        "caps": 8,
+        "goals": 1,
+        "name": "Bremer",
+        "name_zh": "布雷默",
+        "club_zh": "尤文图斯"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "club": "CR Flamengo (BRA)",
+        "caps": 4,
+        "goals": 0,
+        "name": "Léo Pereira",
+        "name_zh": "莱奥·佩雷拉",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "club": "FC Zenit St. Petersburg (RUS)",
+        "caps": 12,
+        "goals": 0,
+        "name": "Douglas Santos",
+        "name_zh": "道格拉斯·桑托斯",
+        "club_zh": "圣彼得堡泽尼特"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "club": "Al Ittihad (KSA)",
+        "caps": 36,
+        "goals": 0,
+        "name": "Fabinho",
+        "name_zh": "法比尼奥",
+        "club_zh": "吉达联合"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "club": "Botafogo (BRA)",
+        "caps": 8,
+        "goals": 2,
+        "name": "Danilo Santos",
+        "name_zh": "达尼洛·桑托斯",
+        "club_zh": "博塔弗戈"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "club": "Olympique Lyonnais (FRA)",
+        "caps": 21,
+        "goals": 4,
+        "name": "Endrick",
+        "name_zh": "恩德里克",
+        "club_zh": "里昂"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "club": "CR Flamengo (BRA)",
+        "caps": 67,
+        "goals": 13,
+        "name": "Lucas Paquetá",
+        "name_zh": "卢卡斯·帕奎塔",
+        "club_zh": "弗拉门戈"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "club": "FC Zenit St. Petersburg (RUS)",
+        "caps": 16,
+        "goals": 2,
+        "name": "Luiz Henrique",
+        "name_zh": "路易斯·恩里克",
+        "club_zh": "圣彼得堡泽尼特"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "club": "Arsenal FC (ENG)",
+        "caps": 27,
+        "goals": 5,
+        "name": "Gabriel Martinelli",
+        "name_zh": "加布里埃尔·马丁内利",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 32,
+        "goals": 0,
+        "name": "Ederson",
+        "name_zh": "埃德森",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 8,
+        "goals": 0,
+        "name": "Roger Ibañez",
+        "name_zh": "罗热尔·伊巴涅斯",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "club": "Brentford FC (ENG)",
+        "caps": 5,
+        "goals": 2,
+        "name": "Igor Thiago",
+        "name_zh": "伊戈尔·蒂亚戈",
+        "club_zh": "布伦特福德"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "club": "AFC Bournemouth (ENG)",
+        "caps": 6,
+        "goals": 1,
+        "name": "Rayan",
+        "name_zh": "拉扬",
+        "club_zh": "伯恩茅斯"
+      }
+    ]
+  }
+}
