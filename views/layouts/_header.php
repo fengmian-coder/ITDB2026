@@ -42,6 +42,11 @@ $items = [
         'url' => ['/memory/card'],
     ],
     [
+        'label' => '球迷留言',
+        'active' => $controllerId === 'guestbook',
+        'url' => ['/guestbook/index'],
+    ],
+    [
         'label' => '关于我们',
         'active' => $controllerId === 'project-team',
         'url' => ['/project-team/index'],
