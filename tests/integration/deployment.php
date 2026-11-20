@@ -71,7 +71,7 @@ try {
     $pdo->exec('USE `' . $name . '`');
     $check(count($pdo->query('SHOW TABLES')->fetchAll()) === 15, '15 C tables restored');
     foreach (['national_team' => 48, 'tournament_team' => 48, 'wc_match' => 104, 'match_story' => 8,
-        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 7] as $table => $count) {
+        'admin_user' => 1, 'project_team' => 1, 'project_member' => 4, 'project_document' => 10] as $table => $count) {
         $check((int) $pdo->query('SELECT COUNT(*) FROM ' . $table)->fetchColumn() === $count, 'deployment row count ' . $table);
     }
     $check((int) $pdo->query('SELECT COUNT(*) FROM tournament_team WHERE final_result_code IS NULL')->fetchColumn() === 0, 'final results restored');
@@ -104,7 +104,7 @@ try {
     foreach ($aBundle['superseded_documents'] as $entry) {
         $legacyInsert->execute([$ownerA['project_team_id'], $ownerA['id'], 'PERSONAL', $entry['title'], $entry['relative_path'], $entry['original_name'], $entry['file_size']]);
     }
-    $check((int) $pdo->query('SELECT COUNT(*) FROM project_document')->fetchColumn() === 12, 'legacy five-file installation simulated');
+    $check((int) $pdo->query('SELECT COUNT(*) FROM project_document')->fetchColumn() === 15, 'legacy five-file installation simulated');
     [$status, $output, $error] = $run([PHP_BINARY, $console]);
     $check($status === 0 && $snapshot() === $before, 'legacy A files replaced while all current records and other tables are preserved');
     $backups = glob($directory . '/backups/assignment-bundle-*/records.json');

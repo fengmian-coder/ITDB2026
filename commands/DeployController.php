@@ -37,6 +37,7 @@ class DeployController extends Controller
             }
             $this->registerDocuments();
             $this->registerDocuments('b-documents-manifest.json');
+            $this->registerDocuments('d-documents-manifest.json');
             if (!AdminUser::find()->exists() && Yii::$app->runAction('admin/create', ['wcj_admin']) !== ExitCode::OK) {
                 return ExitCode::DATAERR;
             }
