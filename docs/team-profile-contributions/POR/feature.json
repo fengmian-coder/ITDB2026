@@ -1,0 +1,302 @@
+{
+  "POR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=35",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "葡萄牙的本届参赛阵容由 Roberto Martinez 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、6名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "葡萄牙本届由罗伯托·马丁内斯带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Roberto Martinez",
+    "coach_name_zh": "罗伯托·马丁内斯",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：西班牙",
+    "coach_facts": "2023 年 1 月接手葡萄牙，此前率比利时获得 2018 年世界杯季军，并带队参加 2022 年世界杯。",
+    "coach_photo": "por-coach-feature",
+    "player_photos": {
+      "3": "por-player-3-feature",
+      "10": "por-player-10-feature",
+      "7": "por-player-7-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1966 年季军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年八强"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1966 年英格兰世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/portugal-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Diogo Costa",
+        "club": "FC Porto (POR)",
+        "caps": 48,
+        "goals": 0,
+        "name_zh": "迪奥戈·科斯塔",
+        "club_zh": "波尔图"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Nelson Semedo",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 54,
+        "goals": 0,
+        "name_zh": "内尔松·塞梅多",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Ruben Dias",
+        "club": "Manchester City FC (ENG)",
+        "caps": 80,
+        "goals": 3,
+        "name_zh": "鲁本·迪亚斯",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Tomas Araujo",
+        "club": "SL Benfica (POR)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "托马斯·阿劳若",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Diogo Dalot",
+        "club": "Manchester United FC (ENG)",
+        "caps": 37,
+        "goals": 3,
+        "name_zh": "迪奥戈·达洛特",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Matheus Nunes",
+        "club": "Manchester City FC (ENG)",
+        "caps": 21,
+        "goals": 2,
+        "name_zh": "马特乌斯·努内斯",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Cristiano Ronaldo",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 233,
+        "goals": 146,
+        "name_zh": "克里斯蒂亚诺·罗纳尔多",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Bruno Fernandes",
+        "club": "Manchester United FC (ENG)",
+        "caps": 94,
+        "goals": 29,
+        "name_zh": "布鲁诺·费尔南德斯",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Goncalo Ramos",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 27,
+        "goals": 11,
+        "name_zh": "贡萨洛·拉莫斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Bernardo Silva",
+        "club": "Manchester City FC (ENG)",
+        "caps": 113,
+        "goals": 14,
+        "name_zh": "贝尔纳多·席尔瓦",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Joao Felix",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 57,
+        "goals": 12,
+        "name_zh": "若昂·菲利克斯",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Jose Sa",
+        "club": "Wolverhampton Wanderers FC (ENG)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "若泽·萨",
+        "club_zh": "狼队"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Renato Veiga",
+        "club": "Villarreal CF (ESP)",
+        "caps": 18,
+        "goals": 1,
+        "name_zh": "雷纳托·韦加",
+        "club_zh": "比利亚雷亚尔"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Goncalo Inacio",
+        "club": "Sporting CP (POR)",
+        "caps": 22,
+        "goals": 2,
+        "name_zh": "贡萨洛·伊纳西奥",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Joao Neves",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 27,
+        "goals": 4,
+        "name_zh": "若昂·内维斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "name": "Francisco Trincao",
+        "club": "Sporting CP (POR)",
+        "caps": 19,
+        "goals": 3,
+        "name_zh": "弗朗西斯科·特林康",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Rafael Leao",
+        "club": "AC Milan (ITA)",
+        "caps": 49,
+        "goals": 6,
+        "name_zh": "拉斐尔·莱奥",
+        "club_zh": "AC 米兰"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Pedro Neto",
+        "club": "Chelsea FC (ENG)",
+        "caps": 30,
+        "goals": 3,
+        "name_zh": "佩德罗·内托",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Goncalo Guedes",
+        "club": "Real Sociedad (ESP)",
+        "caps": 35,
+        "goals": 8,
+        "name_zh": "贡萨洛·格德斯",
+        "club_zh": "皇家社会"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Joao Cancelo",
+        "club": "FC Barcelona (ESP)",
+        "caps": 73,
+        "goals": 12,
+        "name_zh": "若昂·坎塞洛",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Ruben Neves",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 69,
+        "goals": 1,
+        "name_zh": "鲁本·内维斯",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Rui Silva",
+        "club": "Sporting CP (POR)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "鲁伊·席尔瓦",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Vitinha",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 43,
+        "goals": 0,
+        "name_zh": "维蒂尼亚",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Samu Costa",
+        "club": "RCD Mallorca (ESP)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "萨穆·科斯塔",
+        "club_zh": "马略卡"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Nuno Mendes",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 49,
+        "goals": 2,
+        "name_zh": "努诺·门德斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Francisco Conceicao",
+        "club": "Juventus FC (ITA)",
+        "caps": 21,
+        "goals": 4,
+        "name_zh": "弗朗西斯科·孔塞桑",
+        "club_zh": "尤文图斯"
+      }
+    ]
+  }
+}

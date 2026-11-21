@@ -1,0 +1,302 @@
+{
+  "TUN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=44",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "突尼斯的本届参赛阵容由 Herve Renard 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、8名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "突尼斯本届由埃尔韦·勒纳尔带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Herve Renard",
+    "coach_name_zh": "埃尔韦·勒纳尔",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+    "coach_facts": "曾率赞比亚赢得 2012 年非洲杯，并带领科特迪瓦夺得 2015 年冠军；2022 年率沙特阿拉伯参加世界杯。",
+    "coach_photo": "tun-coach-feature",
+    "player_photos": {
+      "3": "tun-player-3-feature",
+      "17": "tun-player-17-feature",
+      "7": "tun-player-7-feature"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "1978 年阿根廷世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年小组赛"
+      },
+      {
+        "label": "洲际荣誉",
+        "value": "2004 年非洲杯冠军"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/tunisia-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Mouhib Chamakh",
+        "club": "Club Africain (TUN)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "穆希卜·沙马赫",
+        "club_zh": "非洲人"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Ali Abdi",
+        "club": "OGC Nice (FRA)",
+        "caps": 49,
+        "goals": 7,
+        "name_zh": "阿里·阿卜迪",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Montassar Talbi",
+        "club": "FC Lorient (FRA)",
+        "caps": 67,
+        "goals": 4,
+        "name_zh": "蒙塔萨尔·塔尔比",
+        "club_zh": "洛里昂"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Omar Rekik",
+        "club": "NK Maribor (SVN)",
+        "caps": 8,
+        "goals": 1,
+        "name_zh": "奥马尔·雷基克",
+        "club_zh": "马里博尔"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Adam Arous",
+        "club": "Kasımpaşa SK (TUR)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "亚当·阿鲁斯",
+        "club_zh": "卡斯帕萨"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Dylan Bronn",
+        "club": "Servette FC (SUI)",
+        "caps": 53,
+        "goals": 2,
+        "name_zh": "迪伦·布龙",
+        "club_zh": "塞尔维特"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Elias Achouri",
+        "club": "FC København (DEN)",
+        "caps": 33,
+        "goals": 5,
+        "name_zh": "埃利亚斯·阿舒里",
+        "club_zh": "哥本哈根"
+      },
+      {
+        "shirt_number": 8,
+        "position": "FW",
+        "name": "Elias Saad",
+        "club": "Hannover 96 (GER)",
+        "caps": 17,
+        "goals": 3,
+        "name_zh": "埃利亚斯·萨阿德",
+        "club_zh": "汉诺威96"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Hazem Mastouri",
+        "club": "FC Dynamo Makhachkala (RUS)",
+        "caps": 20,
+        "goals": 5,
+        "name_zh": "哈泽姆·马斯图里",
+        "club_zh": "马哈奇卡拉迪纳摩"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Hannibal Mejbri",
+        "club": "Burnley FC (ENG)",
+        "caps": 48,
+        "goals": 1,
+        "name_zh": "汉尼拔·梅杰布里",
+        "club_zh": "伯恩利"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Ismael Gharbi",
+        "club": "FC Augsburg (GER)",
+        "caps": 20,
+        "goals": 2,
+        "name_zh": "伊斯梅尔·加尔比",
+        "club_zh": "奥格斯堡"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Mortadha Ben Ouanes",
+        "club": "Kasımpaşa SK (TUR)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "穆尔塔扎·本·瓦内斯",
+        "club_zh": "卡斯帕萨"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Rani Khedira",
+        "club": "1. FC Union Berlin (GER)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "拉尼·赫迪拉",
+        "club_zh": "柏林联合"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Khalil Ayari",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "哈利勒·阿亚里",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Mohamed Hadj Mahmoud",
+        "club": "FC Lugano (SUI)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "穆罕默德·哈吉·马哈茂德",
+        "club_zh": "卢加诺"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Aymen Dahmen",
+        "club": "CS Sfaxien (TUN)",
+        "caps": 39,
+        "goals": 0,
+        "name_zh": "艾门·达赫门",
+        "club_zh": "斯法克斯"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Ellyes Skhiri",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 86,
+        "goals": 4,
+        "name_zh": "埃利耶斯·斯希里",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Rayan Elloumi",
+        "club": "Vancouver Whitecaps FC (CAN)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "拉扬·埃卢米",
+        "club_zh": "温哥华白帽"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Firas Chaouat",
+        "club": "Club Africain (TUN)",
+        "caps": 33,
+        "goals": 6,
+        "name_zh": "菲拉斯·沙瓦特",
+        "club_zh": "非洲人"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Yan Valery",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 25,
+        "goals": 0,
+        "name_zh": "扬·瓦莱里",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Mohamed Amine Ben Hmida",
+        "club": "Espérance De Tunisie (TUN)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "穆罕默德·阿明·本·赫米达",
+        "club_zh": "突尼斯希望"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Sabri Ben Hessen",
+        "club": "Étoile Du Sahel (TUN)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "萨布里·本·哈桑",
+        "club_zh": "沙希尔星"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "name": "Moutaz Neffati",
+        "club": "IFK Norrköping FK (SWE)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "穆塔兹·内法蒂",
+        "club_zh": "北雪平"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Raed Chikhaoui",
+        "club": "US Monastir (TUN)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "拉伊德·希哈维",
+        "club_zh": "莫纳斯提尔"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Anis Slimane",
+        "club": "Norwich City FC (ENG)",
+        "caps": 43,
+        "goals": 4,
+        "name_zh": "阿尼斯·斯利马内",
+        "club_zh": "诺维奇"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Sebastian Tounekti",
+        "club": "Celtic FC (SCO)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "塞巴斯蒂安·图内克蒂",
+        "club_zh": "凯尔特人"
+      }
+    ]
+  }
+}

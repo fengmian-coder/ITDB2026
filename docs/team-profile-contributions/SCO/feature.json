@@ -1,0 +1,302 @@
+{
+  "SCO": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=38",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "苏格兰的本届参赛阵容由 Steve Clarke 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "苏格兰本届由史蒂夫·克拉克带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Steve Clarke",
+    "coach_name_zh": "史蒂夫·克拉克",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：苏格兰",
+    "coach_facts": "2019 年起带队，先后率苏格兰获得 2020、2024 年欧洲杯资格，再带队结束 28 年的世界杯等待。",
+    "coach_photo": "sco-coach-feature",
+    "player_photos": {
+      "3": "sco-player-3-feature",
+      "7": "sco-player-7-feature",
+      "9": "sco-player-9-feature"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "1954 年瑞士世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔 28 年重返决赛圈"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/scotland-team-profile-and-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Angus Gunn",
+        "club": "Nottingham Forest FC (ENG)",
+        "caps": 25,
+        "goals": 0,
+        "name_zh": "安格斯·冈恩",
+        "club_zh": "诺丁汉森林"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Aaron Hickey",
+        "club": "Brentford FC (ENG)",
+        "caps": 22,
+        "goals": 0,
+        "name_zh": "阿伦·希基",
+        "club_zh": "布伦特福德"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Andy Robertson",
+        "club": "Liverpool FC (ENG)",
+        "caps": 97,
+        "goals": 4,
+        "name_zh": "安迪·罗伯逊",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "name": "Scott McTominay",
+        "club": "SSC Napoli (ITA)",
+        "caps": 73,
+        "goals": 15,
+        "name_zh": "斯科特·麦克托米奈",
+        "club_zh": "那不勒斯"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Grant Hanley",
+        "club": "Hibernian FC (SCO)",
+        "caps": 70,
+        "goals": 2,
+        "name_zh": "格兰特·汉利",
+        "club_zh": "希伯尼安"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Kieran Tierney",
+        "club": "Celtic FC (SCO)",
+        "caps": 58,
+        "goals": 2,
+        "name_zh": "基兰·蒂尔尼",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "John McGinn",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 89,
+        "goals": 21,
+        "name_zh": "约翰·麦金",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Tyler Fletcher",
+        "club": "Manchester United FC (ENG)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "泰勒·弗莱彻",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Lyndon Dykes",
+        "club": "Charlton Athletic FC (ENG)",
+        "caps": 53,
+        "goals": 10,
+        "name_zh": "林登·戴克斯",
+        "club_zh": "查尔顿竞技"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Che Adams",
+        "club": "Torino FC (ITA)",
+        "caps": 50,
+        "goals": 13,
+        "name_zh": "切·亚当斯",
+        "club_zh": "都灵"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Ryan Christie",
+        "club": "AFC Bournemouth (ENG)",
+        "caps": 71,
+        "goals": 10,
+        "name_zh": "瑞安·克里斯蒂",
+        "club_zh": "伯恩茅斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Liam Kelly",
+        "club": "Rangers FC (SCO)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "利亚姆·凯利",
+        "club_zh": "格拉斯哥流浪者"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Jack Hendry",
+        "club": "Al Ettifaq FC (KSA)",
+        "caps": 41,
+        "goals": 3,
+        "name_zh": "杰克·亨德里",
+        "club_zh": "达曼协作"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "name": "Ross Stewart",
+        "club": "Southampton FC (ENG)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "罗斯·斯图尔特",
+        "club_zh": "南安普顿"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "John Souttar",
+        "club": "Rangers FC (SCO)",
+        "caps": 24,
+        "goals": 2,
+        "name_zh": "约翰·苏塔尔",
+        "club_zh": "格拉斯哥流浪者"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Dominic Hyam",
+        "club": "Wrexham AFC (WAL)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "多米尼克·海厄姆",
+        "club_zh": "雷克瑟姆"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Ben Gannon-Doak",
+        "club": "AFC Bournemouth (ENG)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "本·甘农·多克",
+        "club_zh": "伯恩茅斯"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "George Hirst",
+        "club": "Ipswich Town FC (ENG)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "乔治·赫斯特",
+        "club_zh": "伊普斯维奇"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Lewis Ferguson",
+        "club": "Bologna FC (ITA)",
+        "caps": 27,
+        "goals": 1,
+        "name_zh": "刘易斯·弗格森",
+        "club_zh": "博洛尼亚"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Lawrence Shankland",
+        "club": "Heart Of Midlothian FC (SCO)",
+        "caps": 22,
+        "goals": 7,
+        "name_zh": "劳伦斯·尚克兰",
+        "club_zh": "哈茨"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Craig Gordon",
+        "club": "Heart Of Midlothian FC (SCO)",
+        "caps": 84,
+        "goals": 0,
+        "name_zh": "克雷格·戈登",
+        "club_zh": "哈茨"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Nathan Patterson",
+        "club": "Everton FC (ENG)",
+        "caps": 29,
+        "goals": 1,
+        "name_zh": "内森·帕特森",
+        "club_zh": "埃弗顿"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Kenny McLean",
+        "club": "Norwich City FC (ENG)",
+        "caps": 61,
+        "goals": 3,
+        "name_zh": "肯尼·麦克莱恩",
+        "club_zh": "诺维奇"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Anthony Ralston",
+        "club": "Celtic FC (SCO)",
+        "caps": 29,
+        "goals": 1,
+        "name_zh": "安东尼·拉尔斯顿",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Findlay Curtis",
+        "club": "Kilmarnock FC (SCO)",
+        "caps": 5,
+        "goals": 1,
+        "name_zh": "芬德利·柯蒂斯",
+        "club_zh": "基尔马诺克"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Scott McKenna",
+        "club": "GNK Dinamo Zagreb (CRO)",
+        "caps": 51,
+        "goals": 1,
+        "name_zh": "斯科特·麦肯纳",
+        "club_zh": "萨格勒布迪纳摩"
+      }
+    ]
+  }
+}

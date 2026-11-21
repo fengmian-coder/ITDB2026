@@ -1,0 +1,302 @@
+{
+  "KOR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=27",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "韩国的本届参赛阵容由 Myungbo Hong 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、11名中场和3名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "韩国本届由洪明甫带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Myungbo Hong",
+    "coach_name_zh": "洪明甫",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：韩国",
+    "coach_facts": "球员时期担任韩国队长并帮助球队取得 2002 年世界杯第四名。教练生涯曾带队参加 2014 年世界杯，2024 年再次执教国家队。",
+    "coach_photo": "kor-coach-feature",
+    "player_photos": {
+      "4": "kor-player-4-feature",
+      "10": "kor-player-10-feature",
+      "7": "kor-player-7-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2002 年第四名"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年十六强"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1954 年瑞士世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/republica-de-corea-perfil-seleccion-historia"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Seunggyu Kim",
+        "club": "FC Tokyo (JPN)",
+        "caps": 89,
+        "goals": 0,
+        "name_zh": "金承奎",
+        "club_zh": "东京FC"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Hanbeom Lee",
+        "club": "FC Midtjylland (DEN)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "李韩汎",
+        "club_zh": "中日德兰"
+      },
+      {
+        "shirt_number": 3,
+        "position": "MF",
+        "name": "Gihyuk Lee",
+        "club": "Gangwon FC (KOR)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "李期奕",
+        "club_zh": "江原"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Minjae Kim",
+        "club": "FC Bayern München (GER)",
+        "caps": 82,
+        "goals": 4,
+        "name_zh": "金玟哉",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Taehyeon Kim",
+        "club": "Kashima Antlers (JPN)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "金泰贤",
+        "club_zh": "鹿岛鹿角"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Inbeom Hwang",
+        "club": "Feyenoord Rotterdam (NED)",
+        "caps": 76,
+        "goals": 7,
+        "name_zh": "黄仁范",
+        "club_zh": "费耶诺德"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Heungmin Son",
+        "club": "LAFC (USA)",
+        "caps": 147,
+        "goals": 56,
+        "name_zh": "孙兴慜",
+        "club_zh": "洛杉矶FC"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Seungho Paik",
+        "club": "Birmingham City FC (ENG)",
+        "caps": 30,
+        "goals": 3,
+        "name_zh": "白昇浩",
+        "club_zh": "伯明翰"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Guesung Cho",
+        "club": "FC Midtjylland (DEN)",
+        "caps": 46,
+        "goals": 12,
+        "name_zh": "曹圭成",
+        "club_zh": "中日德兰"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Jaesung Lee",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 107,
+        "goals": 15,
+        "name_zh": "李在城",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Heechan Hwang",
+        "club": "Wolverhampton Wanderers FC (ENG)",
+        "caps": 82,
+        "goals": 17,
+        "name_zh": "黄喜灿",
+        "club_zh": "狼队"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Bumkeun Song",
+        "club": "Jeonbuk Hyundai Motors FC (KOR)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "宋范根",
+        "club_zh": "全北现代汽车"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Taeseok Lee",
+        "club": "FK Austria Wien (AUT)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "李太锡",
+        "club_zh": "奥地利维也纳"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Wije Cho",
+        "club": "Jeonbuk Hyundai Motors FC (KOR)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "赵伟济",
+        "club_zh": "全北现代汽车"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Moonhwan Kim",
+        "club": "Daejeon Hana Citizen FC (KOR)",
+        "caps": 37,
+        "goals": 0,
+        "name_zh": "金纹奂",
+        "club_zh": "大田韩亚市民"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Jinseob Park",
+        "club": "Zhejiang FC (CHN)",
+        "caps": 16,
+        "goals": 1,
+        "name_zh": "朴镇燮",
+        "club_zh": "浙江"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Junho Bae",
+        "club": "Stoke City FC (ENG)",
+        "caps": 13,
+        "goals": 2,
+        "name_zh": "裴峻浩",
+        "club_zh": "斯托克城"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Hyeongyu Oh",
+        "club": "Beşiktaş JK (TUR)",
+        "caps": 30,
+        "goals": 7,
+        "name_zh": "吴贤揆",
+        "club_zh": "贝西克塔斯"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Kangin Lee",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 50,
+        "goals": 10,
+        "name_zh": "李刚仁",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Hyunjun Yang",
+        "club": "Celtic FC (SCO)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "杨贤俊",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Hyeonwoo Jo",
+        "club": "Ulsan HD (KOR)",
+        "caps": 48,
+        "goals": 0,
+        "name_zh": "赵贤祐",
+        "club_zh": "蔚山HD"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Youngwoo Seol",
+        "club": "FK Crvena Zvezda (SRB)",
+        "caps": 37,
+        "goals": 0,
+        "name_zh": "薛英佑",
+        "club_zh": "贝尔格莱德红星"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "name": "Jens Castrop",
+        "club": "Borussia Mönchengladbach (GER)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "延斯·卡斯特罗普",
+        "club_zh": "门兴格拉德巴赫"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Jingyu Kim",
+        "club": "Jeonbuk Hyundai Motors FC (KOR)",
+        "caps": 24,
+        "goals": 3,
+        "name_zh": "金镇圭",
+        "club_zh": "全北现代汽车"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Jisung Eom",
+        "club": "Swansea City AFC (WAL)",
+        "caps": 11,
+        "goals": 2,
+        "name_zh": "严志成",
+        "club_zh": "斯旺西"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Donggyeong Lee",
+        "club": "Ulsan HD (KOR)",
+        "caps": 18,
+        "goals": 4,
+        "name_zh": "李东炅",
+        "club_zh": "蔚山HD"
+      }
+    ]
+  }
+}

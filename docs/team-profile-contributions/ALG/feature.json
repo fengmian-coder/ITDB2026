@@ -1,0 +1,302 @@
+{
+  "ALG": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=1",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "阿尔及利亚的本届参赛阵容由 Vladimir Petkovic 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "阿尔及利亚本届由弗拉基米尔·佩特科维奇带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Vladimir Petkovic",
+    "coach_name_zh": "弗拉基米尔·佩特科维奇",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：瑞士",
+    "coach_facts": "2024 年 2 月执教阿尔及利亚，此前率瑞士进入 2018 年世界杯十六强和 2020 年欧洲杯八强。",
+    "coach_photo": "alg-coach-feature",
+    "player_photos": {
+      "2": "alg-player-2-feature",
+      "19": "alg-player-19-feature",
+      "7": "alg-player-7-feature"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "1982 年西班牙世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "世界杯最佳",
+        "value": "2014 年十六强"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/algeria-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Melvin Mastil",
+        "club": "FC Stade Nyonnais (SUI)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "梅尔文·马斯蒂尔",
+        "club_zh": "尼翁"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Aissa Mandi",
+        "club": "Lille OSC (FRA)",
+        "caps": 123,
+        "goals": 8,
+        "name_zh": "艾萨·曼迪",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Achref Abada",
+        "club": "USM Alger (ALG)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "阿什拉夫·阿巴达",
+        "club_zh": "阿尔及尔联合"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Mohamed Amine Tougai",
+        "club": "Espérance De Tunisie (TUN)",
+        "caps": 30,
+        "goals": 2,
+        "name_zh": "穆罕默德·阿明·图盖",
+        "club_zh": "突尼斯希望"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Zineddine Belaid",
+        "club": "JS Kabylie (ALG)",
+        "caps": 20,
+        "goals": 1,
+        "name_zh": "齐内丁·贝莱德",
+        "club_zh": "卡比利亚"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Ramiz Zerrouki",
+        "club": "FC Twente (NED)",
+        "caps": 56,
+        "goals": 3,
+        "name_zh": "拉米兹·泽鲁基",
+        "club_zh": "特温特"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Riyad Mahrez",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 120,
+        "goals": 40,
+        "name_zh": "里亚德·马赫雷斯",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Houssem Aouar",
+        "club": "Al Ittihad (KSA)",
+        "caps": 26,
+        "goals": 6,
+        "name_zh": "侯赛姆·奥亚尔",
+        "club_zh": "吉达联合"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Amine Gouiri",
+        "club": "Olympique Marseille (FRA)",
+        "caps": 27,
+        "goals": 11,
+        "name_zh": "阿明·古伊里",
+        "club_zh": "马赛"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Fares Chaibi",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 35,
+        "goals": 3,
+        "name_zh": "法雷斯·沙伊比",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Anis Hadj Moussa",
+        "club": "Feyenoord Rotterdam (NED)",
+        "caps": 18,
+        "goals": 2,
+        "name_zh": "阿尼斯·哈吉·穆萨",
+        "club_zh": "费耶诺德"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "name": "Nadhir Benbouali",
+        "club": "Györi ETO FC (HUN)",
+        "caps": 5,
+        "goals": 2,
+        "name_zh": "纳迪尔·本布阿利",
+        "club_zh": "杰尔ETO"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Jaouen Hadjam",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 21,
+        "goals": 3,
+        "name_zh": "贾乌恩·哈贾姆",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Hicham Boudaoui",
+        "club": "OGC Nice (FRA)",
+        "caps": 37,
+        "goals": 0,
+        "name_zh": "希沙姆·布达维",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Rayan Ait-Nouri",
+        "club": "Manchester City FC (ENG)",
+        "caps": 34,
+        "goals": 0,
+        "name_zh": "拉扬·艾特·努里",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Oussama Benbot",
+        "club": "USM Alger (ALG)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "乌萨马·本博特",
+        "club_zh": "阿尔及尔联合"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "Rafik Belghali",
+        "club": "Hellas Verona FC (ITA)",
+        "caps": 17,
+        "goals": 2,
+        "name_zh": "拉菲克·贝尔加利",
+        "club_zh": "维罗纳"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Mohamed Amoura",
+        "club": "VfL Wolfsburg (GER)",
+        "caps": 48,
+        "goals": 19,
+        "name_zh": "穆罕默德·阿穆拉",
+        "club_zh": "沃尔夫斯堡"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Nabil Bentaleb",
+        "club": "Lille OSC (FRA)",
+        "caps": 64,
+        "goals": 6,
+        "name_zh": "纳比勒·本塔莱卜",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Adil Boulbina",
+        "club": "Al Duhail SC (QAT)",
+        "caps": 13,
+        "goals": 5,
+        "name_zh": "阿迪勒·布尔比纳",
+        "club_zh": "杜海勒"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Ramy Bensebaini",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 86,
+        "goals": 9,
+        "name_zh": "拉米·本塞拜尼",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Ibrahim Maza",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 21,
+        "goals": 2,
+        "name_zh": "易卜拉欣·马扎",
+        "club_zh": "勒沃库森"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Luca Zidane",
+        "club": "Granada CF (ESP)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "卢卡·齐达内",
+        "club_zh": "格拉纳达"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Yassine Titraoui",
+        "club": "Sporting Charleroi (BEL)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "亚辛·蒂特拉维",
+        "club_zh": "沙勒罗瓦"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Fares Ghedjemis",
+        "club": "Frosinone (ITA)",
+        "caps": 2,
+        "goals": 1,
+        "name_zh": "法雷斯·盖杰米斯",
+        "club_zh": "弗罗西诺内"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Samir Chergui",
+        "club": "Paris FC (FRA)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "萨米尔·谢尔吉",
+        "club_zh": "巴黎FC"
+      }
+    ]
+  }
+}
