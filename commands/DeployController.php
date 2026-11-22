@@ -65,7 +65,7 @@ class DeployController extends Controller
         }
         $team = ProjectTeam::find()->one();
         $members = ProjectMember::find()->where(['project_team_id' => $team->id,
-            'display_name' => $owners[0]['display_name'], 'role_title' => $owners[0]['role_title']])->all();
+            'display_name' => $owners[0]['display_name']])->all();
         if (count($members) !== 1) {
             $this->stdout("请按现有成员归属运行 project/register-bundle 登记课程文件。\n");
             return;
