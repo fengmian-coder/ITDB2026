@@ -128,6 +128,34 @@ class ProjectController extends Controller
         return ExitCode::OK;
     }
 
+    /** 将仓库的分工文案同步到现有课程成员，保留成员和作业的关联。 */
+    public function actionSyncMemberProfiles(): int
+    {
+        $profiles = json_decode(file_get_contents(Yii::getAlias('@app/data/project-members.json')),
+            true, 512, JSON_THROW_ON_ERROR);
+        $names = array_column($profiles, 'display_name');
+        $members = ProjectMember::find()->where(['display_name' => $names])->all();
+        $byName = array_column($members, null, 'display_name');
+        if (count($members) !== count($profiles) || array_diff($names, array_keys($byName)) !== []
+            || count(array_unique(array_column($members, 'project_team_id'))) !== 1) {
+            $this->stderr("无法唯一匹配同一团队内的课程成员，未同步。\n");
+            return ExitCode::DATAERR;
+        }
+
+        Yii::$app->db->transaction(static function () use ($profiles, $byName): void {
+            foreach ($profiles as $profile) {
+                $member = $byName[$profile['display_name']];
+                $member->role_title = $profile['role_title'];
+                $member->bio = $profile['bio'];
+                if (!$member->save(true, ['role_title', 'bio'])) {
+                    throw new RuntimeException('成员分工同步失败。');
+                }
+            }
+        });
+        $this->stdout("已同步 4 位成员的分工。\n");
+        return ExitCode::OK;
+    }
+
     /** 仅在团队表为空时初始化；已有团队及成员资料不会被覆盖。 */
     public function actionInit(): int
     {
