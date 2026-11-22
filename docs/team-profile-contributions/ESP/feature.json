@@ -1,0 +1,302 @@
+{
+  "ESP": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=41",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "西班牙的本届参赛阵容由 Luis De La Fuente 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、7名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "西班牙本届由路易斯·德拉富恩特带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Luis De La Fuente",
+    "coach_name_zh": "路易斯·德拉富恩特",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：西班牙",
+    "coach_facts": "2022 年 12 月由青年队升任成年队主教练，曾率西班牙 U19 和 U21 夺得欧洲冠军，并带领成年队赢得 2024 年欧洲杯。",
+    "coach_photo": "esp-coach-feature",
+    "player_photos": {
+      "14": "esp-player-14-feature",
+      "16": "esp-player-16-feature",
+      "7": "esp-player-7-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯首冠",
+        "value": "2010 年南非世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年十六强"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1934 年意大利世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/spain-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "David Raya",
+        "club": "Arsenal FC (ENG)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "大卫·拉亚",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Marc Pubill",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "马克·普比尔",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Alex Grimaldo",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "亚历杭德罗·格里马尔多",
+        "club_zh": "勒沃库森"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Eric Garcia",
+        "club": "FC Barcelona (ESP)",
+        "caps": 22,
+        "goals": 0,
+        "name_zh": "埃里克·加西亚",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Marcos Llorente",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 27,
+        "goals": 0,
+        "name_zh": "马科斯·略伦特",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Mikel Merino",
+        "club": "Arsenal FC (ENG)",
+        "caps": 51,
+        "goals": 12,
+        "name_zh": "米克尔·梅里诺",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Ferran Torres",
+        "club": "FC Barcelona (ESP)",
+        "caps": 65,
+        "goals": 25,
+        "name_zh": "费兰·托雷斯",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Fabian Ruiz",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 50,
+        "goals": 7,
+        "name_zh": "法比安·鲁伊斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 9,
+        "position": "MF",
+        "name": "Gavi",
+        "club": "FC Barcelona (ESP)",
+        "caps": 32,
+        "goals": 5,
+        "name_zh": "加维",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Dani Olmo",
+        "club": "FC Barcelona (ESP)",
+        "caps": 58,
+        "goals": 12,
+        "name_zh": "达尼·奥尔莫",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Yeremy Pino",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 25,
+        "goals": 4,
+        "name_zh": "耶雷米·皮诺",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Pedro Porro",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 24,
+        "goals": 2,
+        "name_zh": "佩德罗·波罗",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "name": "Joan Garcia",
+        "club": "FC Barcelona (ESP)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "霍安·加西亚",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Aymeric Laporte",
+        "club": "Athletic Club (ESP)",
+        "caps": 54,
+        "goals": 2,
+        "name_zh": "艾默里克·拉波尔特",
+        "club_zh": "毕尔巴鄂竞技"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Alex Baena",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 24,
+        "goals": 3,
+        "name_zh": "亚历克斯·巴埃纳",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Rodri",
+        "club": "Manchester City FC (ENG)",
+        "caps": 70,
+        "goals": 4,
+        "name_zh": "罗德里",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Nico Williams",
+        "club": "Athletic Club (ESP)",
+        "caps": 36,
+        "goals": 6,
+        "name_zh": "尼科·威廉斯",
+        "club_zh": "毕尔巴鄂竞技"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Martin Zubimendi",
+        "club": "Arsenal FC (ENG)",
+        "caps": 27,
+        "goals": 3,
+        "name_zh": "马丁·苏比门迪",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Lamine Yamal",
+        "club": "FC Barcelona (ESP)",
+        "caps": 33,
+        "goals": 7,
+        "name_zh": "拉明·亚马尔",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Pedri",
+        "club": "FC Barcelona (ESP)",
+        "caps": 49,
+        "goals": 6,
+        "name_zh": "佩德里",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "name": "Mikel Oyarzabal",
+        "club": "Real Sociedad (ESP)",
+        "caps": 61,
+        "goals": 30,
+        "name_zh": "米克尔·奥亚萨瓦尔",
+        "club_zh": "皇家社会"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Pau Cubarsi",
+        "club": "FC Barcelona (ESP)",
+        "caps": 20,
+        "goals": 0,
+        "name_zh": "保·库巴西",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Unai Simon",
+        "club": "Athletic Club (ESP)",
+        "caps": 66,
+        "goals": 0,
+        "name_zh": "乌奈·西蒙",
+        "club_zh": "毕尔巴鄂竞技"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Marc Cucurella",
+        "club": "Chelsea FC (ENG)",
+        "caps": 32,
+        "goals": 1,
+        "name_zh": "马克·库库雷利亚",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Victor Munoz",
+        "club": "CA Osasuna (ESP)",
+        "caps": 2,
+        "goals": 1,
+        "name_zh": "维克托·穆尼奥斯",
+        "club_zh": "奥萨苏纳"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Borja Iglesias",
+        "club": "RC Celta Vigo (ESP)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "博尔哈·伊格莱西亚斯",
+        "club_zh": "塞尔塔"
+      }
+    ]
+  }
+}

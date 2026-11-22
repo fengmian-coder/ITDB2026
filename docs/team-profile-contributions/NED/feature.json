@@ -1,0 +1,302 @@
+{
+  "NED": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=30",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "荷兰的本届参赛阵容由 Ronald Koeman 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "荷兰本届由罗纳德·科曼带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Ronald Koeman",
+    "coach_name_zh": "罗纳德·科曼",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：荷兰",
+    "coach_facts": "2023 年 1 月第二次执教荷兰，接替范加尔。此前曾于 2018 至 2020 年带队，球员时期是 1988 年欧洲杯冠军成员。",
+    "coach_photo": "ned-coach-feature",
+    "player_photos": {
+      "4": "ned-player-4-feature",
+      "21": "ned-player-21-feature",
+      "10": "ned-player-10-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1974、1978、2010 年亚军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年八强"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1934 年意大利世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/netherlands-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Bart Verbruggen",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 33,
+        "goals": 0,
+        "name_zh": "巴特·费尔布鲁亨",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Lutsharel Geertruida",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 21,
+        "goals": 0,
+        "name_zh": "卢特沙雷尔·海特勒伊达",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 3,
+        "position": "MF",
+        "name": "Marten De Roon",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 44,
+        "goals": 1,
+        "name_zh": "马滕·德容恩",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Virgil Van Dijk",
+        "club": "Liverpool FC (ENG)",
+        "caps": 96,
+        "goals": 13,
+        "name_zh": "维吉尔·范戴克",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Nathan Ake",
+        "club": "Manchester City FC (ENG)",
+        "caps": 62,
+        "goals": 5,
+        "name_zh": "内森·阿克",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Jan Paul Van Hecke",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 16,
+        "goals": 1,
+        "name_zh": "扬·保罗·范赫克",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Justin Kluivert",
+        "club": "AFC Bournemouth (ENG)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "贾斯廷·克鲁伊维特",
+        "club_zh": "伯恩茅斯"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Ryan Gravenberch",
+        "club": "Liverpool FC (ENG)",
+        "caps": 31,
+        "goals": 1,
+        "name_zh": "瑞安·赫拉芬贝赫",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Wout Weghorst",
+        "club": "AFC Ajax (NED)",
+        "caps": 53,
+        "goals": 14,
+        "name_zh": "沃特·韦霍斯特",
+        "club_zh": "阿贾克斯"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Memphis Depay",
+        "club": "SC Corinthians (BRA)",
+        "caps": 112,
+        "goals": 55,
+        "name_zh": "孟菲斯·德佩",
+        "club_zh": "科林蒂安"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Cody Gakpo",
+        "club": "Liverpool FC (ENG)",
+        "caps": 54,
+        "goals": 24,
+        "name_zh": "科迪·加克波",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Mats Wieffer",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "马茨·魏费尔",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "name": "Robin Roefs",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "罗宾·鲁夫斯",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Tijjani Reijnders",
+        "club": "Manchester City FC (ENG)",
+        "caps": 35,
+        "goals": 7,
+        "name_zh": "蒂贾尼·赖因德斯",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Micky Van De Ven",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 24,
+        "goals": 1,
+        "name_zh": "米基·范德芬",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Guus Til",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 8,
+        "goals": 1,
+        "name_zh": "古斯·蒂尔",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Noa Lang",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 17,
+        "goals": 3,
+        "name_zh": "诺阿·朗",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Donyell Malen",
+        "club": "AS Roma (ITA)",
+        "caps": 56,
+        "goals": 13,
+        "name_zh": "多尼尔·马伦",
+        "club_zh": "罗马"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Brian Brobbey",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 16,
+        "goals": 4,
+        "name_zh": "布赖恩·布罗贝伊",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Teun Koopmeiners",
+        "club": "Juventus FC (ITA)",
+        "caps": 32,
+        "goals": 3,
+        "name_zh": "特恩·库普梅纳斯",
+        "club_zh": "尤文图斯"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Frenkie De Jong",
+        "club": "FC Barcelona (ESP)",
+        "caps": 70,
+        "goals": 2,
+        "name_zh": "弗朗基·德容",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Denzel Dumfries",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 76,
+        "goals": 11,
+        "name_zh": "丹泽尔·邓弗里斯",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Mark Flekken",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 12,
+        "goals": 0,
+        "name_zh": "马克·弗莱肯",
+        "club_zh": "勒沃库森"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Crysencio Summerville",
+        "club": "West Ham United FC (ENG)",
+        "caps": 6,
+        "goals": 2,
+        "name_zh": "克里森西奥·萨默维尔",
+        "club_zh": "西汉姆联"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Jorrel Hato",
+        "club": "Chelsea FC (ENG)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "约雷尔·哈托",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Quinten Timber",
+        "club": "Olympique Marseille (FRA)",
+        "caps": 13,
+        "goals": 1,
+        "name_zh": "昆滕·廷贝尔",
+        "club_zh": "马赛"
+      }
+    ]
+  }
+}

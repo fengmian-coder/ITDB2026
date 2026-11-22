@@ -205,3 +205,115 @@
 | nor-ajer.jpg | Kristoffer Ajer，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Kristoffer_Vassbakk_Ajer_France_v_Norway_26_June_26-013.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | nor-odegaard.jpg | Martin Odegaard，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Martin_Odegaard_France_v_Norway_26_June_26-014.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | nor-sorloth.jpg | Alexander Sorloth，2026-06-26 | Bryan Berlin / WikiPortraits | [Commons](https://commons.wikimedia.org/wiki/File:Alexander_Sorloth_France_v_Norway_26_June_26-020.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+
+## D 的十二队资料照（2026-11-21）
+
+以下 48 张为真实人物照片，来源预览文件原样保存；拍摄日期采用 Commons 文件元数据，图片尺寸和 SHA-256 见 credits.json。历史照片均显示年份，不用于推断本届俱乐部或球衣。
+
+### CIV
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| civ-coach-feature.jpg | Émerse Faé，2024-02-11 | SonoGrazy | [Commons](https://commons.wikimedia.org/wiki/File:Emerse_Fa%C3%A9.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| civ-player-3-feature.jpg | Ghislain Konan，2026-06-14 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Ghislain_Konan_Cote_D%27Ivoire_v_Ecuador_14_June_2026-53.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| civ-player-8-feature.jpg | Franck Kessie，2026-06-14 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Franck_Kessie_Cote_D%27Ivoire_v_Ecuador_14_June_2026-15_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| civ-player-19-feature.jpg | Nicolas Pepe，2026-06-14 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Nicolas_Pepe_Cote_D%27Ivoire_v_Ecuador_14_June_2026-30.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### TUN
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| tun-coach-feature.jpg | Herve Renard，2018-06-15 | Кирилл Венедиктов | [Commons](https://commons.wikimedia.org/wiki/File:Herv%C3%A9_Renard.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| tun-player-3-feature.jpg | Montassar Talbi，2021-11-07 | Артем Гусев | [Commons](https://commons.wikimedia.org/wiki/File:Montassar_Talbi_2021.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| tun-player-17-feature.jpg | Ellyes Skhiri，2021-08-08 | Sandro Halank , Wikimedia Commons | [Commons](https://commons.wikimedia.org/wiki/File:2021-08-08_FC_Carl_Zeiss_Jena_gegen_1._FC_K%C3%B6ln_%28DFB-Pokal%29_by_Sandro_Halank%E2%80%93182_%28cropped2%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| tun-player-7-feature.jpg | Elias Achouri，2026-10-10 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Elias_Achouri_Red_Bulls_v_San_Diego_10_October_2026-008.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### JOR
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| jor-coach-feature.jpg | Jamal Sellami，2012-08-22 | mustapha ennaimi | [Commons](https://commons.wikimedia.org/wiki/File:WAC_vs._FUS_%2822.08.12%29_-_1.jpg) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| jor-player-23-feature.jpg | Ehsan Haddad，2024-02-06 | M.Sadegh Nikgostar | [Commons](https://commons.wikimedia.org/wiki/File:Ihsan_Haddad.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+| jor-player-14-feature.jpg | Rajaei Ayed，2025-11-25 | محمد کاظم کمالی | [Commons](https://commons.wikimedia.org/wiki/File:Sepahan_and_Al-Hussein_Jordan_football_teams_meet_2_%282025%29_esfahanzibaonline.ir_%28cropped2%29.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+| jor-player-10-feature.jpg | Mousa Altamari，2023-08-11 | MHSC TV - Montpellier Hérault Sport Club | [Commons](https://commons.wikimedia.org/wiki/File:Musa_Al-Taamari_2023.jpg) · [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) |
+
+### USA
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| usa-coach-feature.jpg | Mauricio Pochettino，2026-03-28 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Mauricio_Pochettino_USMNT_v_Belgium_Mar_28_2026-3_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| usa-player-13-feature.jpg | Tim Ream，2026-03-28 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Tim_Ream_USMNT_v_Belgium_Mar_28_2026-66.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| usa-player-8-feature.jpg | Weston McKennie，2026-06-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Weston_McKennie_Australia_v_USA_19_June_2026-219.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| usa-player-10-feature.jpg | Christian Pulisic，2026-03-28 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Christian_Pulisic_USMNT_v_Belgium_Mar_28_2026-73_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### SCO
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| sco-coach-feature.jpg | Steve Clarke，2026-06-06 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Steve_Clarke_Scotland_v_Bolivia_6_June_2026-11.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| sco-player-3-feature.jpg | Andy Robertson，2026-06-06 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Andy_Robertson_Scotland_v_Bolivia_6_June_2026-43.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| sco-player-7-feature.jpg | John McGinn，2026-06-06 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:John_McGinn_Scotland_v_Bolivia_6_June_2026-2.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| sco-player-9-feature.jpg | Lyndon Dykes，2026-06-06 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Lyndon_Dykes_Scotland_v_Bolivia_6_June_2026-65.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### ENG
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| eng-coach-feature.jpg | Thomas Tuchel，2026-06-23 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| eng-player-5-feature.jpg | John Stones，2026-06-23 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:John_Stones_England_v_Ghana_23_June_2026-038.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| eng-player-14-feature.jpg | Jordan Henderson，2026-06-23 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Jordan_Henderson_England_v_Ghana_23_June_2026-029_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| eng-player-9-feature.jpg | Harry Kane，2026-06-23 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Harry_Kane_England_v_Ghana_23_June_2026-024_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### NED
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| ned-coach-feature.jpg | Ronald Koeman，2020-11-24 | Olga Shcherbytska | [Commons](https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0%C2%BB_0-4._24_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0_%E2%80%94_1166990_%28Ronald_Koeman%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| ned-player-4-feature.jpg | Virgil Van Dijk，2016-06-04 | Ailura | [Commons](https://commons.wikimedia.org/wiki/File:20160604_AUT_NED_8876_%28cropped%29.jpg) · [CC BY-SA 3.0 at](https://creativecommons.org/licenses/by-sa/3.0/at/deed.en) |
+| ned-player-21-feature.jpg | Frenkie De Jong，2021-11-02 | Yuliia Perekopaiko | [Commons](https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0%C2%BB_0-1._2_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D1%8F_2021_%D0%B3%D0%BE%D0%B4%D0%B0._II_%E2%80%94_1289671_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| ned-player-10-feature.jpg | Memphis Depay，2019-10-02 | Derivative work: Joe Sins | [Commons](https://commons.wikimedia.org/wiki/File:Memphis_Depay_2019.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### POR
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| por-coach-feature.jpg | Roberto Martinez，2026-03-31 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Roberto_Mart%C3%ADnez_USMNT_v_Portugal_Mar_31_2026-35.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| por-player-3-feature.jpg | Ruben Dias，2026-07-02 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Ruben_Dias_Croatia_v_Portugal_2_July_2026-228_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| por-player-10-feature.jpg | Bernardo Silva，2026-07-02 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Bernardo_Silva_Croatia_v_Portugal_2_July_2026-238.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| por-player-7-feature.jpg | Cristiano Ronaldo，2026-07-02 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### ESP
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| esp-coach-feature.jpg | Luis De La Fuente，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Luis_de_la_Fuente_Argentina_v_Spain_19_July_2026-271_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| esp-player-14-feature.jpg | Aymeric Laporte，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Aymeric_Laporte_Argentina_v_Spain_19_July_2026-067_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| esp-player-16-feature.jpg | Rodri，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Rodri_Argentina_v_Spain_19_July_2026-187_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| esp-player-7-feature.jpg | Ferran Torres，2026-07-14 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Ferran_Torres_France_v_Spain_7.24.26-237_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### ALG
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| alg-coach-feature.jpg | Vladimir Petkovic，2014-03-04 | Ludovic Péron | [Commons](https://commons.wikimedia.org/wiki/File:Football_against_poverty_2014_-_Vladimir_Petkovi%C4%87.jpg) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| alg-player-2-feature.jpg | Aissa Mandi，2024-09-14 | Paté kroute | [Commons](https://commons.wikimedia.org/wiki/File:Mandi_asselosc_2425_%28cropped%29.jpg) · [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en) |
+| alg-player-19-feature.jpg | Nabil Bentaleb，2023-10-08 | Supporterhéninois | [Commons](https://commons.wikimedia.org/wiki/File:RC_Lens_-_Lille_OSC_%2808-10-2023%29_19_%28cropped%29.jpg) · [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en) |
+| alg-player-7-feature.jpg | Riyad Mahrez，2022-01-11 | Jeanpierrekepseu | [Commons](https://commons.wikimedia.org/wiki/File:Mahrez_2021.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### ARG
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| arg-coach-feature.jpg | Lionel Scaloni，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Lionel_Scaloni_Argentina_v_Spain_19_July_2026-239_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| arg-player-19-feature.jpg | Nicolas Otamendi，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Nicolas_Otamendi_Argentina_v_Spain_19_July_2026-059_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| arg-player-7-feature.jpg | Rodrigo De Paul，2026-07-19 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Rodrigo_De_Paul_Argentina_v_Spain_19_July_2026-159.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| arg-player-10-feature.jpg | Lionel Messi，2026-07-07 | Bryan Berlin | [Commons](https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+
+### KOR
+
+| 文件 | 人物及日期 | 摄影者 | 来源与许可 |
+| --- | --- | --- | --- |
+| kor-coach-feature.jpg | Myungbo Hong，2013-01-04 | Republic of Korea | [Commons](https://commons.wikimedia.org/wiki/File:Hong_Myung-Bo.jpg) · [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) |
+| kor-player-4-feature.jpg | Minjae Kim，2025-01-06 | Werner100359 | [Commons](https://commons.wikimedia.org/wiki/File:FC_Red_Bull_Salzburg_gegen_Bayern_M%C3%BCnchen_%282025-01-06_Testspiel%29_26.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
+| kor-player-10-feature.jpg | Jaesung Lee，2024-02-06 | M.Sadegh Nikgostar | [Commons](https://commons.wikimedia.org/wiki/File:Asian_Nations_Cup_-_Jordan_and_South_Korea_%2874%29_%28cropped%29_2.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+| kor-player-7-feature.jpg | Heungmin Son，2024-05-16 | Ujishadow | [Commons](https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |

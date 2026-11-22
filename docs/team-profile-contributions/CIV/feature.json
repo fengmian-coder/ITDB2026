@@ -1,0 +1,302 @@
+{
+  "CIV": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=12",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "科特迪瓦的本届参赛阵容由 Émerse Faé 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、6名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "科特迪瓦本届由埃梅尔斯·法埃带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Émerse Faé",
+    "coach_name_zh": "埃梅尔斯·法埃",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：科特迪瓦",
+    "coach_facts": "2024 年非洲杯期间接手球队，带领科特迪瓦夺得该届冠军，并率队获得 2026 年世界杯决赛圈资格。",
+    "coach_photo": "civ-coach-feature",
+    "player_photos": {
+      "3": "civ-player-3-feature",
+      "8": "civ-player-8-feature",
+      "19": "civ-player-19-feature"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "2006 年德国世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "洲际荣誉",
+        "value": "2023 年非洲杯冠军"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/cote-divoire-qualify"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Yahia Fofana",
+        "club": "Çaykur Rizespor (TUR)",
+        "caps": 40,
+        "goals": 0,
+        "name_zh": "亚希亚·福法纳",
+        "club_zh": "里泽体育"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Ousmane Diomande",
+        "club": "Sporting CP (POR)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "奥斯曼·迪奥曼德",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Ghislain Konan",
+        "club": "Gil Vicente FC (POR)",
+        "caps": 57,
+        "goals": 0,
+        "name_zh": "吉斯兰·科南",
+        "club_zh": "吉维森特"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "name": "Jean Michael Seri",
+        "club": "NK Maribor (SVN)",
+        "caps": 66,
+        "goals": 4,
+        "name_zh": "让·米歇尔·塞里",
+        "club_zh": "马里博尔"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Wilfried Singo",
+        "club": "Galatasaray SK (TUR)",
+        "caps": 37,
+        "goals": 1,
+        "name_zh": "威尔弗里德·辛戈",
+        "club_zh": "加拉塔萨雷"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Seko Fofana",
+        "club": "FC Porto (POR)",
+        "caps": 34,
+        "goals": 7,
+        "name_zh": "塞科·福法纳",
+        "club_zh": "波尔图"
+      },
+      {
+        "shirt_number": 7,
+        "position": "DF",
+        "name": "Odilon Kossounou",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 40,
+        "goals": 0,
+        "name_zh": "奥迪隆·科苏努",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Franck Kessie",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 108,
+        "goals": 16,
+        "name_zh": "弗兰克·凯西",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Ange-Yoan Bonny",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "安热·约安·博尼",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Simon Adingra",
+        "club": "AS Monaco (FRA)",
+        "caps": 30,
+        "goals": 5,
+        "name_zh": "西蒙·阿丁格拉",
+        "club_zh": "摩纳哥"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Yan Diomande",
+        "club": "RB Leipzig (GER)",
+        "caps": 14,
+        "goals": 3,
+        "name_zh": "扬·迪奥曼德",
+        "club_zh": "RB莱比锡"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "name": "Elye Wahi",
+        "club": "OGC Nice (FRA)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "埃利·瓦希",
+        "club_zh": "尼斯"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Christopher Operi",
+        "club": "Başakşehir FK (TUR)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "克里斯托弗·奥佩里",
+        "club_zh": "伊斯坦布尔巴萨克赛尔"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "name": "Oumar Diakite",
+        "club": "Cercle Brugge (BEL)",
+        "caps": 31,
+        "goals": 6,
+        "name_zh": "奥马尔·迪亚基特",
+        "club_zh": "色格拉布鲁日"
+      },
+      {
+        "shirt_number": 15,
+        "position": "FW",
+        "name": "Amad Diallo",
+        "club": "Manchester United FC (ENG)",
+        "caps": 23,
+        "goals": 8,
+        "name_zh": "阿马德·迪亚洛",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Mohamed Kone",
+        "club": "Sporting Charleroi (BEL)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "穆罕默德·科内",
+        "club_zh": "沙勒罗瓦"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "Guela Doue",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 24,
+        "goals": 3,
+        "name_zh": "盖拉·杜埃",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Ibrahim Sangare",
+        "club": "Nottingham Forest FC (ENG)",
+        "caps": 59,
+        "goals": 11,
+        "name_zh": "易卜拉欣·桑加雷",
+        "club_zh": "诺丁汉森林"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Nicolas Pepe",
+        "club": "Villarreal CF (ESP)",
+        "caps": 60,
+        "goals": 14,
+        "name_zh": "尼古拉·佩佩",
+        "club_zh": "比利亚雷亚尔"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Emmanuel Agbadou",
+        "club": "Beşiktaş JK (TUR)",
+        "caps": 24,
+        "goals": 2,
+        "name_zh": "埃马纽埃尔·阿格巴杜",
+        "club_zh": "贝西克塔斯"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Evan Ndicka",
+        "club": "AS Roma (ITA)",
+        "caps": 29,
+        "goals": 0,
+        "name_zh": "埃文·恩迪卡",
+        "club_zh": "罗马"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "name": "Evann Guessand",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 23,
+        "goals": 4,
+        "name_zh": "埃万·盖桑",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Alban Lafont",
+        "club": "Panathinaikos FC (GRE)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "阿尔班·拉丰",
+        "club_zh": "帕纳辛奈科斯"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Bazoumana Toure",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 9,
+        "goals": 2,
+        "name_zh": "巴祖马纳·图雷",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Parfait Guiagon",
+        "club": "Sporting Charleroi (BEL)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "帕尔费·吉亚贡",
+        "club_zh": "沙勒罗瓦"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Christ Inao Oulai",
+        "club": "Trabzonspor (TUR)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "克里斯特·伊纳奥·乌莱",
+        "club_zh": "特拉布宗体育"
+      }
+    ]
+  }
+}

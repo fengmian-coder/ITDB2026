@@ -47,6 +47,18 @@ $expectedCounts = [
     'BRA'=>['GK'=>3,'DF'=>8,'MF'=>6,'FW'=>9],
     'CUW'=>['GK'=>3,'DF'=>8,'MF'=>7,'FW'=>8],
     'NOR'=>['GK'=>3,'DF'=>8,'MF'=>10,'FW'=>5],
+    'CIV'=>['GK'=>3,'DF'=>8,'MF'=>6,'FW'=>9],
+    'TUN'=>['GK'=>3,'DF'=>10,'MF'=>8,'FW'=>5],
+    'JOR'=>['GK'=>3,'DF'=>9,'MF'=>8,'FW'=>6],
+    'USA'=>['GK'=>3,'DF'=>10,'MF'=>6,'FW'=>7],
+    'SCO'=>['GK'=>3,'DF'=>10,'MF'=>6,'FW'=>7],
+    'ENG'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'NED'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'POR'=>['GK'=>3,'DF'=>9,'MF'=>6,'FW'=>8],
+    'ESP'=>['GK'=>3,'DF'=>8,'MF'=>7,'FW'=>8],
+    'ALG'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'ARG'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'KOR'=>['GK'=>3,'DF'=>9,'MF'=>11,'FW'=>3],
 ];
 $check(count($features['teams']) === count($expectedCounts), 'only the integrated team pages are enhanced');
 foreach ($expectedCounts as $code => $expected) {
@@ -131,7 +143,7 @@ $modified = $profile; $modified['players'][0]['name'] = 'Different player';
 $check(count($service->get('CRO', $modified)['highlighted']) === 2, 'player identity change removes mismatched photo');
 $modified = $profile; $modified['edition'] = 'Another edition';
 $check($service->get('CRO', $modified) === null, 'different roster edition does not receive sample');
-$check($service->get('ESP', $bundle['teams']['ESP']) === null, 'other teams retain the existing layout');
+$check($service->get('JPN', $bundle['teams']['JPN']) === null, 'other teams retain the existing layout');
 $http = curl_init();
 curl_setopt_array($http, [CURLOPT_RETURNTRANSFER=>true,CURLOPT_NOPROXY=>'*',CURLOPT_TIMEOUT=>15]);
 foreach (NationalTeam::find()->where(['fifa_code'=>array_keys($bundle['teams'])])->all() as $team) {

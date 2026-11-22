@@ -1,0 +1,302 @@
+{
+  "ARG": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=2",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "阿根廷的本届参赛阵容由 Lionel Scaloni 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "阿根廷本届由利昂内尔·斯卡洛尼带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Lionel Scaloni",
+    "coach_name_zh": "利昂内尔·斯卡洛尼",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：阿根廷",
+    "coach_facts": "2018 年世界杯后接掌阿根廷，率队赢得 2021 年美洲杯和 2022 年世界杯，并在 2024 年再夺美洲杯。",
+    "coach_photo": "arg-coach-feature",
+    "player_photos": {
+      "19": "arg-player-19-feature",
+      "7": "arg-player-7-feature",
+      "10": "arg-player-10-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯首冠",
+        "value": "1978 年本土夺冠"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年冠军"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1930 年乌拉圭世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/argentina-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Juan Musso",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "胡安·穆索",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Marcos Senesi",
+        "club": "AFC Bournemouth (ENG)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "马科斯·塞内西",
+        "club_zh": "伯恩茅斯"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Nicolas Tagliafico",
+        "club": "Olympique Lyonnais (FRA)",
+        "caps": 83,
+        "goals": 1,
+        "name_zh": "尼古拉斯·塔利亚菲科",
+        "club_zh": "里昂"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Gonzalo Montiel",
+        "club": "CA River Plate (ARG)",
+        "caps": 45,
+        "goals": 2,
+        "name_zh": "贡萨洛·蒙铁尔",
+        "club_zh": "河床"
+      },
+      {
+        "shirt_number": 5,
+        "position": "MF",
+        "name": "Leandro Paredes",
+        "club": "CA Boca Juniors (ARG)",
+        "caps": 84,
+        "goals": 5,
+        "name_zh": "莱安德罗·帕雷德斯",
+        "club_zh": "博卡青年"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Lisandro Martinez",
+        "club": "Manchester United FC (ENG)",
+        "caps": 35,
+        "goals": 2,
+        "name_zh": "利桑德罗·马丁内斯",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Rodrigo De Paul",
+        "club": "Inter Miami CF (USA)",
+        "caps": 94,
+        "goals": 2,
+        "name_zh": "罗德里戈·德保罗",
+        "club_zh": "迈阿密国际"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Valentin Barco",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 5,
+        "goals": 2,
+        "name_zh": "瓦伦丁·巴尔科",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Julian Alvarez",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 59,
+        "goals": 15,
+        "name_zh": "胡利安·阿尔瓦雷斯",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Lionel Messi",
+        "club": "Inter Miami CF (USA)",
+        "caps": 207,
+        "goals": 125,
+        "name_zh": "利昂内尔·梅西",
+        "club_zh": "迈阿密国际"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Giovani Lo Celso",
+        "club": "Real Betis (ESP)",
+        "caps": 68,
+        "goals": 5,
+        "name_zh": "乔瓦尼·洛塞尔索",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Geronimo Rulli",
+        "club": "Olympique Marseille (FRA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "赫罗尼莫·鲁利",
+        "club_zh": "马赛"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Cristian Romero",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 58,
+        "goals": 4,
+        "name_zh": "克里斯蒂安·罗梅罗",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Exequiel Palacios",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 41,
+        "goals": 0,
+        "name_zh": "埃塞基耶尔·帕拉西奥斯",
+        "club_zh": "勒沃库森"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Nico Gonzalez",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 58,
+        "goals": 6,
+        "name_zh": "尼科·冈萨雷斯",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "name": "Thiago Almada",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 21,
+        "goals": 5,
+        "name_zh": "蒂亚戈·阿尔马达",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Giuliano Simeone",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 16,
+        "goals": 2,
+        "name_zh": "朱利亚诺·西蒙尼",
+        "club_zh": "马德里竞技"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Nico Paz",
+        "club": "Como (ITA)",
+        "caps": 11,
+        "goals": 1,
+        "name_zh": "尼科·帕斯",
+        "club_zh": "科莫"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Nicolas Otamendi",
+        "club": "SL Benfica (POR)",
+        "caps": 139,
+        "goals": 8,
+        "name_zh": "尼古拉斯·奥塔门迪",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Alexis Mac Allister",
+        "club": "Liverpool FC (ENG)",
+        "caps": 54,
+        "goals": 7,
+        "name_zh": "亚历克西斯·麦卡利斯特",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "name": "Jose Manuel Lopez",
+        "club": "SE Palmeiras (BRA)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "何塞·曼努埃尔·洛佩斯",
+        "club_zh": "帕尔梅拉斯"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "name": "Lautaro Martinez",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 84,
+        "goals": 40,
+        "name_zh": "劳塔罗·马丁内斯",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Emiliano Martinez",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 67,
+        "goals": 0,
+        "name_zh": "埃米利亚诺·马丁内斯",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Enzo Fernandez",
+        "club": "Chelsea FC (ENG)",
+        "caps": 49,
+        "goals": 8,
+        "name_zh": "恩佐·费尔南德斯",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Facundo Medina",
+        "club": "Olympique Marseille (FRA)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "法昆多·梅迪纳",
+        "club_zh": "马赛"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Nahuel Molina",
+        "club": "Atlético De Madrid (ESP)",
+        "caps": 65,
+        "goals": 1,
+        "name_zh": "纳韦尔·莫利纳",
+        "club_zh": "马德里竞技"
+      }
+    ]
+  }
+}

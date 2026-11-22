@@ -1,0 +1,302 @@
+{
+  "JOR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=26",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "约旦的本届参赛阵容由 Jamal Sellami 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "约旦本届由贾迈勒·塞拉米带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Jamal Sellami",
+    "coach_name_zh": "贾迈勒·塞拉米",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：摩洛哥",
+    "coach_facts": "2024 年 6 月接手约旦，率队首次获得世界杯决赛圈资格。球员时期曾代表摩洛哥参加 1998 年世界杯。",
+    "coach_photo": "jor-coach-feature",
+    "player_photos": {
+      "23": "jor-player-23-feature",
+      "14": "jor-player-14-feature",
+      "10": "jor-player-10-feature"
+    },
+    "facts": [
+      {
+        "label": "首次参赛",
+        "value": "2026 年世界杯"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年未参赛"
+      },
+      {
+        "label": "亚洲杯最佳",
+        "value": "2023 届亚军"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/jordan-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Yazeed Abulaila",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 79,
+        "goals": 0,
+        "name_zh": "亚齐德·阿布莱拉",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Mohammad Abuhasheesh",
+        "club": "Al Karma SC (IRQ)",
+        "caps": 57,
+        "goals": 1,
+        "name_zh": "穆罕默德·阿布·哈希什",
+        "club_zh": "卡尔马体育"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Abdallah Nasib",
+        "club": "Al Zawra'a SC (IRQ)",
+        "caps": 68,
+        "goals": 2,
+        "name_zh": "阿卜杜拉·纳西卜",
+        "club_zh": "扎瓦拉"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Husam Abudahab",
+        "club": "Al Faisaly SC (JOR)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "胡萨姆·阿布·达哈卜",
+        "club_zh": "费萨里"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Yazan Alarab",
+        "club": "FC Seoul (KOR)",
+        "caps": 83,
+        "goals": 3,
+        "name_zh": "亚赞·阿拉伯",
+        "club_zh": "首尔FC"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Amer Jamous",
+        "club": "Al Zawra'a SC (IRQ)",
+        "caps": 20,
+        "goals": 1,
+        "name_zh": "阿米尔·贾穆斯",
+        "club_zh": "扎瓦拉"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Mohammad Abuzraiq",
+        "club": "Raja Casablanca (MAR)",
+        "caps": 42,
+        "goals": 5,
+        "name_zh": "穆罕默德·阿布·兹赖克",
+        "club_zh": "卡萨布兰卡拉贾"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Noor Alrawabdeh",
+        "club": "Selangor FC (MAS)",
+        "caps": 71,
+        "goals": 3,
+        "name_zh": "努尔·拉瓦卜德",
+        "club_zh": "雪兰莪"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Ali Olwan",
+        "club": "Al Sailiya SC (QAT)",
+        "caps": 69,
+        "goals": 30,
+        "name_zh": "阿里·奥尔万",
+        "club_zh": "赛利亚"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Mousa Altamari",
+        "club": "Stade Rennais FC (FRA)",
+        "caps": 95,
+        "goals": 25,
+        "name_zh": "穆萨·塔马里",
+        "club_zh": "雷恩"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Odeh Fakhoury",
+        "club": "Pyramids FC (EGY)",
+        "caps": 13,
+        "goals": 1,
+        "name_zh": "奥德·法胡里",
+        "club_zh": "金字塔"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Nour Baniateyah",
+        "club": "Al Faisaly SC (JOR)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "努尔·巴尼·阿提亚",
+        "club_zh": "费萨里"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "name": "Mahmoud Almardi",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 90,
+        "goals": 8,
+        "name_zh": "马哈茂德·马尔迪",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Rajaei Ayed",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 73,
+        "goals": 0,
+        "name_zh": "拉贾伊·阿耶德",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Ibrahim Sadeh",
+        "club": "Al Karma SC (IRQ)",
+        "caps": 57,
+        "goals": 3,
+        "name_zh": "易卜拉欣·萨德",
+        "club_zh": "卡尔马体育"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Mohammad Abualnadi",
+        "club": "Selangor FC (MAS)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "穆罕默德·阿布·纳迪",
+        "club_zh": "雪兰莪"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "Saleem Obaid",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 15,
+        "goals": 0,
+        "name_zh": "萨利姆·奥贝德",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Mohammad Abughoush",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "穆罕默德·阿布·古什",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Saed Alrosan",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 22,
+        "goals": 2,
+        "name_zh": "萨伊德·罗桑",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Mohannad Abutaha",
+        "club": "Al-Quwa Al-Jawiya (IRQ)",
+        "caps": 33,
+        "goals": 1,
+        "name_zh": "穆罕纳德·阿布·塔哈",
+        "club_zh": "巴格达空军"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Nizar Alrashdan",
+        "club": "Qatar SC (QAT)",
+        "caps": 50,
+        "goals": 5,
+        "name_zh": "尼扎尔·拉什丹",
+        "club_zh": "卡塔尔SC"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Abdallah Alfakhori",
+        "club": "Al Wahdat SC (JOR)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "阿卜杜拉·法胡里",
+        "club_zh": "维达特"
+      },
+      {
+        "shirt_number": 23,
+        "position": "DF",
+        "name": "Ehsan Haddad",
+        "club": "Al Hussein SC (JOR)",
+        "caps": 93,
+        "goals": 2,
+        "name_zh": "伊赫桑·哈达德",
+        "club_zh": "侯赛因"
+      },
+      {
+        "shirt_number": 24,
+        "position": "FW",
+        "name": "Ali Azaizeh",
+        "club": "Al Shabab FC (KSA)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "阿里·阿扎伊泽",
+        "club_zh": "利雅得青年人"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Mohammad Aldaoud",
+        "club": "Al Wahdat SC (JOR)",
+        "caps": 14,
+        "goals": 1,
+        "name_zh": "穆罕默德·达乌德",
+        "club_zh": "维达特"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Anas Badawi",
+        "club": "Al Faisaly SC (JOR)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "阿纳斯·巴达维",
+        "club_zh": "费萨里"
+      }
+    ]
+  }
+}

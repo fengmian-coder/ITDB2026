@@ -1,0 +1,302 @@
+{
+  "ENG": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=18",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "英格兰的本届参赛阵容由 Thomas Tuchel 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "summary": "英格兰本届由托马斯·图赫尔带队，26 人名单及球员累计数据按 FIFA 固定版本展示。",
+    "coach_name": "Thomas Tuchel",
+    "coach_name_zh": "托马斯·图赫尔",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：德国",
+    "coach_facts": "2025 年 1 月正式执教英格兰。此前曾在德国、法国及英格兰俱乐部任教，并率切尔西赢得 2021 年欧冠冠军。",
+    "coach_photo": "eng-coach-feature",
+    "player_photos": {
+      "5": "eng-player-5-feature",
+      "14": "eng-player-14-feature",
+      "9": "eng-player-9-feature"
+    },
+    "facts": [
+      {
+        "label": "世界杯首冠",
+        "value": "1966 年本土夺冠"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022 年八强"
+      },
+      {
+        "label": "首次参赛",
+        "value": "1950 年巴西世界杯"
+      }
+    ],
+    "history_source": {
+      "label": "FIFA 球队历史与参赛档案",
+      "url": "https://www.fifa.com/en/articles/england-team-profile-history"
+    },
+    "translation_source": {
+      "label": "中文译名参考（固定修订版；名单数据以 FIFA 为准）",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=95049982"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Jordan Pickford",
+        "club": "Everton FC (ENG)",
+        "caps": 91,
+        "goals": 0,
+        "name_zh": "乔丹·皮克福德",
+        "club_zh": "埃弗顿"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Ezri Konsa",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 28,
+        "goals": 2,
+        "name_zh": "埃兹里·孔萨",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Nico O'Reilly",
+        "club": "Manchester City FC (ENG)",
+        "caps": 12,
+        "goals": 0,
+        "name_zh": "尼科·奥赖利",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "name": "Declan Rice",
+        "club": "Arsenal FC (ENG)",
+        "caps": 80,
+        "goals": 8,
+        "name_zh": "德克兰·赖斯",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "John Stones",
+        "club": "Manchester City FC (ENG)",
+        "caps": 94,
+        "goals": 3,
+        "name_zh": "约翰·斯通斯",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Marc Guehi",
+        "club": "Manchester City FC (ENG)",
+        "caps": 37,
+        "goals": 1,
+        "name_zh": "马克·格伊",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Bukayo Saka",
+        "club": "Arsenal FC (ENG)",
+        "caps": 56,
+        "goals": 17,
+        "name_zh": "布卡约·萨卡",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Elliot Anderson",
+        "club": "Nottingham Forest FC (ENG)",
+        "caps": 17,
+        "goals": 0,
+        "name_zh": "埃利奥特·安德森",
+        "club_zh": "诺丁汉森林"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Harry Kane",
+        "club": "FC Bayern München (GER)",
+        "caps": 121,
+        "goals": 85,
+        "name_zh": "哈里·凯恩",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Jude Bellingham",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 56,
+        "goals": 13,
+        "name_zh": "裘德·贝林厄姆",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Marcus Rashford",
+        "club": "FC Barcelona (ESP)",
+        "caps": 78,
+        "goals": 19,
+        "name_zh": "马库斯·拉什福德",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Trevoh Chalobah",
+        "club": "Chelsea FC (ENG)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "特雷沃·查洛巴",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "name": "Dean Henderson",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "迪恩·亨德森",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Jordan Henderson",
+        "club": "Brentford FC (ENG)",
+        "caps": 91,
+        "goals": 3,
+        "name_zh": "乔丹·亨德森",
+        "club_zh": "布伦特福德"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Dan Burn",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "丹·伯恩",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Kobbie Mainoo",
+        "club": "Manchester United FC (ENG)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "科比·梅努",
+        "club_zh": "曼彻斯特联"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Morgan Rogers",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 22,
+        "goals": 1,
+        "name_zh": "摩根·罗杰斯",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Anthony Gordon",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 25,
+        "goals": 4,
+        "name_zh": "安东尼·戈登",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Ollie Watkins",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 24,
+        "goals": 7,
+        "name_zh": "奥利·沃特金斯",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Noni Madueke",
+        "club": "Arsenal FC (ENG)",
+        "caps": 16,
+        "goals": 1,
+        "name_zh": "诺尼·马杜埃凯",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 21,
+        "position": "MF",
+        "name": "Eberechi Eze",
+        "club": "Arsenal FC (ENG)",
+        "caps": 22,
+        "goals": 3,
+        "name_zh": "埃贝雷奇·埃泽",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "name": "Ivan Toney",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "伊万·托尼",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "James Trafford",
+        "club": "Manchester City FC (ENG)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "詹姆斯·特拉福德",
+        "club_zh": "曼彻斯特城"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Reece James",
+        "club": "Chelsea FC (ENG)",
+        "caps": 29,
+        "goals": 1,
+        "name_zh": "里斯·詹姆斯",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Djed Spence",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "杰德·斯彭斯",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Jarell Quansah",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "贾雷尔·宽萨",
+        "club_zh": "勒沃库森"
+      }
+    ]
+  }
+}
