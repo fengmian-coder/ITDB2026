@@ -29,7 +29,9 @@ class ProjectTeamController extends Controller
     public function actionIndex(): string
     {
         $teams = ProjectTeam::find()->with(['members.documents', 'documents'])->orderBy(['id' => SORT_ASC])->all();
-        return $this->render('index', compact('teams'));
+        $profiles = json_decode(file_get_contents(\Yii::getAlias('@app/data/project-members.json')), true, 512, JSON_THROW_ON_ERROR);
+        $studentNumbers = array_column($profiles, 'student_no', 'display_name');
+        return $this->render('index', compact('teams', 'studentNumbers'));
     }
 
     public function actionMember(mixed $id): string
