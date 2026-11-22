@@ -1,0 +1,30 @@
+{
+  "format_version": 1,
+  "personal_owner": "C",
+  "documents": [
+    {
+      "document_type": "PERSONAL",
+      "title": "个人作业1",
+      "relative_path": "personal/9fb54179a50bdbf1fbdd19a28199348f.zip",
+      "original_name": "作业1(2411539_袁颢心).zip",
+      "file_size": 1467424,
+      "sha256": "9fb54179a50bdbf1fbdd19a28199348f9215dda48832b558d4e828233c16a159"
+    },
+    {
+      "document_type": "PERSONAL",
+      "title": "个人作业2",
+      "relative_path": "personal/1d754f717871d442436a3e57afb3ae24.zip",
+      "original_name": "作业2(2411539_袁颢心).zip",
+      "file_size": 5695599,
+      "sha256": "1d754f717871d442436a3e57afb3ae24b1945742afd78becc43c707b233c8066"
+    },
+    {
+      "document_type": "PERSONAL",
+      "title": "个人作业3",
+      "relative_path": "personal/ea7e7c9a4ef984dd0fa8003956c84df3.zip",
+      "original_name": "作业3(2411539_袁颢心).zip",
+      "file_size": 10048255,
+      "sha256": "ea7e7c9a4ef984dd0fa8003956c84df3bf7e0baf48ea63f84aedf75018928fa0"
+    }
+  ]
+}
