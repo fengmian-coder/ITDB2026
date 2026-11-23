@@ -1,0 +1,302 @@
+{
+  "CZE": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=15",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "捷克的本届参赛阵容由 Miroslav Koubek 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Miroslav Koubek",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：捷克",
+    "summary": "捷克队时隔20年重返世界杯，阵容以国内联赛和德甲球员为骨干。",
+    "coach_name_zh": "米罗斯拉夫·库贝克",
+    "coach_facts": "捷克本土教练，长期在国内联赛执教，曾执教比尔森胜利等俱乐部，现任捷克国家队主教练。",
+    "coach_photo": "cze-coach",
+    "player_photos": {
+      "5": "cze-coufal",
+      "22": "cze-soucek",
+      "10": "cze-schick"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2006年小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔20年"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：捷克国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Czech_Republic_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：捷克国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%8D%B7%E5%85%8B%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Matěj Kovář",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 23,
+        "goals": 0,
+        "name_zh": "马捷伊·科瓦日",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "David Zima",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 26,
+        "goals": 1,
+        "name_zh": "达维德·齐马",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Tomáš Holeš",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 43,
+        "goals": 2,
+        "name_zh": "托马什·霍莱什",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Robin Hranáč",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "罗宾·赫拉纳奇",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Vladimir Coufal",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 65,
+        "goals": 2,
+        "name_zh": "弗拉迪米尔·曹法尔",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Štěpán Chaloupek",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "什捷潘·哈洛佩克",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 7,
+        "position": "DF",
+        "name": "Ladislav Krejčí",
+        "club": "Wolverhampton Wanderers FC (ENG)",
+        "caps": 30,
+        "goals": 6,
+        "name_zh": "拉迪斯拉夫·克雷伊奇",
+        "club_zh": "狼队"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Vladimír Darida",
+        "club": "FC Hradec Králové (CZE)",
+        "caps": 80,
+        "goals": 8,
+        "name_zh": "弗拉迪米尔·达里达",
+        "club_zh": "赫拉德茨克拉洛韦"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Adam Hložek",
+        "club": "TSG Hoffenheim (GER)",
+        "caps": 46,
+        "goals": 5,
+        "name_zh": "亚当·赫洛热克",
+        "club_zh": "霍芬海姆"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Patrik Schick",
+        "club": "Bayer 04 Leverkusen (GER)",
+        "caps": 56,
+        "goals": 26,
+        "name_zh": "帕特里克·希克",
+        "club_zh": "勒沃库森"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Jan Kuchta",
+        "club": "AC Sparta Praha (CZE)",
+        "caps": 31,
+        "goals": 3,
+        "name_zh": "扬·库赫塔",
+        "club_zh": "布拉格斯巴达"
+      },
+      {
+        "shirt_number": 12,
+        "position": "MF",
+        "name": "Lukáš Červ",
+        "club": "FC Viktoria Plzeň (CZE)",
+        "caps": 19,
+        "goals": 2,
+        "name_zh": "卢卡什·切尔夫",
+        "club_zh": "比尔森胜利"
+      },
+      {
+        "shirt_number": 13,
+        "position": "FW",
+        "name": "Mojmír Chytil",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 23,
+        "goals": 6,
+        "name_zh": "莫伊米尔·希蒂尔",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "David Jurásek",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 18,
+        "goals": 1,
+        "name_zh": "达维德·尤拉塞克",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 15,
+        "position": "FW",
+        "name": "Pavel Šulc",
+        "club": "Olympique Lyonnais (FRA)",
+        "caps": 24,
+        "goals": 5,
+        "name_zh": "帕维尔·舒尔茨",
+        "club_zh": "里昂"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Jindřich Staněk",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "因德日赫·斯塔涅克",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Lukáš Provod",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 41,
+        "goals": 3,
+        "name_zh": "卢卡斯·普罗沃德",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Michal Sadílek",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 38,
+        "goals": 2,
+        "name_zh": "米哈尔·萨迪莱克",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Tomáš Chorý",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 24,
+        "goals": 7,
+        "name_zh": "托马什·霍里",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Jaroslav Zelený",
+        "club": "AC Sparta Praha (CZE)",
+        "caps": 25,
+        "goals": 0,
+        "name_zh": "雅罗斯拉夫·泽莱尼",
+        "club_zh": "布拉格斯巴达"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "David Douděra",
+        "club": "SK Slavia Praha (CZE)",
+        "caps": 18,
+        "goals": 2,
+        "name_zh": "达维德·道杰拉",
+        "club_zh": "布拉格斯拉维亚"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Tomas Soucek",
+        "club": "West Ham United FC (ENG)",
+        "caps": 93,
+        "goals": 17,
+        "name_zh": "托马什·绍切克",
+        "club_zh": "西汉姆联"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Lukáš Horníček",
+        "club": "SC Braga (POR)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "卢卡斯·霍尔尼切克",
+        "club_zh": "布拉加"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Alexandr Sojka",
+        "club": "FC Viktoria Plzeň (CZE)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "亚历山大·索伊卡",
+        "club_zh": "比尔森胜利"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Hugo Sochůrek",
+        "club": "AC Sparta Praha (CZE)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "胡戈·索胡雷克",
+        "club_zh": "布拉格斯巴达"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Denis Višinský",
+        "club": "FC Viktoria Plzeň (CZE)",
+        "caps": 3,
+        "goals": 1,
+        "name_zh": "丹尼斯·维辛斯基",
+        "club_zh": "比尔森胜利"
+      }
+    ]
+  }
+}

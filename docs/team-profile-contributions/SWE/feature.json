@@ -1,0 +1,302 @@
+{
+  "SWE": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=42",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "瑞典的本届参赛阵容由 Graham Potter 带队，FIFA 名单收录26名球员，包括3名门将、11名后卫、7名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Graham Potter",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：英格兰",
+    "summary": "瑞典队时隔8年重返世界杯，伊萨克、约克雷斯领衔锋线。",
+    "coach_name_zh": "格雷厄姆·波特",
+    "coach_facts": "英格兰教练，曾执教布莱顿和切尔西，2025年起担任瑞典国家队主教练。",
+    "coach_photo": "swe-coach",
+    "player_photos": {
+      "3": "swe-lindelof",
+      "19": "swe-svanberg",
+      "9": "swe-isak"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1958年亚军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔8年"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：瑞典国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Sweden_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：瑞典国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E7%91%9E%E5%85%B8%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Jacob Mikael Widell Zetterström",
+        "club": "Derby County FC (ENG)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "雅各布·维德尔·泽特斯特伦",
+        "club_zh": "德比郡"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Gustaf Johan Lagerbielke",
+        "club": "SC Braga (POR)",
+        "caps": 15,
+        "goals": 2,
+        "name_zh": "古斯塔夫·拉格比耶尔克",
+        "club_zh": "布拉加"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Victor Lindelof",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 80,
+        "goals": 3,
+        "name_zh": "维克托·林德洛夫",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Isak Malcolm Kwaku Hien",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 32,
+        "goals": 0,
+        "name_zh": "伊萨克·希恩",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Gabriel Johan Gudmundsson",
+        "club": "Leeds United FC (ENG)",
+        "caps": 28,
+        "goals": 0,
+        "name_zh": "加布里埃尔·古德蒙松",
+        "club_zh": "利兹联"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Herman Nils Johansson",
+        "club": "FC Dallas (USA)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "赫尔曼·约翰松",
+        "club_zh": "FC达拉斯"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Lucas Erik Holger Bergvall",
+        "club": "Tottenham Hotspur FC (ENG)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "卢卡斯·贝里瓦尔",
+        "club_zh": "托特纳姆热刺"
+      },
+      {
+        "shirt_number": 8,
+        "position": "DF",
+        "name": "Daniel Jonathan Svensson",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "丹尼尔·斯文松 (2002年生足球运动员)",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Alexander Isak",
+        "club": "Liverpool FC (ENG)",
+        "caps": 62,
+        "goals": 18,
+        "name_zh": "亚历山大·伊萨克",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Erik Benjamin Nygren",
+        "club": "Celtic FC (SCO)",
+        "caps": 15,
+        "goals": 3,
+        "name_zh": "本杰明·尼格伦",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Anthony David Junior Elanga",
+        "club": "Newcastle United FC (ENG)",
+        "caps": 34,
+        "goals": 8,
+        "name_zh": "安东尼·埃兰加",
+        "club_zh": "纽卡斯尔联"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Tobias Viktor Johansson",
+        "club": "Stoke City FC (ENG)",
+        "caps": 12,
+        "goals": 0,
+        "name_zh": "维克托·约翰松",
+        "club_zh": "斯托克城"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Ken Sema",
+        "club": "Pafos FC (CYP)",
+        "caps": 33,
+        "goals": 5,
+        "name_zh": "肯·塞马",
+        "club_zh": "帕福斯"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Hjalmar Ekdal",
+        "club": "Burnley FC (ENG)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "哈尔马·埃克达尔",
+        "club_zh": "伯恩利"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Carl Anders Theodor Starfelt",
+        "club": "RC Celta Vigo (ESP)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "卡尔·斯塔费尔特",
+        "club_zh": "塞尔塔"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Jesper Kewe Karlström",
+        "club": "Udinese (ITA)",
+        "caps": 26,
+        "goals": 0,
+        "name_zh": "耶斯佩尔·卡尔斯特伦",
+        "club_zh": "乌迪内斯"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Viktor Einar Gyökeres",
+        "club": "Arsenal FC (ENG)",
+        "caps": 37,
+        "goals": 21,
+        "name_zh": "维克托·哲凯赖什",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Yasin Ayari",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 25,
+        "goals": 5,
+        "name_zh": "亚辛·阿亚里",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Mattias Svanberg",
+        "club": "VfL Wolfsburg (GER)",
+        "caps": 42,
+        "goals": 3,
+        "name_zh": "马蒂亚斯·斯万贝里",
+        "club_zh": "沃尔夫斯堡"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Eric Anders Smith",
+        "club": "FC St. Pauli (GER)",
+        "caps": 2,
+        "goals": 0,
+        "name_zh": "埃里克·史密斯",
+        "club_zh": "圣保利"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Alexander Olof Bernhardsson",
+        "club": "Holstein Kiel (GER)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "亚历山大·伯恩哈德松",
+        "club_zh": "荷尔斯泰因基尔"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Besfort Zeneli",
+        "club": "Royale Union Saint-Gilloise (BEL)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "贝斯福特·泽内利",
+        "club_zh": "圣吉罗斯联合"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Bo Kristoffer Nordfeldt",
+        "club": "AIK Stockholm (SWE)",
+        "caps": 23,
+        "goals": 0,
+        "name_zh": "克里斯托弗·努德费尔特",
+        "club_zh": "AIK斯德哥尔摩"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Elliot Karl Stroud",
+        "club": "Mjällby AIF (SWE)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "埃利奥特·斯特劳德",
+        "club_zh": "米亚尔比"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Håkan Gustaf Nilsson",
+        "club": "Club Brugge (BEL)",
+        "caps": 10,
+        "goals": 4,
+        "name_zh": "古斯塔夫·尼尔松",
+        "club_zh": "布鲁日"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Taha Abdi Ali",
+        "club": "Malmö FF (SWE)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "塔哈·阿里",
+        "club_zh": "马尔默"
+      }
+    ]
+  }
+}

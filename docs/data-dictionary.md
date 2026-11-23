@@ -115,7 +115,7 @@ updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTA
 
 ### 3.3 `tournament_team`（C）
 
-球队与赛事的参赛关系、分组、最终成绩。
+球队与赛事的参赛关系、分组、最终成绩，以及 2026 届球队图文档案。
 
 | 字段 | 类型 | NULL | 默认 | 键/约束 | 含义 |
 |---|---|---|---|---|---|
@@ -123,10 +123,13 @@ updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTA
 | `team_id` | BIGINT UNSIGNED | 否 | 无 | PK2，FK → `national_team.id` | 球队 ID |
 | `group_code` | CHAR(1) | 否 | 无 |  | 分组 A—L |
 | `final_result_code` | VARCHAR(20) | 是 | NULL |  | 最终成绩类别 |
+| `profile_json` | JSON | 是 | NULL |  | 2026 届球队简介、主教练、三位代表球员及来源快照；结构见 `docs/team-profiles-2026.md` |
 | `created_at` | DATETIME | 否 | CURRENT_TIMESTAMP |  | 创建时间（UTC） |
 | `updated_at` | DATETIME | 否 | CURRENT_TIMESTAMP ON UPDATE |  | 修改时间（UTC） |
 
 **索引/约束：** PK(`tournament_id`,`team_id`)、INDEX(`team_id`,`tournament_id`)；两个 FK 均 `ON DELETE RESTRICT ON UPDATE RESTRICT`；`CHECK (group_code BETWEEN 'A' AND 'L')`；`CHECK (final_result_code IS NULL OR final_result_code IN ('GROUP','R32','R16','QF','FOURTH','THIRD','RUNNER_UP','CHAMPION'))`。
+
+**`profile_json` 结构：** 可空 JSON，保存 `summary`、`coach_name`、`coach_description`、`players`、`source_url`、`source_label`、`edition`；`players` 为三项数组，每项含 `name`、`position`、`description`、`shirt_number`。该字段不参与统计口径，缺失或版本不匹配时前台回退基础档案。结构、校验与后台维护说明见 `docs/team-profiles-2026.md`；C 于 2026-11-23 复核并补入本表与 ER 图。
 
 **`final_result_code` 语义：** 采用既有八种最终成绩类别。2026-11-11 已按 FIFA 官方赛事总结补齐 `teams.csv` 的 48 队值，来源及类别映射见 `docs/data-sources.md`。该列允许 NULL，导入时源空值保留已有成绩。
 

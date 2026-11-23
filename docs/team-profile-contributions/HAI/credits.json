@@ -1,0 +1,34 @@
+{
+  "hai-danley": {
+    "name": "Danley Jean Jacques",
+    "path": "images/team-profiles/hai-danley.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Danley_Jean_Jacques_Philadelphia_Union_New_York_City_FC_Nov_23_2025-033.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Danley_Jean_Jacques_Philadelphia_Union_New_York_City_FC_Nov_23_2025-033.jpg/500px-Danley_Jean_Jacques_Philadelphia_Union_New_York_City_FC_Nov_23_2025-033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Danley_Jean_Jacques_Philadelphia_Union_New_York_City_FC_Nov_23_2025-033.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 500,
+    "height": 750,
+    "sha256": "f5389ef2a46c9f45db72dcca00930ad828175d3667457546a0cb2db7657e0617",
+    "author": "Bryan Berlin",
+    "date": "2025-11-23",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "license": "CC BY-SA 4.0",
+    "caption": "资料照 · 2025",
+    "note": "Commons 预览版原样保存；页面仅通过 CSS 裁切展示；资料照年份不代表本届俱乐部归属或球衣号码"
+  },
+  "hai-nazon": {
+    "name": "Duckens Nazon",
+    "path": "images/team-profiles/hai-nazon.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Duckens_Nazon_in_CSKA.jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Duckens_Nazon_in_CSKA.jpg/500px-Duckens_Nazon_in_CSKA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Duckens_Nazon_in_CSKA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 500,
+    "height": 700,
+    "sha256": "62729a541018ff628ccfc26b80652eed3e95d43520c029c19729f0d928a9eb95",
+    "author": "Biser Todorov",
+    "date": "2022-08-04",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "license": "CC BY 4.0",
+    "caption": "资料照 · 2022",
+    "note": "Commons 预览版原样保存；页面仅通过 CSS 裁切展示；资料照年份不代表本届俱乐部归属或球衣号码"
+  }
+}

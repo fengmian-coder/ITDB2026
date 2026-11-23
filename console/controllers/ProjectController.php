@@ -25,7 +25,7 @@ class ProjectController extends Controller
     /** 在其他成员电脑上登记仓库自带的课程文件；不依赖本机数据库 ID。 */
     public function actionRegisterBundle(int $teamId, int $memberId, string $manifest = 'a-documents-manifest.json'): int
     {
-        if (!in_array($manifest, ['a-documents-manifest.json', 'b-documents-manifest.json', 'd-documents-manifest.json'], true)) {
+        if (!in_array($manifest, ['a-documents-manifest.json', 'b-documents-manifest.json', 'c-documents-manifest.json', 'd-documents-manifest.json'], true)) {
             throw new RuntimeException('不支持的课程资料清单。');
         }
         $bundleFile = Yii::getAlias('@app/data/' . $manifest);

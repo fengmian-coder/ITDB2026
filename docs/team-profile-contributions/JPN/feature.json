@@ -1,0 +1,302 @@
+{
+  "JPN": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=25",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "日本的本届参赛阵容由 Hajime Moriyasu 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Hajime Moriyasu",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：日本",
+    "summary": "日本队连续第八次参加世界杯，旅欧球员构成阵容主体。",
+    "coach_name_zh": "森保一",
+    "coach_facts": "日本教练，2018年起执教日本国家队，率队参加2022年世界杯并进入16强。",
+    "coach_photo": "jpn-coach",
+    "player_photos": {
+      "5": "jpn-nagatomo",
+      "14": "jpn-ito",
+      "18": "jpn-ueda"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "16强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年16强"
+      },
+      {
+        "label": "世界杯参赛",
+        "value": "第8次"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：日本国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Japan_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：日本国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Zion Suzuki",
+        "club": "Parma (ITA)",
+        "caps": 29,
+        "goals": 0,
+        "name_zh": "铃木彩艳",
+        "club_zh": "帕尔马"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Yukinari Sugawara",
+        "club": "SV Werder Bremen (GER)",
+        "caps": 26,
+        "goals": 2,
+        "name_zh": "菅原由势",
+        "club_zh": "云达不莱梅"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Shogo Taniguchi",
+        "club": "Sint-Truiden VV (BEL)",
+        "caps": 42,
+        "goals": 1,
+        "name_zh": "谷口彰悟",
+        "club_zh": "圣特雷登"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Kou Itakura",
+        "club": "AFC Ajax (NED)",
+        "caps": 43,
+        "goals": 3,
+        "name_zh": "板仓滉",
+        "club_zh": "阿贾克斯"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Yuto Nagatomo",
+        "club": "FC Tokyo (JPN)",
+        "caps": 146,
+        "goals": 4,
+        "name_zh": "长友佑都",
+        "club_zh": "FC东京"
+      },
+      {
+        "shirt_number": 6,
+        "position": "FW",
+        "name": "Shuto Machino",
+        "club": "Borussia Mönchengladbach (GER)",
+        "caps": 15,
+        "goals": 5,
+        "name_zh": "町野修斗",
+        "club_zh": "门兴格拉德巴赫"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Ao Tanaka",
+        "club": "Leeds United FC (ENG)",
+        "caps": 41,
+        "goals": 8,
+        "name_zh": "田中碧",
+        "club_zh": "利兹联"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Takefusa Kubo",
+        "club": "Real Sociedad (ESP)",
+        "caps": 50,
+        "goals": 7,
+        "name_zh": "久保建英",
+        "club_zh": "皇家社会"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Keisuke Goto",
+        "club": "Sint-Truiden VV (BEL)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "后藤启介",
+        "club_zh": "圣特雷登"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Ritsu Doan",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 70,
+        "goals": 11,
+        "name_zh": "堂安律",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Daizen Maeda",
+        "club": "Celtic FC (SCO)",
+        "caps": 31,
+        "goals": 6,
+        "name_zh": "前田大然",
+        "club_zh": "凯尔特人"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Keisuke Osako",
+        "club": "Sanfrecce Hiroshima (JPN)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "大迫敬介",
+        "club_zh": "广岛三箭"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Keito Nakamura",
+        "club": "Stade Reims (FRA)",
+        "caps": 30,
+        "goals": 12,
+        "name_zh": "中村敬斗",
+        "club_zh": "兰斯"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Junya Ito",
+        "club": "KRC Genk (BEL)",
+        "caps": 73,
+        "goals": 16,
+        "name_zh": "伊东纯也",
+        "club_zh": "亨克"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Daichi Kamada",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 53,
+        "goals": 14,
+        "name_zh": "镰田大地",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Tsuyoshi Watanabe",
+        "club": "Feyenoord Rotterdam (NED)",
+        "caps": 14,
+        "goals": 0,
+        "name_zh": "渡边刚",
+        "club_zh": "费耶诺德"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Yuito Suzuki",
+        "club": "SC Freiburg (GER)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "铃木唯人",
+        "club_zh": "弗赖堡"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Ayase Ueda",
+        "club": "Feyenoord Rotterdam (NED)",
+        "caps": 44,
+        "goals": 18,
+        "name_zh": "上田绮世",
+        "club_zh": "费耶诺德"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Koki Ogawa",
+        "club": "NEC Nijmegen (NED)",
+        "caps": 18,
+        "goals": 11,
+        "name_zh": "小川航基",
+        "club_zh": "奈梅亨"
+      },
+      {
+        "shirt_number": 20,
+        "position": "DF",
+        "name": "Ayumu Seko",
+        "club": "Le Havre AC (FRA)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "濑古步梦",
+        "club_zh": "勒阿弗尔"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Hiroki Ito",
+        "club": "FC Bayern München (GER)",
+        "caps": 29,
+        "goals": 1,
+        "name_zh": "伊藤洋辉",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Takehiro Tomiyasu",
+        "club": "AFC Ajax (NED)",
+        "caps": 46,
+        "goals": 1,
+        "name_zh": "富安健洋",
+        "club_zh": "阿贾克斯"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Tomoki Hayakawa",
+        "club": "Kashima Antlers (JPN)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "早川友基",
+        "club_zh": "鹿岛鹿角"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Kaishu Sano",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "佐野海舟",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Junnosuke Suzuki",
+        "club": "FC København (DEN)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "铃木淳之介",
+        "club_zh": "哥本哈根"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Kento Shiogai",
+        "club": "VfL Wolfsburg (GER)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "盐贝健人",
+        "club_zh": "沃尔夫斯堡"
+      }
+    ]
+  }
+}

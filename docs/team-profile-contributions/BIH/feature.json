@@ -1,0 +1,302 @@
+{
+  "BIH": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=6",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "波斯尼亚和黑塞哥维那的本届参赛阵容由 Sergej Barbarez 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Sergej Barbarez",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：波斯尼亚和黑塞哥维那",
+    "summary": "波黑队时隔12年重返世界杯，哲科等老将仍在阵中。",
+    "coach_name_zh": "谢尔盖·巴巴雷茨",
+    "coach_facts": "波黑教练，曾长期担任国家队队长，2024年起担任波黑国家队主教练。",
+    "coach_photo": "bih-coach",
+    "player_photos": {
+      "5": "bih-kolasinac",
+      "16": "bih-hadziahmetovic",
+      "11": "bih-dzeko"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2014年小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔12年"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：波黑国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：波黑国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B3%A2%E6%96%AF%E5%B0%BC%E4%BA%9A%E5%92%8C%E9%BB%91%E5%A1%9E%E5%93%A5%E7%BB%B4%E9%82%A3%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Nikola Vasilj",
+        "club": "FC St. Pauli (GER)",
+        "caps": 30,
+        "goals": 0,
+        "name_zh": "尼古拉·瓦西利",
+        "club_zh": "圣保利"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Nihad Mujakić",
+        "club": "Gaziantep FK (TUR)",
+        "caps": 12,
+        "goals": 1,
+        "name_zh": "尼哈德·穆亚基奇",
+        "club_zh": "加济安泰普"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Dennis Hadžikadunić",
+        "club": "UC Sampdoria (ITA)",
+        "caps": 33,
+        "goals": 0,
+        "name_zh": "丹尼斯·哈季卡杜尼奇",
+        "club_zh": "桑普多利亚"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Tarik Muharemović",
+        "club": "US Sassuolo (ITA)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "塔里克·穆哈雷莫维奇",
+        "club_zh": "萨索洛"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Sead Kolasinac",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 69,
+        "goals": 0,
+        "name_zh": "塞亚德·科拉希纳茨",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Benjamin Tahirovic",
+        "club": "Brøndby IF (DEN)",
+        "caps": 32,
+        "goals": 2,
+        "name_zh": "本杰明·塔希罗维奇",
+        "club_zh": "布隆德比"
+      },
+      {
+        "shirt_number": 7,
+        "position": "DF",
+        "name": "Amar Dedić",
+        "club": "SL Benfica (POR)",
+        "caps": 31,
+        "goals": 1,
+        "name_zh": "阿马尔·德迪奇",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Armin Gigović",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 22,
+        "goals": 1,
+        "name_zh": "阿尔明·吉戈维奇",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Samed Baždar",
+        "club": "Jagiellonia Białystok (POL)",
+        "caps": 14,
+        "goals": 1,
+        "name_zh": "萨梅德·巴日达尔",
+        "club_zh": "比亚韦斯托克雅盖隆"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Ermedin Demirović",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 44,
+        "goals": 4,
+        "name_zh": "埃尔梅丁·德米罗维奇",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Edin Dzeko",
+        "club": "FC Schalke 04 (GER)",
+        "caps": 151,
+        "goals": 73,
+        "name_zh": "埃丁·哲科",
+        "club_zh": "沙尔克04"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Mladen Jurkas",
+        "club": "FK Borac Banja Luka (BIH)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "姆拉登·尤尔卡斯",
+        "club_zh": "巴尼亚卢卡博拉茨"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Ivan Bašić",
+        "club": "FC Astana (KAZ)",
+        "caps": 20,
+        "goals": 0,
+        "name_zh": "伊万·巴希奇",
+        "club_zh": "阿斯塔纳"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Ivan Šunjić",
+        "club": "Pafos FC (CYP)",
+        "caps": 15,
+        "goals": 0,
+        "name_zh": "伊万·舒尼奇",
+        "club_zh": "帕福斯"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Amar Memić",
+        "club": "FC Viktoria Plzeň (CZE)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "阿马尔·梅米奇",
+        "club_zh": "比尔森胜利"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Amir Hadziahmetovic",
+        "club": "Hull City FC (ENG)",
+        "caps": 37,
+        "goals": 0,
+        "name_zh": "阿米尔·哈齐亚梅托维奇",
+        "club_zh": "赫尔城"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Dženis Burnić",
+        "club": "Karlsruher SC (GER)",
+        "caps": 22,
+        "goals": 0,
+        "name_zh": "泽尼斯·布尔尼奇",
+        "club_zh": "卡尔斯鲁厄"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Nikola Katić",
+        "club": "FC Schalke 04 (GER)",
+        "caps": 21,
+        "goals": 2,
+        "name_zh": "尼古拉·卡蒂奇",
+        "club_zh": "沙尔克04"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Kerim Alajbegović",
+        "club": "FC Red Bull Salzburg (AUT)",
+        "caps": 14,
+        "goals": 2,
+        "name_zh": "克里姆·阿拉伊贝戈维奇",
+        "club_zh": "萨尔茨堡红牛"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Esmir Bajraktarević",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 20,
+        "goals": 1,
+        "name_zh": "埃斯米尔·巴伊拉克塔雷维奇",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Stjepan Radeljić",
+        "club": "HNK Rijeka (CRO)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "斯捷潘·拉代利奇",
+        "club_zh": "里耶卡"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Martin Zlomislić",
+        "club": "HNK Rijeka (CRO)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "马丁·兹洛米斯利奇",
+        "club_zh": "里耶卡"
+      },
+      {
+        "shirt_number": 23,
+        "position": "FW",
+        "name": "Haris Tabaković",
+        "club": "Borussia Mönchengladbach (GER)",
+        "caps": 11,
+        "goals": 4,
+        "name_zh": "哈里斯·塔巴科维奇",
+        "club_zh": "门兴格拉德巴赫"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Arjan Malić",
+        "club": "SK Sturm Graz (AUT)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "阿尔扬·马利奇",
+        "club_zh": "格拉茨风暴"
+      },
+      {
+        "shirt_number": 25,
+        "position": "FW",
+        "name": "Jovo Lukić",
+        "club": "Universitatea Cluj (ROU)",
+        "caps": 5,
+        "goals": 1,
+        "name_zh": "乔沃·卢基奇",
+        "club_zh": "克卢日大学"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Ermin Mahmić",
+        "club": "FC Slovan Liberec (CZE)",
+        "caps": 5,
+        "goals": 2,
+        "name_zh": "埃尔明·马赫米奇",
+        "club_zh": "利贝雷茨斯洛万"
+      }
+    ]
+  }
+}
