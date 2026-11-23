@@ -1,8 +1,8 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "https://www.yiiframework.com/",
+    "name": "worldcup-journey/itdb2026",
+    "description": "WorldCup Journey, a Yii 2 Advanced application",
+    "keywords": ["yii2", "world-cup", "data-visualization"],
+    "homepage": "https://github.com/fengmian-coder/ITDB2026",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {

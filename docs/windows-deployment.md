@@ -2,6 +2,8 @@
 
 日期为 2026-11-11，由 B 协助 C/D 实现。适用于 Windows 11、PowerShell 5.1 或更新版本、PHP 8.2.x、Composer 2、正在运行的 MySQL 8.0.16+ 的 8.0 版本。
 
+当前项目采用 Yii2 Advanced 多应用结构。前台、后台和控制台分别使用 `frontend/config/main.php`、`backend/config/main.php` 和 `console/config/main.php`，共用 MySQL 配置。Windows 脚本仍启动一个本机地址，`web/index.php` 按已有路由加载对应应用。
+
 ## 启动
 
 在项目根目录运行。
@@ -32,7 +34,7 @@
 4. 运行 `php yii deploy/prepare --interactive=0`，创建缺少的项目数据库并按 C 的 `data/install.sql` 建立 15 表。
 5. 复用 MatchDataImportService 导入赛事、48 队及参赛关系、16 场馆、104 场比赛、8 篇已发布故事及事件标签。
    2026-11-12 起，随后增量检查参赛表的 profile_json 字段，并登记 48 队的本届简介、教练和三位代表球员。已有非空档案保留，字段及资料说明见 docs/team-profiles-2026.md；现有库也可单独运行 `php yii team-profile/prepare`，无需重建表。
-6. 复用 A 的 project/init 建立团队与成员。按清单中的 A 成员身份匹配并登记六份课程资料。
+6. 复用 A 的 project/init 建立团队与成员，按交付版本中已接入的课程附件清单匹配成员并登记资料。
 7. 空管理员表时通过 D 的 admin/create 创建 `wcj_admin`，随机密码在当前终端显示一次。已有管理员继续使用原账号。
 8. 以 web 为公开目录启动仅绑定 127.0.0.1 的 PHP 本地服务。
 
@@ -48,7 +50,7 @@
 
 业务导入采用事务。数据库 DDL 由 MySQL 逐表提交，依赖检查点恢复。课程文件校验和登记复用 A 的命令，资料有缺失或 SHA-256 不匹配时报告错误。
 
-团队或成员已被维护成多个候选时，脚本提示通过 `project/register-bundle <团队ID> <成员A的ID>` 指定归属，避免把个人资料登记给错误成员。
+团队或成员已被维护成多个候选时，脚本提示通过 `project/register-bundle <团队ID> <成员ID> <清单文件名>` 指定归属。团队和成员 ID 取自当前数据库。
 
 ## 验收
 

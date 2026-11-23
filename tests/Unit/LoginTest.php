@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\tests\Unit;
 
-use app\controllers\SiteController;
+use frontend\controllers\SiteController;
 use app\models\User;
 use Yii;
 use yii\base\Security;
@@ -29,7 +29,7 @@ final class LoginTest extends \Codeception\Test\Unit
 
         self::assertStringNotContainsString(
             'Logout (admin)',
-            $view->render('//layouts/main.php', ['content' => 'Hello World°']),
+            $view->render('@app/views/layouts/main.php', ['content' => 'Hello World°']),
             'Failed asserting that the logout link is not rendered for a wrong username.',
         );
     }

@@ -21,6 +21,8 @@ WorldCup Journey 是互联网数据库开发课程的团队项目。用户可以
 
 正式交付采用 **Windows 本地一键启动**。首次启动需要联网安装 Composer 依赖，并连接已运行的 MySQL 服务。
 
+macOS 用户可按课程部署文档从终端安装依赖、配置 MySQL、执行数据还原并启动网站。
+
 | 环境 | 要求 |
 | --- | --- |
 | Windows | Windows 11，PowerShell 5.1 或更新版本 |
@@ -67,15 +69,17 @@ Set-Location ITDB2026
 
 ## 技术架构与数据
 
-- **应用**　采用 Yii 2.0 Basic、PHP 8.2、Bootstrap 5 和 Apache ECharts。控制器处理请求，业务服务复用查询与统计逻辑，ActiveRecord 对接 MySQL。
+- **应用**　采用 Yii 2.0 Advanced 多应用结构、PHP 8.2、Bootstrap 5 和 Apache ECharts。前台、后台和控制台分别启动各自的 Yii 应用，共享数据库配置、数据模型和业务服务。
 - **数据库**　15 张业务表覆盖参赛关系、赛事与场馆、比赛、故事与标签、课程资料、管理员和留言。参赛关系表连接球队与赛事。比赛记录关联主客队和场馆，并为故事、事件和纪念卡提供数据。
 - **统计**　比赛时间以 UTC 保存，前台赛程与比赛日历按北京时间显示。进球统计优先使用 120 分钟累计比分，否则采用 90 分钟比分。点球大战单独记录。
-- **运行边界**　网站公开根目录为 `web/`。一键脚本启动的 PHP 内置服务用于本机运行和演示。数据库账号与 Cookie 密钥分别保存在 Git 忽略的 `config/db.local.php` 和 `config/params-local.php`。
+- **运行边界**　本机一键启动以 `web/` 为公开目录，并兼容原有前后台地址。数据库账号与 Cookie 密钥分别保存在 Git 忽略的 `config/db.local.php` 和 `config/params-local.php`。
 
 | 路径 | 用途 |
 | --- | --- |
-| `controllers/`、`models/`、`services/`、`views/` | 请求入口、数据模型、业务服务和页面模板 |
-| `web/` | Web 入口与公开静态资源 |
+| `frontend/`、`backend/` | 前台和后台各自的配置、控制器、视图及 Web 入口 |
+| `console/`、`common/` | 控制台配置与命令、共用的 Yii 配置及链接生成 |
+| `models/`、`services/`、`views/layouts/` | 共用数据模型、业务服务及页面布局 |
+| `web/` | 本机兼容入口与共用静态资源 |
 | `config/` | 应用配置与本地配置示例 |
 | `data/install.sql`、`data/import/` | 数据库表结构、赛事导入数据与来源记录 |
 | `data/team/`、`data/personal/` | 团队作业及个人作业 |
@@ -92,8 +96,21 @@ Set-Location ITDB2026
 
 ## 开发文档
 
+- [课程部署文档（Windows 与 macOS）](<docs/WorldCup Journey 开发小组_部署文档(2413275_2413272_2411539_2414029).md>)
 - [Windows 一键部署与故障排查](docs/windows-deployment.md)
 - [数据库 ER 图](docs/er-diagram.md)与[数据字典](docs/data-dictionary.md)
 - [赛事数据来源](docs/data-sources.md)与[导入说明](data/import/README.md)
 
-项目基于 Yii2 Basic 模板开发，模板许可见 [LICENSE.md](LICENSE.md)。
+### 独立 Web 入口
+
+前台和后台的独立入口分别为 `frontend/web/index.php` 和 `backend/web/index.php`。单独部署时，将两个站点的公开目录分别指向 `frontend/web/` 和 `backend/web/`，并在两边使用相同的环境配置：
+
+| 环境变量 | 配置值 |
+| --- | --- |
+| `WCJ_FRONTEND_ENTRY` | 前台入口完整 URL，包含 `/index.php` |
+| `WCJ_BACKEND_ENTRY` | 后台入口完整 URL，包含 `/index.php` |
+| `WCJ_ASSET_URL` | 共用静态资源的 URL 前缀，例如两边都将 `/shared` 映射到项目的 `web/` 静态文件。地图等资源也从该前缀加载 |
+
+日常课程演示直接采用前述一键启动流程，前后台和静态资源均通过终端显示的地址访问。
+
+Yii2 模板许可见 [LICENSE.md](LICENSE.md)。

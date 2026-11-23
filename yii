@@ -3,7 +3,7 @@
 /**
  * Yii console bootstrap file.
  * WorldCup Journey - 控制台入口，按运行环境控制调试。
- * 模块：公共骨架；负责人：B；依赖：Composer、config/console.php
+ * 模块：公共骨架；负责人：B；依赖：Composer、console/config/main.php
  * 最近修改：2026-11-03
  *
  * @link https://www.yiiframework.com/
@@ -11,13 +11,8 @@
  * @license https://www.yiiframework.com/license/
  */
 
-defined('YII_ENV') or define('YII_ENV', getenv('YII_ENV') ?: 'dev');
-defined('YII_DEBUG') or define('YII_DEBUG', YII_ENV === 'dev');
-
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
-
-$config = require __DIR__ . '/config/console.php';
+require __DIR__ . '/common/config/bootstrap.php';
+$config = require __DIR__ . '/console/config/main.php';
 
 $application = new yii\console\Application($config);
 $exitCode = $application->run();
