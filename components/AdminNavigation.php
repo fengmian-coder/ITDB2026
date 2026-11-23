@@ -28,7 +28,7 @@ class AdminNavigation
                 ['id' => 'admin-story', 'label' => '故事与事件', 'description' => '整理精选故事、比赛事件和共享标签'],
             ],
         ];
-        if (class_exists('app\\controllers\\AdminTeamController')) {
+        if (class_exists(\backend\controllers\AdminTeamController::class)) {
             $groups['赛事资料'][] = ['id' => 'admin-team', 'label' => '球队管理', 'description' => '维护国家队资料与参赛信息'];
         }
         return $groups;

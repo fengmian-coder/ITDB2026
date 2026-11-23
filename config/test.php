@@ -7,12 +7,16 @@ $db = require __DIR__ . '/test_db.php';
  * Application configuration shared by all test types
  */
 return [
-    'id' => 'basic-tests',
+    'id' => 'worldcup-journey-frontend-tests',
     'basePath' => dirname(__DIR__),
+    'controllerNamespace' => 'frontend\controllers',
+    'viewPath' => dirname(__DIR__) . '/frontend/views',
+    'layoutPath' => dirname(__DIR__) . '/views/layouts',
     'bootstrap' => [
         \app\tests\Support\MailerBootstrap::class,
     ],
     'aliases' => [
+        '@frontend' => dirname(__DIR__) . '/frontend',
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
