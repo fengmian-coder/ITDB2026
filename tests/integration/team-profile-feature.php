@@ -79,12 +79,12 @@ foreach ($expectedCounts as $code => $expected) {
     $check($teamFeature !== null && count($teamFeature['roster']) === 26 && $teamFeature['counts'] === $expected, 'FIFA roster counts ' . $code);
     $check(array_column($teamFeature['roster'], 'shirt_number') === range(1,26), 'unique ordered shirt numbers ' . $code);
     $check(count($teamFeature['highlighted']) === 3, 'three representative players ' . $code);
-    $check(($teamFeature['coach_photo']['name'] ?? null) === (in_array($code, ['HAI', 'KSA'], true) ? null : $teamProfile['coach_name']), 'coach photo identity ' . $code);
+    $check(($teamFeature['coach_photo']['name'] ?? null) === $teamProfile['coach_name'], 'coach photo identity ' . $code);
     foreach ($teamFeature['roster'] as $player) {
         $check(!empty($player['name_zh']) && !empty($player['club_zh']), 'bilingual roster labels ' . $code);
     }
     foreach ($teamFeature['highlighted'] as $player) {
-        $check(($player['photo']['name'] ?? null) === ($code === 'HAI' && $player['name'] === 'Ricardo Ade' ? null : $player['name']), 'representative photo identity ' . $code);
+        $check(($player['photo']['name'] ?? null) === $player['name'], 'representative photo identity ' . $code);
     }
     $changed = $teamProfile; $changed['coach_name'] = 'Different coach';
     $check($service->get($code, $changed)['coach_photo'] === null, 'stale coach photo removed ' . $code);
@@ -121,6 +121,30 @@ $coursePhotos = [
         'path' => 'images/team-profiles/rsa-mokoena.jpg',
         'sha256' => 'c2b887b5d502e9477366c725e26ab4ab0eed8699bea9c2eb65f19efe19a96a72',
         'acquisition' => 'source_download',
+    ],
+    'ksa-donis' => [
+        'name' => 'Georgios Donis',
+        'source_host' => 'www.the-afc.com',
+        'path' => 'images/team-profiles/ksa-donis.webp',
+        'sha256' => '1cfede72211d8a154ad5bcc5db292154aa2228380136976b7ae83e006a388775',
+        'acquisition' => 'source_download',
+        'accessed' => '2026-11-23',
+    ],
+    'hai-migne' => [
+        'name' => 'Sebastien Migne',
+        'source_host' => 'lenouvelliste.com',
+        'path' => 'images/team-profiles/hai-migne.jpg',
+        'sha256' => '078e8997de6654c3584081a7534eba6213522d19b2992dd984e6cc5dcc4d210b',
+        'acquisition' => 'source_download',
+        'accessed' => '2026-11-23',
+    ],
+    'hai-ade' => [
+        'name' => 'Ricardo Ade',
+        'source_host' => 'ricardoade.com',
+        'path' => 'images/team-profiles/hai-ade.jpg',
+        'sha256' => 'ecdf12466dc7a47046003cb90468004172db49d48bcb1f4aeb1aba6e2e7ad403',
+        'acquisition' => 'source_download',
+        'accessed' => '2026-11-23',
     ],
 ];
 $check(array_keys(array_filter($credits, static fn(array $p): bool => ($p['rights_status'] ?? '') === 'unverified')) === array_keys($coursePhotos), 'all course-preview photographs have an explicit provenance record');
@@ -166,16 +190,17 @@ foreach (NationalTeam::find()->where(['fifa_code'=>array_keys($bundle['teams'])]
     $check(str_contains($html, '本届赛事表现'), 'existing statistics ' . $team->fifa_code);
     $check(str_contains($html, 'team-profile-feature') === isset($expectedCounts[$team->fifa_code]), 'enhancement scope ' . $team->fifa_code);
     if (isset($expectedCounts[$team->fifa_code])) {
-        $check(substr_count($html, 'class="team-roster-number"') === 26 && substr_count($html, 'class="team-person-photo') === (['HAI' => 2, 'KSA' => 3][$team->fifa_code] ?? 4), 'complete roster and available local photos ' . $team->fifa_code);
+        $check(substr_count($html, 'class="team-roster-number"') === 26 && substr_count($html, 'class="team-person-photo') === 4, 'complete roster and four local photos ' . $team->fifa_code);
         $check(!str_contains($html, '外部資料照') && !str_contains($html, '外部资料照') && !str_contains($html, '外部照片'), 'person cards use local photo assets ' . $team->fifa_code);
         $check(substr_count($html, 'class="team-roster-original"') === 52 && str_contains($html, '完整参赛名单（26人）'), 'bilingual names and compact roster header ' . $team->fifa_code);
     }
     if ($team->fifa_code === 'HAI') {
         $check(preg_match('~<figure[^>]*team-player-photo-framed[^>]*>\s*<img[^>]*src="[^"]*/hai-danley\.jpg"~', $html) === 1,
             'Danley portrait uses a wider frame without clipping the face');
+        $check(str_contains($html, '/images/team-profiles/hai-migne.jpg') && str_contains($html, '/images/team-profiles/hai-ade.jpg'), 'Haiti coach and defender photos served locally');
     }
     if ($team->fifa_code === 'KSA') {
-        $check(str_contains($html, '2026 年 4 月出任'), 'Saudi Arabia coach appointment caption');
+        $check(str_contains($html, '/images/team-profiles/ksa-donis.webp') && str_contains($html, '2026 年 4 月出任'), 'Saudi Arabia coach portrait and appointment caption');
     }
     if ($team->fifa_code === 'NZL') {
         $check(str_contains($html, '/images/team-profiles/nzl-bazeley-2026.jpg'), 'New Zealand coach uses the new local photo');
