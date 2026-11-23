@@ -1,0 +1,302 @@
+{
+  "NZL": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=31",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "新西兰的本届参赛阵容由 Darren Bazeley 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Darren Bazeley",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：新西兰",
+    "summary": "新西兰队时隔16年重返世界杯，阵容以澳超和北美联赛球员为主。",
+    "coach_name_zh": "达伦·巴泽利",
+    "coach_facts": "英格兰出生，曾执教新西兰U20国家队，2023年起担任新西兰国家队主教练。",
+    "coach_photo": "nzl-coach",
+    "player_photos": {
+      "5": "nzl-boxall",
+      "11": "nzl-just",
+      "9": "nzl-wood"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2010年小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔16年"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：新西兰国家足球队",
+      "url": "https://en.wikipedia.org/wiki/New_Zealand_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：新西兰国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%96%B0%E8%A5%BF%E5%85%B0%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Maxime Teremoana Crocombe",
+        "club": "Millwall FC (ENG)",
+        "caps": 27,
+        "goals": 0,
+        "name_zh": "马克斯·克罗科姆",
+        "club_zh": "米尔沃尔"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Timothy John Payne",
+        "club": "Wellington Phoenix FC (NZL)",
+        "caps": 55,
+        "goals": 3,
+        "name_zh": "蒂姆·佩恩",
+        "club_zh": "惠灵顿凤凰"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Francis De Vries",
+        "club": "Auckland FC (NZL)",
+        "caps": 22,
+        "goals": 1,
+        "name_zh": "弗朗西斯·德弗里斯",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Tyler Grant Bindon",
+        "club": "Sheffield United FC (ENG)",
+        "caps": 28,
+        "goals": 2,
+        "name_zh": "泰勒·宾顿",
+        "club_zh": "谢菲尔德联"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Michael Boxall",
+        "club": "Minnesota United FC (USA)",
+        "caps": 67,
+        "goals": 1,
+        "name_zh": "迈克·伯克萨尔",
+        "club_zh": "明尼苏达联"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Joe Zen Robert Bell",
+        "club": "Viking Stavanger (NOR)",
+        "caps": 35,
+        "goals": 1,
+        "name_zh": "乔·贝尔",
+        "club_zh": "维京"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Logan Tipene Rogerson",
+        "club": "Auckland FC (NZL)",
+        "caps": 18,
+        "goals": 2,
+        "name_zh": "洛根·罗杰森",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Marko Seufatu Nikola Stamenic",
+        "club": "Swansea City AFC (WAL)",
+        "caps": 43,
+        "goals": 3,
+        "name_zh": "马尔科·斯塔梅尼克",
+        "club_zh": "斯旺西"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Chris Wood",
+        "club": "Nottingham Forest FC (ENG)",
+        "caps": 93,
+        "goals": 45,
+        "name_zh": "克里斯·伍德",
+        "club_zh": "诺丁汉森林"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Sarpreet Singh",
+        "club": "Wellington Phoenix FC (NZL)",
+        "caps": 31,
+        "goals": 3,
+        "name_zh": "萨普里特·辛格",
+        "club_zh": "惠灵顿凤凰"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Elijah Just",
+        "club": "Motherwell FC (SCO)",
+        "caps": 47,
+        "goals": 12,
+        "name_zh": "以利亚·贾斯特",
+        "club_zh": "马瑟韦尔"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Alexander Noah Paulsen",
+        "club": "Lechia Gdańsk (POL)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "亚历克斯·保尔森",
+        "club_zh": "格但斯克莱希亚"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Liberato Gianpaolo Cacace",
+        "club": "Wrexham AFC (WAL)",
+        "caps": 40,
+        "goals": 1,
+        "name_zh": "利贝拉托·凯卡斯",
+        "club_zh": "雷克瑟姆"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Alex Arthur Rufer",
+        "club": "Wellington Phoenix FC (NZL)",
+        "caps": 26,
+        "goals": 0,
+        "name_zh": "亚历克斯·鲁费尔",
+        "club_zh": "惠灵顿凤凰"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Nando Zen Pijnaker",
+        "club": "Auckland FC (NZL)",
+        "caps": 26,
+        "goals": 0,
+        "name_zh": "南多·派纳克",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Finn Surman",
+        "club": "Portland Timbers (USA)",
+        "caps": 22,
+        "goals": 3,
+        "name_zh": "芬恩·苏尔曼",
+        "club_zh": "波特兰伐木者"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Kosta Barbarouses",
+        "club": "WS Wanderers FC (AUS)",
+        "caps": 76,
+        "goals": 10,
+        "name_zh": "哥斯达·巴巴路西斯",
+        "club_zh": "西悉尼流浪者"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Benjamin Peter Waine",
+        "club": "Port Vale FC (ENG)",
+        "caps": 31,
+        "goals": 9,
+        "name_zh": "本·韦恩",
+        "club_zh": "维尔港"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Benjamin Craig Old",
+        "club": "AS Saint-Etienne (FRA)",
+        "caps": 27,
+        "goals": 2,
+        "name_zh": "本·奥尔德",
+        "club_zh": "圣埃蒂安"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Callum William Mccowatt",
+        "club": "Silkeborg IF (DEN)",
+        "caps": 36,
+        "goals": 5,
+        "name_zh": "卡勒姆·麦考瓦特",
+        "club_zh": "锡尔克堡"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "name": "Jesse Carmichael Randall",
+        "club": "Auckland FC (NZL)",
+        "caps": 14,
+        "goals": 2,
+        "name_zh": "杰西·兰德尔",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Michael Cornelis Woud",
+        "club": "Auckland FC (NZL)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "米高·伍德",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Ryan Jared Thomas",
+        "club": "PEC Zwolle (NED)",
+        "caps": 28,
+        "goals": 3,
+        "name_zh": "瑞恩·托马斯",
+        "club_zh": "兹沃勒"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Callan Rennie Elliot",
+        "club": "Auckland FC (NZL)",
+        "caps": 12,
+        "goals": 0,
+        "name_zh": "卡伦·埃利奥特",
+        "club_zh": "奥克兰FC"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Lachlan Ryan Bayliss",
+        "club": "Newcastle United Jets FC (AUS)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "拉克兰·贝利斯",
+        "club_zh": "纽卡斯尔喷气机"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Thomas Jefferson Smith",
+        "club": "Braintree Town FC (ENG)",
+        "caps": 57,
+        "goals": 2,
+        "name_zh": "汤米·史密斯",
+        "club_zh": "布伦特里镇"
+      }
+    ]
+  }
+}

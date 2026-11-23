@@ -1,0 +1,301 @@
+{
+  "HAI": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=22",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "海地的本届参赛阵容由 Sebastien Migne 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Sebastien Migne",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+    "summary": "海地队时隔52年重返世界杯，阵容以海外联赛球员为主。",
+    "coach_name_zh": "塞巴斯蒂安·米涅",
+    "coach_facts": "法国教练，曾执教肯尼亚、赤道几内亚等国家队，2024年起担任海地国家队主教练。",
+    "coach_photo": null,
+    "player_photos": {
+      "17": "hai-danley",
+      "9": "hai-nazon"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1974年小组赛"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年未参赛"
+      },
+      {
+        "label": "重返世界杯",
+        "value": "时隔52年"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：海地国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Haiti_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：海地国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%9C%B0%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Johny Placide",
+        "club": "SC Bastia (FRA)",
+        "caps": 86,
+        "goals": 0,
+        "name_zh": "约翰尼·普拉西德",
+        "club_zh": "巴斯蒂亚"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Carlens Jean Fedlaire Ruby Arcus",
+        "club": "Angers SCO (FRA)",
+        "caps": 59,
+        "goals": 1,
+        "name_zh": "卡伦斯·阿尔库斯",
+        "club_zh": "昂热"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Keeto Thermoncy",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "基托·泰尔蒙西",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Ricardo Ade",
+        "club": "LDU Quito (ECU)",
+        "caps": 64,
+        "goals": 2,
+        "name_zh": "里卡多·阿德",
+        "club_zh": "基多大学体育"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Hannes Piterson D Delcroix",
+        "club": "FC Lugano (SUI)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "汉内斯·德尔克鲁瓦",
+        "club_zh": "卢加诺"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Carl Fred Sainte",
+        "club": "El Paso Locomotive FC (USA)",
+        "caps": 26,
+        "goals": 0,
+        "name_zh": "卡尔·弗雷德·圣泰",
+        "club_zh": "埃尔帕索机车"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Derrick Burckley Etienne Jr",
+        "club": "Toronto FC (CAN)",
+        "caps": 51,
+        "goals": 8,
+        "name_zh": "德里克·埃蒂安",
+        "club_zh": "多伦多FC"
+      },
+      {
+        "shirt_number": 8,
+        "position": "DF",
+        "name": "Martin Yves Roberns Didier Experience",
+        "club": "AS Nancy (FRA)",
+        "caps": 24,
+        "goals": 0,
+        "name_zh": "马丁·埃克斯佩里恩斯",
+        "club_zh": "南锡"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Duckens Nazon",
+        "club": "Esteghlal Tehran FC (IRN)",
+        "caps": 84,
+        "goals": 44,
+        "name_zh": "杜肯斯·纳宗",
+        "club_zh": "德黑兰独立"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Jean Ricner Bellegarde",
+        "club": "Wolverhampton Wanderers FC (ENG)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "让-里克纳·贝勒加德",
+        "club_zh": "狼队"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Don Deedson Louicius",
+        "club": "FC Dallas (USA)",
+        "caps": 35,
+        "goals": 10,
+        "name_zh": "迪德森·卢伊修斯",
+        "club_zh": "达拉斯"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Alexandre Jr Pierre",
+        "club": "FC Sochaux-Montbéliard (FRA)",
+        "caps": 17,
+        "goals": 0,
+        "name_zh": "亚历山大·皮埃尔",
+        "club_zh": "索肖-蒙贝利亚尔"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Markhus Lacroix",
+        "club": "Colorado Springs Switchbacks FC (USA)",
+        "caps": 16,
+        "goals": 3,
+        "name_zh": "杜克·拉克鲁瓦",
+        "club_zh": "科罗拉多斯普林斯换挡者"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Garven-Michee Metusala",
+        "club": "Colorado Springs Switchbacks FC (USA)",
+        "caps": 15,
+        "goals": 0,
+        "name_zh": "加文·梅图萨拉",
+        "club_zh": "科罗拉多斯普林斯换挡者"
+      },
+      {
+        "shirt_number": 15,
+        "position": "FW",
+        "name": "Ruben Fritzner Providence",
+        "club": "Almere City FC (NED)",
+        "caps": 18,
+        "goals": 3,
+        "name_zh": "鲁本·普罗维登斯",
+        "club_zh": "阿尔梅勒城"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "name": "Lenny Alvin Pico Joseph",
+        "club": "Ferencvárosi TC (HUN)",
+        "caps": 5,
+        "goals": 1,
+        "name_zh": "伦尼·约瑟夫",
+        "club_zh": "费伦茨瓦罗斯"
+      },
+      {
+        "shirt_number": 17,
+        "position": "MF",
+        "name": "Danley Jean Jacques",
+        "club": "Philadelphia Union (USA)",
+        "caps": 34,
+        "goals": 6,
+        "name_zh": "丹利·让·雅克",
+        "club_zh": "费城联合"
+      },
+      {
+        "shirt_number": 18,
+        "position": "FW",
+        "name": "Wilson Isidor",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 7,
+        "goals": 3,
+        "name_zh": "威尔逊·伊西多尔",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Yassin Enzo Fortune",
+        "club": "FC Vizela (POR)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "亚辛·福琼",
+        "club_zh": "维泽拉"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Frantzdy Pierrot",
+        "club": "Çaykur Rizespor (TUR)",
+        "caps": 56,
+        "goals": 34,
+        "name_zh": "弗朗茨迪·皮埃罗",
+        "club_zh": "里泽体育"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "name": "Josue Jeremie Casimir",
+        "club": "AJ Auxerre (FRA)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "若苏埃·卡西米尔",
+        "club_zh": "欧塞尔"
+      },
+      {
+        "shirt_number": 22,
+        "position": "DF",
+        "name": "Jean-Kévin Duverne",
+        "club": "KAA Gent (BEL)",
+        "caps": 19,
+        "goals": 1,
+        "name_zh": "让-凯文·迪韦尔内",
+        "club_zh": "根特"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Josue Duverger",
+        "club": "FC Cosmos Koblenz (GER)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "若苏埃·迪韦尔热",
+        "club_zh": "科布伦茨宇宙"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Wilguens Raphael Polynice Paugain",
+        "club": "SV Zulte Waregem (BEL)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "威尔盖恩斯·帕凯恩",
+        "club_zh": "祖尔特瓦雷赫姆"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Dominique Celidor Simon",
+        "club": "FC Tatran Prešov (SVK)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "多米尼克·西蒙",
+        "club_zh": "普雷绍夫塔特兰"
+      },
+      {
+        "shirt_number": 26,
+        "position": "MF",
+        "name": "Olivier Woodensky Pierre",
+        "club": "Violette AC (HAI)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "伍登斯基·皮埃尔",
+        "club_zh": "紫罗兰"
+      }
+    ]
+  }
+}

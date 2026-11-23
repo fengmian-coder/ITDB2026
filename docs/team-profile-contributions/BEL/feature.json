@@ -1,0 +1,302 @@
+{
+  "BEL": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=5",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "比利时的本届参赛阵容由 Rudi Garcia 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Rudi Garcia",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+    "summary": "比利时队以德布劳内、卢卡库等老将为核心，继续冲击大赛成绩。",
+    "coach_name_zh": "鲁迪·加西亚",
+    "coach_facts": "法国籍教练，曾执教里尔、罗马、那不勒斯等俱乐部，2025年起担任比利时国家队主教练。",
+    "coach_photo": "bel-coach",
+    "player_photos": {
+      "15": "bel-meunier",
+      "6": "bel-witsel",
+      "9": "bel-lukaku"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2018年季军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年小组赛"
+      },
+      {
+        "label": "世界杯参赛",
+        "value": "第15次"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：比利时国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Belgium_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：比利时国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%AF%94%E5%88%A9%E6%97%B6%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Thibaut Nicolas M Courtois",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 115,
+        "goals": 0,
+        "name_zh": "蒂博·库尔图瓦",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Zeno Koen Debast",
+        "club": "Sporting CP (POR)",
+        "caps": 26,
+        "goals": 1,
+        "name_zh": "泽诺·德巴斯特",
+        "club_zh": "葡萄牙体育"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Arthur Nicolas R Theate",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 36,
+        "goals": 1,
+        "name_zh": "阿蒂尔·泰亚特",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Brandon Erik Mechele",
+        "club": "Club Brugge (BEL)",
+        "caps": 15,
+        "goals": 1,
+        "name_zh": "布兰登·梅切莱",
+        "club_zh": "布鲁日"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Maxim Peter M De Cuyper",
+        "club": "Brighton & Hove Albion FC (ENG)",
+        "caps": 25,
+        "goals": 4,
+        "name_zh": "马克西姆·德克伊珀",
+        "club_zh": "布莱顿"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Axel Witsel",
+        "club": "Girona FC (ESP)",
+        "caps": 140,
+        "goals": 12,
+        "name_zh": "阿克塞尔·维特塞尔",
+        "club_zh": "赫罗纳"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Kevin De Bruyne",
+        "club": "SSC Napoli (ITA)",
+        "caps": 124,
+        "goals": 38,
+        "name_zh": "凯文·德布劳内",
+        "club_zh": "那不勒斯"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Youri Marion A Tielemans",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 90,
+        "goals": 15,
+        "name_zh": "尤里·蒂勒曼斯",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Romelu Lukaku",
+        "club": "SSC Napoli (ITA)",
+        "caps": 132,
+        "goals": 93,
+        "name_zh": "罗梅卢·卢卡库",
+        "club_zh": "那不勒斯"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Leandro Trossard",
+        "club": "Arsenal FC (ENG)",
+        "caps": 57,
+        "goals": 14,
+        "name_zh": "莱安德罗·特罗萨德",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Jeremy Baffour Doku",
+        "club": "Manchester City FC (ENG)",
+        "caps": 48,
+        "goals": 7,
+        "name_zh": "杰里米·多库",
+        "club_zh": "曼城"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Senne Lammens",
+        "club": "Manchester United FC (ENG)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "森纳·拉门斯",
+        "club_zh": "曼联"
+      },
+      {
+        "shirt_number": 13,
+        "position": "GK",
+        "name": "Mike Louis Penders",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "迈克·彭德斯",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 14,
+        "position": "FW",
+        "name": "Dodi Lukebakio Ngandoli",
+        "club": "SL Benfica (POR)",
+        "caps": 33,
+        "goals": 6,
+        "name_zh": "多迪·卢克巴基奥",
+        "club_zh": "本菲卡"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Thomas Meunier",
+        "club": "Lille OSC (FRA)",
+        "caps": 83,
+        "goals": 10,
+        "name_zh": "托马斯·默尼耶",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Koni De Winter",
+        "club": "AC Milan (ITA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "科尼·德温特",
+        "club_zh": "AC米兰"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Charles Marc S De Ketelaere",
+        "club": "Atalanta Bergamo (ITA)",
+        "caps": 35,
+        "goals": 9,
+        "name_zh": "夏尔·德凯特拉雷",
+        "club_zh": "亚特兰大"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Joaquin Ronny Seys",
+        "club": "Club Brugge (BEL)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "华金·塞斯",
+        "club_zh": "布鲁日"
+      },
+      {
+        "shirt_number": 19,
+        "position": "MF",
+        "name": "Diego Manuel J Da Silva Moreira",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "迭戈·莫雷拉",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Hans Vanaken",
+        "club": "Club Brugge (BEL)",
+        "caps": 40,
+        "goals": 8,
+        "name_zh": "汉斯·范阿肯",
+        "club_zh": "布鲁日"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Timothy Castagne",
+        "club": "Fulham FC (ENG)",
+        "caps": 69,
+        "goals": 2,
+        "name_zh": "蒂莫西·卡斯塔涅",
+        "club_zh": "富勒姆"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Alexis Jesse M Saelemaekers",
+        "club": "AC Milan (ITA)",
+        "caps": 28,
+        "goals": 3,
+        "name_zh": "亚历克西斯·萨勒马克尔斯",
+        "club_zh": "AC米兰"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Nicolas Thierry Y Raskin",
+        "club": "Rangers FC (SCO)",
+        "caps": 19,
+        "goals": 2,
+        "name_zh": "尼古拉斯·拉斯金",
+        "club_zh": "格拉斯哥流浪者"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Amadou Ba Z Mvom Onana",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 33,
+        "goals": 1,
+        "name_zh": "阿马杜·奥纳纳",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Nathan Ngoy",
+        "club": "Lille OSC (FRA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "内森·恩戈伊",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Matias Fernandez-Pardo",
+        "club": "Lille OSC (FRA)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "马蒂亚斯·费尔南德斯-帕尔多",
+        "club_zh": "里尔"
+      }
+    ]
+  }
+}

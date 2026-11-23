@@ -1,0 +1,302 @@
+{
+  "AUS": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=3",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "澳大利亚的本届参赛阵容由 Tony Popovic 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、5名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Tony Popovic",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：澳大利亚",
+    "summary": "澳大利亚队连续第六次参加世界杯，阵容以澳超和欧洲联赛球员为主。",
+    "coach_name_zh": "托尼·波波维奇",
+    "coach_facts": "澳大利亚教练，曾率西悉尼流浪者夺得2014年亚冠冠军，2024年起执教澳大利亚国家队。",
+    "coach_photo": "aus-coach",
+    "player_photos": {
+      "16": "aus-behich",
+      "22": "aus-irvine",
+      "7": "aus-leckie"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2006、2022年16强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年16强"
+      },
+      {
+        "label": "世界杯参赛",
+        "value": "第7次"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：澳大利亚国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Australia_national_soccer_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：澳大利亚国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Mathew David Ryan",
+        "club": "Levante UD (ESP)",
+        "caps": 105,
+        "goals": 0,
+        "name_zh": "马修·瑞安",
+        "club_zh": "莱万特"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Milos Degenek",
+        "club": "APOEL FC (CYP)",
+        "caps": 57,
+        "goals": 1,
+        "name_zh": "米洛什·德格内克",
+        "club_zh": "希腊人竞技"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Alessandro Circati",
+        "club": "Parma (ITA)",
+        "caps": 17,
+        "goals": 1,
+        "name_zh": "亚历山德罗·查蒂",
+        "club_zh": "帕尔马"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Jacob Michael Italiano",
+        "club": "Grazer AK (AUT)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "雅各布·意大利诺",
+        "club_zh": "格拉茨AK"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Jordan Jacob Bos",
+        "club": "Feyenoord Rotterdam (NED)",
+        "caps": 31,
+        "goals": 4,
+        "name_zh": "乔丹·博斯",
+        "club_zh": "费耶诺德"
+      },
+      {
+        "shirt_number": 6,
+        "position": "DF",
+        "name": "Jason Kato Geria",
+        "club": "Albirex Niigata (JPN)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "贾森·杰里亚",
+        "club_zh": "新潟天鹅"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Mathew Leckie",
+        "club": "Melbourne City FC (AUS)",
+        "caps": 82,
+        "goals": 14,
+        "name_zh": "马修·莱基",
+        "club_zh": "墨尔本城"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Connor Isaac Metcalfe",
+        "club": "FC St. Pauli (GER)",
+        "caps": 40,
+        "goals": 2,
+        "name_zh": "康纳·梅特卡夫",
+        "club_zh": "圣保利"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Mohamed A Toure",
+        "club": "Norwich City FC (ENG)",
+        "caps": 13,
+        "goals": 2,
+        "name_zh": "穆罕默德·图雷",
+        "club_zh": "诺维奇"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Ajdin Hrustic",
+        "club": "SC Heracles Almelo (NED)",
+        "caps": 39,
+        "goals": 3,
+        "name_zh": "艾迪尼·赫鲁斯蒂奇",
+        "club_zh": "赫拉克勒斯阿尔梅洛"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Awer Bul Mabil",
+        "club": "CD Castellón (ESP)",
+        "caps": 39,
+        "goals": 10,
+        "name_zh": "阿维·玛比",
+        "club_zh": "卡斯特利翁"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Paul David Izzo",
+        "club": "Randers FC (DEN)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "保罗·伊佐",
+        "club_zh": "兰讷斯"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Aiden Connor O'Neill",
+        "club": "New York City FC (USA)",
+        "caps": 35,
+        "goals": 0,
+        "name_zh": "埃登·奥尼尔",
+        "club_zh": "纽约城"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Cameron Peter Devlin",
+        "club": "Heart Of Midlothian FC (SCO)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "卡梅隆·德夫林",
+        "club_zh": "哈茨"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Kai Clifton Trewin",
+        "club": "New York City FC (USA)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "凯·特里温",
+        "club_zh": "纽约城"
+      },
+      {
+        "shirt_number": 16,
+        "position": "DF",
+        "name": "Aziz Behich",
+        "club": "Melbourne City FC (AUS)",
+        "caps": 87,
+        "goals": 3,
+        "name_zh": "阿齐兹·贝希奇",
+        "club_zh": "墨尔本城"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Nestory Irankunda",
+        "club": "Watford FC (ENG)",
+        "caps": 19,
+        "goals": 6,
+        "name_zh": "内斯托里·伊兰昆达",
+        "club_zh": "沃特福德"
+      },
+      {
+        "shirt_number": 18,
+        "position": "GK",
+        "name": "Patrick Thomas Beach",
+        "club": "Melbourne City FC (AUS)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "帕特里克·比奇",
+        "club_zh": "墨尔本城"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Harry James Souttar",
+        "club": "Leicester City FC (ENG)",
+        "caps": 42,
+        "goals": 11,
+        "name_zh": "哈利·苏达亚",
+        "club_zh": "莱斯特城"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Cristian Volpato",
+        "club": "US Sassuolo (ITA)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "克里斯蒂安·沃尔帕托",
+        "club_zh": "萨索洛"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Cameron Robert Burgess",
+        "club": "Swansea City AFC (WAL)",
+        "caps": 29,
+        "goals": 0,
+        "name_zh": "卡梅隆·布格斯",
+        "club_zh": "斯旺西"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Jackson Irvine",
+        "club": "FC St. Pauli (GER)",
+        "caps": 86,
+        "goals": 14,
+        "name_zh": "杰克逊·欧文",
+        "club_zh": "圣保利"
+      },
+      {
+        "shirt_number": 23,
+        "position": "FW",
+        "name": "Nishan Matthew Velupillay",
+        "club": "Melbourne Victory FC (AUS)",
+        "caps": 9,
+        "goals": 3,
+        "name_zh": "尼尚·韦卢皮莱",
+        "club_zh": "墨尔本胜利"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Paul Michael Junior Okon-Engstler",
+        "club": "Sydney FC (AUS)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "保罗·奥康-恩斯特勒",
+        "club_zh": "悉尼FC"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Lucas Herrington",
+        "club": "Colorado Rapids (USA)",
+        "caps": 6,
+        "goals": 0,
+        "name_zh": "卢卡斯·赫林顿",
+        "club_zh": "科罗拉多急流"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Tete Owen Yengi",
+        "club": "FC Machida Zelvia (JPN)",
+        "caps": 3,
+        "goals": 1,
+        "name_zh": "泰特·延吉",
+        "club_zh": "町田泽维亚"
+      }
+    ]
+  }
+}
