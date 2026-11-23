@@ -1,0 +1,302 @@
+{
+  "SUI": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=43",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "瑞士的本届参赛阵容由 Murat Yakin 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Murat Yakin",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：瑞士",
+    "summary": "瑞士队连续第六次参加世界杯，扎卡、阿坎吉等旅欧球员坐镇。",
+    "coach_name_zh": "穆拉特·雅金",
+    "coach_facts": "瑞士教练，2021年起执教瑞士国家队，率队参加2022年世界杯并进入16强。",
+    "coach_photo": "sui-coach",
+    "player_photos": {
+      "13": "sui-rodriguez",
+      "10": "sui-xhaka",
+      "7": "sui-embolo"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1954年八强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年16强"
+      },
+      {
+        "label": "世界杯参赛",
+        "value": "第13次"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：瑞士国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Switzerland_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：瑞士国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E7%91%9E%E5%A3%AB%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Gregor Kobel",
+        "club": "Borussia Dortmund (GER)",
+        "caps": 27,
+        "goals": 0,
+        "name_zh": "格雷戈尔·科贝尔",
+        "club_zh": "多特蒙德"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Miro Max Maria Muheim",
+        "club": "Hamburger SV (GER)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "米罗·穆海姆",
+        "club_zh": "汉堡"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Silvan Dominic Widmer",
+        "club": "1. FSV Mainz 05 (GER)",
+        "caps": 65,
+        "goals": 5,
+        "name_zh": "西尔万·威德默",
+        "club_zh": "美因茨"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Nico Elvedi",
+        "club": "Borussia Mönchengladbach (GER)",
+        "caps": 73,
+        "goals": 3,
+        "name_zh": "尼科·埃尔韦迪",
+        "club_zh": "门兴格拉德巴赫"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Manuel Obafemi Akanji",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 87,
+        "goals": 4,
+        "name_zh": "曼努埃尔·阿坎吉",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Denis Lemi Zakaria Lako Lado",
+        "club": "AS Monaco (FRA)",
+        "caps": 69,
+        "goals": 3,
+        "name_zh": "丹尼斯·扎卡里亚",
+        "club_zh": "摩纳哥"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Breel Embolo",
+        "club": "Stade Rennais FC (FRA)",
+        "caps": 92,
+        "goals": 26,
+        "name_zh": "布雷尔·恩博洛",
+        "club_zh": "雷恩"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Remo Marco Freuler",
+        "club": "Bologna FC (ITA)",
+        "caps": 94,
+        "goals": 11,
+        "name_zh": "雷莫·弗罗伊勒",
+        "club_zh": "博洛尼亚"
+      },
+      {
+        "shirt_number": 9,
+        "position": "MF",
+        "name": "Johan Kula Manzambi",
+        "club": "SC Freiburg (GER)",
+        "caps": 16,
+        "goals": 6,
+        "name_zh": "约翰·曼赞比",
+        "club_zh": "弗赖堡"
+      },
+      {
+        "shirt_number": 10,
+        "position": "MF",
+        "name": "Granit Xhaka",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 152,
+        "goals": 18,
+        "name_zh": "格拉尼特·扎卡",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Dan Ndoye",
+        "club": "Nottingham Forest FC (ENG)",
+        "caps": 37,
+        "goals": 10,
+        "name_zh": "丹·恩多耶",
+        "club_zh": "诺丁汉森林"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Yvon Landry Mvogo Nganoma",
+        "club": "FC Lorient (FRA)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "伊冯·姆沃戈",
+        "club_zh": "洛里昂"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Ricardo Rodriguez",
+        "club": "Real Betis (ESP)",
+        "caps": 144,
+        "goals": 9,
+        "name_zh": "里卡多·罗德里格斯",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Ardon Jashari",
+        "club": "AC Milan (ITA)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "阿尔当·亚沙里",
+        "club_zh": "AC米兰"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Mohameth Djibril Ibrahima Sow",
+        "club": "Sevilla FC (ESP)",
+        "caps": 56,
+        "goals": 0,
+        "name_zh": "吉布里尔·索乌",
+        "club_zh": "塞维利亚"
+      },
+      {
+        "shirt_number": 16,
+        "position": "FW",
+        "name": "Christian Andreas Fassnacht",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 24,
+        "goals": 5,
+        "name_zh": "克里斯蒂安·法斯纳赫特",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Ruben Estephan Vargas Martinez",
+        "club": "Sevilla FC (ESP)",
+        "caps": 67,
+        "goals": 13,
+        "name_zh": "鲁本·巴尔加斯",
+        "club_zh": "塞维利亚"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Eray Ervin Cömert",
+        "club": "Valencia CF (ESP)",
+        "caps": 23,
+        "goals": 0,
+        "name_zh": "埃拉伊·哲梅尔特",
+        "club_zh": "瓦伦西亚"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Noah Arinzechukwu Okafor",
+        "club": "Leeds United FC (ENG)",
+        "caps": 26,
+        "goals": 2,
+        "name_zh": "诺亚·奥卡福",
+        "club_zh": "利兹联"
+      },
+      {
+        "shirt_number": 20,
+        "position": "MF",
+        "name": "Michel Aebischer",
+        "club": "Pisa SC (ITA)",
+        "caps": 44,
+        "goals": 2,
+        "name_zh": "米歇尔·埃比舍尔",
+        "club_zh": "比萨"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Marvin Keller",
+        "club": "BSC Young Boys (SUI)",
+        "caps": 1,
+        "goals": 0,
+        "name_zh": "马文·凯勒",
+        "club_zh": "伯尔尼年轻人"
+      },
+      {
+        "shirt_number": 22,
+        "position": "MF",
+        "name": "Fabian Rieder",
+        "club": "FC Augsburg (GER)",
+        "caps": 33,
+        "goals": 1,
+        "name_zh": "法比安·里德",
+        "club_zh": "奥格斯堡"
+      },
+      {
+        "shirt_number": 23,
+        "position": "FW",
+        "name": "Mohamed Zeki Amdouni",
+        "club": "Burnley FC (ENG)",
+        "caps": 33,
+        "goals": 11,
+        "name_zh": "泽基·阿姆杜尼",
+        "club_zh": "伯恩利"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Aurèle Florian Amenda",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "奥雷勒·阿门达",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Luca Antony Jaquez",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "卢卡·雅凯兹",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 26,
+        "position": "FW",
+        "name": "Cedric Jan Itten",
+        "club": "Fortuna Düsseldorf (GER)",
+        "caps": 18,
+        "goals": 5,
+        "name_zh": "塞德里克·伊滕",
+        "club_zh": "杜塞尔多夫"
+      }
+    ]
+  }
+}

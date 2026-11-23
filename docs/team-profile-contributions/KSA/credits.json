@@ -1,0 +1,50 @@
+{
+  "ksa-abdulhamid": {
+    "name": "Saud Abdulhamid",
+    "path": "images/team-profiles/ksa-abdulhamid.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Saud_Abdulhamid_(Saudi_Arabia_v_Uruguay,_2026_FIFA_World_Cup)_(cropped).jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Saud_Abdulhamid_%28Saudi_Arabia_v_Uruguay%2C_2026_FIFA_World_Cup%29_%28cropped%29.jpg/500px-Saud_Abdulhamid_%28Saudi_Arabia_v_Uruguay%2C_2026_FIFA_World_Cup%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Saud_Abdulhamid_%28Saudi_Arabia_v_Uruguay%2C_2026_FIFA_World_Cup%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 500,
+    "height": 486,
+    "sha256": "8b1fa1f3d015e9e8302d4443d5e2dad9cedd2277afcc4afd2892d7a805ab80ff",
+    "author": "来源页未提供作者",
+    "date": "2026-06-18",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "license": "CC BY-SA 4.0",
+    "caption": "2026 世界杯比赛照",
+    "note": "Commons 预览版原样保存；页面仅通过 CSS 裁切展示；资料照年份不代表本届俱乐部归属或球衣号码；Commons 文件页未提供机器可读作者"
+  },
+  "ksa-salem": {
+    "name": "Salem Aldawsari",
+    "path": "images/team-profiles/ksa-salem.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Salem_Al-Dawsari_(Saudi_Arabia_v_Uruguay,_June_2026)_(cropped).jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Salem_Al-Dawsari_%28Saudi_Arabia_v_Uruguay%2C_June_2026%29_%28cropped%29.jpg/500px-Salem_Al-Dawsari_%28Saudi_Arabia_v_Uruguay%2C_June_2026%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Salem_Al-Dawsari_%28Saudi_Arabia_v_Uruguay%2C_June_2026%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 500,
+    "height": 557,
+    "sha256": "ef904682ef6626927d0407c039e7d9a1d90a09ed049e3880cba97a224e3f9adc",
+    "author": "来源页未提供作者",
+    "date": "2026-06-18",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "license": "CC BY-SA 4.0",
+    "caption": "2026 世界杯比赛照",
+    "note": "Commons 预览版原样保存；页面仅通过 CSS 裁切展示；资料照年份不代表本届俱乐部归属或球衣号码；Commons 文件页未提供机器可读作者"
+  },
+  "ksa-kanno": {
+    "name": "Mohamed Kanno",
+    "path": "images/team-profiles/ksa-kanno.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mohamed_Kanno_Fifa_World_Cup_2026_(cropped).jpg",
+    "file_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Mohamed_Kanno_Fifa_World_Cup_2026_%28cropped%29.jpg/500px-Mohamed_Kanno_Fifa_World_Cup_2026_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Mohamed_Kanno_Fifa_World_Cup_2026_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 500,
+    "height": 632,
+    "sha256": "37f20ba400629bdfbf071b68502391a402db63ebe94e9f49af25c1854485e8ea",
+    "author": "Petsbikes",
+    "date": "2026-06-26",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "license": "CC BY 4.0",
+    "caption": "2026 世界杯比赛照",
+    "note": "Commons 预览版原样保存；页面仅通过 CSS 裁切展示；资料照年份不代表本届俱乐部归属或球衣号码"
+  }
+}

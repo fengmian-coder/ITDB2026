@@ -1,0 +1,302 @@
+{
+  "MAR": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=29",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "摩洛哥的本届参赛阵容由 Mohamed Ouahbi 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Mohamed Ouahbi",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：摩洛哥",
+    "summary": "摩洛哥队延续2022年四强班底，由哈基米等旅欧球员领衔。",
+    "coach_name_zh": "穆罕默德·瓦赫比",
+    "coach_facts": "摩洛哥教练，曾执教摩洛哥青年队，2024年起担任成年国家队主教练。",
+    "coach_photo": "mar-coach",
+    "player_photos": {
+      "2": "mar-hakimi",
+      "4": "mar-amrabat",
+      "20": "mar-el-kaabi"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "2022年第四名"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年四强"
+      },
+      {
+        "label": "本届队长",
+        "value": "阿什拉夫·哈基米"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：摩洛哥国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Morocco_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：摩洛哥国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%91%A9%E6%B4%9B%E5%93%A5%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Yassine Bounou",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 96,
+        "goals": 0,
+        "name_zh": "亚辛·布努",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Achraf Hakimi",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 102,
+        "goals": 12,
+        "name_zh": "阿什拉夫·哈基米",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Noussair Mazraoui",
+        "club": "Manchester United FC (ENG)",
+        "caps": 51,
+        "goals": 2,
+        "name_zh": "纳赛尔·马兹拉维",
+        "club_zh": "曼联"
+      },
+      {
+        "shirt_number": 4,
+        "position": "MF",
+        "name": "Sofyan Amrabat",
+        "club": "Real Betis (ESP)",
+        "caps": 78,
+        "goals": 0,
+        "name_zh": "索夫扬·阿姆拉巴特",
+        "club_zh": "皇家贝蒂斯"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Marwane Saadane",
+        "club": "Al Fateh SC (KSA)",
+        "caps": 18,
+        "goals": 1,
+        "name_zh": "马尔万·萨阿丹",
+        "club_zh": "法特赫"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Ayyoub Bouaddi",
+        "club": "Lille OSC (FRA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "艾约布·布阿迪",
+        "club_zh": "里尔"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Chemsdine Talbi",
+        "club": "Sunderland AFC (ENG)",
+        "caps": 10,
+        "goals": 0,
+        "name_zh": "沙姆斯丁·塔勒比",
+        "club_zh": "桑德兰"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Azz-Eddine Ounahi",
+        "club": "Girona FC (ESP)",
+        "caps": 55,
+        "goals": 11,
+        "name_zh": "阿兹丁·乌纳希",
+        "club_zh": "赫罗纳"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Soufiane Rahimi",
+        "club": "Al Ain FC (UAE)",
+        "caps": 43,
+        "goals": 14,
+        "name_zh": "苏菲安·拉希米",
+        "club_zh": "艾因"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Brahim Abdelkader Diaz",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 32,
+        "goals": 14,
+        "name_zh": "卜拉欣·迪亚斯",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 11,
+        "position": "MF",
+        "name": "Ismael Saibari",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 35,
+        "goals": 12,
+        "name_zh": "伊斯梅尔·赛巴里",
+        "club_zh": "埃因霍温"
+      },
+      {
+        "shirt_number": 12,
+        "position": "GK",
+        "name": "Monir El Kajoui",
+        "club": "RS Berkane (MAR)",
+        "caps": 52,
+        "goals": 0,
+        "name_zh": "穆尼尔·埃尔卡茹伊",
+        "club_zh": "贝尔卡内复兴"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Zakaria El Ouahdi",
+        "club": "KRC Genk (BEL)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "扎卡里亚·埃尔·瓦赫迪",
+        "club_zh": "亨克"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Issa Laye Lucas Jean Diop",
+        "club": "Fulham FC (ENG)",
+        "caps": 9,
+        "goals": 1,
+        "name_zh": "伊萨·迪奥普",
+        "club_zh": "富勒姆"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Samir El Mourabet",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "萨米尔·穆拉贝",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Gessime Ben Youssef Mustapha Yassine",
+        "club": "RC Strasbourg (FRA)",
+        "caps": 7,
+        "goals": 1,
+        "name_zh": "盖西姆·亚辛",
+        "club_zh": "斯特拉斯堡"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Mohamed Amine Sbai",
+        "club": "Angers SCO (FRA)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "阿明·斯拜",
+        "club_zh": "昂热"
+      },
+      {
+        "shirt_number": 18,
+        "position": "DF",
+        "name": "Chadi Riad",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "沙迪·里亚德",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Youssef Belammari",
+        "club": "Al Ahly FC (EGY)",
+        "caps": 18,
+        "goals": 0,
+        "name_zh": "优素福·贝拉马里",
+        "club_zh": "开罗国民"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Ayoub El Kaabi",
+        "club": "Olympiacos FC (GRE)",
+        "caps": 72,
+        "goals": 35,
+        "name_zh": "阿尤布·卡埃比",
+        "club_zh": "奥林匹亚科斯"
+      },
+      {
+        "shirt_number": 21,
+        "position": "FW",
+        "name": "Ayoube Amaimouni",
+        "club": "Eintracht Frankfurt (GER)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "阿尤布·阿迈穆尼",
+        "club_zh": "法兰克福"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Ahmed Reda Tagnaouti",
+        "club": "ASFAR (MAR)",
+        "caps": 3,
+        "goals": 0,
+        "name_zh": "艾哈迈德·雷达·塔格瑙蒂",
+        "club_zh": "拉巴特皇家武装部队"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Bilal El Khannouss",
+        "club": "VfB Stuttgart (GER)",
+        "caps": 43,
+        "goals": 3,
+        "name_zh": "比拉尔·汉努斯",
+        "club_zh": "斯图加特"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Neil Yoni El Aynaoui",
+        "club": "AS Roma (ITA)",
+        "caps": 22,
+        "goals": 2,
+        "name_zh": "尼尔·艾纳维",
+        "club_zh": "罗马"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Redouane Halhal",
+        "club": "KV Mechelen (BEL)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "雷杜安·哈尔哈尔",
+        "club_zh": "梅赫伦"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Anass Salah Eddine",
+        "club": "PSV Eindhoven (NED)",
+        "caps": 13,
+        "goals": 0,
+        "name_zh": "阿纳斯·萨拉赫-埃丁",
+        "club_zh": "埃因霍温"
+      }
+    ]
+  }
+}

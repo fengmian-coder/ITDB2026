@@ -1,0 +1,302 @@
+{
+  "KSA": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=37",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "沙特阿拉伯的本届参赛阵容由 Georgios Donis 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Georgios Donis",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：希腊",
+    "summary": "沙特队以本国联赛球员为主，继续由萨利姆·多萨里领衔进攻。",
+    "coach_name_zh": "乔治奥斯·多尼斯",
+    "coach_facts": "希腊教练，曾执教沙特联赛多家俱乐部，2025年起担任沙特阿拉伯国家队主教练。",
+    "coach_photo": null,
+    "player_photos": {
+      "12": "ksa-abdulhamid",
+      "23": "ksa-kanno",
+      "10": "ksa-salem"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1994年16强"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年小组赛"
+      },
+      {
+        "label": "本届队长",
+        "value": "萨利姆·多萨里"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：沙特阿拉伯国家足球队",
+      "url": "https://en.wikipedia.org/wiki/Saudi_Arabia_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：沙特阿拉伯国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Nawaf Dhahi F Alaqidi",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 24,
+        "goals": 0,
+        "name_zh": "纳瓦夫·阿基迪",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Ali Hassan M Majrashi",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 21,
+        "goals": 0,
+        "name_zh": "阿里·马杰拉希",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Ali Mohammed A Lajami",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 27,
+        "goals": 1,
+        "name_zh": "阿里·阿劳杰米",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Abdulelah Ali A Alamri",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 47,
+        "goals": 2,
+        "name_zh": "阿卜杜勒拉·阿姆里",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Hassan Mohammed O Altambakti",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 57,
+        "goals": 1,
+        "name_zh": "哈桑·坦巴克蒂",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Nasser Essa S Aldawsari",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 50,
+        "goals": 1,
+        "name_zh": "纳赛尔·多萨里",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 7,
+        "position": "MF",
+        "name": "Musab Fahad Z Aljuwayr",
+        "club": "Al Qadsiah FC (KSA)",
+        "caps": 40,
+        "goals": 6,
+        "name_zh": "穆萨卜·朱瓦伊尔",
+        "club_zh": "卡迪西亚"
+      },
+      {
+        "shirt_number": 8,
+        "position": "FW",
+        "name": "Aiman Yahya Y Ahmed",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 26,
+        "goals": 0,
+        "name_zh": "艾曼·叶海亚",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Feras Tariq N Albrikan",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 75,
+        "goals": 16,
+        "name_zh": "菲拉斯·布赖坎",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Salem Aldawsari",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 114,
+        "goals": 27,
+        "name_zh": "萨利姆·多萨里",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Saleh Khalid M Alshehri",
+        "club": "Al Ittihad (KSA)",
+        "caps": 59,
+        "goals": 17,
+        "name_zh": "萨利赫·谢赫里",
+        "club_zh": "吉达联合"
+      },
+      {
+        "shirt_number": 12,
+        "position": "DF",
+        "name": "Saud Abdulhamid",
+        "club": "RC Lens (FRA)",
+        "caps": 58,
+        "goals": 1,
+        "name_zh": "沙特·阿卜杜勒哈米德",
+        "club_zh": "朗斯"
+      },
+      {
+        "shirt_number": 13,
+        "position": "DF",
+        "name": "Nawaf Meshari M Bu Washl",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 29,
+        "goals": 0,
+        "name_zh": "纳瓦夫·布瓦什尔",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 14,
+        "position": "DF",
+        "name": "Hassan Kadish Y Mahbub",
+        "club": "Al Ittihad (KSA)",
+        "caps": 21,
+        "goals": 2,
+        "name_zh": "哈桑·卡迪什",
+        "club_zh": "吉达联合"
+      },
+      {
+        "shirt_number": 15,
+        "position": "MF",
+        "name": "Abdullah Mohammed H Alkhaibari",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 45,
+        "goals": 0,
+        "name_zh": "阿卜杜拉·海巴里",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 16,
+        "position": "MF",
+        "name": "Ziyad Mubarak E Aljohani",
+        "club": "Al Ahli FC (KSA)",
+        "caps": 12,
+        "goals": 0,
+        "name_zh": "齐亚德·乔哈尼",
+        "club_zh": "吉达国民"
+      },
+      {
+        "shirt_number": 17,
+        "position": "FW",
+        "name": "Khalid Essa M Alghannam",
+        "club": "Al Ettifaq FC (KSA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "哈立德·加纳姆",
+        "club_zh": "达曼协作"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Ala Mohsen A Alhajji",
+        "club": "Neom SC (KSA)",
+        "caps": 5,
+        "goals": 0,
+        "name_zh": "阿拉·哈吉",
+        "club_zh": "新未来城"
+      },
+      {
+        "shirt_number": 19,
+        "position": "FW",
+        "name": "Abdullah Abdulrahman A Alhamddan",
+        "club": "Al Nassr FC (KSA)",
+        "caps": 55,
+        "goals": 13,
+        "name_zh": "阿卜杜拉·哈姆丹",
+        "club_zh": "利雅得胜利"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Sultan Ahmed M Mandash",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 8,
+        "goals": 2,
+        "name_zh": "苏丹·曼达什",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 21,
+        "position": "GK",
+        "name": "Mohammed Khalil I Alowais",
+        "club": "Al Ula Saudi FC (KSA)",
+        "caps": 68,
+        "goals": 0,
+        "name_zh": "穆罕默德·奥韦斯",
+        "club_zh": "欧拉"
+      },
+      {
+        "shirt_number": 22,
+        "position": "GK",
+        "name": "Ahmed Ali H Alkassar",
+        "club": "Al Qadsiah FC (KSA)",
+        "caps": 9,
+        "goals": 0,
+        "name_zh": "艾哈迈德·卡萨尔",
+        "club_zh": "卡迪西亚"
+      },
+      {
+        "shirt_number": 23,
+        "position": "MF",
+        "name": "Mohamed Kanno",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 82,
+        "goals": 8,
+        "name_zh": "穆罕默德·卡诺",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 24,
+        "position": "DF",
+        "name": "Moteb Saad S Alharbi",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "穆特卜·哈尔比",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 25,
+        "position": "DF",
+        "name": "Jehad Abdullatif A Thikri",
+        "club": "Al Qadsiah FC (KSA)",
+        "caps": 8,
+        "goals": 0,
+        "name_zh": "杰哈德·提克里",
+        "club_zh": "卡迪西亚"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Mohammed Waheeb S Abu Alshamat",
+        "club": "Al Qadsiah FC (KSA)",
+        "caps": 11,
+        "goals": 0,
+        "name_zh": "穆罕默德·阿布沙马特",
+        "club_zh": "卡迪西亚"
+      }
+    ]
+  }
+}

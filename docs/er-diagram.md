@@ -36,6 +36,7 @@ erDiagram
         BIGINT team_id PK
         CHAR group_code
         VARCHAR final_result_code
+        JSON profile_json
     }
 
     stadium {
@@ -162,6 +163,8 @@ erDiagram
     guestbook_message ||--o| guestbook_reply : "1:0..1"
     admin_user ||--o{ guestbook_reply : "1:N"
 ```
+
+> `tournament_team.profile_json` 为 2026-11-12 引入的可空 JSON 扩展字段，保存本届球队简介、主教练、三位代表球员及来源快照；不新增表，仍为 15 表。字段结构见 `docs/team-profiles-2026.md`，C 于 2026-11-23 复核并补入 ER 图与数据字典。
 
 ---
 

@@ -1,0 +1,302 @@
+{
+  "FRA": {
+    "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=19",
+    "edition": "2026-07-19 22:34 UTC · Version 1",
+    "base_summary": "法国的本届参赛阵容由 Didier Deschamps 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+    "coach_name": "Didier Deschamps",
+    "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+    "summary": "法国队由姆巴佩领衔，继续以世界杯冠军为目标。",
+    "coach_name_zh": "迪迪埃·德尚",
+    "coach_facts": "法国教练，2012年起执教法国国家队，率队夺得2018年世界杯冠军和2022年世界杯亚军。",
+    "coach_photo": "fra-coach",
+    "player_photos": {
+      "3": "fra-digne",
+      "13": "fra-kante",
+      "10": "fra-mbappe"
+    },
+    "facts": [
+      {
+        "label": "世界杯最佳",
+        "value": "1998、2018年冠军"
+      },
+      {
+        "label": "上届成绩",
+        "value": "2022年亚军"
+      },
+      {
+        "label": "本届队长",
+        "value": "基利安·姆巴佩"
+      }
+    ],
+    "history_source": {
+      "label": "英文维基百科：法国国家足球队",
+      "url": "https://en.wikipedia.org/wiki/France_national_football_team"
+    },
+    "translation_source": {
+      "label": "中文维基百科：法国国家足球队（译名参考）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B3%95%E5%9B%BD%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+    },
+    "roster": [
+      {
+        "shirt_number": 1,
+        "position": "GK",
+        "name": "Brice Lauriche Samba",
+        "club": "Stade Rennais FC (FRA)",
+        "caps": 4,
+        "goals": 0,
+        "name_zh": "布里斯·桑巴",
+        "club_zh": "雷恩"
+      },
+      {
+        "shirt_number": 2,
+        "position": "DF",
+        "name": "Malo Arthur Gusto",
+        "club": "Chelsea FC (ENG)",
+        "caps": 16,
+        "goals": 0,
+        "name_zh": "马洛·古斯托",
+        "club_zh": "切尔西"
+      },
+      {
+        "shirt_number": 3,
+        "position": "DF",
+        "name": "Lucas Digne",
+        "club": "Aston Villa FC (ENG)",
+        "caps": 64,
+        "goals": 0,
+        "name_zh": "卢卡斯·迪涅",
+        "club_zh": "阿斯顿维拉"
+      },
+      {
+        "shirt_number": 4,
+        "position": "DF",
+        "name": "Dayotchanculle Oswald Upamecano",
+        "club": "FC Bayern München (GER)",
+        "caps": 46,
+        "goals": 2,
+        "name_zh": "达约·于帕梅卡诺",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 5,
+        "position": "DF",
+        "name": "Jules Olivier Kounde",
+        "club": "FC Barcelona (ESP)",
+        "caps": 56,
+        "goals": 0,
+        "name_zh": "朱尔·孔德",
+        "club_zh": "巴塞罗那"
+      },
+      {
+        "shirt_number": 6,
+        "position": "MF",
+        "name": "Kouadio Emmanuel Boris Kone",
+        "club": "AS Roma (ITA)",
+        "caps": 19,
+        "goals": 0,
+        "name_zh": "马努·科内",
+        "club_zh": "罗马"
+      },
+      {
+        "shirt_number": 7,
+        "position": "FW",
+        "name": "Masour Ousmane Dembele",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 67,
+        "goals": 13,
+        "name_zh": "奥斯曼·登贝莱",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 8,
+        "position": "MF",
+        "name": "Aurélien Djani Tchouameni",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 50,
+        "goals": 3,
+        "name_zh": "奥雷利安·楚阿梅尼",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 9,
+        "position": "FW",
+        "name": "Marcus Lilian Thuram-Ulien",
+        "club": "FC Internazionale Milano (ITA)",
+        "caps": 35,
+        "goals": 3,
+        "name_zh": "马库斯·图拉姆",
+        "club_zh": "国际米兰"
+      },
+      {
+        "shirt_number": 10,
+        "position": "FW",
+        "name": "Kylian Mbappe",
+        "club": "Real Madrid C. F. (ESP)",
+        "caps": 106,
+        "goals": 66,
+        "name_zh": "基利安·姆巴佩",
+        "club_zh": "皇家马德里"
+      },
+      {
+        "shirt_number": 11,
+        "position": "FW",
+        "name": "Michael Akpovie Olise",
+        "club": "FC Bayern München (GER)",
+        "caps": 25,
+        "goals": 7,
+        "name_zh": "迈克尔·奥利塞",
+        "club_zh": "拜仁慕尼黑"
+      },
+      {
+        "shirt_number": 12,
+        "position": "FW",
+        "name": "Bradley Jean-Manuel Essolisa A Barcola",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 28,
+        "goals": 6,
+        "name_zh": "布拉德利·巴尔科拉",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 13,
+        "position": "MF",
+        "name": "Ngolo Kante",
+        "club": "Fenerbahçe SK (TUR)",
+        "caps": 69,
+        "goals": 2,
+        "name_zh": "恩戈洛·坎特",
+        "club_zh": "费内巴切"
+      },
+      {
+        "shirt_number": 14,
+        "position": "MF",
+        "name": "Adrien Thibault Marie Rabiot",
+        "club": "AC Milan (ITA)",
+        "caps": 66,
+        "goals": 7,
+        "name_zh": "阿德里安·拉比奥特",
+        "club_zh": "AC米兰"
+      },
+      {
+        "shirt_number": 15,
+        "position": "DF",
+        "name": "Ibrahima Konaté",
+        "club": "Liverpool FC (ENG)",
+        "caps": 30,
+        "goals": 0,
+        "name_zh": "易卜拉希马·科纳特",
+        "club_zh": "利物浦"
+      },
+      {
+        "shirt_number": 16,
+        "position": "GK",
+        "name": "Mike Peterson Maignan",
+        "club": "AC Milan (ITA)",
+        "caps": 48,
+        "goals": 0,
+        "name_zh": "迈克·迈尼昂",
+        "club_zh": "AC米兰"
+      },
+      {
+        "shirt_number": 17,
+        "position": "DF",
+        "name": "William Alain André Gabriel Saliba",
+        "club": "Arsenal FC (ENG)",
+        "caps": 38,
+        "goals": 0,
+        "name_zh": "威廉·萨利巴",
+        "club_zh": "阿森纳"
+      },
+      {
+        "shirt_number": 18,
+        "position": "MF",
+        "name": "Warren Marie Jean-Pierre Zaïre-Emery",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 13,
+        "goals": 1,
+        "name_zh": "沃伦·扎伊尔-埃梅里",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 19,
+        "position": "DF",
+        "name": "Théo Bernard François Hernandez",
+        "club": "Al Hilal SC (KSA)",
+        "caps": 49,
+        "goals": 2,
+        "name_zh": "特奥·埃尔南德斯",
+        "club_zh": "利雅得新月"
+      },
+      {
+        "shirt_number": 20,
+        "position": "FW",
+        "name": "Désiré Nonka-Maho Doue",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 15,
+        "goals": 3,
+        "name_zh": "德西雷·杜埃",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 21,
+        "position": "DF",
+        "name": "Lucas Francois Bernard Hernandez",
+        "club": "Paris Saint-Germain (FRA)",
+        "caps": 42,
+        "goals": 0,
+        "name_zh": "卢卡斯·埃尔南德斯",
+        "club_zh": "巴黎圣日耳曼"
+      },
+      {
+        "shirt_number": 22,
+        "position": "FW",
+        "name": "Jean-Philippe Mateta",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 7,
+        "goals": 2,
+        "name_zh": "让-菲利普·马特塔",
+        "club_zh": "水晶宫"
+      },
+      {
+        "shirt_number": 23,
+        "position": "GK",
+        "name": "Robin François Philippe Risser",
+        "club": "RC Lens (FRA)",
+        "caps": 0,
+        "goals": 0,
+        "name_zh": "罗班·里塞",
+        "club_zh": "朗斯"
+      },
+      {
+        "shirt_number": 24,
+        "position": "MF",
+        "name": "Mathis Rayan Cherki",
+        "club": "Manchester City FC (ENG)",
+        "caps": 14,
+        "goals": 2,
+        "name_zh": "拉扬·谢尔基",
+        "club_zh": "曼城"
+      },
+      {
+        "shirt_number": 25,
+        "position": "MF",
+        "name": "Maghnes Akliouche",
+        "club": "AS Monaco (FRA)",
+        "caps": 10,
+        "goals": 1,
+        "name_zh": "马格内斯·阿克利乌什",
+        "club_zh": "摩纳哥"
+      },
+      {
+        "shirt_number": 26,
+        "position": "DF",
+        "name": "Maxence Guy Lacroix",
+        "club": "Crystal Palace FC (ENG)",
+        "caps": 7,
+        "goals": 0,
+        "name_zh": "马克桑斯·拉克鲁瓦",
+        "club_zh": "水晶宫"
+      }
+    ]
+  }
+}
