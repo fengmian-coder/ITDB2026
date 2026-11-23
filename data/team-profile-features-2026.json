@@ -12600,7 +12600,7 @@
           "club_zh": "卡迪西亚"
         }
       ],
-      "coach_photo": null
+      "coach_photo": "ksa-donis"
     },
     "FRA": {
       "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=19",
@@ -13213,7 +13213,8 @@
       "coach_facts": "法国教练，曾执教肯尼亚、赤道几内亚等国家队，2024年起担任海地国家队主教练。",
       "player_photos": {
         "9": "hai-nazon",
-        "17": "hai-danley"
+        "17": "hai-danley",
+        "4": "hai-ade"
       },
       "facts": [
         {
@@ -13499,7 +13500,7 @@
           "club_zh": "紫罗兰"
         }
       ],
-      "coach_photo": null
+      "coach_photo": "hai-migne"
     },
     "AUS": {
       "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=3",
