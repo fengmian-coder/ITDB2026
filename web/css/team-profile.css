@@ -14,6 +14,8 @@
 .team-coach-with-photo > div > p:last-child { font-size: 15px; color: var(--bs-secondary-color); line-height: 1.8; }
 .team-person-photo { margin: 0; position: relative; background: var(--bs-tertiary-bg); }
 .team-person-photo > img { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; object-position: center top; }
+.team-player-photo-framed { aspect-ratio: 4/3; }
+.team-player-photo-framed > img { width: 86%; height: 100%; margin-inline: auto; aspect-ratio: auto; object-position: center 8%; }
 .team-person-photo figcaption { position: absolute; right: 10px; bottom: 10px; }
 .team-person-photo figcaption a { display: inline-block; padding: 3px 8px; background: #152c26d9; color: #fff; border-radius: 4px; font-size: 12px; text-decoration: none; }
 .team-person-photo figcaption a:hover { text-decoration: underline; }
@@ -22,6 +24,7 @@
 .team-coach-photo-portrait > img { transform: none; }
 .team-coach-photo figcaption { right: 6px; bottom: 6px; }
 .team-player-visual { padding: 0; overflow: hidden; }
+.team-player-text-only { align-self: start; }
 .team-player-copy { padding: 20px 24px 22px; }
 .team-player-copy h3 { font-size: 23px; line-height: 1.6; margin: 0 0 8px; }
 .team-player-copy .team-name-original { color: var(--bs-secondary-color); font-size: 14px; font-weight: 400; }

@@ -59,19 +59,32 @@ $expectedCounts = [
     'ALG'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
     'ARG'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
     'KOR'=>['GK'=>3,'DF'=>9,'MF'=>11,'FW'=>3],
+    'CZE'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'MAR'=>['GK'=>3,'DF'=>9,'MF'=>9,'FW'=>5],
+    'NZL'=>['GK'=>3,'DF'=>9,'MF'=>9,'FW'=>5],
+    'JPN'=>['GK'=>3,'DF'=>9,'MF'=>9,'FW'=>5],
+    'BEL'=>['GK'=>3,'DF'=>9,'MF'=>8,'FW'=>6],
+    'KSA'=>['GK'=>3,'DF'=>10,'MF'=>6,'FW'=>7],
+    'FRA'=>['GK'=>3,'DF'=>9,'MF'=>7,'FW'=>7],
+    'BIH'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
+    'HAI'=>['GK'=>3,'DF'=>9,'MF'=>5,'FW'=>9],
+    'AUS'=>['GK'=>3,'DF'=>10,'MF'=>5,'FW'=>8],
+    'SWE'=>['GK'=>3,'DF'=>11,'MF'=>7,'FW'=>5],
+    'SUI'=>['GK'=>3,'DF'=>8,'MF'=>8,'FW'=>7],
 ];
-$check(count($features['teams']) === count($expectedCounts), 'only the integrated team pages are enhanced');
+$check(count($features['teams']) === count($expectedCounts), 'all 48 team pages are enhanced');
 foreach ($expectedCounts as $code => $expected) {
     $teamProfile = $bundle['teams'][$code];
     $teamFeature = $service->get($code, $teamProfile);
     $check($teamFeature !== null && count($teamFeature['roster']) === 26 && $teamFeature['counts'] === $expected, 'FIFA roster counts ' . $code);
     $check(array_column($teamFeature['roster'], 'shirt_number') === range(1,26), 'unique ordered shirt numbers ' . $code);
-    $check(count($teamFeature['highlighted']) === 3 && $teamFeature['coach_photo']['name'] === $teamProfile['coach_name'], 'matching coach and representative players ' . $code);
+    $check(count($teamFeature['highlighted']) === 3, 'three representative players ' . $code);
+    $check(($teamFeature['coach_photo']['name'] ?? null) === (in_array($code, ['HAI', 'KSA'], true) ? null : $teamProfile['coach_name']), 'coach photo identity ' . $code);
     foreach ($teamFeature['roster'] as $player) {
         $check(!empty($player['name_zh']) && !empty($player['club_zh']), 'bilingual roster labels ' . $code);
     }
     foreach ($teamFeature['highlighted'] as $player) {
-        $check($player['photo'] !== null && $player['photo']['name'] === $player['name'], 'representative photo identity ' . $code);
+        $check(($player['photo']['name'] ?? null) === ($code === 'HAI' && $player['name'] === 'Ricardo Ade' ? null : $player['name']), 'representative photo identity ' . $code);
     }
     $changed = $teamProfile; $changed['coach_name'] = 'Different coach';
     $check($service->get($code, $changed)['coach_photo'] === null, 'stale coach photo removed ' . $code);
@@ -92,7 +105,7 @@ foreach ($sample['highlighted'] as $player) {
     $check($player['photo']['name'] === $player['name'], 'player photograph identity');
     $check($player['photo']['date'] === '2026-07-02' && $player['photo']['author'] === 'Bryan Berlin / WikiPortraits', 'same-event 2026 photographs');
 }
-// Two specific photographs selected by the user for the course assignment.
+// Photographs with a documented source and unverified permission for redistribution.
 // These checks verify truthful provenance, not permission from the rights holder.
 $coursePhotos = [
     'cpv-coach' => [
@@ -110,7 +123,7 @@ $coursePhotos = [
         'acquisition' => 'source_download',
     ],
 ];
-$check(array_keys(array_filter($credits, static fn(array $p): bool => ($p['rights_status'] ?? '') === 'unverified')) === array_keys($coursePhotos), 'only the two selected photographs use the course-assignment provenance record');
+$check(array_keys(array_filter($credits, static fn(array $p): bool => ($p['rights_status'] ?? '') === 'unverified')) === array_keys($coursePhotos), 'all course-preview photographs have an explicit provenance record');
 foreach ($credits as $key => $photo) {
     $path = $root . '/web/' . $photo['path'];
     $size = getimagesize($path);
@@ -124,7 +137,7 @@ foreach ($credits as $key => $photo) {
             && $photo['acquisition'] === $selected['acquisition'] && $photo['author'] !== ''
             && $photo['rights_status'] === 'unverified' && $photo['license_url'] === null
             && $photo['license'] === '版权保留 · 未取得开放许可'
-            && $photo['date_kind'] === 'accessed' && $photo['date'] === '2026-11-19'
+            && $photo['date_kind'] === 'accessed' && $photo['date'] === ($selected['accessed'] ?? '2026-11-19')
             && str_contains($photo['date_note'], '未注明拍摄日期')
             && str_contains($photo['usage_basis'], '不代表照片权利人授权'), 'truthful course photo provenance ' . $key);
     } else {
@@ -143,7 +156,7 @@ $modified = $profile; $modified['players'][0]['name'] = 'Different player';
 $check(count($service->get('CRO', $modified)['highlighted']) === 2, 'player identity change removes mismatched photo');
 $modified = $profile; $modified['edition'] = 'Another edition';
 $check($service->get('CRO', $modified) === null, 'different roster edition does not receive sample');
-$check($service->get('JPN', $bundle['teams']['JPN']) === null, 'other teams retain the existing layout');
+$check($service->get('XXX', $bundle['teams']['JPN']) === null, 'unknown teams fall back without enhanced data');
 $http = curl_init();
 curl_setopt_array($http, [CURLOPT_RETURNTRANSFER=>true,CURLOPT_NOPROXY=>'*',CURLOPT_TIMEOUT=>15]);
 foreach (NationalTeam::find()->where(['fifa_code'=>array_keys($bundle['teams'])])->all() as $team) {
@@ -153,8 +166,28 @@ foreach (NationalTeam::find()->where(['fifa_code'=>array_keys($bundle['teams'])]
     $check(str_contains($html, '本届赛事表现'), 'existing statistics ' . $team->fifa_code);
     $check(str_contains($html, 'team-profile-feature') === isset($expectedCounts[$team->fifa_code]), 'enhancement scope ' . $team->fifa_code);
     if (isset($expectedCounts[$team->fifa_code])) {
-        $check(substr_count($html, 'class="team-roster-number"') === 26 && substr_count($html, 'class="team-person-photo') === 4, 'complete roster and four photos ' . $team->fifa_code);
+        $check(substr_count($html, 'class="team-roster-number"') === 26 && substr_count($html, 'class="team-person-photo') === (['HAI' => 2, 'KSA' => 3][$team->fifa_code] ?? 4), 'complete roster and available local photos ' . $team->fifa_code);
+        $check(!str_contains($html, '外部資料照') && !str_contains($html, '外部资料照') && !str_contains($html, '外部照片'), 'person cards use local photo assets ' . $team->fifa_code);
         $check(substr_count($html, 'class="team-roster-original"') === 52 && str_contains($html, '完整参赛名单（26人）'), 'bilingual names and compact roster header ' . $team->fifa_code);
+    }
+    if ($team->fifa_code === 'HAI') {
+        $check(preg_match('~<figure[^>]*team-player-photo-framed[^>]*>\s*<img[^>]*src="[^"]*/hai-danley\.jpg"~', $html) === 1,
+            'Danley portrait uses a wider frame without clipping the face');
+    }
+    if ($team->fifa_code === 'KSA') {
+        $check(str_contains($html, '2026 年 4 月出任'), 'Saudi Arabia coach appointment caption');
+    }
+    if ($team->fifa_code === 'NZL') {
+        $check(str_contains($html, '/images/team-profiles/nzl-bazeley-2026.jpg'), 'New Zealand coach uses the new local photo');
+    }
+    if ($team->fifa_code === 'SUI') {
+        $check(preg_match('~<figure[^>]*overflow-hidden[^>]*>\s*<img[^>]*src="[^"]*/sui-xhaka-2018-world-cup\.jpg"[^>]*style="transform: scale\(1\.55\);~', $html) === 1,
+            'Xhaka photo uses the local image and stays inside its frame');
+    }
+    if (in_array($team->fifa_code, ['NZL', 'AUS'], true)) {
+        $file = $team->fifa_code === 'NZL' ? 'nzl-just-portrait.jpg' : 'aus-irvine-2026.jpg';
+        $check(preg_match('~<img[^>]*src="[^"]*/' . preg_quote($file, '~') . '"[^>]*style="object-position: center 10%;"~', $html) === 1,
+            'landscape card uses the revised head-and-shoulders photo ' . $team->fifa_code);
     }
     if (in_array($team->fifa_code, ['CPV', 'RSA'], true)) {
         $check(str_contains($html, '收录日期 2026-11-19') && str_contains($html, '版权保留 · 未取得开放许可'), 'course photo date and rights statement rendered ' . $team->fifa_code);

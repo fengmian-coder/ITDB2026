@@ -10801,6 +10801,3605 @@
           "club_zh": "蔚山HD"
         }
       ]
+    },
+    "CZE": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=15",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "捷克的本届参赛阵容由 Miroslav Koubek 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Miroslav Koubek",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：捷克",
+      "summary": "捷克队时隔20年重返世界杯，阵容以国内联赛和德甲球员为骨干。",
+      "coach_name_zh": "米罗斯拉夫·库贝克",
+      "coach_facts": "捷克本土教练，长期在国内联赛执教，曾执教比尔森胜利等俱乐部，现任捷克国家队主教练。",
+      "coach_photo": "cze-coach",
+      "player_photos": {
+        "5": "cze-coufal",
+        "10": "cze-schick",
+        "22": "cze-soucek"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2006年小组赛"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年未参赛"
+        },
+        {
+          "label": "重返世界杯",
+          "value": "时隔20年"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：捷克国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Czech_Republic_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：捷克国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%8D%B7%E5%85%8B%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Matěj Kovář",
+          "club": "PSV Eindhoven (NED)",
+          "caps": 23,
+          "goals": 0,
+          "name_zh": "马捷伊·科瓦日",
+          "club_zh": "埃因霍温"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "David Zima",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 26,
+          "goals": 1,
+          "name_zh": "达维德·齐马",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Tomáš Holeš",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 43,
+          "goals": 2,
+          "name_zh": "托马什·霍莱什",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Robin Hranáč",
+          "club": "TSG Hoffenheim (GER)",
+          "caps": 17,
+          "goals": 1,
+          "name_zh": "罗宾·赫拉纳奇",
+          "club_zh": "霍芬海姆"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Vladimir Coufal",
+          "club": "TSG Hoffenheim (GER)",
+          "caps": 65,
+          "goals": 2,
+          "name_zh": "弗拉迪米尔·曹法尔",
+          "club_zh": "霍芬海姆"
+        },
+        {
+          "shirt_number": 6,
+          "position": "DF",
+          "name": "Štěpán Chaloupek",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 6,
+          "goals": 0,
+          "name_zh": "什捷潘·哈洛佩克",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 7,
+          "position": "DF",
+          "name": "Ladislav Krejčí",
+          "club": "Wolverhampton Wanderers FC (ENG)",
+          "caps": 30,
+          "goals": 6,
+          "name_zh": "拉迪斯拉夫·克雷伊奇",
+          "club_zh": "狼队"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Vladimír Darida",
+          "club": "FC Hradec Králové (CZE)",
+          "caps": 80,
+          "goals": 8,
+          "name_zh": "弗拉迪米尔·达里达",
+          "club_zh": "赫拉德茨克拉洛韦"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Adam Hložek",
+          "club": "TSG Hoffenheim (GER)",
+          "caps": 46,
+          "goals": 5,
+          "name_zh": "亚当·赫洛热克",
+          "club_zh": "霍芬海姆"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Patrik Schick",
+          "club": "Bayer 04 Leverkusen (GER)",
+          "caps": 56,
+          "goals": 26,
+          "name_zh": "帕特里克·希克",
+          "club_zh": "勒沃库森"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Jan Kuchta",
+          "club": "AC Sparta Praha (CZE)",
+          "caps": 31,
+          "goals": 3,
+          "name_zh": "扬·库赫塔",
+          "club_zh": "布拉格斯巴达"
+        },
+        {
+          "shirt_number": 12,
+          "position": "MF",
+          "name": "Lukáš Červ",
+          "club": "FC Viktoria Plzeň (CZE)",
+          "caps": 19,
+          "goals": 2,
+          "name_zh": "卢卡什·切尔夫",
+          "club_zh": "比尔森胜利"
+        },
+        {
+          "shirt_number": 13,
+          "position": "FW",
+          "name": "Mojmír Chytil",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 23,
+          "goals": 6,
+          "name_zh": "莫伊米尔·希蒂尔",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 14,
+          "position": "DF",
+          "name": "David Jurásek",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 18,
+          "goals": 1,
+          "name_zh": "达维德·尤拉塞克",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 15,
+          "position": "FW",
+          "name": "Pavel Šulc",
+          "club": "Olympique Lyonnais (FRA)",
+          "caps": 24,
+          "goals": 5,
+          "name_zh": "帕维尔·舒尔茨",
+          "club_zh": "里昂"
+        },
+        {
+          "shirt_number": 16,
+          "position": "GK",
+          "name": "Jindřich Staněk",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 14,
+          "goals": 0,
+          "name_zh": "因德日赫·斯塔涅克",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 17,
+          "position": "MF",
+          "name": "Lukáš Provod",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 41,
+          "goals": 3,
+          "name_zh": "卢卡斯·普罗沃德",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 18,
+          "position": "MF",
+          "name": "Michal Sadílek",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 38,
+          "goals": 2,
+          "name_zh": "米哈尔·萨迪莱克",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Tomáš Chorý",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 24,
+          "goals": 7,
+          "name_zh": "托马什·霍里",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 20,
+          "position": "DF",
+          "name": "Jaroslav Zelený",
+          "club": "AC Sparta Praha (CZE)",
+          "caps": 25,
+          "goals": 0,
+          "name_zh": "雅罗斯拉夫·泽莱尼",
+          "club_zh": "布拉格斯巴达"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "David Douděra",
+          "club": "SK Slavia Praha (CZE)",
+          "caps": 18,
+          "goals": 2,
+          "name_zh": "达维德·道杰拉",
+          "club_zh": "布拉格斯拉维亚"
+        },
+        {
+          "shirt_number": 22,
+          "position": "MF",
+          "name": "Tomas Soucek",
+          "club": "West Ham United FC (ENG)",
+          "caps": 93,
+          "goals": 17,
+          "name_zh": "托马什·绍切克",
+          "club_zh": "西汉姆联"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Lukáš Horníček",
+          "club": "SC Braga (POR)",
+          "caps": 1,
+          "goals": 0,
+          "name_zh": "卢卡斯·霍尔尼切克",
+          "club_zh": "布拉加"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Alexandr Sojka",
+          "club": "FC Viktoria Plzeň (CZE)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "亚历山大·索伊卡",
+          "club_zh": "比尔森胜利"
+        },
+        {
+          "shirt_number": 25,
+          "position": "MF",
+          "name": "Hugo Sochůrek",
+          "club": "AC Sparta Praha (CZE)",
+          "caps": 1,
+          "goals": 0,
+          "name_zh": "胡戈·索胡雷克",
+          "club_zh": "布拉格斯巴达"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Denis Višinský",
+          "club": "FC Viktoria Plzeň (CZE)",
+          "caps": 3,
+          "goals": 1,
+          "name_zh": "丹尼斯·维辛斯基",
+          "club_zh": "比尔森胜利"
+        }
+      ]
+    },
+    "MAR": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=29",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "摩洛哥的本届参赛阵容由 Mohamed Ouahbi 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Mohamed Ouahbi",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：摩洛哥",
+      "summary": "摩洛哥队延续2022年四强班底，由哈基米等旅欧球员领衔。",
+      "coach_name_zh": "穆罕默德·瓦赫比",
+      "coach_facts": "摩洛哥教练，曾执教摩洛哥青年队，2024年起担任成年国家队主教练。",
+      "coach_photo": "mar-coach",
+      "player_photos": {
+        "2": "mar-hakimi",
+        "4": "mar-amrabat",
+        "20": "mar-el-kaabi"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2022年第四名"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年四强"
+        },
+        {
+          "label": "本届队长",
+          "value": "阿什拉夫·哈基米"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：摩洛哥国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Morocco_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：摩洛哥国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%91%A9%E6%B4%9B%E5%93%A5%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Yassine Bounou",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 96,
+          "goals": 0,
+          "name_zh": "亚辛·布努",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Achraf Hakimi",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 102,
+          "goals": 12,
+          "name_zh": "阿什拉夫·哈基米",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Noussair Mazraoui",
+          "club": "Manchester United FC (ENG)",
+          "caps": 51,
+          "goals": 2,
+          "name_zh": "纳赛尔·马兹拉维",
+          "club_zh": "曼联"
+        },
+        {
+          "shirt_number": 4,
+          "position": "MF",
+          "name": "Sofyan Amrabat",
+          "club": "Real Betis (ESP)",
+          "caps": 78,
+          "goals": 0,
+          "name_zh": "索夫扬·阿姆拉巴特",
+          "club_zh": "皇家贝蒂斯"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Marwane Saadane",
+          "club": "Al Fateh SC (KSA)",
+          "caps": 18,
+          "goals": 1,
+          "name_zh": "马尔万·萨阿丹",
+          "club_zh": "法特赫"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Ayyoub Bouaddi",
+          "club": "Lille OSC (FRA)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "艾约布·布阿迪",
+          "club_zh": "里尔"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Chemsdine Talbi",
+          "club": "Sunderland AFC (ENG)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "沙姆斯丁·塔勒比",
+          "club_zh": "桑德兰"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Azz-Eddine Ounahi",
+          "club": "Girona FC (ESP)",
+          "caps": 55,
+          "goals": 11,
+          "name_zh": "阿兹丁·乌纳希",
+          "club_zh": "赫罗纳"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Soufiane Rahimi",
+          "club": "Al Ain FC (UAE)",
+          "caps": 43,
+          "goals": 14,
+          "name_zh": "苏菲安·拉希米",
+          "club_zh": "艾因"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Brahim Abdelkader Diaz",
+          "club": "Real Madrid C. F. (ESP)",
+          "caps": 32,
+          "goals": 14,
+          "name_zh": "卜拉欣·迪亚斯",
+          "club_zh": "皇家马德里"
+        },
+        {
+          "shirt_number": 11,
+          "position": "MF",
+          "name": "Ismael Saibari",
+          "club": "PSV Eindhoven (NED)",
+          "caps": 35,
+          "goals": 12,
+          "name_zh": "伊斯梅尔·赛巴里",
+          "club_zh": "埃因霍温"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Monir El Kajoui",
+          "club": "RS Berkane (MAR)",
+          "caps": 52,
+          "goals": 0,
+          "name_zh": "穆尼尔·埃尔卡茹伊",
+          "club_zh": "贝尔卡内复兴"
+        },
+        {
+          "shirt_number": 13,
+          "position": "DF",
+          "name": "Zakaria El Ouahdi",
+          "club": "KRC Genk (BEL)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "扎卡里亚·埃尔·瓦赫迪",
+          "club_zh": "亨克"
+        },
+        {
+          "shirt_number": 14,
+          "position": "DF",
+          "name": "Issa Laye Lucas Jean Diop",
+          "club": "Fulham FC (ENG)",
+          "caps": 9,
+          "goals": 1,
+          "name_zh": "伊萨·迪奥普",
+          "club_zh": "富勒姆"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Samir El Mourabet",
+          "club": "RC Strasbourg (FRA)",
+          "caps": 9,
+          "goals": 0,
+          "name_zh": "萨米尔·穆拉贝",
+          "club_zh": "斯特拉斯堡"
+        },
+        {
+          "shirt_number": 16,
+          "position": "MF",
+          "name": "Gessime Ben Youssef Mustapha Yassine",
+          "club": "RC Strasbourg (FRA)",
+          "caps": 7,
+          "goals": 1,
+          "name_zh": "盖西姆·亚辛",
+          "club_zh": "斯特拉斯堡"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Mohamed Amine Sbai",
+          "club": "Angers SCO (FRA)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "阿明·斯拜",
+          "club_zh": "昂热"
+        },
+        {
+          "shirt_number": 18,
+          "position": "DF",
+          "name": "Chadi Riad",
+          "club": "Crystal Palace FC (ENG)",
+          "caps": 10,
+          "goals": 1,
+          "name_zh": "沙迪·里亚德",
+          "club_zh": "水晶宫"
+        },
+        {
+          "shirt_number": 19,
+          "position": "DF",
+          "name": "Youssef Belammari",
+          "club": "Al Ahly FC (EGY)",
+          "caps": 18,
+          "goals": 0,
+          "name_zh": "优素福·贝拉马里",
+          "club_zh": "开罗国民"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Ayoub El Kaabi",
+          "club": "Olympiacos FC (GRE)",
+          "caps": 72,
+          "goals": 35,
+          "name_zh": "阿尤布·卡埃比",
+          "club_zh": "奥林匹亚科斯"
+        },
+        {
+          "shirt_number": 21,
+          "position": "FW",
+          "name": "Ayoube Amaimouni",
+          "club": "Eintracht Frankfurt (GER)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "阿尤布·阿迈穆尼",
+          "club_zh": "法兰克福"
+        },
+        {
+          "shirt_number": 22,
+          "position": "GK",
+          "name": "Ahmed Reda Tagnaouti",
+          "club": "ASFAR (MAR)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "艾哈迈德·雷达·塔格瑙蒂",
+          "club_zh": "拉巴特皇家武装部队"
+        },
+        {
+          "shirt_number": 23,
+          "position": "MF",
+          "name": "Bilal El Khannouss",
+          "club": "VfB Stuttgart (GER)",
+          "caps": 43,
+          "goals": 3,
+          "name_zh": "比拉尔·汉努斯",
+          "club_zh": "斯图加特"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Neil Yoni El Aynaoui",
+          "club": "AS Roma (ITA)",
+          "caps": 22,
+          "goals": 2,
+          "name_zh": "尼尔·艾纳维",
+          "club_zh": "罗马"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Redouane Halhal",
+          "club": "KV Mechelen (BEL)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "雷杜安·哈尔哈尔",
+          "club_zh": "梅赫伦"
+        },
+        {
+          "shirt_number": 26,
+          "position": "DF",
+          "name": "Anass Salah Eddine",
+          "club": "PSV Eindhoven (NED)",
+          "caps": 13,
+          "goals": 0,
+          "name_zh": "阿纳斯·萨拉赫-埃丁",
+          "club_zh": "埃因霍温"
+        }
+      ]
+    },
+    "NZL": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=31",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "新西兰的本届参赛阵容由 Darren Bazeley 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Darren Bazeley",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：新西兰",
+      "summary": "新西兰队时隔16年重返世界杯，阵容以澳超和北美联赛球员为主。",
+      "coach_name_zh": "达伦·巴泽利",
+      "coach_facts": "英格兰出生，曾执教新西兰U20国家队，2023年起担任新西兰国家队主教练。",
+      "coach_photo": "nzl-coach",
+      "player_photos": {
+        "5": "nzl-boxall",
+        "9": "nzl-wood",
+        "11": "nzl-just"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2010年小组赛"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年未参赛"
+        },
+        {
+          "label": "重返世界杯",
+          "value": "时隔16年"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：新西兰国家足球队",
+        "url": "https://en.wikipedia.org/wiki/New_Zealand_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：新西兰国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%96%B0%E8%A5%BF%E5%85%B0%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Maxime Teremoana Crocombe",
+          "club": "Millwall FC (ENG)",
+          "caps": 27,
+          "goals": 0,
+          "name_zh": "马克斯·克罗科姆",
+          "club_zh": "米尔沃尔"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Timothy John Payne",
+          "club": "Wellington Phoenix FC (NZL)",
+          "caps": 55,
+          "goals": 3,
+          "name_zh": "蒂姆·佩恩",
+          "club_zh": "惠灵顿凤凰"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Francis De Vries",
+          "club": "Auckland FC (NZL)",
+          "caps": 22,
+          "goals": 1,
+          "name_zh": "弗朗西斯·德弗里斯",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Tyler Grant Bindon",
+          "club": "Sheffield United FC (ENG)",
+          "caps": 28,
+          "goals": 2,
+          "name_zh": "泰勒·宾顿",
+          "club_zh": "谢菲尔德联"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Michael Boxall",
+          "club": "Minnesota United FC (USA)",
+          "caps": 67,
+          "goals": 1,
+          "name_zh": "迈克·伯克萨尔",
+          "club_zh": "明尼苏达联"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Joe Zen Robert Bell",
+          "club": "Viking Stavanger (NOR)",
+          "caps": 35,
+          "goals": 1,
+          "name_zh": "乔·贝尔",
+          "club_zh": "维京"
+        },
+        {
+          "shirt_number": 7,
+          "position": "FW",
+          "name": "Logan Tipene Rogerson",
+          "club": "Auckland FC (NZL)",
+          "caps": 18,
+          "goals": 2,
+          "name_zh": "洛根·罗杰森",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Marko Seufatu Nikola Stamenic",
+          "club": "Swansea City AFC (WAL)",
+          "caps": 43,
+          "goals": 3,
+          "name_zh": "马尔科·斯塔梅尼克",
+          "club_zh": "斯旺西"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Chris Wood",
+          "club": "Nottingham Forest FC (ENG)",
+          "caps": 93,
+          "goals": 45,
+          "name_zh": "克里斯·伍德",
+          "club_zh": "诺丁汉森林"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Sarpreet Singh",
+          "club": "Wellington Phoenix FC (NZL)",
+          "caps": 31,
+          "goals": 3,
+          "name_zh": "萨普里特·辛格",
+          "club_zh": "惠灵顿凤凰"
+        },
+        {
+          "shirt_number": 11,
+          "position": "MF",
+          "name": "Elijah Just",
+          "club": "Motherwell FC (SCO)",
+          "caps": 47,
+          "goals": 12,
+          "name_zh": "以利亚·贾斯特",
+          "club_zh": "马瑟韦尔"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Alexander Noah Paulsen",
+          "club": "Lechia Gdańsk (POL)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "亚历克斯·保尔森",
+          "club_zh": "格但斯克莱希亚"
+        },
+        {
+          "shirt_number": 13,
+          "position": "DF",
+          "name": "Liberato Gianpaolo Cacace",
+          "club": "Wrexham AFC (WAL)",
+          "caps": 40,
+          "goals": 1,
+          "name_zh": "利贝拉托·凯卡斯",
+          "club_zh": "雷克瑟姆"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Alex Arthur Rufer",
+          "club": "Wellington Phoenix FC (NZL)",
+          "caps": 26,
+          "goals": 0,
+          "name_zh": "亚历克斯·鲁费尔",
+          "club_zh": "惠灵顿凤凰"
+        },
+        {
+          "shirt_number": 15,
+          "position": "DF",
+          "name": "Nando Zen Pijnaker",
+          "club": "Auckland FC (NZL)",
+          "caps": 26,
+          "goals": 0,
+          "name_zh": "南多·派纳克",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 16,
+          "position": "DF",
+          "name": "Finn Surman",
+          "club": "Portland Timbers (USA)",
+          "caps": 22,
+          "goals": 3,
+          "name_zh": "芬恩·苏尔曼",
+          "club_zh": "波特兰伐木者"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Kosta Barbarouses",
+          "club": "WS Wanderers FC (AUS)",
+          "caps": 76,
+          "goals": 10,
+          "name_zh": "哥斯达·巴巴路西斯",
+          "club_zh": "西悉尼流浪者"
+        },
+        {
+          "shirt_number": 18,
+          "position": "FW",
+          "name": "Benjamin Peter Waine",
+          "club": "Port Vale FC (ENG)",
+          "caps": 31,
+          "goals": 9,
+          "name_zh": "本·韦恩",
+          "club_zh": "维尔港"
+        },
+        {
+          "shirt_number": 19,
+          "position": "MF",
+          "name": "Benjamin Craig Old",
+          "club": "AS Saint-Etienne (FRA)",
+          "caps": 27,
+          "goals": 2,
+          "name_zh": "本·奥尔德",
+          "club_zh": "圣埃蒂安"
+        },
+        {
+          "shirt_number": 20,
+          "position": "MF",
+          "name": "Callum William Mccowatt",
+          "club": "Silkeborg IF (DEN)",
+          "caps": 36,
+          "goals": 5,
+          "name_zh": "卡勒姆·麦考瓦特",
+          "club_zh": "锡尔克堡"
+        },
+        {
+          "shirt_number": 21,
+          "position": "FW",
+          "name": "Jesse Carmichael Randall",
+          "club": "Auckland FC (NZL)",
+          "caps": 14,
+          "goals": 2,
+          "name_zh": "杰西·兰德尔",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 22,
+          "position": "GK",
+          "name": "Michael Cornelis Woud",
+          "club": "Auckland FC (NZL)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "米高·伍德",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 23,
+          "position": "MF",
+          "name": "Ryan Jared Thomas",
+          "club": "PEC Zwolle (NED)",
+          "caps": 28,
+          "goals": 3,
+          "name_zh": "瑞恩·托马斯",
+          "club_zh": "兹沃勒"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Callan Rennie Elliot",
+          "club": "Auckland FC (NZL)",
+          "caps": 12,
+          "goals": 0,
+          "name_zh": "卡伦·埃利奥特",
+          "club_zh": "奥克兰FC"
+        },
+        {
+          "shirt_number": 25,
+          "position": "MF",
+          "name": "Lachlan Ryan Bayliss",
+          "club": "Newcastle United Jets FC (AUS)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "拉克兰·贝利斯",
+          "club_zh": "纽卡斯尔喷气机"
+        },
+        {
+          "shirt_number": 26,
+          "position": "DF",
+          "name": "Thomas Jefferson Smith",
+          "club": "Braintree Town FC (ENG)",
+          "caps": 57,
+          "goals": 2,
+          "name_zh": "汤米·史密斯",
+          "club_zh": "布伦特里镇"
+        }
+      ]
+    },
+    "JPN": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=25",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "日本的本届参赛阵容由 Hajime Moriyasu 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、9名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Hajime Moriyasu",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：日本",
+      "summary": "日本队连续第八次参加世界杯，旅欧球员构成阵容主体。",
+      "coach_name_zh": "森保一",
+      "coach_facts": "日本教练，2018年起执教日本国家队，率队参加2022年世界杯并进入16强。",
+      "coach_photo": "jpn-coach",
+      "player_photos": {
+        "5": "jpn-nagatomo",
+        "14": "jpn-ito",
+        "18": "jpn-ueda"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "16强"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年16强"
+        },
+        {
+          "label": "世界杯参赛",
+          "value": "第8次"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：日本国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Japan_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：日本国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Zion Suzuki",
+          "club": "Parma (ITA)",
+          "caps": 29,
+          "goals": 0,
+          "name_zh": "铃木彩艳",
+          "club_zh": "帕尔马"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Yukinari Sugawara",
+          "club": "SV Werder Bremen (GER)",
+          "caps": 26,
+          "goals": 2,
+          "name_zh": "菅原由势",
+          "club_zh": "云达不莱梅"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Shogo Taniguchi",
+          "club": "Sint-Truiden VV (BEL)",
+          "caps": 42,
+          "goals": 1,
+          "name_zh": "谷口彰悟",
+          "club_zh": "圣特雷登"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Kou Itakura",
+          "club": "AFC Ajax (NED)",
+          "caps": 43,
+          "goals": 3,
+          "name_zh": "板仓滉",
+          "club_zh": "阿贾克斯"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Yuto Nagatomo",
+          "club": "FC Tokyo (JPN)",
+          "caps": 146,
+          "goals": 4,
+          "name_zh": "长友佑都",
+          "club_zh": "FC东京"
+        },
+        {
+          "shirt_number": 6,
+          "position": "FW",
+          "name": "Shuto Machino",
+          "club": "Borussia Mönchengladbach (GER)",
+          "caps": 15,
+          "goals": 5,
+          "name_zh": "町野修斗",
+          "club_zh": "门兴格拉德巴赫"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Ao Tanaka",
+          "club": "Leeds United FC (ENG)",
+          "caps": 41,
+          "goals": 8,
+          "name_zh": "田中碧",
+          "club_zh": "利兹联"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Takefusa Kubo",
+          "club": "Real Sociedad (ESP)",
+          "caps": 50,
+          "goals": 7,
+          "name_zh": "久保建英",
+          "club_zh": "皇家社会"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Keisuke Goto",
+          "club": "Sint-Truiden VV (BEL)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "后藤启介",
+          "club_zh": "圣特雷登"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Ritsu Doan",
+          "club": "Eintracht Frankfurt (GER)",
+          "caps": 70,
+          "goals": 11,
+          "name_zh": "堂安律",
+          "club_zh": "法兰克福"
+        },
+        {
+          "shirt_number": 11,
+          "position": "MF",
+          "name": "Daizen Maeda",
+          "club": "Celtic FC (SCO)",
+          "caps": 31,
+          "goals": 6,
+          "name_zh": "前田大然",
+          "club_zh": "凯尔特人"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Keisuke Osako",
+          "club": "Sanfrecce Hiroshima (JPN)",
+          "caps": 11,
+          "goals": 0,
+          "name_zh": "大迫敬介",
+          "club_zh": "广岛三箭"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Keito Nakamura",
+          "club": "Stade Reims (FRA)",
+          "caps": 30,
+          "goals": 12,
+          "name_zh": "中村敬斗",
+          "club_zh": "兰斯"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Junya Ito",
+          "club": "KRC Genk (BEL)",
+          "caps": 73,
+          "goals": 16,
+          "name_zh": "伊东纯也",
+          "club_zh": "亨克"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Daichi Kamada",
+          "club": "Crystal Palace FC (ENG)",
+          "caps": 53,
+          "goals": 14,
+          "name_zh": "镰田大地",
+          "club_zh": "水晶宫"
+        },
+        {
+          "shirt_number": 16,
+          "position": "DF",
+          "name": "Tsuyoshi Watanabe",
+          "club": "Feyenoord Rotterdam (NED)",
+          "caps": 14,
+          "goals": 0,
+          "name_zh": "渡边刚",
+          "club_zh": "费耶诺德"
+        },
+        {
+          "shirt_number": 17,
+          "position": "MF",
+          "name": "Yuito Suzuki",
+          "club": "SC Freiburg (GER)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "铃木唯人",
+          "club_zh": "弗赖堡"
+        },
+        {
+          "shirt_number": 18,
+          "position": "FW",
+          "name": "Ayase Ueda",
+          "club": "Feyenoord Rotterdam (NED)",
+          "caps": 44,
+          "goals": 18,
+          "name_zh": "上田绮世",
+          "club_zh": "费耶诺德"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Koki Ogawa",
+          "club": "NEC Nijmegen (NED)",
+          "caps": 18,
+          "goals": 11,
+          "name_zh": "小川航基",
+          "club_zh": "奈梅亨"
+        },
+        {
+          "shirt_number": 20,
+          "position": "DF",
+          "name": "Ayumu Seko",
+          "club": "Le Havre AC (FRA)",
+          "caps": 16,
+          "goals": 0,
+          "name_zh": "濑古步梦",
+          "club_zh": "勒阿弗尔"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Hiroki Ito",
+          "club": "FC Bayern München (GER)",
+          "caps": 29,
+          "goals": 1,
+          "name_zh": "伊藤洋辉",
+          "club_zh": "拜仁慕尼黑"
+        },
+        {
+          "shirt_number": 22,
+          "position": "DF",
+          "name": "Takehiro Tomiyasu",
+          "club": "AFC Ajax (NED)",
+          "caps": 46,
+          "goals": 1,
+          "name_zh": "富安健洋",
+          "club_zh": "阿贾克斯"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Tomoki Hayakawa",
+          "club": "Kashima Antlers (JPN)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "早川友基",
+          "club_zh": "鹿岛鹿角"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Kaishu Sano",
+          "club": "1. FSV Mainz 05 (GER)",
+          "caps": 17,
+          "goals": 1,
+          "name_zh": "佐野海舟",
+          "club_zh": "美因茨"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Junnosuke Suzuki",
+          "club": "FC København (DEN)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "铃木淳之介",
+          "club_zh": "哥本哈根"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Kento Shiogai",
+          "club": "VfL Wolfsburg (GER)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "盐贝健人",
+          "club_zh": "沃尔夫斯堡"
+        }
+      ]
+    },
+    "BEL": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=5",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "比利时的本届参赛阵容由 Rudi Garcia 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、8名中场和6名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Rudi Garcia",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+      "summary": "比利时队以德布劳内、卢卡库等老将为核心，继续冲击大赛成绩。",
+      "coach_name_zh": "鲁迪·加西亚",
+      "coach_facts": "法国籍教练，曾执教里尔、罗马、那不勒斯等俱乐部，2025年起担任比利时国家队主教练。",
+      "coach_photo": "bel-coach",
+      "player_photos": {
+        "6": "bel-witsel",
+        "9": "bel-lukaku",
+        "15": "bel-meunier"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2018年季军"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年小组赛"
+        },
+        {
+          "label": "世界杯参赛",
+          "value": "第15次"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：比利时国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Belgium_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：比利时国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%AF%94%E5%88%A9%E6%97%B6%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Thibaut Nicolas M Courtois",
+          "club": "Real Madrid C. F. (ESP)",
+          "caps": 115,
+          "goals": 0,
+          "name_zh": "蒂博·库尔图瓦",
+          "club_zh": "皇家马德里"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Zeno Koen Debast",
+          "club": "Sporting CP (POR)",
+          "caps": 26,
+          "goals": 1,
+          "name_zh": "泽诺·德巴斯特",
+          "club_zh": "葡萄牙体育"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Arthur Nicolas R Theate",
+          "club": "Eintracht Frankfurt (GER)",
+          "caps": 36,
+          "goals": 1,
+          "name_zh": "阿蒂尔·泰亚特",
+          "club_zh": "法兰克福"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Brandon Erik Mechele",
+          "club": "Club Brugge (BEL)",
+          "caps": 15,
+          "goals": 1,
+          "name_zh": "布兰登·梅切莱",
+          "club_zh": "布鲁日"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Maxim Peter M De Cuyper",
+          "club": "Brighton & Hove Albion FC (ENG)",
+          "caps": 25,
+          "goals": 4,
+          "name_zh": "马克西姆·德克伊珀",
+          "club_zh": "布莱顿"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Axel Witsel",
+          "club": "Girona FC (ESP)",
+          "caps": 140,
+          "goals": 12,
+          "name_zh": "阿克塞尔·维特塞尔",
+          "club_zh": "赫罗纳"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Kevin De Bruyne",
+          "club": "SSC Napoli (ITA)",
+          "caps": 124,
+          "goals": 38,
+          "name_zh": "凯文·德布劳内",
+          "club_zh": "那不勒斯"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Youri Marion A Tielemans",
+          "club": "Aston Villa FC (ENG)",
+          "caps": 90,
+          "goals": 15,
+          "name_zh": "尤里·蒂勒曼斯",
+          "club_zh": "阿斯顿维拉"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Romelu Lukaku",
+          "club": "SSC Napoli (ITA)",
+          "caps": 132,
+          "goals": 93,
+          "name_zh": "罗梅卢·卢卡库",
+          "club_zh": "那不勒斯"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Leandro Trossard",
+          "club": "Arsenal FC (ENG)",
+          "caps": 57,
+          "goals": 14,
+          "name_zh": "莱安德罗·特罗萨德",
+          "club_zh": "阿森纳"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Jeremy Baffour Doku",
+          "club": "Manchester City FC (ENG)",
+          "caps": 48,
+          "goals": 7,
+          "name_zh": "杰里米·多库",
+          "club_zh": "曼城"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Senne Lammens",
+          "club": "Manchester United FC (ENG)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "森纳·拉门斯",
+          "club_zh": "曼联"
+        },
+        {
+          "shirt_number": 13,
+          "position": "GK",
+          "name": "Mike Louis Penders",
+          "club": "RC Strasbourg (FRA)",
+          "caps": 0,
+          "goals": 0,
+          "name_zh": "迈克·彭德斯",
+          "club_zh": "斯特拉斯堡"
+        },
+        {
+          "shirt_number": 14,
+          "position": "FW",
+          "name": "Dodi Lukebakio Ngandoli",
+          "club": "SL Benfica (POR)",
+          "caps": 33,
+          "goals": 6,
+          "name_zh": "多迪·卢克巴基奥",
+          "club_zh": "本菲卡"
+        },
+        {
+          "shirt_number": 15,
+          "position": "DF",
+          "name": "Thomas Meunier",
+          "club": "Lille OSC (FRA)",
+          "caps": 83,
+          "goals": 10,
+          "name_zh": "托马斯·默尼耶",
+          "club_zh": "里尔"
+        },
+        {
+          "shirt_number": 16,
+          "position": "DF",
+          "name": "Koni De Winter",
+          "club": "AC Milan (ITA)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "科尼·德温特",
+          "club_zh": "AC米兰"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Charles Marc S De Ketelaere",
+          "club": "Atalanta Bergamo (ITA)",
+          "caps": 35,
+          "goals": 9,
+          "name_zh": "夏尔·德凯特拉雷",
+          "club_zh": "亚特兰大"
+        },
+        {
+          "shirt_number": 18,
+          "position": "DF",
+          "name": "Joaquin Ronny Seys",
+          "club": "Club Brugge (BEL)",
+          "caps": 6,
+          "goals": 0,
+          "name_zh": "华金·塞斯",
+          "club_zh": "布鲁日"
+        },
+        {
+          "shirt_number": 19,
+          "position": "MF",
+          "name": "Diego Manuel J Da Silva Moreira",
+          "club": "RC Strasbourg (FRA)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "迭戈·莫雷拉",
+          "club_zh": "斯特拉斯堡"
+        },
+        {
+          "shirt_number": 20,
+          "position": "MF",
+          "name": "Hans Vanaken",
+          "club": "Club Brugge (BEL)",
+          "caps": 40,
+          "goals": 8,
+          "name_zh": "汉斯·范阿肯",
+          "club_zh": "布鲁日"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Timothy Castagne",
+          "club": "Fulham FC (ENG)",
+          "caps": 69,
+          "goals": 2,
+          "name_zh": "蒂莫西·卡斯塔涅",
+          "club_zh": "富勒姆"
+        },
+        {
+          "shirt_number": 22,
+          "position": "MF",
+          "name": "Alexis Jesse M Saelemaekers",
+          "club": "AC Milan (ITA)",
+          "caps": 28,
+          "goals": 3,
+          "name_zh": "亚历克西斯·萨勒马克尔斯",
+          "club_zh": "AC米兰"
+        },
+        {
+          "shirt_number": 23,
+          "position": "MF",
+          "name": "Nicolas Thierry Y Raskin",
+          "club": "Rangers FC (SCO)",
+          "caps": 19,
+          "goals": 2,
+          "name_zh": "尼古拉斯·拉斯金",
+          "club_zh": "格拉斯哥流浪者"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Amadou Ba Z Mvom Onana",
+          "club": "Aston Villa FC (ENG)",
+          "caps": 33,
+          "goals": 1,
+          "name_zh": "阿马杜·奥纳纳",
+          "club_zh": "阿斯顿维拉"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Nathan Ngoy",
+          "club": "Lille OSC (FRA)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "内森·恩戈伊",
+          "club_zh": "里尔"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Matias Fernandez-Pardo",
+          "club": "Lille OSC (FRA)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "马蒂亚斯·费尔南德斯-帕尔多",
+          "club_zh": "里尔"
+        }
+      ]
+    },
+    "KSA": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=37",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "沙特阿拉伯的本届参赛阵容由 Georgios Donis 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、6名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Georgios Donis",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：希腊",
+      "summary": "沙特队以本国联赛球员为主，继续由萨利姆·多萨里领衔进攻。",
+      "coach_name_zh": "乔治奥斯·多尼斯",
+      "coach_facts": "希腊教练，曾执教沙特联赛多家俱乐部，2026 年 4 月出任沙特阿拉伯国家队主教练。",
+      "player_photos": {
+        "10": "ksa-salem",
+        "12": "ksa-abdulhamid",
+        "23": "ksa-kanno"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "1994年16强"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年小组赛"
+        },
+        {
+          "label": "本届队长",
+          "value": "萨利姆·多萨里"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：沙特阿拉伯国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Saudi_Arabia_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：沙特阿拉伯国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Nawaf Dhahi F Alaqidi",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 24,
+          "goals": 0,
+          "name_zh": "纳瓦夫·阿基迪",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Ali Hassan M Majrashi",
+          "club": "Al Ahli FC (KSA)",
+          "caps": 21,
+          "goals": 0,
+          "name_zh": "阿里·马杰拉希",
+          "club_zh": "吉达国民"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Ali Mohammed A Lajami",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 27,
+          "goals": 1,
+          "name_zh": "阿里·阿劳杰米",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Abdulelah Ali A Alamri",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 47,
+          "goals": 2,
+          "name_zh": "阿卜杜勒拉·阿姆里",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Hassan Mohammed O Altambakti",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 57,
+          "goals": 1,
+          "name_zh": "哈桑·坦巴克蒂",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Nasser Essa S Aldawsari",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 50,
+          "goals": 1,
+          "name_zh": "纳赛尔·多萨里",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Musab Fahad Z Aljuwayr",
+          "club": "Al Qadsiah FC (KSA)",
+          "caps": 40,
+          "goals": 6,
+          "name_zh": "穆萨卜·朱瓦伊尔",
+          "club_zh": "卡迪西亚"
+        },
+        {
+          "shirt_number": 8,
+          "position": "FW",
+          "name": "Aiman Yahya Y Ahmed",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 26,
+          "goals": 0,
+          "name_zh": "艾曼·叶海亚",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Feras Tariq N Albrikan",
+          "club": "Al Ahli FC (KSA)",
+          "caps": 75,
+          "goals": 16,
+          "name_zh": "菲拉斯·布赖坎",
+          "club_zh": "吉达国民"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Salem Aldawsari",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 114,
+          "goals": 27,
+          "name_zh": "萨利姆·多萨里",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Saleh Khalid M Alshehri",
+          "club": "Al Ittihad (KSA)",
+          "caps": 59,
+          "goals": 17,
+          "name_zh": "萨利赫·谢赫里",
+          "club_zh": "吉达联合"
+        },
+        {
+          "shirt_number": 12,
+          "position": "DF",
+          "name": "Saud Abdulhamid",
+          "club": "RC Lens (FRA)",
+          "caps": 58,
+          "goals": 1,
+          "name_zh": "沙特·阿卜杜勒哈米德",
+          "club_zh": "朗斯"
+        },
+        {
+          "shirt_number": 13,
+          "position": "DF",
+          "name": "Nawaf Meshari M Bu Washl",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 29,
+          "goals": 0,
+          "name_zh": "纳瓦夫·布瓦什尔",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 14,
+          "position": "DF",
+          "name": "Hassan Kadish Y Mahbub",
+          "club": "Al Ittihad (KSA)",
+          "caps": 21,
+          "goals": 2,
+          "name_zh": "哈桑·卡迪什",
+          "club_zh": "吉达联合"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Abdullah Mohammed H Alkhaibari",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 45,
+          "goals": 0,
+          "name_zh": "阿卜杜拉·海巴里",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 16,
+          "position": "MF",
+          "name": "Ziyad Mubarak E Aljohani",
+          "club": "Al Ahli FC (KSA)",
+          "caps": 12,
+          "goals": 0,
+          "name_zh": "齐亚德·乔哈尼",
+          "club_zh": "吉达国民"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Khalid Essa M Alghannam",
+          "club": "Al Ettifaq FC (KSA)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "哈立德·加纳姆",
+          "club_zh": "达曼协作"
+        },
+        {
+          "shirt_number": 18,
+          "position": "MF",
+          "name": "Ala Mohsen A Alhajji",
+          "club": "Neom SC (KSA)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "阿拉·哈吉",
+          "club_zh": "新未来城"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Abdullah Abdulrahman A Alhamddan",
+          "club": "Al Nassr FC (KSA)",
+          "caps": 55,
+          "goals": 13,
+          "name_zh": "阿卜杜拉·哈姆丹",
+          "club_zh": "利雅得胜利"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Sultan Ahmed M Mandash",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 8,
+          "goals": 2,
+          "name_zh": "苏丹·曼达什",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 21,
+          "position": "GK",
+          "name": "Mohammed Khalil I Alowais",
+          "club": "Al Ula Saudi FC (KSA)",
+          "caps": 68,
+          "goals": 0,
+          "name_zh": "穆罕默德·奥韦斯",
+          "club_zh": "欧拉"
+        },
+        {
+          "shirt_number": 22,
+          "position": "GK",
+          "name": "Ahmed Ali H Alkassar",
+          "club": "Al Qadsiah FC (KSA)",
+          "caps": 9,
+          "goals": 0,
+          "name_zh": "艾哈迈德·卡萨尔",
+          "club_zh": "卡迪西亚"
+        },
+        {
+          "shirt_number": 23,
+          "position": "MF",
+          "name": "Mohamed Kanno",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 82,
+          "goals": 8,
+          "name_zh": "穆罕默德·卡诺",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Moteb Saad S Alharbi",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 16,
+          "goals": 0,
+          "name_zh": "穆特卜·哈尔比",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Jehad Abdullatif A Thikri",
+          "club": "Al Qadsiah FC (KSA)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "杰哈德·提克里",
+          "club_zh": "卡迪西亚"
+        },
+        {
+          "shirt_number": 26,
+          "position": "DF",
+          "name": "Mohammed Waheeb S Abu Alshamat",
+          "club": "Al Qadsiah FC (KSA)",
+          "caps": 11,
+          "goals": 0,
+          "name_zh": "穆罕默德·阿布沙马特",
+          "club_zh": "卡迪西亚"
+        }
+      ],
+      "coach_photo": null
+    },
+    "FRA": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=19",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "法国的本届参赛阵容由 Didier Deschamps 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、7名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Didier Deschamps",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+      "summary": "法国队由姆巴佩领衔，继续以世界杯冠军为目标。",
+      "coach_name_zh": "迪迪埃·德尚",
+      "coach_facts": "法国教练，2012年起执教法国国家队，率队夺得2018年世界杯冠军和2022年世界杯亚军。",
+      "coach_photo": "fra-coach",
+      "player_photos": {
+        "3": "fra-digne",
+        "10": "fra-mbappe",
+        "13": "fra-kante"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "1998、2018年冠军"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年亚军"
+        },
+        {
+          "label": "本届队长",
+          "value": "基利安·姆巴佩"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：法国国家足球队",
+        "url": "https://en.wikipedia.org/wiki/France_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：法国国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%B3%95%E5%9B%BD%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Brice Lauriche Samba",
+          "club": "Stade Rennais FC (FRA)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "布里斯·桑巴",
+          "club_zh": "雷恩"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Malo Arthur Gusto",
+          "club": "Chelsea FC (ENG)",
+          "caps": 16,
+          "goals": 0,
+          "name_zh": "马洛·古斯托",
+          "club_zh": "切尔西"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Lucas Digne",
+          "club": "Aston Villa FC (ENG)",
+          "caps": 64,
+          "goals": 0,
+          "name_zh": "卢卡斯·迪涅",
+          "club_zh": "阿斯顿维拉"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Dayotchanculle Oswald Upamecano",
+          "club": "FC Bayern München (GER)",
+          "caps": 46,
+          "goals": 2,
+          "name_zh": "达约·于帕梅卡诺",
+          "club_zh": "拜仁慕尼黑"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Jules Olivier Kounde",
+          "club": "FC Barcelona (ESP)",
+          "caps": 56,
+          "goals": 0,
+          "name_zh": "朱尔·孔德",
+          "club_zh": "巴塞罗那"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Kouadio Emmanuel Boris Kone",
+          "club": "AS Roma (ITA)",
+          "caps": 19,
+          "goals": 0,
+          "name_zh": "马努·科内",
+          "club_zh": "罗马"
+        },
+        {
+          "shirt_number": 7,
+          "position": "FW",
+          "name": "Masour Ousmane Dembele",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 67,
+          "goals": 13,
+          "name_zh": "奥斯曼·登贝莱",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Aurélien Djani Tchouameni",
+          "club": "Real Madrid C. F. (ESP)",
+          "caps": 50,
+          "goals": 3,
+          "name_zh": "奥雷利安·楚阿梅尼",
+          "club_zh": "皇家马德里"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Marcus Lilian Thuram-Ulien",
+          "club": "FC Internazionale Milano (ITA)",
+          "caps": 35,
+          "goals": 3,
+          "name_zh": "马库斯·图拉姆",
+          "club_zh": "国际米兰"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Kylian Mbappe",
+          "club": "Real Madrid C. F. (ESP)",
+          "caps": 106,
+          "goals": 66,
+          "name_zh": "基利安·姆巴佩",
+          "club_zh": "皇家马德里"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Michael Akpovie Olise",
+          "club": "FC Bayern München (GER)",
+          "caps": 25,
+          "goals": 7,
+          "name_zh": "迈克尔·奥利塞",
+          "club_zh": "拜仁慕尼黑"
+        },
+        {
+          "shirt_number": 12,
+          "position": "FW",
+          "name": "Bradley Jean-Manuel Essolisa A Barcola",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 28,
+          "goals": 6,
+          "name_zh": "布拉德利·巴尔科拉",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Ngolo Kante",
+          "club": "Fenerbahçe SK (TUR)",
+          "caps": 69,
+          "goals": 2,
+          "name_zh": "恩戈洛·坎特",
+          "club_zh": "费内巴切"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Adrien Thibault Marie Rabiot",
+          "club": "AC Milan (ITA)",
+          "caps": 66,
+          "goals": 7,
+          "name_zh": "阿德里安·拉比奥特",
+          "club_zh": "AC米兰"
+        },
+        {
+          "shirt_number": 15,
+          "position": "DF",
+          "name": "Ibrahima Konaté",
+          "club": "Liverpool FC (ENG)",
+          "caps": 30,
+          "goals": 0,
+          "name_zh": "易卜拉希马·科纳特",
+          "club_zh": "利物浦"
+        },
+        {
+          "shirt_number": 16,
+          "position": "GK",
+          "name": "Mike Peterson Maignan",
+          "club": "AC Milan (ITA)",
+          "caps": 48,
+          "goals": 0,
+          "name_zh": "迈克·迈尼昂",
+          "club_zh": "AC米兰"
+        },
+        {
+          "shirt_number": 17,
+          "position": "DF",
+          "name": "William Alain André Gabriel Saliba",
+          "club": "Arsenal FC (ENG)",
+          "caps": 38,
+          "goals": 0,
+          "name_zh": "威廉·萨利巴",
+          "club_zh": "阿森纳"
+        },
+        {
+          "shirt_number": 18,
+          "position": "MF",
+          "name": "Warren Marie Jean-Pierre Zaïre-Emery",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 13,
+          "goals": 1,
+          "name_zh": "沃伦·扎伊尔-埃梅里",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 19,
+          "position": "DF",
+          "name": "Théo Bernard François Hernandez",
+          "club": "Al Hilal SC (KSA)",
+          "caps": 49,
+          "goals": 2,
+          "name_zh": "特奥·埃尔南德斯",
+          "club_zh": "利雅得新月"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Désiré Nonka-Maho Doue",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 15,
+          "goals": 3,
+          "name_zh": "德西雷·杜埃",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Lucas Francois Bernard Hernandez",
+          "club": "Paris Saint-Germain (FRA)",
+          "caps": 42,
+          "goals": 0,
+          "name_zh": "卢卡斯·埃尔南德斯",
+          "club_zh": "巴黎圣日耳曼"
+        },
+        {
+          "shirt_number": 22,
+          "position": "FW",
+          "name": "Jean-Philippe Mateta",
+          "club": "Crystal Palace FC (ENG)",
+          "caps": 7,
+          "goals": 2,
+          "name_zh": "让-菲利普·马特塔",
+          "club_zh": "水晶宫"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Robin François Philippe Risser",
+          "club": "RC Lens (FRA)",
+          "caps": 0,
+          "goals": 0,
+          "name_zh": "罗班·里塞",
+          "club_zh": "朗斯"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Mathis Rayan Cherki",
+          "club": "Manchester City FC (ENG)",
+          "caps": 14,
+          "goals": 2,
+          "name_zh": "拉扬·谢尔基",
+          "club_zh": "曼城"
+        },
+        {
+          "shirt_number": 25,
+          "position": "MF",
+          "name": "Maghnes Akliouche",
+          "club": "AS Monaco (FRA)",
+          "caps": 10,
+          "goals": 1,
+          "name_zh": "马格内斯·阿克利乌什",
+          "club_zh": "摩纳哥"
+        },
+        {
+          "shirt_number": 26,
+          "position": "DF",
+          "name": "Maxence Guy Lacroix",
+          "club": "Crystal Palace FC (ENG)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "马克桑斯·拉克鲁瓦",
+          "club_zh": "水晶宫"
+        }
+      ]
+    },
+    "BIH": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=6",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "波斯尼亚和黑塞哥维那的本届参赛阵容由 Sergej Barbarez 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Sergej Barbarez",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：波斯尼亚和黑塞哥维那",
+      "summary": "波黑队时隔12年重返世界杯，哲科等老将仍在阵中。",
+      "coach_name_zh": "谢尔盖·巴巴雷茨",
+      "coach_facts": "波黑教练，曾长期担任国家队队长，2024年起担任波黑国家队主教练。",
+      "coach_photo": "bih-coach",
+      "player_photos": {
+        "5": "bih-kolasinac",
+        "11": "bih-dzeko",
+        "16": "bih-hadziahmetovic"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2014年小组赛"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年未参赛"
+        },
+        {
+          "label": "重返世界杯",
+          "value": "时隔12年"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：波黑国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：波黑国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%B3%A2%E6%96%AF%E5%B0%BC%E4%BA%9A%E5%92%8C%E9%BB%91%E5%A1%9E%E5%93%A5%E7%BB%B4%E9%82%A3%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Nikola Vasilj",
+          "club": "FC St. Pauli (GER)",
+          "caps": 30,
+          "goals": 0,
+          "name_zh": "尼古拉·瓦西利",
+          "club_zh": "圣保利"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Nihad Mujakić",
+          "club": "Gaziantep FK (TUR)",
+          "caps": 12,
+          "goals": 1,
+          "name_zh": "尼哈德·穆亚基奇",
+          "club_zh": "加济安泰普"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Dennis Hadžikadunić",
+          "club": "UC Sampdoria (ITA)",
+          "caps": 33,
+          "goals": 0,
+          "name_zh": "丹尼斯·哈季卡杜尼奇",
+          "club_zh": "桑普多利亚"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Tarik Muharemović",
+          "club": "US Sassuolo (ITA)",
+          "caps": 17,
+          "goals": 1,
+          "name_zh": "塔里克·穆哈雷莫维奇",
+          "club_zh": "萨索洛"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Sead Kolasinac",
+          "club": "Atalanta Bergamo (ITA)",
+          "caps": 69,
+          "goals": 0,
+          "name_zh": "塞亚德·科拉希纳茨",
+          "club_zh": "亚特兰大"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Benjamin Tahirovic",
+          "club": "Brøndby IF (DEN)",
+          "caps": 32,
+          "goals": 2,
+          "name_zh": "本杰明·塔希罗维奇",
+          "club_zh": "布隆德比"
+        },
+        {
+          "shirt_number": 7,
+          "position": "DF",
+          "name": "Amar Dedić",
+          "club": "SL Benfica (POR)",
+          "caps": 31,
+          "goals": 1,
+          "name_zh": "阿马尔·德迪奇",
+          "club_zh": "本菲卡"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Armin Gigović",
+          "club": "BSC Young Boys (SUI)",
+          "caps": 22,
+          "goals": 1,
+          "name_zh": "阿尔明·吉戈维奇",
+          "club_zh": "伯尔尼年轻人"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Samed Baždar",
+          "club": "Jagiellonia Białystok (POL)",
+          "caps": 14,
+          "goals": 1,
+          "name_zh": "萨梅德·巴日达尔",
+          "club_zh": "比亚韦斯托克雅盖隆"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Ermedin Demirović",
+          "club": "VfB Stuttgart (GER)",
+          "caps": 44,
+          "goals": 4,
+          "name_zh": "埃尔梅丁·德米罗维奇",
+          "club_zh": "斯图加特"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Edin Dzeko",
+          "club": "FC Schalke 04 (GER)",
+          "caps": 151,
+          "goals": 73,
+          "name_zh": "埃丁·哲科",
+          "club_zh": "沙尔克04"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Mladen Jurkas",
+          "club": "FK Borac Banja Luka (BIH)",
+          "caps": 0,
+          "goals": 0,
+          "name_zh": "姆拉登·尤尔卡斯",
+          "club_zh": "巴尼亚卢卡博拉茨"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Ivan Bašić",
+          "club": "FC Astana (KAZ)",
+          "caps": 20,
+          "goals": 0,
+          "name_zh": "伊万·巴希奇",
+          "club_zh": "阿斯塔纳"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Ivan Šunjić",
+          "club": "Pafos FC (CYP)",
+          "caps": 15,
+          "goals": 0,
+          "name_zh": "伊万·舒尼奇",
+          "club_zh": "帕福斯"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Amar Memić",
+          "club": "FC Viktoria Plzeň (CZE)",
+          "caps": 17,
+          "goals": 1,
+          "name_zh": "阿马尔·梅米奇",
+          "club_zh": "比尔森胜利"
+        },
+        {
+          "shirt_number": 16,
+          "position": "MF",
+          "name": "Amir Hadziahmetovic",
+          "club": "Hull City FC (ENG)",
+          "caps": 37,
+          "goals": 0,
+          "name_zh": "阿米尔·哈齐亚梅托维奇",
+          "club_zh": "赫尔城"
+        },
+        {
+          "shirt_number": 17,
+          "position": "MF",
+          "name": "Dženis Burnić",
+          "club": "Karlsruher SC (GER)",
+          "caps": 22,
+          "goals": 0,
+          "name_zh": "泽尼斯·布尔尼奇",
+          "club_zh": "卡尔斯鲁厄"
+        },
+        {
+          "shirt_number": 18,
+          "position": "DF",
+          "name": "Nikola Katić",
+          "club": "FC Schalke 04 (GER)",
+          "caps": 21,
+          "goals": 2,
+          "name_zh": "尼古拉·卡蒂奇",
+          "club_zh": "沙尔克04"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Kerim Alajbegović",
+          "club": "FC Red Bull Salzburg (AUT)",
+          "caps": 14,
+          "goals": 2,
+          "name_zh": "克里姆·阿拉伊贝戈维奇",
+          "club_zh": "萨尔茨堡红牛"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Esmir Bajraktarević",
+          "club": "PSV Eindhoven (NED)",
+          "caps": 20,
+          "goals": 1,
+          "name_zh": "埃斯米尔·巴伊拉克塔雷维奇",
+          "club_zh": "埃因霍温"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Stjepan Radeljić",
+          "club": "HNK Rijeka (CRO)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "斯捷潘·拉代利奇",
+          "club_zh": "里耶卡"
+        },
+        {
+          "shirt_number": 22,
+          "position": "GK",
+          "name": "Martin Zlomislić",
+          "club": "HNK Rijeka (CRO)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "马丁·兹洛米斯利奇",
+          "club_zh": "里耶卡"
+        },
+        {
+          "shirt_number": 23,
+          "position": "FW",
+          "name": "Haris Tabaković",
+          "club": "Borussia Mönchengladbach (GER)",
+          "caps": 11,
+          "goals": 4,
+          "name_zh": "哈里斯·塔巴科维奇",
+          "club_zh": "门兴格拉德巴赫"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Arjan Malić",
+          "club": "SK Sturm Graz (AUT)",
+          "caps": 9,
+          "goals": 0,
+          "name_zh": "阿尔扬·马利奇",
+          "club_zh": "格拉茨风暴"
+        },
+        {
+          "shirt_number": 25,
+          "position": "FW",
+          "name": "Jovo Lukić",
+          "club": "Universitatea Cluj (ROU)",
+          "caps": 5,
+          "goals": 1,
+          "name_zh": "乔沃·卢基奇",
+          "club_zh": "克卢日大学"
+        },
+        {
+          "shirt_number": 26,
+          "position": "MF",
+          "name": "Ermin Mahmić",
+          "club": "FC Slovan Liberec (CZE)",
+          "caps": 5,
+          "goals": 2,
+          "name_zh": "埃尔明·马赫米奇",
+          "club_zh": "利贝雷茨斯洛万"
+        }
+      ]
+    },
+    "HAI": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=22",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "海地的本届参赛阵容由 Sebastien Migne 带队，FIFA 名单收录26名球员，包括3名门将、9名后卫、5名中场和9名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Sebastien Migne",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：法国",
+      "summary": "海地队时隔52年重返世界杯，阵容以海外联赛球员为主。",
+      "coach_name_zh": "塞巴斯蒂安·米涅",
+      "coach_facts": "法国教练，曾执教肯尼亚、赤道几内亚等国家队，2024年起担任海地国家队主教练。",
+      "player_photos": {
+        "9": "hai-nazon",
+        "17": "hai-danley"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "1974年小组赛"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年未参赛"
+        },
+        {
+          "label": "重返世界杯",
+          "value": "时隔52年"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：海地国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Haiti_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：海地国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%9C%B0%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Johny Placide",
+          "club": "SC Bastia (FRA)",
+          "caps": 86,
+          "goals": 0,
+          "name_zh": "约翰尼·普拉西德",
+          "club_zh": "巴斯蒂亚"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Carlens Jean Fedlaire Ruby Arcus",
+          "club": "Angers SCO (FRA)",
+          "caps": 59,
+          "goals": 1,
+          "name_zh": "卡伦斯·阿尔库斯",
+          "club_zh": "昂热"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Keeto Thermoncy",
+          "club": "BSC Young Boys (SUI)",
+          "caps": 1,
+          "goals": 0,
+          "name_zh": "基托·泰尔蒙西",
+          "club_zh": "伯尔尼年轻人"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Ricardo Ade",
+          "club": "LDU Quito (ECU)",
+          "caps": 64,
+          "goals": 2,
+          "name_zh": "里卡多·阿德",
+          "club_zh": "基多大学体育"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Hannes Piterson D Delcroix",
+          "club": "FC Lugano (SUI)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "汉内斯·德尔克鲁瓦",
+          "club_zh": "卢加诺"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Carl Fred Sainte",
+          "club": "El Paso Locomotive FC (USA)",
+          "caps": 26,
+          "goals": 0,
+          "name_zh": "卡尔·弗雷德·圣泰",
+          "club_zh": "埃尔帕索机车"
+        },
+        {
+          "shirt_number": 7,
+          "position": "FW",
+          "name": "Derrick Burckley Etienne Jr",
+          "club": "Toronto FC (CAN)",
+          "caps": 51,
+          "goals": 8,
+          "name_zh": "德里克·埃蒂安",
+          "club_zh": "多伦多FC"
+        },
+        {
+          "shirt_number": 8,
+          "position": "DF",
+          "name": "Martin Yves Roberns Didier Experience",
+          "club": "AS Nancy (FRA)",
+          "caps": 24,
+          "goals": 0,
+          "name_zh": "马丁·埃克斯佩里恩斯",
+          "club_zh": "南锡"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Duckens Nazon",
+          "club": "Esteghlal Tehran FC (IRN)",
+          "caps": 84,
+          "goals": 44,
+          "name_zh": "杜肯斯·纳宗",
+          "club_zh": "德黑兰独立"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Jean Ricner Bellegarde",
+          "club": "Wolverhampton Wanderers FC (ENG)",
+          "caps": 13,
+          "goals": 0,
+          "name_zh": "让-里克纳·贝勒加德",
+          "club_zh": "狼队"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Don Deedson Louicius",
+          "club": "FC Dallas (USA)",
+          "caps": 35,
+          "goals": 10,
+          "name_zh": "迪德森·卢伊修斯",
+          "club_zh": "达拉斯"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Alexandre Jr Pierre",
+          "club": "FC Sochaux-Montbéliard (FRA)",
+          "caps": 17,
+          "goals": 0,
+          "name_zh": "亚历山大·皮埃尔",
+          "club_zh": "索肖-蒙贝利亚尔"
+        },
+        {
+          "shirt_number": 13,
+          "position": "DF",
+          "name": "Markhus Lacroix",
+          "club": "Colorado Springs Switchbacks FC (USA)",
+          "caps": 16,
+          "goals": 3,
+          "name_zh": "杜克·拉克鲁瓦",
+          "club_zh": "科罗拉多斯普林斯换挡者"
+        },
+        {
+          "shirt_number": 14,
+          "position": "DF",
+          "name": "Garven-Michee Metusala",
+          "club": "Colorado Springs Switchbacks FC (USA)",
+          "caps": 15,
+          "goals": 0,
+          "name_zh": "加文·梅图萨拉",
+          "club_zh": "科罗拉多斯普林斯换挡者"
+        },
+        {
+          "shirt_number": 15,
+          "position": "FW",
+          "name": "Ruben Fritzner Providence",
+          "club": "Almere City FC (NED)",
+          "caps": 18,
+          "goals": 3,
+          "name_zh": "鲁本·普罗维登斯",
+          "club_zh": "阿尔梅勒城"
+        },
+        {
+          "shirt_number": 16,
+          "position": "FW",
+          "name": "Lenny Alvin Pico Joseph",
+          "club": "Ferencvárosi TC (HUN)",
+          "caps": 5,
+          "goals": 1,
+          "name_zh": "伦尼·约瑟夫",
+          "club_zh": "费伦茨瓦罗斯"
+        },
+        {
+          "shirt_number": 17,
+          "position": "MF",
+          "name": "Danley Jean Jacques",
+          "club": "Philadelphia Union (USA)",
+          "caps": 34,
+          "goals": 6,
+          "name_zh": "丹利·让·雅克",
+          "club_zh": "费城联合"
+        },
+        {
+          "shirt_number": 18,
+          "position": "FW",
+          "name": "Wilson Isidor",
+          "club": "Sunderland AFC (ENG)",
+          "caps": 7,
+          "goals": 3,
+          "name_zh": "威尔逊·伊西多尔",
+          "club_zh": "桑德兰"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Yassin Enzo Fortune",
+          "club": "FC Vizela (POR)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "亚辛·福琼",
+          "club_zh": "维泽拉"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Frantzdy Pierrot",
+          "club": "Çaykur Rizespor (TUR)",
+          "caps": 56,
+          "goals": 34,
+          "name_zh": "弗朗茨迪·皮埃罗",
+          "club_zh": "里泽体育"
+        },
+        {
+          "shirt_number": 21,
+          "position": "FW",
+          "name": "Josue Jeremie Casimir",
+          "club": "AJ Auxerre (FRA)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "若苏埃·卡西米尔",
+          "club_zh": "欧塞尔"
+        },
+        {
+          "shirt_number": 22,
+          "position": "DF",
+          "name": "Jean-Kévin Duverne",
+          "club": "KAA Gent (BEL)",
+          "caps": 19,
+          "goals": 1,
+          "name_zh": "让-凯文·迪韦尔内",
+          "club_zh": "根特"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Josue Duverger",
+          "club": "FC Cosmos Koblenz (GER)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "若苏埃·迪韦尔热",
+          "club_zh": "科布伦茨宇宙"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Wilguens Raphael Polynice Paugain",
+          "club": "SV Zulte Waregem (BEL)",
+          "caps": 8,
+          "goals": 0,
+          "name_zh": "威尔盖恩斯·帕凯恩",
+          "club_zh": "祖尔特瓦雷赫姆"
+        },
+        {
+          "shirt_number": 25,
+          "position": "MF",
+          "name": "Dominique Celidor Simon",
+          "club": "FC Tatran Prešov (SVK)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "多米尼克·西蒙",
+          "club_zh": "普雷绍夫塔特兰"
+        },
+        {
+          "shirt_number": 26,
+          "position": "MF",
+          "name": "Olivier Woodensky Pierre",
+          "club": "Violette AC (HAI)",
+          "caps": 1,
+          "goals": 0,
+          "name_zh": "伍登斯基·皮埃尔",
+          "club_zh": "紫罗兰"
+        }
+      ],
+      "coach_photo": null
+    },
+    "AUS": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=3",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "澳大利亚的本届参赛阵容由 Tony Popovic 带队，FIFA 名单收录26名球员，包括3名门将、10名后卫、5名中场和8名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Tony Popovic",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：澳大利亚",
+      "summary": "澳大利亚队连续第六次参加世界杯，阵容以澳超和欧洲联赛球员为主。",
+      "coach_name_zh": "托尼·波波维奇",
+      "coach_facts": "澳大利亚教练，曾率西悉尼流浪者夺得2014年亚冠冠军，2024年起执教澳大利亚国家队。",
+      "coach_photo": "aus-coach",
+      "player_photos": {
+        "7": "aus-leckie",
+        "16": "aus-behich",
+        "22": "aus-irvine"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "2006、2022年16强"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年16强"
+        },
+        {
+          "label": "世界杯参赛",
+          "value": "第7次"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：澳大利亚国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Australia_national_soccer_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：澳大利亚国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Mathew David Ryan",
+          "club": "Levante UD (ESP)",
+          "caps": 105,
+          "goals": 0,
+          "name_zh": "马修·瑞安",
+          "club_zh": "莱万特"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Milos Degenek",
+          "club": "APOEL FC (CYP)",
+          "caps": 57,
+          "goals": 1,
+          "name_zh": "米洛什·德格内克",
+          "club_zh": "希腊人竞技"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Alessandro Circati",
+          "club": "Parma (ITA)",
+          "caps": 17,
+          "goals": 1,
+          "name_zh": "亚历山德罗·查蒂",
+          "club_zh": "帕尔马"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Jacob Michael Italiano",
+          "club": "Grazer AK (AUT)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "雅各布·意大利诺",
+          "club_zh": "格拉茨AK"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Jordan Jacob Bos",
+          "club": "Feyenoord Rotterdam (NED)",
+          "caps": 31,
+          "goals": 4,
+          "name_zh": "乔丹·博斯",
+          "club_zh": "费耶诺德"
+        },
+        {
+          "shirt_number": 6,
+          "position": "DF",
+          "name": "Jason Kato Geria",
+          "club": "Albirex Niigata (JPN)",
+          "caps": 16,
+          "goals": 0,
+          "name_zh": "贾森·杰里亚",
+          "club_zh": "新潟天鹅"
+        },
+        {
+          "shirt_number": 7,
+          "position": "FW",
+          "name": "Mathew Leckie",
+          "club": "Melbourne City FC (AUS)",
+          "caps": 82,
+          "goals": 14,
+          "name_zh": "马修·莱基",
+          "club_zh": "墨尔本城"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Connor Isaac Metcalfe",
+          "club": "FC St. Pauli (GER)",
+          "caps": 40,
+          "goals": 2,
+          "name_zh": "康纳·梅特卡夫",
+          "club_zh": "圣保利"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Mohamed A Toure",
+          "club": "Norwich City FC (ENG)",
+          "caps": 13,
+          "goals": 2,
+          "name_zh": "穆罕默德·图雷",
+          "club_zh": "诺维奇"
+        },
+        {
+          "shirt_number": 10,
+          "position": "FW",
+          "name": "Ajdin Hrustic",
+          "club": "SC Heracles Almelo (NED)",
+          "caps": 39,
+          "goals": 3,
+          "name_zh": "艾迪尼·赫鲁斯蒂奇",
+          "club_zh": "赫拉克勒斯阿尔梅洛"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Awer Bul Mabil",
+          "club": "CD Castellón (ESP)",
+          "caps": 39,
+          "goals": 10,
+          "name_zh": "阿维·玛比",
+          "club_zh": "卡斯特利翁"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Paul David Izzo",
+          "club": "Randers FC (DEN)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "保罗·伊佐",
+          "club_zh": "兰讷斯"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Aiden Connor O'Neill",
+          "club": "New York City FC (USA)",
+          "caps": 35,
+          "goals": 0,
+          "name_zh": "埃登·奥尼尔",
+          "club_zh": "纽约城"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Cameron Peter Devlin",
+          "club": "Heart Of Midlothian FC (SCO)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "卡梅隆·德夫林",
+          "club_zh": "哈茨"
+        },
+        {
+          "shirt_number": 15,
+          "position": "DF",
+          "name": "Kai Clifton Trewin",
+          "club": "New York City FC (USA)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "凯·特里温",
+          "club_zh": "纽约城"
+        },
+        {
+          "shirt_number": 16,
+          "position": "DF",
+          "name": "Aziz Behich",
+          "club": "Melbourne City FC (AUS)",
+          "caps": 87,
+          "goals": 3,
+          "name_zh": "阿齐兹·贝希奇",
+          "club_zh": "墨尔本城"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Nestory Irankunda",
+          "club": "Watford FC (ENG)",
+          "caps": 19,
+          "goals": 6,
+          "name_zh": "内斯托里·伊兰昆达",
+          "club_zh": "沃特福德"
+        },
+        {
+          "shirt_number": 18,
+          "position": "GK",
+          "name": "Patrick Thomas Beach",
+          "club": "Melbourne City FC (AUS)",
+          "caps": 6,
+          "goals": 0,
+          "name_zh": "帕特里克·比奇",
+          "club_zh": "墨尔本城"
+        },
+        {
+          "shirt_number": 19,
+          "position": "DF",
+          "name": "Harry James Souttar",
+          "club": "Leicester City FC (ENG)",
+          "caps": 42,
+          "goals": 11,
+          "name_zh": "哈利·苏达亚",
+          "club_zh": "莱斯特城"
+        },
+        {
+          "shirt_number": 20,
+          "position": "FW",
+          "name": "Cristian Volpato",
+          "club": "US Sassuolo (ITA)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "克里斯蒂安·沃尔帕托",
+          "club_zh": "萨索洛"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Cameron Robert Burgess",
+          "club": "Swansea City AFC (WAL)",
+          "caps": 29,
+          "goals": 0,
+          "name_zh": "卡梅隆·布格斯",
+          "club_zh": "斯旺西"
+        },
+        {
+          "shirt_number": 22,
+          "position": "MF",
+          "name": "Jackson Irvine",
+          "club": "FC St. Pauli (GER)",
+          "caps": 86,
+          "goals": 14,
+          "name_zh": "杰克逊·欧文",
+          "club_zh": "圣保利"
+        },
+        {
+          "shirt_number": 23,
+          "position": "FW",
+          "name": "Nishan Matthew Velupillay",
+          "club": "Melbourne Victory FC (AUS)",
+          "caps": 9,
+          "goals": 3,
+          "name_zh": "尼尚·韦卢皮莱",
+          "club_zh": "墨尔本胜利"
+        },
+        {
+          "shirt_number": 24,
+          "position": "MF",
+          "name": "Paul Michael Junior Okon-Engstler",
+          "club": "Sydney FC (AUS)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "保罗·奥康-恩斯特勒",
+          "club_zh": "悉尼FC"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Lucas Herrington",
+          "club": "Colorado Rapids (USA)",
+          "caps": 6,
+          "goals": 0,
+          "name_zh": "卢卡斯·赫林顿",
+          "club_zh": "科罗拉多急流"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Tete Owen Yengi",
+          "club": "FC Machida Zelvia (JPN)",
+          "caps": 3,
+          "goals": 1,
+          "name_zh": "泰特·延吉",
+          "club_zh": "町田泽维亚"
+        }
+      ]
+    },
+    "SWE": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=42",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "瑞典的本届参赛阵容由 Graham Potter 带队，FIFA 名单收录26名球员，包括3名门将、11名后卫、7名中场和5名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Graham Potter",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：英格兰",
+      "summary": "瑞典队时隔8年重返世界杯，伊萨克、约克雷斯领衔锋线。",
+      "coach_name_zh": "格雷厄姆·波特",
+      "coach_facts": "英格兰教练，曾执教布莱顿和切尔西，2025年起担任瑞典国家队主教练。",
+      "coach_photo": "swe-coach",
+      "player_photos": {
+        "3": "swe-lindelof",
+        "9": "swe-isak",
+        "19": "swe-svanberg"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "1958年亚军"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年未参赛"
+        },
+        {
+          "label": "重返世界杯",
+          "value": "时隔8年"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：瑞典国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Sweden_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：瑞典国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E7%91%9E%E5%85%B8%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Jacob Mikael Widell Zetterström",
+          "club": "Derby County FC (ENG)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "雅各布·维德尔·泽特斯特伦",
+          "club_zh": "德比郡"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Gustaf Johan Lagerbielke",
+          "club": "SC Braga (POR)",
+          "caps": 15,
+          "goals": 2,
+          "name_zh": "古斯塔夫·拉格比耶尔克",
+          "club_zh": "布拉加"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Victor Lindelof",
+          "club": "Aston Villa FC (ENG)",
+          "caps": 80,
+          "goals": 3,
+          "name_zh": "维克托·林德洛夫",
+          "club_zh": "阿斯顿维拉"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Isak Malcolm Kwaku Hien",
+          "club": "Atalanta Bergamo (ITA)",
+          "caps": 32,
+          "goals": 0,
+          "name_zh": "伊萨克·希恩",
+          "club_zh": "亚特兰大"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Gabriel Johan Gudmundsson",
+          "club": "Leeds United FC (ENG)",
+          "caps": 28,
+          "goals": 0,
+          "name_zh": "加布里埃尔·古德蒙松",
+          "club_zh": "利兹联"
+        },
+        {
+          "shirt_number": 6,
+          "position": "DF",
+          "name": "Herman Nils Johansson",
+          "club": "FC Dallas (USA)",
+          "caps": 3,
+          "goals": 0,
+          "name_zh": "赫尔曼·约翰松",
+          "club_zh": "FC达拉斯"
+        },
+        {
+          "shirt_number": 7,
+          "position": "MF",
+          "name": "Lucas Erik Holger Bergvall",
+          "club": "Tottenham Hotspur FC (ENG)",
+          "caps": 14,
+          "goals": 0,
+          "name_zh": "卢卡斯·贝里瓦尔",
+          "club_zh": "托特纳姆热刺"
+        },
+        {
+          "shirt_number": 8,
+          "position": "DF",
+          "name": "Daniel Jonathan Svensson",
+          "club": "Borussia Dortmund (GER)",
+          "caps": 16,
+          "goals": 0,
+          "name_zh": "丹尼尔·斯文松 (2002年生足球运动员)",
+          "club_zh": "多特蒙德"
+        },
+        {
+          "shirt_number": 9,
+          "position": "FW",
+          "name": "Alexander Isak",
+          "club": "Liverpool FC (ENG)",
+          "caps": 62,
+          "goals": 18,
+          "name_zh": "亚历山大·伊萨克",
+          "club_zh": "利物浦"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Erik Benjamin Nygren",
+          "club": "Celtic FC (SCO)",
+          "caps": 15,
+          "goals": 3,
+          "name_zh": "本杰明·尼格伦",
+          "club_zh": "凯尔特人"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Anthony David Junior Elanga",
+          "club": "Newcastle United FC (ENG)",
+          "caps": 34,
+          "goals": 8,
+          "name_zh": "安东尼·埃兰加",
+          "club_zh": "纽卡斯尔联"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Tobias Viktor Johansson",
+          "club": "Stoke City FC (ENG)",
+          "caps": 12,
+          "goals": 0,
+          "name_zh": "维克托·约翰松",
+          "club_zh": "斯托克城"
+        },
+        {
+          "shirt_number": 13,
+          "position": "MF",
+          "name": "Ken Sema",
+          "club": "Pafos FC (CYP)",
+          "caps": 33,
+          "goals": 5,
+          "name_zh": "肯·塞马",
+          "club_zh": "帕福斯"
+        },
+        {
+          "shirt_number": 14,
+          "position": "DF",
+          "name": "Hjalmar Ekdal",
+          "club": "Burnley FC (ENG)",
+          "caps": 13,
+          "goals": 0,
+          "name_zh": "哈尔马·埃克达尔",
+          "club_zh": "伯恩利"
+        },
+        {
+          "shirt_number": 15,
+          "position": "DF",
+          "name": "Carl Anders Theodor Starfelt",
+          "club": "RC Celta Vigo (ESP)",
+          "caps": 19,
+          "goals": 0,
+          "name_zh": "卡尔·斯塔费尔特",
+          "club_zh": "塞尔塔"
+        },
+        {
+          "shirt_number": 16,
+          "position": "MF",
+          "name": "Jesper Kewe Karlström",
+          "club": "Udinese (ITA)",
+          "caps": 26,
+          "goals": 0,
+          "name_zh": "耶斯佩尔·卡尔斯特伦",
+          "club_zh": "乌迪内斯"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Viktor Einar Gyökeres",
+          "club": "Arsenal FC (ENG)",
+          "caps": 37,
+          "goals": 21,
+          "name_zh": "维克托·哲凯赖什",
+          "club_zh": "阿森纳"
+        },
+        {
+          "shirt_number": 18,
+          "position": "MF",
+          "name": "Yasin Ayari",
+          "club": "Brighton & Hove Albion FC (ENG)",
+          "caps": 25,
+          "goals": 5,
+          "name_zh": "亚辛·阿亚里",
+          "club_zh": "布莱顿"
+        },
+        {
+          "shirt_number": 19,
+          "position": "MF",
+          "name": "Mattias Svanberg",
+          "club": "VfL Wolfsburg (GER)",
+          "caps": 42,
+          "goals": 3,
+          "name_zh": "马蒂亚斯·斯万贝里",
+          "club_zh": "沃尔夫斯堡"
+        },
+        {
+          "shirt_number": 20,
+          "position": "DF",
+          "name": "Eric Anders Smith",
+          "club": "FC St. Pauli (GER)",
+          "caps": 2,
+          "goals": 0,
+          "name_zh": "埃里克·史密斯",
+          "club_zh": "圣保利"
+        },
+        {
+          "shirt_number": 21,
+          "position": "DF",
+          "name": "Alexander Olof Bernhardsson",
+          "club": "Holstein Kiel (GER)",
+          "caps": 14,
+          "goals": 0,
+          "name_zh": "亚历山大·伯恩哈德松",
+          "club_zh": "荷尔斯泰因基尔"
+        },
+        {
+          "shirt_number": 22,
+          "position": "MF",
+          "name": "Besfort Zeneli",
+          "club": "Royale Union Saint-Gilloise (BEL)",
+          "caps": 10,
+          "goals": 0,
+          "name_zh": "贝斯福特·泽内利",
+          "club_zh": "圣吉罗斯联合"
+        },
+        {
+          "shirt_number": 23,
+          "position": "GK",
+          "name": "Bo Kristoffer Nordfeldt",
+          "club": "AIK Stockholm (SWE)",
+          "caps": 23,
+          "goals": 0,
+          "name_zh": "克里斯托弗·努德费尔特",
+          "club_zh": "AIK斯德哥尔摩"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Elliot Karl Stroud",
+          "club": "Mjällby AIF (SWE)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "埃利奥特·斯特劳德",
+          "club_zh": "米亚尔比"
+        },
+        {
+          "shirt_number": 25,
+          "position": "FW",
+          "name": "Håkan Gustaf Nilsson",
+          "club": "Club Brugge (BEL)",
+          "caps": 10,
+          "goals": 4,
+          "name_zh": "古斯塔夫·尼尔松",
+          "club_zh": "布鲁日"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Taha Abdi Ali",
+          "club": "Malmö FF (SWE)",
+          "caps": 4,
+          "goals": 0,
+          "name_zh": "塔哈·阿里",
+          "club_zh": "马尔默"
+        }
+      ]
+    },
+    "SUI": {
+      "source_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf#page=43",
+      "edition": "2026-07-19 22:34 UTC · Version 1",
+      "base_summary": "瑞士的本届参赛阵容由 Murat Yakin 带队，FIFA 名单收录26名球员，包括3名门将、8名后卫、8名中场和7名前锋。本页选取后卫、中场和前锋位置的三位代表球员，展示他们的位置、俱乐部与国家队经验。结合下方的赛事统计，可以继续了解这支球队在本届世界杯中的表现。",
+      "coach_name": "Murat Yakin",
+      "coach_description_base": "2026 世界杯带队主教练，国籍：瑞士",
+      "summary": "瑞士队连续第六次参加世界杯，扎卡、阿坎吉等旅欧球员坐镇。",
+      "coach_name_zh": "穆拉特·雅金",
+      "coach_facts": "瑞士教练，2021年起执教瑞士国家队，率队参加2022年世界杯并进入16强。",
+      "coach_photo": "sui-coach",
+      "player_photos": {
+        "7": "sui-embolo",
+        "10": "sui-xhaka",
+        "13": "sui-rodriguez"
+      },
+      "facts": [
+        {
+          "label": "世界杯最佳",
+          "value": "1954年八强"
+        },
+        {
+          "label": "上届成绩",
+          "value": "2022年16强"
+        },
+        {
+          "label": "世界杯参赛",
+          "value": "第13次"
+        }
+      ],
+      "history_source": {
+        "label": "英文维基百科：瑞士国家足球队",
+        "url": "https://en.wikipedia.org/wiki/Switzerland_national_football_team"
+      },
+      "translation_source": {
+        "label": "中文维基百科：瑞士国家足球队（译名参考）",
+        "url": "https://zh.wikipedia.org/wiki/%E7%91%9E%E5%A3%AB%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F"
+      },
+      "roster": [
+        {
+          "shirt_number": 1,
+          "position": "GK",
+          "name": "Gregor Kobel",
+          "club": "Borussia Dortmund (GER)",
+          "caps": 27,
+          "goals": 0,
+          "name_zh": "格雷戈尔·科贝尔",
+          "club_zh": "多特蒙德"
+        },
+        {
+          "shirt_number": 2,
+          "position": "DF",
+          "name": "Miro Max Maria Muheim",
+          "club": "Hamburger SV (GER)",
+          "caps": 13,
+          "goals": 0,
+          "name_zh": "米罗·穆海姆",
+          "club_zh": "汉堡"
+        },
+        {
+          "shirt_number": 3,
+          "position": "DF",
+          "name": "Silvan Dominic Widmer",
+          "club": "1. FSV Mainz 05 (GER)",
+          "caps": 65,
+          "goals": 5,
+          "name_zh": "西尔万·威德默",
+          "club_zh": "美因茨"
+        },
+        {
+          "shirt_number": 4,
+          "position": "DF",
+          "name": "Nico Elvedi",
+          "club": "Borussia Mönchengladbach (GER)",
+          "caps": 73,
+          "goals": 3,
+          "name_zh": "尼科·埃尔韦迪",
+          "club_zh": "门兴格拉德巴赫"
+        },
+        {
+          "shirt_number": 5,
+          "position": "DF",
+          "name": "Manuel Obafemi Akanji",
+          "club": "FC Internazionale Milano (ITA)",
+          "caps": 87,
+          "goals": 4,
+          "name_zh": "曼努埃尔·阿坎吉",
+          "club_zh": "国际米兰"
+        },
+        {
+          "shirt_number": 6,
+          "position": "MF",
+          "name": "Denis Lemi Zakaria Lako Lado",
+          "club": "AS Monaco (FRA)",
+          "caps": 69,
+          "goals": 3,
+          "name_zh": "丹尼斯·扎卡里亚",
+          "club_zh": "摩纳哥"
+        },
+        {
+          "shirt_number": 7,
+          "position": "FW",
+          "name": "Breel Embolo",
+          "club": "Stade Rennais FC (FRA)",
+          "caps": 92,
+          "goals": 26,
+          "name_zh": "布雷尔·恩博洛",
+          "club_zh": "雷恩"
+        },
+        {
+          "shirt_number": 8,
+          "position": "MF",
+          "name": "Remo Marco Freuler",
+          "club": "Bologna FC (ITA)",
+          "caps": 94,
+          "goals": 11,
+          "name_zh": "雷莫·弗罗伊勒",
+          "club_zh": "博洛尼亚"
+        },
+        {
+          "shirt_number": 9,
+          "position": "MF",
+          "name": "Johan Kula Manzambi",
+          "club": "SC Freiburg (GER)",
+          "caps": 16,
+          "goals": 6,
+          "name_zh": "约翰·曼赞比",
+          "club_zh": "弗赖堡"
+        },
+        {
+          "shirt_number": 10,
+          "position": "MF",
+          "name": "Granit Xhaka",
+          "club": "Sunderland AFC (ENG)",
+          "caps": 152,
+          "goals": 18,
+          "name_zh": "格拉尼特·扎卡",
+          "club_zh": "桑德兰"
+        },
+        {
+          "shirt_number": 11,
+          "position": "FW",
+          "name": "Dan Ndoye",
+          "club": "Nottingham Forest FC (ENG)",
+          "caps": 37,
+          "goals": 10,
+          "name_zh": "丹·恩多耶",
+          "club_zh": "诺丁汉森林"
+        },
+        {
+          "shirt_number": 12,
+          "position": "GK",
+          "name": "Yvon Landry Mvogo Nganoma",
+          "club": "FC Lorient (FRA)",
+          "caps": 13,
+          "goals": 0,
+          "name_zh": "伊冯·姆沃戈",
+          "club_zh": "洛里昂"
+        },
+        {
+          "shirt_number": 13,
+          "position": "DF",
+          "name": "Ricardo Rodriguez",
+          "club": "Real Betis (ESP)",
+          "caps": 144,
+          "goals": 9,
+          "name_zh": "里卡多·罗德里格斯",
+          "club_zh": "皇家贝蒂斯"
+        },
+        {
+          "shirt_number": 14,
+          "position": "MF",
+          "name": "Ardon Jashari",
+          "club": "AC Milan (ITA)",
+          "caps": 11,
+          "goals": 0,
+          "name_zh": "阿尔当·亚沙里",
+          "club_zh": "AC米兰"
+        },
+        {
+          "shirt_number": 15,
+          "position": "MF",
+          "name": "Mohameth Djibril Ibrahima Sow",
+          "club": "Sevilla FC (ESP)",
+          "caps": 56,
+          "goals": 0,
+          "name_zh": "吉布里尔·索乌",
+          "club_zh": "塞维利亚"
+        },
+        {
+          "shirt_number": 16,
+          "position": "FW",
+          "name": "Christian Andreas Fassnacht",
+          "club": "BSC Young Boys (SUI)",
+          "caps": 24,
+          "goals": 5,
+          "name_zh": "克里斯蒂安·法斯纳赫特",
+          "club_zh": "伯尔尼年轻人"
+        },
+        {
+          "shirt_number": 17,
+          "position": "FW",
+          "name": "Ruben Estephan Vargas Martinez",
+          "club": "Sevilla FC (ESP)",
+          "caps": 67,
+          "goals": 13,
+          "name_zh": "鲁本·巴尔加斯",
+          "club_zh": "塞维利亚"
+        },
+        {
+          "shirt_number": 18,
+          "position": "DF",
+          "name": "Eray Ervin Cömert",
+          "club": "Valencia CF (ESP)",
+          "caps": 23,
+          "goals": 0,
+          "name_zh": "埃拉伊·哲梅尔特",
+          "club_zh": "瓦伦西亚"
+        },
+        {
+          "shirt_number": 19,
+          "position": "FW",
+          "name": "Noah Arinzechukwu Okafor",
+          "club": "Leeds United FC (ENG)",
+          "caps": 26,
+          "goals": 2,
+          "name_zh": "诺亚·奥卡福",
+          "club_zh": "利兹联"
+        },
+        {
+          "shirt_number": 20,
+          "position": "MF",
+          "name": "Michel Aebischer",
+          "club": "Pisa SC (ITA)",
+          "caps": 44,
+          "goals": 2,
+          "name_zh": "米歇尔·埃比舍尔",
+          "club_zh": "比萨"
+        },
+        {
+          "shirt_number": 21,
+          "position": "GK",
+          "name": "Marvin Keller",
+          "club": "BSC Young Boys (SUI)",
+          "caps": 1,
+          "goals": 0,
+          "name_zh": "马文·凯勒",
+          "club_zh": "伯尔尼年轻人"
+        },
+        {
+          "shirt_number": 22,
+          "position": "MF",
+          "name": "Fabian Rieder",
+          "club": "FC Augsburg (GER)",
+          "caps": 33,
+          "goals": 1,
+          "name_zh": "法比安·里德",
+          "club_zh": "奥格斯堡"
+        },
+        {
+          "shirt_number": 23,
+          "position": "FW",
+          "name": "Mohamed Zeki Amdouni",
+          "club": "Burnley FC (ENG)",
+          "caps": 33,
+          "goals": 11,
+          "name_zh": "泽基·阿姆杜尼",
+          "club_zh": "伯恩利"
+        },
+        {
+          "shirt_number": 24,
+          "position": "DF",
+          "name": "Aurèle Florian Amenda",
+          "club": "Eintracht Frankfurt (GER)",
+          "caps": 7,
+          "goals": 0,
+          "name_zh": "奥雷勒·阿门达",
+          "club_zh": "法兰克福"
+        },
+        {
+          "shirt_number": 25,
+          "position": "DF",
+          "name": "Luca Antony Jaquez",
+          "club": "VfB Stuttgart (GER)",
+          "caps": 5,
+          "goals": 0,
+          "name_zh": "卢卡·雅凯兹",
+          "club_zh": "斯图加特"
+        },
+        {
+          "shirt_number": 26,
+          "position": "FW",
+          "name": "Cedric Jan Itten",
+          "club": "Fortuna Düsseldorf (GER)",
+          "caps": 18,
+          "goals": 5,
+          "name_zh": "塞德里克·伊滕",
+          "club_zh": "杜塞尔多夫"
+        }
+      ]
     }
   }
 }
