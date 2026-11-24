@@ -5,9 +5,13 @@ use app\models\TeamProfileForm;
 use yii\helpers\Html;
 
 $photos = [];
-if ($feature['coach_photo'] !== null) $photos[] = $feature['coach_photo'];
+if ($feature['coach_photo'] !== null) {
+    $photos[] = $feature['coach_photo'];
+}
 foreach ($feature['highlighted'] as $highlighted) {
-    if ($highlighted['photo'] !== null) $photos[] = $highlighted['photo'];
+    if ($highlighted['photo'] !== null) {
+        $photos[] = $highlighted['photo'];
+    }
 }
 ?>
 <section class="team-profile team-profile-feature mb-5" aria-labelledby="team-profile-heading">
@@ -43,7 +47,7 @@ foreach ($feature['highlighted'] as $highlighted) {
     </div>
     <div class="team-profile-players">
         <?php foreach ($profile['players'] as $player): $highlighted = $feature['highlighted'][$player['shirt_number']] ?? null; ?>
-            <article class="team-profile-player team-player-visual">
+            <article class="team-profile-player team-player-visual<?= ($highlighted['photo'] ?? null) === null ? ' team-player-text-only' : '' ?>">
                 <?php if (($highlighted['photo'] ?? null) !== null): ?>
                     <?= $this->render('_profile_photo', ['photo' => $highlighted['photo'], 'displayName' => $highlighted['name_zh']]) ?>
                 <?php endif ?>
@@ -85,6 +89,6 @@ foreach ($feature['highlighted'] as $highlighted) {
         <?php foreach ($photos as $photo): ?>
             <p class="team-photo-attribution"><?= Html::a(Html::encode($photo['name']), $photo['source_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) ?> · <?= Html::encode((($photo['date_kind'] ?? '') === 'accessed' ? '收录日期 ' : '') . $photo['date']) ?> · <?= Html::encode($photo['author']) ?> · <?= !empty($photo['license_url']) ? Html::a(Html::encode($photo['license']), $photo['license_url'], ['target' => '_blank', 'rel' => 'noopener noreferrer']) : Html::encode($photo['license']) ?></p>
         <?php endforeach ?>
-        <?php if ($photos !== []): ?><p class="small text-body-secondary mb-0">图片保存在本站，页面按版式裁切显示；逐图来源和使用说明见上方</p><?php endif ?>
+        <?php if ($photos !== []): ?><p class="small text-body-secondary mb-0">卡片内的照片保存在本站，页面按版式裁切显示。逐图来源和使用说明见上方。</p><?php endif ?>
     </details>
 </section>
