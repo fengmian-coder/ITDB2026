@@ -22,9 +22,9 @@
 
 ## 页面证据
 
-- [日间概况与人物卡片](previews/day.png)
-- [完整名单及来源展开](previews/roster.png)
-- [夜间模式与名单展开](previews/night.png)
+- [日间概况与人物卡片](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/RSA/previews/day.png)
+- [完整名单及来源展开](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/RSA/previews/roster.png)
+- [夜间模式与名单展开](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/RSA/previews/night.png)
 
 390px 补充截图和浏览器检查数据保存在本机忽略目录 `runtime/rsa-final-mobile.png`、`runtime/a-final-two-browser-checks.json`。
 
