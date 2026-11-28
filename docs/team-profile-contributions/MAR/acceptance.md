@@ -11,10 +11,10 @@
 
 ## 页面截图（本地 1440px）
 
-- `previews/day.png`：电脑概况＋教练/三位代表球员卡片，名单折叠，日间模式。
-- `previews/roster.png`：26 人名单展开＋来源区展开，日间模式。
-- `previews/night.png`：同一页面夜间模式，名单与来源区保持展开。
-- 预览地址（本机临时合并）：`http://127.0.0.1:8080/index.php?r=national-team/view&id=58`；截图已随片段入库，队友无需本机服务即可查看。
+- [`day.png`](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/MAR/previews/day.png)：电脑概况＋教练/三位代表球员卡片，名单折叠，日间模式。
+- [`roster.png`](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/MAR/previews/roster.png)：26 人名单展开＋来源区展开，日间模式。
+- [`night.png`](https://github.com/fengmian-coder/ITDB2026/blob/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions/MAR/previews/night.png)：同一页面夜间模式，名单与来源区保持展开。
+- 预览地址（本机临时合并）：`http://127.0.0.1:8080/index.php?r=national-team/view&id=58`；过程截图可通过上方链接查看。
 
 ## 复核提示
 

@@ -66,7 +66,7 @@
   - **10 队 PASS**：CZE、MAR、NZL、JPN、BEL、FRA、BIH、AUS、SWE、SUI；
   - **2 队仅因缺照片未通过**：KSA、HAI。
 - 验证后已恢复正式 JSON/credits 原状；当前正式文件仍是 24 队、96 张 credits，没有被本次片段污染。
-- 页面截图：12 队各 3 张，1440px 全页，分别为 `previews/day.png`（概况＋人物卡片、名单折叠）、`previews/roster.png`（26 人名单＋来源区展开）、`previews/night.png`（夜间模式、名单与来源区展开）。KSA/HAI 为缺项状态截图，不作为附录通过证据；HAI #4 Ricardo Adé 无照片时代表球员卡片留白，已记录待集成人统一处理或补图。
+- [历史页面截图](https://github.com/fengmian-coder/ITDB2026/tree/2d41d3e917c6c6190de9b018bda02ebc5928f092/docs/team-profile-contributions)：12 队各 3 张，1440px 全页，分别为 `previews/day.png`（概况＋人物卡片、名单折叠）、`previews/roster.png`（26 人名单＋来源区展开）、`previews/night.png`（夜间模式、名单与来源区展开）。KSA/HAI 为缺项状态截图，不作为附录通过证据；HAI #4 Ricardo Adé 无照片时代表球员卡片留白，已记录待集成人统一处理或补图。
 
 ## 未完成与下一步
 
